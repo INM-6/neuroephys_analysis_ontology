@@ -1,0 +1,18 @@
+@prefix : <http://github.com/INM-6/ephys_analysis_ontology/base/creators.owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix literal: <http://www.essepuntato.it/2010/06/literalreification/> .
+@prefix orcid: <http://orcid.org/> .
+@base <http://github.com/INM-6/ephys_analysis_ontology/base/creators.owl#> .
+
+
+
+# Cristiano Köhler (ORCID: 0000-0003-0503-5264)
+ 
+orcid:0000-0003-0503-5264 rdf:type foaf:Person ;
+    foaf:name "Cristiano Köhler" ;
+    datacite:hasIdentifier :koehler-orcid .
+
+:koehler-orcid a datacite:PersonalIdentifier ;
+    literal:hasLiteralValue "0000-0003-0503-5264" ;
+    datacite:usesIdentifierScheme datacite:orcid .
