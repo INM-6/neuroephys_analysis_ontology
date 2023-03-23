@@ -1,9 +1,9 @@
-@prefix : <http://github.com/INM-6/ephys_analysis_ontology/base/creators.owl#> .
+@prefix : <http://purl.org/eao/base/creators.owl#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix literal: <http://www.essepuntato.it/2010/06/literalreification/> .
 @prefix orcid: <http://orcid.org/> .
-@base <http://github.com/INM-6/ephys_analysis_ontology/base/creators.owl#> .
+@base <http://purl.org/eao/base/creators.owl#> .
 
 
 
