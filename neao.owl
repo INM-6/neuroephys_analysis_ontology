@@ -10,14 +10,16 @@
 @base <http://purl.org/eao/neao.owl#> .
 
 <http://purl.org/eao/neao.owl#> rdf:type owl:Ontology ;
-                                 dcterms:creator "Cristiano Köhler (c.koehler@fz-juelich.de)" ;
+                                 dcterms:creator "Cristiano Köhler (ORCID: 0000-0003-0503-5264; c.koehler@fz-juelich.de)" ,
+                                                 "Michael Denker (ORCID: 0000-0003-1255-7300; m.denker@fz-juelich.de)" ;
+                                 dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                  rdfs:comment """The Neuroelectrophysiology Analysis Ontology (NEAO) defines a controlled vocabulary and conceptual representations of the typical processes involved in the analysis of neural activity data acquired using electrophysiology techniques.
 
 Electrophysiology is a branch of physiology that studies the electrical properties of biological entities. The studies involve measurements of electric potentials and/or currents, as well as electrical manipulations (e.g. stimuli with electric pulses). Neuroelectrophysiology is the application of electrophysiology techniques to investigate the function of neural tissue.
 
-The neuroelectrophysiology recording is the process of data acquisition, and it usually involves placing electrodes (of several configurations and types) into a preparation of neural tissue. Ultimately, the data will contain a representation of the voltages or currents in the preparation during the recording session, usually as a time series. The analysis requires specific methods to progressively process and transform the recorded data, which ultimately generate meaningful results.
+Neuroelectrophysiology recording is the process of data acquisition, and it usually involves placing electrodes (of several configurations and types) into a preparation of neural tissue. The data will contain a representation of the voltages or currents in the preparation during the recording session, usually as a time series. The analysis requires specific methods to progressively process and transform the recorded data, which generate results and insights.
 
-The scope of the NEAO is restricted to represent the neuroelectrophysiology data and analysis processes, standardizing the description of their properties and relationships. The NEAO does not provide a detailed representation of electrophysiology recording techniques, data acquisition methods/equipment, and experimental settings/subjects. The ultimate goal is to ensure a common representation of the data analysis that can be used by tools aiming to provide a detailed and semantically-enriched description of the processes involved."""@en ;
+The scope of the NEAO aims to provide a comprehensive representation of neuroelectrophysiology data and analysis processes, standardizing the description of their properties and relationships. The NEAO does not provide a detailed representation of electrophysiology recording techniques, data acquisition methods/equipment, and experimental settings/subjects. The goal is to ensure a common representation of data analysis that can be used by tools to provide a detailed and semantically-enriched description of the processes involved."""@en ;
                                  rdfs:label "Neuroelectrophysiology Analysis Ontology"@en ;
                                  owl:versionInfo "0.1.0" .
 
@@ -35,6 +37,10 @@ dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/terms/creator
 dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/spar/biro/references
