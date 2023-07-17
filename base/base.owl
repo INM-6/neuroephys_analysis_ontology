@@ -190,15 +190,6 @@ For example, voltage potentials can be acquired from extracellular electrodes si
 
 
 #################################################################
-#    Individuals
-#################################################################
-
-###  http://purl.org/neao/base/base.owl#Elephant_0.12.0
-:Elephant_0.12.0 rdf:type owl:NamedIndividual ;
-                 :packageVersion "0.12.0" .
-
-
-#################################################################
 #    General axioms
 #################################################################
 
