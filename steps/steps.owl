@@ -1,0 +1,530 @@
+@prefix : <http://purl.org/neao/steps/steps.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix neao_base: <http://purl.org/neao/base/base.owl#> .
+@prefix neao_data: <http://purl.org/neao/data/data.owl#> .
+@base <http://purl.org/neao/steps/steps.owl#> .
+
+<http://purl.org/neao/steps/steps.owl#> rdf:type owl:Ontology .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/neao/base/base.owl#AnalysisStep
+neao_base:AnalysisStep rdf:type owl:Class .
+
+
+###  http://purl.org/neao/steps/steps.owl#ASSETAnalysis
+:ASSETAnalysis rdf:type owl:Class ;
+               rdfs:subClassOf :NeuronalActivityPatternDetection .
+
+
+###  http://purl.org/neao/steps/steps.owl#ArtifactRemoval
+:ArtifactRemoval rdf:type owl:Class ;
+                 rdfs:subClassOf :DataTransformation .
+
+
+###  http://purl.org/neao/steps/steps.owl#ButterworthFilter
+:ButterworthFilter rdf:type owl:Class ;
+                   rdfs:subClassOf :Filtering .
+
+
+###  http://purl.org/neao/steps/steps.owl#CV
+:CV rdf:type owl:Class ;
+    rdfs:subClassOf :StatisticalMeasures .
+
+
+###  http://purl.org/neao/steps/steps.owl#CV2
+:CV2 rdf:type owl:Class ;
+     rdfs:subClassOf :SpikeIntervalStatistics .
+
+
+###  http://purl.org/neao/steps/steps.owl#CalculateISIs
+:CalculateISIs rdf:type owl:Class ;
+               rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#CausalityAnalysis
+:CausalityAnalysis rdf:type owl:Class ;
+                   rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#CellAssemblyDetection
+:CellAssemblyDetection rdf:type owl:Class ;
+                       rdfs:subClassOf :NeuronalActivityPatternDetection .
+
+
+###  http://purl.org/neao/steps/steps.owl#CoherenceEstimateWelch
+:CoherenceEstimateWelch rdf:type owl:Class ;
+                        rdfs:subClassOf :SpectralAnalysis .
+
+
+###  http://purl.org/neao/steps/steps.owl#CoincidentSpikeTimesGeneration
+:CoincidentSpikeTimesGeneration rdf:type owl:Class ;
+                                rdfs:subClassOf :SpikeTrainGeneration .
+
+
+###  http://purl.org/neao/steps/steps.owl#ComplexityDistribution
+:ComplexityDistribution rdf:type owl:Class ;
+                        rdfs:subClassOf :StatisticalMeasures .
+
+
+###  http://purl.org/neao/steps/steps.owl#ConditionalGrangerCausality
+:ConditionalGrangerCausality rdf:type owl:Class ;
+                             rdfs:subClassOf :GrangerCausality .
+
+
+###  http://purl.org/neao/steps/steps.owl#CrossCorrelationFunction
+:CrossCorrelationFunction rdf:type owl:Class ;
+                          rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#CubicAnalysis
+:CubicAnalysis rdf:type owl:Class ;
+               rdfs:subClassOf :SpikeTrainSynchronyAnalysis .
+
+
+###  http://purl.org/neao/steps/steps.owl#CurrentSourceDensityEstimation
+:CurrentSourceDensityEstimation rdf:type owl:Class ;
+                                rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#CurrentSourceDensityEstimationICSD
+:CurrentSourceDensityEstimationICSD rdf:type owl:Class ;
+                                    rdfs:subClassOf :CurrentSourceDensityEstimation .
+
+
+###  http://purl.org/neao/steps/steps.owl#CurrentSourceDensityEstimationKCSD
+:CurrentSourceDensityEstimationKCSD rdf:type owl:Class ;
+                                    rdfs:subClassOf :CurrentSourceDensityEstimation .
+
+
+###  http://purl.org/neao/steps/steps.owl#CurrentSourceDensityEstimationStandard
+:CurrentSourceDensityEstimationStandard rdf:type owl:Class ;
+                                        rdfs:subClassOf :CurrentSourceDensityEstimation .
+
+
+###  http://purl.org/neao/steps/steps.owl#DataGeneration
+:DataGeneration rdf:type owl:Class ;
+                rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#DataTransformation
+:DataTransformation rdf:type owl:Class ;
+                    rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#DimensionalityReduction
+:DimensionalityReduction rdf:type owl:Class ;
+                         rdfs:subClassOf :DataTransformation .
+
+
+###  http://purl.org/neao/steps/steps.owl#FanoFactor
+:FanoFactor rdf:type owl:Class ;
+            rdfs:subClassOf :StatisticalMeasures .
+
+
+###  http://purl.org/neao/steps/steps.owl#Filtering
+:Filtering rdf:type owl:Class ;
+           rdfs:subClassOf :DataTransformation .
+
+
+###  http://purl.org/neao/steps/steps.owl#FiringRateEstimation
+:FiringRateEstimation rdf:type owl:Class ;
+                      rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#GenerateCompoundPoissonProcess
+:GenerateCompoundPoissonProcess rdf:type owl:Class ;
+                                rdfs:subClassOf :CoincidentSpikeTimesGeneration .
+
+
+###  http://purl.org/neao/steps/steps.owl#GenerateNonStationaryGammaProcess
+:GenerateNonStationaryGammaProcess rdf:type owl:Class ;
+                                   rdfs:subClassOf :RandomSpikeTrainProcesses .
+
+
+###  http://purl.org/neao/steps/steps.owl#GenerateNonStationaryPoissonProcess
+:GenerateNonStationaryPoissonProcess rdf:type owl:Class ;
+                                     rdfs:subClassOf :RandomSpikeTrainProcesses .
+
+
+###  http://purl.org/neao/steps/steps.owl#GenerateSingleInteractionProcess
+:GenerateSingleInteractionProcess rdf:type owl:Class ;
+                                  rdfs:subClassOf :RandomSpikeTrainProcesses .
+
+
+###  http://purl.org/neao/steps/steps.owl#GenerateStationaryGammaProcess
+:GenerateStationaryGammaProcess rdf:type owl:Class ;
+                                rdfs:subClassOf :RandomSpikeTrainProcesses .
+
+
+###  http://purl.org/neao/steps/steps.owl#GenerateStationaryInverseGaussianProcess
+:GenerateStationaryInverseGaussianProcess rdf:type owl:Class ;
+                                          rdfs:subClassOf :RandomSpikeTrainProcesses .
+
+
+###  http://purl.org/neao/steps/steps.owl#GenerateStationaryLogNormalProcess
+:GenerateStationaryLogNormalProcess rdf:type owl:Class ;
+                                    rdfs:subClassOf :RandomSpikeTrainProcesses .
+
+
+###  http://purl.org/neao/steps/steps.owl#GenerateStationaryPoissonProcess
+:GenerateStationaryPoissonProcess rdf:type owl:Class ;
+                                  rdfs:subClassOf :CoincidentSpikeTimesGeneration .
+
+
+###  http://purl.org/neao/steps/steps.owl#GrangerCausality
+:GrangerCausality rdf:type owl:Class ;
+                  rdfs:subClassOf :CausalityAnalysis .
+
+
+###  http://purl.org/neao/steps/steps.owl#HilbertTransform
+:HilbertTransform rdf:type owl:Class ;
+                  rdfs:subClassOf :DataTransformation .
+
+
+###  http://purl.org/neao/steps/steps.owl#IndependentComponentAnalysis
+:IndependentComponentAnalysis rdf:type owl:Class ;
+                              rdfs:subClassOf :DimensionalityReduction .
+
+
+###  http://purl.org/neao/steps/steps.owl#InstantaneousFiringRate
+:InstantaneousFiringRate rdf:type owl:Class ;
+                         rdfs:subClassOf :FiringRateEstimation .
+
+
+###  http://purl.org/neao/steps/steps.owl#KernelBandwidthOptimization
+:KernelBandwidthOptimization rdf:type owl:Class ;
+                             rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#LFPGeneration
+:LFPGeneration rdf:type owl:Class ;
+               rdfs:subClassOf :DataGeneration .
+
+
+###  http://purl.org/neao/steps/steps.owl#LV
+:LV rdf:type owl:Class ;
+    rdfs:subClassOf :SpikeIntervalStatistics .
+
+
+###  http://purl.org/neao/steps/steps.owl#LVR
+:LVR rdf:type owl:Class ;
+     rdfs:subClassOf :SpikeIntervalStatistics .
+
+
+###  http://purl.org/neao/steps/steps.owl#MeanFiringRate
+:MeanFiringRate rdf:type owl:Class ;
+                rdfs:subClassOf :FiringRateEstimation .
+
+
+###  http://purl.org/neao/steps/steps.owl#MeanPhase
+:MeanPhase rdf:type owl:Class ;
+           rdfs:subClassOf :PhaseAnalysis .
+
+
+###  http://purl.org/neao/steps/steps.owl#MorletWaveletTransform
+:MorletWaveletTransform rdf:type owl:Class ;
+                        rdfs:subClassOf :DataTransformation .
+
+
+###  http://purl.org/neao/steps/steps.owl#NeuralTrajectoryGaussianProcessFactorAnalysis
+:NeuralTrajectoryGaussianProcessFactorAnalysis rdf:type owl:Class ;
+                                               rdfs:subClassOf :DimensionalityReduction .
+
+
+###  http://purl.org/neao/steps/steps.owl#NeuronalActivityPatternDetection
+:NeuronalActivityPatternDetection rdf:type owl:Class ;
+                                  rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#NoiseRemoval
+:NoiseRemoval rdf:type owl:Class ;
+              rdfs:subClassOf :DataTransformation .
+
+
+###  http://purl.org/neao/steps/steps.owl#Normalization
+:Normalization rdf:type owl:Class ;
+               rdfs:subClassOf :DataTransformation .
+
+
+###  http://purl.org/neao/steps/steps.owl#PairwiseGrangerCausality
+:PairwiseGrangerCausality rdf:type owl:Class ;
+                          rdfs:subClassOf :GrangerCausality .
+
+
+###  http://purl.org/neao/steps/steps.owl#PhaseAnalysis
+:PhaseAnalysis rdf:type owl:Class ;
+               rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#PhaseDifference
+:PhaseDifference rdf:type owl:Class ;
+                 rdfs:subClassOf :PhaseAnalysis .
+
+
+###  http://purl.org/neao/steps/steps.owl#PhaseLockingValue
+:PhaseLockingValue rdf:type owl:Class ;
+                   rdfs:subClassOf :PhaseAnalysis .
+
+
+###  http://purl.org/neao/steps/steps.owl#PrincipalComponentAnalysis
+:PrincipalComponentAnalysis rdf:type owl:Class ;
+                            rdfs:subClassOf :DimensionalityReduction .
+
+
+###  http://purl.org/neao/steps/steps.owl#RandomSpikeTrainProcesses
+:RandomSpikeTrainProcesses rdf:type owl:Class ;
+                           rdfs:subClassOf :SpikeTrainGeneration .
+
+
+###  http://purl.org/neao/steps/steps.owl#RateChangeDetectionMultipleFilterTest
+:RateChangeDetectionMultipleFilterTest rdf:type owl:Class ;
+                                       rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#RectifiedAreaUnderCurve
+:RectifiedAreaUnderCurve rdf:type owl:Class ;
+                         rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#SPADEAnalysis
+:SPADEAnalysis rdf:type owl:Class ;
+               rdfs:subClassOf :NeuronalActivityPatternDetection .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpectralAnalysis
+:SpectralAnalysis rdf:type owl:Class ;
+                  rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpectralPowerEstimateMultitaper
+:SpectralPowerEstimateMultitaper rdf:type owl:Class ;
+                                 rdfs:subClassOf :SpectralAnalysis .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpectralPowerEstimateWelch
+:SpectralPowerEstimateWelch rdf:type owl:Class ;
+                            rdfs:subClassOf :SpectralAnalysis .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeContrast
+:SpikeContrast rdf:type owl:Class ;
+               rdfs:subClassOf :SpikeTrainSynchronyAnalysis .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeExtractionFromTimeSeries
+:SpikeExtractionFromTimeSeries rdf:type owl:Class ;
+                               rdfs:subClassOf :DataGeneration .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeFieldCoherence
+:SpikeFieldCoherence rdf:type owl:Class ;
+                     rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeIntervalStatistics
+:SpikeIntervalStatistics rdf:type owl:Class ;
+                         rdfs:subClassOf :StatisticalMeasures .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTimeTilingCoefficient
+:SpikeTimeTilingCoefficient rdf:type owl:Class ;
+                            rdfs:subClassOf :SpikeTrainCorrelation .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTrainAutoCorrelationTimeScale
+:SpikeTrainAutoCorrelationTimeScale rdf:type owl:Class ;
+                                    rdfs:subClassOf :SpikeTrainCorrelation .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTrainBinarization
+:SpikeTrainBinarization rdf:type owl:Class ;
+                        rdfs:subClassOf :DataTransformation .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTrainBinning
+:SpikeTrainBinning rdf:type owl:Class ;
+                   rdfs:subClassOf :DataTransformation .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTrainCorrelation
+:SpikeTrainCorrelation rdf:type owl:Class ;
+                       rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTrainCorrelationCoefficient
+:SpikeTrainCorrelationCoefficient rdf:type owl:Class ;
+                                  rdfs:subClassOf :SpikeTrainCorrelation .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTrainCovariance
+:SpikeTrainCovariance rdf:type owl:Class ;
+                      rdfs:subClassOf :SpikeTrainCorrelation .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTrainCrossCorrelationHistogram
+:SpikeTrainCrossCorrelationHistogram rdf:type owl:Class ;
+                                     rdfs:subClassOf :SpikeTrainCorrelation .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTrainDissimilarity
+:SpikeTrainDissimilarity rdf:type owl:Class ;
+                         rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTrainGeneration
+:SpikeTrainGeneration rdf:type owl:Class ;
+                      rdfs:subClassOf :DataGeneration .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTrainSurrogateGeneration
+:SpikeTrainSurrogateGeneration rdf:type owl:Class ;
+                               rdfs:subClassOf :DataGeneration .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTrainSynchronyAnalysis
+:SpikeTrainSynchronyAnalysis rdf:type owl:Class ;
+                             rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTrainTimeHistogram
+:SpikeTrainTimeHistogram rdf:type owl:Class ;
+                         rdfs:subClassOf :FiringRateEstimation .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTriggeredAverage
+:SpikeTriggeredAverage rdf:type owl:Class ;
+                       rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeTriggeredPhase
+:SpikeTriggeredPhase rdf:type owl:Class ;
+                     rdfs:subClassOf :PhaseAnalysis .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeWaveformAnalysis
+:SpikeWaveformAnalysis rdf:type owl:Class ;
+                       rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeWaveformSNR
+:SpikeWaveformSNR rdf:type owl:Class ;
+                  rdfs:subClassOf :SpikeWaveformAnalysis .
+
+
+###  http://purl.org/neao/steps/steps.owl#SpikeWaveformWidth
+:SpikeWaveformWidth rdf:type owl:Class ;
+                    rdfs:subClassOf :SpikeWaveformAnalysis .
+
+
+###  http://purl.org/neao/steps/steps.owl#StatisticalMeasures
+:StatisticalMeasures rdf:type owl:Class ;
+                     rdfs:subClassOf neao_base:AnalysisStep .
+
+
+###  http://purl.org/neao/steps/steps.owl#SynchronousSpikeRemoval
+:SynchronousSpikeRemoval rdf:type owl:Class ;
+                         rdfs:subClassOf :ArtifactRemoval .
+
+
+###  http://purl.org/neao/steps/steps.owl#UnitaryEventAnalysis
+:UnitaryEventAnalysis rdf:type owl:Class ;
+                      rdfs:subClassOf :NeuronalActivityPatternDetection .
+
+
+###  http://purl.org/neao/steps/steps.owl#VanRossumDistance
+:VanRossumDistance rdf:type owl:Class ;
+                   rdfs:subClassOf :SpikeTrainDissimilarity .
+
+
+###  http://purl.org/neao/steps/steps.owl#VictorPurpuraDistance
+:VictorPurpuraDistance rdf:type owl:Class ;
+                       rdfs:subClassOf :SpikeTrainDissimilarity .
+
+
+###  http://purl.org/neao/steps/steps.owl#WeightedPhaseLagIndex
+:WeightedPhaseLagIndex rdf:type owl:Class ;
+                       rdfs:subClassOf :PhaseAnalysis .
+
+
+###  http://purl.org/neao/steps/steps.owl#ZscoreTransform
+:ZscoreTransform rdf:type owl:Class ;
+                 rdfs:subClassOf :Normalization .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ASSETAnalysis
+                :ButterworthFilter
+                :CV
+                :CV2
+                :CalculateISIs
+                :CellAssemblyDetection
+                :CoherenceEstimateWelch
+                :ComplexityDistribution
+                :ConditionalGrangerCausality
+                :CrossCorrelationFunction
+                :CubicAnalysis
+                :CurrentSourceDensityEstimationICSD
+                :CurrentSourceDensityEstimationKCSD
+                :CurrentSourceDensityEstimationStandard
+                :FanoFactor
+                :GenerateCompoundPoissonProcess
+                :GenerateNonStationaryGammaProcess
+                :GenerateNonStationaryPoissonProcess
+                :GenerateSingleInteractionProcess
+                :GenerateStationaryGammaProcess
+                :GenerateStationaryInverseGaussianProcess
+                :GenerateStationaryLogNormalProcess
+                :GenerateStationaryPoissonProcess
+                :HilbertTransform
+                :InstantaneousFiringRate
+                :KernelBandwidthOptimization
+                :LV
+                :LVR
+                :MeanFiringRate
+                :MeanPhase
+                :MorletWaveletTransform
+                :NeuralTrajectoryGaussianProcessFactorAnalysis
+                :PairwiseGrangerCausality
+                :PhaseDifference
+                :PhaseLockingValue
+                :RateChangeDetectionMultipleFilterTest
+                :RectifiedAreaUnderCurve
+                :SPADEAnalysis
+                :SpectralPowerEstimateMultitaper
+                :SpectralPowerEstimateWelch
+                :SpikeContrast
+                :SpikeExtractionFromTimeSeries
+                :SpikeFieldCoherence
+                :SpikeTimeTilingCoefficient
+                :SpikeTrainAutoCorrelationTimeScale
+                :SpikeTrainBinarization
+                :SpikeTrainBinning
+                :SpikeTrainCorrelationCoefficient
+                :SpikeTrainCovariance
+                :SpikeTrainCrossCorrelationHistogram
+                :SpikeTrainTimeHistogram
+                :SpikeTriggeredAverage
+                :SpikeTriggeredPhase
+                :SpikeWaveformSNR
+                :SpikeWaveformWidth
+                :SynchronousSpikeRemoval
+                :UnitaryEventAnalysis
+                :VanRossumDistance
+                :VictorPurpuraDistance
+                :ZscoreTransform
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
