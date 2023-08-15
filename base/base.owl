@@ -3,6 +3,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix biro: <http://purl.org/spar/biro/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @base <http://purl.org/neao/base/base.owl#> .
@@ -30,6 +31,13 @@ dcterms:license rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
+###  http://purl.org/neao/base/base.owl#hasBibliographicReference
+:hasBibliographicReference rdf:type owl:ObjectProperty ;
+                           rdfs:range biro:BibliographicReference ;
+                           rdfs:comment "Defines the bibliographic reference associated with the entity. The bibliobraphic reference should contain the details represented by the entity (e.g., method description, software publication)."@en ;
+                           rdfs:label "has bibliographic reference"@en .
+
+
 ###  http://purl.org/neao/base/base.owl#hasInput
 :hasInput rdf:type owl:ObjectProperty ;
           rdfs:domain :AnalysisStep ;
@@ -49,7 +57,9 @@ dcterms:license rdf:type owl:AnnotationProperty .
 ###  http://purl.org/neao/base/base.owl#hasSource
 :hasSource rdf:type owl:ObjectProperty ;
            rdfs:domain :Data ;
-           rdfs:range :ElectrophysiologySignalSource .
+           rdfs:range :ElectrophysiologySignalSource ;
+           rdfs:comment "Defines the electrophysiology signal source associated with the data entity. One example of use is to define if the data holds a signal obtained by extracellular recordings, or a more specific description involving anatomical structures together with the recording technique."@en ;
+           rdfs:label "has source"@en .
 
 
 ###  http://purl.org/neao/base/base.owl#hasStep
@@ -63,25 +73,33 @@ dcterms:license rdf:type owl:AnnotationProperty .
 ###  http://purl.org/neao/base/base.owl#isImplementedIn
 :isImplementedIn rdf:type owl:ObjectProperty ;
                  rdfs:domain :AnalysisStep ;
-                 rdfs:range :SoftwareImplementation .
+                 rdfs:range :SoftwareImplementation ;
+                 rdfs:comment "Defines the code source that implemented the analysis step."@en ;
+                 rdfs:label "is implemented in"@en .
 
 
 ###  http://purl.org/neao/base/base.owl#isImplementedInPackage
 :isImplementedInPackage rdf:type owl:ObjectProperty ;
                         rdfs:domain :SoftwareImplementation ;
-                        rdfs:range :SoftwarePackage .
+                        rdfs:range :SoftwarePackage ;
+                        rdfs:comment "Defines the software package that contains a particular code."@en ;
+                        rdfs:label "is implemented in package"@en .
 
 
 ###  http://purl.org/neao/base/base.owl#isRepresentedAs
 :isRepresentedAs rdf:type owl:ObjectProperty ;
                  rdfs:domain :Data ;
-                 rdfs:range :DataRepresentation .
+                 rdfs:range :DataRepresentation ;
+                 rdfs:comment "Defines how the data entity is represented to be used by software (e.g., data array, list, file)"@en ;
+                 rdfs:label "is represented as"@en .
 
 
 ###  http://purl.org/neao/base/base.owl#usesParameter
 :usesParameter rdf:type owl:ObjectProperty ;
                rdfs:domain :AnalysisStep ;
-               rdfs:range :AnalysisParameter .
+               rdfs:range :AnalysisParameter ;
+               rdfs:comment "Defines a parameter used by the analysis step."@en ;
+               rdfs:label "uses parameter"@en .
 
 
 #################################################################
@@ -90,25 +108,33 @@ dcterms:license rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/neao/base/base.owl#nameInDefinition
 :nameInDefinition rdf:type owl:DatatypeProperty ;
-                  rdfs:domain :Function .
+                  rdfs:domain :Function ;
+                  rdfs:comment "Specifies the name of the funcion as it is defined in the code that implemented it. For example, for Python functions, this is what is specified in the 'def' statement (i.e., def function_name(arg), the value of this property is function_name)."@en ;
+                  rdfs:label "name in definition"@en .
 
 
 ###  http://purl.org/neao/base/base.owl#packageVersion
 :packageVersion rdf:type owl:DatatypeProperty ;
                 rdfs:domain :SoftwarePackage ;
-                rdfs:range rdfs:Literal .
+                rdfs:range rdfs:Literal ;
+                rdfs:comment "Specifies the version of the package, as defined by the string used when it was released."@en ;
+                rdfs:label "package version"@en .
 
 
 ###  http://purl.org/neao/base/base.owl#programName
 :programName rdf:type owl:DatatypeProperty ;
              rdfs:domain :Program ;
-             rdfs:range rdfs:Literal .
+             rdfs:range rdfs:Literal ;
+             rdfs:comment "Defines the name of the program."@en ;
+             rdfs:label "program name"@en .
 
 
 ###  http://purl.org/neao/base/base.owl#version
 :version rdf:type owl:DatatypeProperty ;
          rdfs:domain :SoftwareImplementation ;
-         rdfs:range rdfs:Literal .
+         rdfs:range rdfs:Literal ;
+         rdfs:comment "Version of the code for a specific program or function. This can be used to define a specific version for the code of a single function or program within a software package."@en ;
+         rdfs:label "version"@en .
 
 
 #################################################################
@@ -187,6 +213,10 @@ For example, voltage potentials can be acquired from extracellular electrodes si
 :SoftwarePackage rdf:type owl:Class ;
                  rdfs:comment "A collection of one or more programs that can be executed by a computer and/or one or more functions that can be imported and used when writing programs."@en ;
                  rdfs:label "software package"@en .
+
+
+###  http://purl.org/spar/biro/BibliographicReference
+biro:BibliographicReference rdf:type owl:Class .
 
 
 #################################################################
