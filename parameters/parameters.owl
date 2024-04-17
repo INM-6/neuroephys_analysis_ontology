@@ -1,0 +1,417 @@
+@prefix : <http://purl.org/neao/parameters#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix neao_bib: <http://purl.org/neao/bibliography#> .
+@prefix neao_base: <http://purl.org/neao/base#> .
+@base <http://purl.org/neao/parameters#> .
+
+<http://purl.org/neao/parameters#> rdf:type owl:Ontology ;
+                                    owl:versionIRI <http://purl.org/neao/parameters/0.1.0> ;
+                                    owl:imports neao_base: ;
+                                    dcterms:created "2022-01-19" ;
+                                    dcterms:creator "Cristiano Köhler (ORCID: 0000-0003-0503-5264)" ,
+                                                    "Michael Denker (ORCID: 0000-0003-1255-7300)" ;
+                                    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+                                    vann:preferredNamespacePrefix "neao_params" ;
+                                    vann:preferredNamespaceUri "http://purl.org/neao/parameters#" ;
+                                    rdfs:comment """This module in the Neuroelectrophysiology Analysis Ontology contains classes that represent parameters in the analyses. A parameter is an information entity that controls the behavior of an analysis step, but does not provide data that is used by the step to produce the output.
+
+For example, in a low-pass filtering step in the analysis, where a raw wideband signal is transformed to isolate the frequency components smaller than a cutoff frequency, the time series with the raw signal is the data input, and the low-pass frequency cutoff frequency value is a parameter.
+
+The classes in this module are subclasses of the AnalysisParameter base class."""@en ;
+                                    owl:versionInfo "0.1.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+dcterms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/neao/base#abbreviation
+neao_base:abbreviation rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/neao/base#AnalysisParameter
+neao_base:AnalysisParameter rdf:type owl:Class .
+
+
+###  http://purl.org/neao/parameters#ASSETAnalysisParameter
+:ASSETAnalysisParameter rdf:type owl:Class ;
+                        rdfs:subClassOf neao_base:AnalysisParameter ;
+                        rdfs:comment "A parameter used by the Analysis of Sequences of Synchronous Events (ASSET) method, used to identify neuronal activity patterns in spike data."@en ;
+                        skos:prefLabel "ASSET analysis parameter"@en .
+
+
+###  http://purl.org/neao/parameters#ASSETClusteringDistanceStretchFactor
+:ASSETClusteringDistanceStretchFactor rdf:type owl:Class ;
+                                      rdfs:subClassOf :ASSETAnalysisParameter ;
+                                      rdfs:comment "When computing the elliptical distance measure used by the DBSCAN algorithm to cluster the mask matrix entries to find the diagonal structures, the parameter value is used to stretch angular coefficients deviating from 45 degrees. This reflects into the shape of the neighborhood around a point in the DBSCAN procedure. A large stretch factor will produce neighborhoods that are narrower and closer to a line in the 45 degree direction. Smaller stretch factors will produce neighborhoods that are more elliptical, with the major axis in the 45 degree direction, and the minor axis in the 135 degree direction. Therefore, the smaller strecth factor increases the minor axis of this ellipsis. Together with the DBSCAN neighborhood radius parameter, this should be used to tweak the neighborhood ellipsis such that it is contained in the rectangular kernel used to filter the probability matrix entries when computing the joint probability matrix."@en ;
+                                      skos:prefLabel "distance stretch factor in ASSET clustering"@en .
+
+
+###  http://purl.org/neao/parameters#ASSETJointProbabilityMatrixFilterShape
+:ASSETJointProbabilityMatrixFilterShape rdf:type owl:Class ;
+                                        rdfs:subClassOf :ASSETAnalysisParameter ;
+                                        rdfs:comment "A tuple of integers that determines the width and length of a rectangular kernel used to cover a diagonal structure in the intersection matrix. The kernel is centered in a point in the probability matrix, and defines a neighborhood around that point. Inside the kernel, a chosen number of largest neighbors in the probability matrix is used to compute the joint probability value for the center point. The kernel is rotated in 45 degree angle."@en ;
+                                        skos:altLabel "kernel shape in ASSET joint probability matrix"@en ;
+                                        skos:prefLabel "filter shape in ASSET joint probability matrix"@en .
+
+
+###  http://purl.org/neao/parameters#ASSETJointProbabilityMatrixNumberLargestNeighbors
+:ASSETJointProbabilityMatrixNumberLargestNeighbors rdf:type owl:Class ;
+                                                   rdfs:subClassOf :ASSETAnalysisParameter ;
+                                                   rdfs:comment "Defines the number of elements inside the filter kernel that are used to compute the joint probability value for a matrix entry. The probability matrix values inside the kernel for that entry are ordered from the largest to the lowest value, and the first N elements corresponding to the parameter value are taken."@en ;
+                                                   skos:prefLabel "number of largest neighbors in ASSET joint probability matrix"@en .
+
+
+###  http://purl.org/neao/parameters#ASSETMaskMatrixSignificanceThresholds
+:ASSETMaskMatrixSignificanceThresholds rdf:type owl:Class ;
+                                       rdfs:subClassOf :ASSETAnalysisParameter ;
+                                       rdfs:comment "Real value (range 0-1) used as a threshold to determine if the entries in the probability matrix and joint probability matrices are significant. The parameter value can be a single real value, which is used for both matrices, or a tuple of two real values, each used for either the probability or joint probability matrix. Entry signficance is defined as a probability value greater than the threshold value(s) specified by the parameter. Significant entries in both probability and joint probability matrices are defined as 1 in the mask matrix."@en ;
+                                       skos:prefLabel "significance thresholds in ASSET mask matrix"@en .
+
+
+###  http://purl.org/neao/parameters#BinSize
+:BinSize rdf:type owl:Class ;
+         rdfs:subClassOf neao_base:AnalysisParameter ;
+         rdfs:comment "When discretizing continuous data into smaller intervals (bins), the parameter value determines the width of the intervals (in the unit of the data being discretized). Bins are adjacent and can be of different sizes."@en ;
+         skos:altLabel "bin width"@en ;
+         skos:prefLabel "bin size"@en .
+
+
+###  http://purl.org/neao/parameters#BlackmanWindowFunction
+:BlackmanWindowFunction rdf:type owl:Class ;
+                        rdfs:subClassOf :WindowFunction ;
+                        rdfs:comment "Window function that uses the first three terms of a summation of cosines, minimizing spectral leakage. It was proposed by Ralph Beebe Blackman. The coefficients are an approximation of the ones used in the exact Blackman window function. Threfore, this window does not remove the third and fourth side lobes but produces smoother edges."@en ;
+                        skos:prefLabel "Blackman window function"@en .
+
+
+###  http://purl.org/neao/parameters#BoxcarSmoothingKernel
+:BoxcarSmoothingKernel rdf:type owl:Class ;
+                       rdfs:subClassOf :SmoothingKernel ;
+                       owl:disjointWith :ExponentialSmoothingKernel ;
+                       rdfs:comment "The kernel function is zero over the entire interval except for a single (smaller) interval where it has a constant value. This non-zero interval is the total width of the kernel."@en ;
+                       skos:prefLabel "Boxcar kernel"@en .
+
+
+###  http://purl.org/neao/parameters#DBSCANMinimumNeighbors
+:DBSCANMinimumNeighbors rdf:type owl:Class ;
+                        rdfs:subClassOf :DBSCANParameter ;
+                        owl:disjointWith :DBSCANNeighborhoodRadius ;
+                        rdfs:comment "Integer value that determines the minimum number of points that must be present in the neighborhood of a sample point such that it is considered a core point. The parameter value includes the sample point being evaluated."@en ;
+                        skos:altLabel "DBSCAN minimum samples"@en ;
+                        skos:prefLabel "DBSCAN minimum number of neighbors"@en .
+
+
+###  http://purl.org/neao/parameters#DBSCANNeighborhoodRadius
+:DBSCANNeighborhoodRadius rdf:type owl:Class ;
+                          rdfs:subClassOf :DBSCANParameter ;
+                          rdfs:comment "Determines the radius around a sample point used to define its neighborhood. The parameter defines the maximum distance between two sample points such that they are considered to be in the same neighborhood."@en ;
+                          skos:altLabel "DBSCAN epsilon"@en ,
+                                        "DBSCAN maximum distance"@en ;
+                          skos:prefLabel "DBSCAN neighborhood radius"@en .
+
+
+###  http://purl.org/neao/parameters#DBSCANParameter
+:DBSCANParameter rdf:type owl:Class ;
+                 rdfs:subClassOf neao_base:AnalysisParameter ;
+                 rdfs:comment "A parameter used by the Density-Based Spatial Clustering of Applications with Noise (DBSCAN) data clustering method."@en ;
+                 skos:prefLabel "DBSCAN parameter"@en .
+
+
+###  http://purl.org/neao/parameters#DPSSWindowFunction
+:DPSSWindowFunction rdf:type owl:Class ;
+                    rdfs:subClassOf :WindowFunction ;
+                    neao_base:abbreviation "DPSS window function"@en ;
+                    rdfs:comment "A set of orthogonal sequences optimized to simultaneously achieve maximum concentration of energy within a defined frequency band and minimum leakage into neighboring frequency bands. They are frequently used as tapers in multiple applications (e.g., multitaper power spectral density estimation). The first sequence (order 0 or Slepian sequence) has maximal energy concentration in the main lobe."@en ;
+                    skos:altLabel "Slepian sequences window function"@en ;
+                    skos:prefLabel "discrete prolate spheroidal sequences window function"@en .
+
+
+###  http://purl.org/neao/parameters#DitheringTime
+:DitheringTime rdf:type owl:Class ;
+               rdfs:subClassOf neao_base:AnalysisParameter ;
+               rdfs:comment "A time interval used to define a distribution (dithering distribution) used to displace (shift) individual spike times in a spike train."@en ;
+               skos:prefLabel "dithering time"@en .
+
+
+###  http://purl.org/neao/parameters#DownsampleFactor
+:DownsampleFactor rdf:type owl:Class ;
+                  rdfs:subClassOf neao_base:AnalysisParameter ;
+                  rdfs:comment "A real value used to divide the sampling rate in a sampled time series."@en ;
+                  skos:altLabel "decimation factor"@en ;
+                  skos:prefLabel "downsample factor"@en .
+
+
+###  http://purl.org/neao/parameters#ExactBlackmanWindowFunction
+:ExactBlackmanWindowFunction rdf:type owl:Class ;
+                             rdfs:subClassOf :WindowFunction ;
+                             rdfs:comment "Window function that uses the first three terms of a summation of cosines. It was proposed by Ralph Beebe Blackman. The coefficients are selected to remove the third and fourth side lobes, but the edges are discontinuous."@en ;
+                             skos:prefLabel "exact Blackman window"@en .
+
+
+###  http://purl.org/neao/parameters#ExponentialSmoothingKernel
+:ExponentialSmoothingKernel rdf:type owl:Class ;
+                            rdfs:subClassOf :SmoothingKernel ;
+                            rdfs:comment "The kernel function is zero for points before the kernel center point, maximum at the center point, and decay exponentially for points greater than the center point. This kernel is asymmetric."@en ;
+                            skos:prefLabel "exponential kernel"@en .
+
+
+###  http://purl.org/neao/parameters#FilterOrder
+:FilterOrder rdf:type owl:Class ;
+             rdfs:subClassOf neao_base:AnalysisParameter ;
+             rdfs:comment "Integer value specifying the rate at which the filter response in the transition band falls. A higher order means that the filter response decays faster."@en ;
+             skos:prefLabel "filter order"@en .
+
+
+###  http://purl.org/neao/parameters#FiringRate
+:FiringRate rdf:type owl:Class ;
+            rdfs:subClassOf neao_base:AnalysisParameter ;
+            rdfs:comment "The parameter value determines the number of spikes fired by a neuron per time unit. It is used to control the behavior of steps that require a firing rate to control the output (e.g., a target mean firing rate when generating an artificial spike train)."@en ;
+            skos:prefLabel "firing rate"@en .
+
+
+###  http://purl.org/neao/parameters#FrequencyResolution
+:FrequencyResolution rdf:type owl:Class ;
+                     rdfs:subClassOf neao_base:AnalysisParameter ;
+                     rdfs:comment "In analyses producing estimates in the frequency domain, the parameter determines the width of the frequency bins in the output  (i.e., the smallest frequency interval in the estimates produced by the method)."@en ;
+                     skos:prefLabel "frequency resolution"@en .
+
+
+###  http://purl.org/neao/parameters#HammingWindowFunction
+:HammingWindowFunction rdf:type owl:Class ;
+                       rdfs:subClassOf :WindowFunction ;
+                       rdfs:comment "A window function that corresponds to a raised cosine (i.e., a single period of a cosine function \"raised\") but with positive endpoints. Therefore, the function does not eliminate the discontinuities in the signal. It has better cancellation of the nearest side lobe, and a poorer cancellation of the others, with a wide main lobe. It is named after Richard Wesley Hamming."@en ;
+                       skos:prefLabel "Hamming window function"@en .
+
+
+###  http://purl.org/neao/parameters#HannWindowFunction
+:HannWindowFunction rdf:type owl:Class ;
+                    rdfs:subClassOf :WindowFunction ;
+                    rdfs:comment "A window function that corresponds to a raised cosine (i.e., a single period of a cosine function \"raised\" such that the negative throughs are zero). Therefore, the function reaches zero smoothly at the boundaries and eliminates all discontinuities in the signal. It has a wide main lobe and low side lobes. It is named after Julius von Hann."@en ,
+                                 "raised-cosine window function"@en ,
+                                 "von Hann window function"@en ;
+                    skos:altLabel "hanning window function"@en ;
+                    skos:prefLabel "Hann window function"@en .
+
+
+###  http://purl.org/neao/parameters#HighPassFrequencyCutoff
+:HighPassFrequencyCutoff rdf:type owl:Class ;
+                         rdfs:subClassOf neao_base:AnalysisParameter ;
+                         rdfs:comment "When applying a filter to a time series/time-varying signal, the frequency components below the parameter value will be attenuated. Usually the parameter value corresponds to the frequency component attenuated by 3 dB in the filter transition band."@en ;
+                         skos:prefLabel "high-pass frequency cutoff"@en .
+
+
+###  http://purl.org/neao/parameters#KaiserWindowFunction
+:KaiserWindowFunction rdf:type owl:Class ;
+                      rdfs:subClassOf :WindowFunction ;
+                      rdfs:comment "This window function approximates the DPSS window function using Bessel functions. It is easier to compute than the DPSS window function. It was developed by James Kaiser."@en ;
+                      skos:altLabel "Kaiser-Bessel window function"@en ;
+                      skos:prefLabel "Kaiser window function"@en .
+
+
+###  http://purl.org/neao/parameters#KernelWidth
+:KernelWidth rdf:type owl:Class ;
+             rdfs:subClassOf neao_base:AnalysisParameter ;
+             rdfs:comment "The total width of a smoothing kernel."@en ;
+             skos:prefLabel "kernel width"@en .
+
+
+###  http://purl.org/neao/parameters#LowPassFrequencyCutoff
+:LowPassFrequencyCutoff rdf:type owl:Class ;
+                        rdfs:subClassOf neao_base:AnalysisParameter ;
+                        rdfs:comment "When applying a filter to a time series/time-varying signal, the frequency components above the parameter value will be attenuated. Usually the parameter value corresponds to the frequency component attenuated by 3 dB in the filter transition band."@en ;
+                        skos:prefLabel "low-pass frequency cutoff"@en .
+
+
+###  http://purl.org/neao/parameters#NumberFFTSamples
+:NumberFFTSamples rdf:type owl:Class ;
+                  rdfs:subClassOf neao_base:AnalysisParameter ;
+                  rdfs:comment "Length (N) used in the fast Fourier transform (FFT). It determines the frequency bin size based on the sampling frequency of the input data."@en ;
+                  skos:altLabel "FFT points"@en ;
+                  skos:prefLabel "number of FFT samples"@en .
+
+
+###  http://purl.org/neao/parameters#PeakResolution
+:PeakResolution rdf:type owl:Class ;
+                rdfs:subClassOf neao_base:AnalysisParameter ;
+                rdfs:comment "The parameter defines the separation of individual peaks in the output."@en ;
+                skos:prefLabel "peak resolution"@en .
+
+
+###  http://purl.org/neao/parameters#SamplingFrequency
+:SamplingFrequency rdf:type owl:Class ;
+                   rdfs:subClassOf neao_base:AnalysisParameter ;
+                   rdfs:comment "The parameter determines the number of samples per time unit in sampled data. It is the inverse of the sampling period, i.e., the interval between two consecutive samples."@en ;
+                   skos:altLabel "sampling rate"@en ;
+                   skos:prefLabel "sampling frequency"@en .
+
+
+###  http://purl.org/neao/parameters#ShapeFactor
+:ShapeFactor rdf:type owl:Class ;
+             rdfs:subClassOf neao_base:AnalysisParameter ;
+             rdfs:comment "When determining a probability distribution, the parameter affects the shape of the distribution. This is in contrast to other parameters that affect the location (e.g., mean) or scale (e.g., variance) of the distribution."@en ;
+             skos:prefLabel "shape factor"@en .
+
+
+###  http://purl.org/neao/parameters#SmoothingKernel
+:SmoothingKernel rdf:type owl:Class ;
+                 rdfs:subClassOf neao_base:AnalysisParameter ;
+                 rdfs:comment "A smoothing kernel can be used in non-parametric smoothing techniques such as kernel smoothing or kernel density estimation. It represents a weighting function that assigns weights to neighboring data points based on their distance from a given point (the kernel center). Closer points are given higher weights. The weighted average of the data points within the kernel is computed to produce a smoothed estimate of the underlying data (e.g., a signal or probability density function). Smoothing kernels are characterized by their shape (e.g., Boxcar, exponential) and bandwidth. The bandwidth determines the extent of influence of neighboring data points on the smoothed estimate."@en ;
+                 skos:prefLabel "smoothing kernel"@en .
+
+
+###  http://purl.org/neao/parameters#TemporalResolution
+:TemporalResolution rdf:type owl:Class ;
+                    rdfs:subClassOf neao_base:AnalysisParameter ;
+                    rdfs:comment "The parameter determines the smallest time interval that can be detected or produced by the method. In sampled time series data, this equals to the sampling period, i.e, the time interval between two consecutive samples."@en ;
+                    skos:prefLabel "temporal resolution"@en .
+
+
+###  http://purl.org/neao/parameters#WaveletCenterFrequency
+:WaveletCenterFrequency rdf:type owl:Class ;
+                        rdfs:subClassOf neao_base:AnalysisParameter ;
+                        rdfs:comment "The value of the center frequency of a wavelet. This is the frequency at which the wavelet oscillates most strongly, and it influences how effectively the wavelet can capture features of a signal at different frequencies. Wavelets with higher center frequencies are better suited for analyzing high-frequency components of a signal, while those with lower center frequencies are more effective for capturing low-frequency components."@en ;
+                        skos:prefLabel "wavelet center frequency"@en .
+
+
+###  http://purl.org/neao/parameters#WindowFunction
+:WindowFunction rdf:type owl:Class ;
+                rdfs:subClassOf neao_base:AnalysisParameter ;
+                rdfs:comment """A mathematical function that is zero-valued outside a defined interval. When multiplied by another function or sampled data, the values outside the window interval will be transformed to zero, and the values inside the window will be weighted by the window function values. 
+
+Window functions are used to select and modify a finite segment of a signal. This is useful for applying the fast Fourier transform (FFT) to a finite set of data where the length is not an integer number of periods of the signal. In this situation, there will be discontinuities at the boundaries of the signal, and the data in the frequency domain produced by the FFT will have frequency components not present in the original signal (spectral leakage). The window function can be used to reduce this discontinuities and mitigate spectral leakage when performing spectral analysis.
+
+Several types of window function exist. They will vary in shape in the time domain and will have distinct frequency charateristics in the frequency domain, with a main lobe and several side lobes. The main lobe is centered at each frequency component in the time domain, and the side lobes approach zero. These characteristics can be used to control the effect of spectral leakage when performing the analysis."""@en ;
+                skos:altLabel "apodization function"@en ,
+                              "tapering function"@en ;
+                skos:prefLabel "window function"@en .
+
+
+###  http://purl.org/neao/parameters#WindowLengthSamples
+:WindowLengthSamples rdf:type owl:Class ;
+                     rdfs:subClassOf neao_base:AnalysisParameter ;
+                     rdfs:comment "Integer value that defines the number of samples encompassed by a window in sampled data. This is the window length. The window corresponds to a finite interval in the sampled data (e.g., a time interval in sampled time series data)."@en ;
+                     skos:prefLabel "window length in samples"@en .
+
+
+###  http://purl.org/neao/parameters#WindowOverlapFactor
+:WindowOverlapFactor rdf:type owl:Class ;
+                     rdfs:subClassOf neao_base:AnalysisParameter ;
+                     rdfs:comment "Real value (range 0-1) that determines the proportion of overlap between two adjacent windows. The window is a finite interval in the data (e.g., a time interval in time series data)."@en ;
+                     skos:prefLabel "window overlap factor"@en .
+
+
+###  http://purl.org/neao/parameters#WindowOverlapSamples
+:WindowOverlapSamples rdf:type owl:Class ;
+                      rdfs:subClassOf neao_base:AnalysisParameter ;
+                      rdfs:comment "Integer value (range 0 to the window length in samples) that determines the number of samples where two adjacent windows overlap. The window corresponds to a finite interval in sampled data (e.g., a time interval in sampled time series data)."@en ;
+                      skos:prefLabel "window overlap in samples"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ASSETAnalysisParameter
+                :BinSize
+                :DBSCANParameter
+                :DitheringTime
+                :DownsampleFactor
+                :FilterOrder
+                :FiringRate
+                :FrequencyResolution
+                :HighPassFrequencyCutoff
+                :KernelWidth
+                :LowPassFrequencyCutoff
+                :NumberFFTSamples
+                :PeakResolution
+                :SamplingFrequency
+                :ShapeFactor
+                :SmoothingKernel
+                :TemporalResolution
+                :WaveletCenterFrequency
+                :WindowFunction
+                :WindowLengthSamples
+                :WindowOverlapFactor
+                :WindowOverlapSamples
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ASSETClusteringDistanceStretchFactor
+                :ASSETJointProbabilityMatrixFilterShape
+                :ASSETJointProbabilityMatrixNumberLargestNeighbors
+                :ASSETMaskMatrixSignificanceThresholds
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :BinSize
+                :DitheringTime
+                :DownsampleFactor
+                :FilterOrder
+                :FiringRate
+                :FrequencyResolution
+                :HighPassFrequencyCutoff
+                :LowPassFrequencyCutoff
+                :PeakResolution
+                :SamplingFrequency
+                :ShapeFactor
+                :WindowFunction
+                :WindowLengthSamples
+                :WindowOverlapFactor
+                :WindowOverlapSamples
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :BlackmanWindowFunction
+                :DPSSWindowFunction
+                :ExactBlackmanWindowFunction
+                :HammingWindowFunction
+                :HannWindowFunction
+                :KaiserWindowFunction
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :BlackmanWindowFunction
+                :DPSSWindowFunction
+                :HammingWindowFunction
+                :HannWindowFunction
+                :KaiserWindowFunction
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
