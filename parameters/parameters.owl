@@ -7,7 +7,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix neao_bib: <http://purl.org/neao/bibliography#> .
 @prefix neao_base: <http://purl.org/neao/base#> .
 @base <http://purl.org/neao/parameters#> .
 
@@ -25,6 +24,7 @@
 For example, in a low-pass filtering step in the analysis, where a raw wideband signal is transformed to isolate the frequency components smaller than a cutoff frequency, the time series with the raw signal is the data input, and the low-pass frequency cutoff frequency value is a parameter.
 
 The classes in this module are subclasses of the AnalysisParameter base class."""@en ;
+                                    rdfs:label "Neuroelectrophysiology Analysis Ontology - Analysis Parameters"@en ;
                                     owl:versionInfo "0.1.0" .
 
 #################################################################
