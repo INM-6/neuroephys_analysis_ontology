@@ -160,14 +160,14 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 ###  http://purl.org/neao/parameters#DitheringTime
 :DitheringTime rdf:type owl:Class ;
                rdfs:subClassOf neao_base:AnalysisParameter ;
-               rdfs:comment "A time interval used to define a distribution (dithering distribution) used to displace (shift) individual spike times in a spike train."@en ;
+               rdfs:comment "A time interval that defines a dithering distribution used to draw random numbers to displace individual spike times in a spike train."@en ;
                skos:prefLabel "dithering time"@en .
 
 
 ###  http://purl.org/neao/parameters#DownsampleFactor
 :DownsampleFactor rdf:type owl:Class ;
                   rdfs:subClassOf neao_base:AnalysisParameter ;
-                  rdfs:comment "A real value used to divide the sampling rate in a sampled time series."@en ;
+                  rdfs:comment "A real value that indicates the factor by which the sampling period of a sampled time series is reduced in a downsampling operation."@en ;
                   skos:altLabel "decimation factor"@en ;
                   skos:prefLabel "downsample factor"@en .
 
@@ -189,7 +189,7 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 ###  http://purl.org/neao/parameters#FilterOrder
 :FilterOrder rdf:type owl:Class ;
              rdfs:subClassOf neao_base:AnalysisParameter ;
-             rdfs:comment "Integer value specifying the rate at which the filter response in the transition band falls. A higher order means that the filter response decays faster."@en ;
+             rdfs:comment "Integer value specifying the rate at which the filter response in the transition band falls. A higher filter order corresponds to a faster filter response decay."@en ;
              skos:prefLabel "filter order"@en .
 
 
