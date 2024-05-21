@@ -196,14 +196,14 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 ###  http://purl.org/neao/parameters#FiringRate
 :FiringRate rdf:type owl:Class ;
             rdfs:subClassOf neao_base:AnalysisParameter ;
-            rdfs:comment "The parameter value determines the number of spikes fired by a neuron per time unit. It is used to control the behavior of steps that require a firing rate to control the output (e.g., a target mean firing rate when generating an artificial spike train)."@en ;
+            rdfs:comment "The parameter value determines the average number of spikes fired by a neuron per time unit. It is used to control the behavior of steps that require a firing rate to control the output (e.g., a target mean firing rate when generating an artificial spike train)."@en ;
             skos:prefLabel "firing rate"@en .
 
 
 ###  http://purl.org/neao/parameters#FrequencyResolution
 :FrequencyResolution rdf:type owl:Class ;
                      rdfs:subClassOf neao_base:AnalysisParameter ;
-                     rdfs:comment "In analyses producing estimates in the frequency domain, the parameter determines the width of the frequency bins in the output  (i.e., the smallest frequency interval in the estimates produced by the method)."@en ;
+                     rdfs:comment "In analyses producing estimates in the frequency domain, the parameter determines the width of the frequency bins in the output, i.e., the resolution of the output on the frequency axis."@en ;
                      skos:prefLabel "frequency resolution"@en .
 
 
@@ -237,7 +237,7 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 ###  http://purl.org/neao/parameters#HighPassFrequencyCutoff
 :HighPassFrequencyCutoff rdf:type owl:Class ;
                          rdfs:subClassOf neao_base:AnalysisParameter ;
-                         rdfs:comment "When applying a filter to a time series/time-varying signal, the frequency components below the parameter value will be attenuated. Usually the parameter value corresponds to the frequency component attenuated by 3 dB in the filter transition band."@en ;
+                         rdfs:comment "When applying a filter to a time series, the frequency components below this parameter value will be attenuated. Usually, the parameter value corresponds to the frequency component attenuated by 3 dB in the filter transition band."@en ;
                          skos:prefLabel "high-pass frequency cutoff"@en .
 
 
@@ -259,7 +259,7 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 ###  http://purl.org/neao/parameters#LowPassFrequencyCutoff
 :LowPassFrequencyCutoff rdf:type owl:Class ;
                         rdfs:subClassOf neao_base:AnalysisParameter ;
-                        rdfs:comment "When applying a filter to a time series/time-varying signal, the frequency components above the parameter value will be attenuated. Usually the parameter value corresponds to the frequency component attenuated by 3 dB in the filter transition band."@en ;
+                        rdfs:comment "When applying a filter to a time series, the frequency components above the parameter value will be attenuated. Usually, the parameter value corresponds to the frequency component attenuated by 3 dB in the filter transition band."@en ;
                         skos:prefLabel "low-pass frequency cutoff"@en .
 
 
