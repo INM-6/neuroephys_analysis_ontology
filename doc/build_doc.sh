@@ -97,6 +97,9 @@ then
    exit
 fi
 
+# Create release folder if needed
+mkdir -p ./releases
+
 # Define folders
 DOC_FOLDER=$(realpath ./releases/$CURRENT_RELEASE)
 SRC_FOLDER=$(realpath ../src)
