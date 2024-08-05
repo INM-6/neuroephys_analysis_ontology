@@ -1,0 +1,1345 @@
+@prefix : <http://purl.org/neao/data#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix neao_base: <http://purl.org/neao/base#> .
+@base <http://purl.org/neao/data#> .
+
+<http://purl.org/neao/data#> rdf:type owl:Ontology ;
+                              owl:versionIRI <http://purl.org/neao/data/0.1.0> ;
+                              owl:imports neao_base: ;
+                              dcterms:created "2022-01-19" ;
+                              dcterms:creator "Cristiano Köhler (ORCID: 0000-0003-0503-5264)" ,
+                                              "Michael Denker (ORCID: 0000-0003-1255-7300)" ;
+                              dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+                              vann:preferredNamespacePrefix "neao_data" ;
+                              vann:preferredNamespaceUri "http://purl.org/neao/data#" ;
+                              rdfs:comment """This module in the Neuroelectrophysiology Analysis Ontology contains classes that represent data entities in the analysis of neuroelectrophysiology data.
+
+The classes in this module are subclasses of the Data base class, and are associated with the distinct steps throughout the analysis (defined in the steps module) by the hasInput and hasOutput object properties.
+
+Additional information on the data entity can be described. The electrophysiology recording source associated with the data can be defined with the hasSource object property that points to individuals of the ElectrophysiologySignalSource class. In addition, information on the structure of the data (e.g., matrix, array) can be provided with the isRepresentedAs object property that points to individuals of the DataRepresentation class. The objective of NEAO is not to model  the sources and formats of the data, but these classes can be used as abstractions to align other ontologies that are defined with that purpose. These properties and classes are defined in the base module.
+
+Finally, several data properties are also defined to provide extended information on the data entity (e.g., isNormalized or isArtificial). These properties can be used to define additional semantic groupings to make inferences on the data and analysis (e.g., artificial data is defined by the ArtificialData class)."""@en ;
+                              rdfs:label "Neuroelectrophysiology Analysis Ontology - Data"@en ;
+                              owl:versionInfo "0.1.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/neao/base#abbreviation
+neao_base:abbreviation rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/neao/base#hasBibliographicReference
+neao_base:hasBibliographicReference rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/neao/data#review
+:review rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/neao/data#isArtificial
+:isArtificial rdf:type owl:DatatypeProperty ;
+              rdfs:domain neao_base:Data ;
+              rdfs:range xsd:boolean ;
+              rdfs:comment "Defines if the data is artificially-generated (true) or obtained from experimental recordings (false)."@en ;
+              skos:prefLabel "is artificial"@en .
+
+
+###  http://purl.org/neao/data#isAveraged
+:isAveraged rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:comment "Defines if the data is the result of an aggregation to obtain an average estimate from other data (true)."@en ;
+            skos:prefLabel "is averaged"@en .
+
+
+###  http://purl.org/neao/data#isDetrended
+:isDetrended rdf:type owl:DatatypeProperty ;
+             rdfs:domain neao_base:Data ;
+             rdfs:range xsd:boolean ;
+             rdfs:comment "Defines if a detrending transformation was applied to the data (true)."@en ;
+             skos:prefLabel "is detrended"@en .
+
+
+###  http://purl.org/neao/data#isDownsampled
+:isDownsampled rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :isResampled ;
+               rdfs:comment "Defines if a downsampling transformation was applied to the data (true)."@en ;
+               skos:prefLabel "is downsampled"@en .
+
+
+###  http://purl.org/neao/data#isFiltered
+:isFiltered rdf:type owl:DatatypeProperty ;
+            rdfs:domain neao_base:Data ;
+            rdfs:range xsd:boolean ;
+            rdfs:comment "Defines if a digital filter was applied to the data (true)."@en ;
+            skos:prefLabel "is filtered"@en .
+
+
+###  http://purl.org/neao/data#isInterpolated
+:isInterpolated rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:comment "Defines if a interpolation data transformation was applied to the data (true)."@en ;
+                skos:prefLabel "is interpolated"@en .
+
+
+###  http://purl.org/neao/data#isNormalized
+:isNormalized rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:range xsd:boolean ;
+              rdfs:comment "Defines if a data normalization transformation was applied to the data (true)."@en ;
+              skos:prefLabel "is normalized"@en .
+
+
+###  http://purl.org/neao/data#isRectified
+:isRectified rdf:type owl:DatatypeProperty ;
+             rdfs:comment "Defines if a rectification transformation was applied to the data (true)."@en ;
+             skos:prefLabel "is rectified"@en .
+
+
+###  http://purl.org/neao/data#isRereferenced
+:isRereferenced rdf:type owl:DatatypeProperty ;
+                rdfs:comment "Defines if a transformation to change the reference in the recorded data was applied (true)."@en ;
+                skos:prefLabel "is rereferenced"@en .
+
+
+###  http://purl.org/neao/data#isResampled
+:isResampled rdf:type owl:DatatypeProperty ;
+             rdfs:domain neao_base:Data ;
+             rdfs:range xsd:boolean ;
+             rdfs:comment "Defines if a resampling transformation was applied to the data (true)."@en ;
+             skos:prefLabel "is resampled"@en .
+
+
+###  http://purl.org/neao/data#isSmoothed
+:isSmoothed rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:comment "Defines if a data smoothing transformation was applied to the data (true)."@en ;
+            skos:prefLabel "is smoothed"@en .
+
+
+###  http://purl.org/neao/data#isUpsampled
+:isUpsampled rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :isResampled ;
+             rdfs:comment "Defines if an upsampling transformation was applied to the data (true)."@en ;
+             skos:prefLabel "is upsampled"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/neao/base#Data
+neao_base:Data rdf:type owl:Class .
+
+
+###  http://purl.org/neao/data#ASSETAnalysisMatrix
+:ASSETAnalysisMatrix rdf:type owl:Class ;
+                     rdfs:subClassOf neao_base:Data ;
+                     rdfs:comment "Data that contains a matrix computed by one of the ASSET analysis substeps, as part of the execution of the ASSET analysis for the detection of neuronal activity patterns."@en ;
+                     skos:prefLabel "ASSET analysis matrix"@en .
+
+
+###  http://purl.org/neao/data#ASSETClusterMatrix
+:ASSETClusterMatrix rdf:type owl:Class ;
+                    rdfs:subClassOf :ASSETAnalysisMatrix ;
+                    neao_base:abbreviation "CMAT"@en ;
+                    rdfs:comment "The cluster matrix (CMAT) computed in the ASSET analysis."@en ;
+                    skos:prefLabel "ASSET cluster matrix"@en .
+
+
+###  http://purl.org/neao/data#ASSETIntersectionMatrix
+:ASSETIntersectionMatrix rdf:type owl:Class ;
+                         rdfs:subClassOf :ASSETAnalysisMatrix ;
+                         neao_base:abbreviation "IMAT"@en ;
+                         rdfs:comment "The intersection matrix (IMAT) computed in the ASSET analysis."@en ;
+                         skos:prefLabel "ASSET intersection matrix"@en .
+
+
+###  http://purl.org/neao/data#ASSETJointProbabilityMatrix
+:ASSETJointProbabilityMatrix rdf:type owl:Class ;
+                             rdfs:subClassOf :ASSETAnalysisMatrix ;
+                             neao_base:abbreviation "JMAT"@en ;
+                             rdfs:comment "The joint probability matrix (JMAT) computed in the ASSET analysis."@en ;
+                             skos:prefLabel "ASSET joint probability matrix"@en .
+
+
+###  http://purl.org/neao/data#ASSETMaskMatrix
+:ASSETMaskMatrix rdf:type owl:Class ;
+                 rdfs:subClassOf :ASSETAnalysisMatrix ;
+                 neao_base:abbreviation "MMAT"@en ;
+                 rdfs:comment "The mask matrix (MMAT) computed in the ASSET analysis."@en ;
+                 skos:prefLabel "ASSET mask matrix"@en .
+
+
+###  http://purl.org/neao/data#ASSETPattern
+:ASSETPattern rdf:type owl:Class ;
+              rdfs:subClassOf :NeuronalActivityPattern ;
+              rdfs:comment "A neuronal activity pattern obtained by the ASSET analysis. The ASSET patterns are the output of the last substep of the ASSET analysis that identifies the neurons present in each repeated sequence, based on the diagonal structures in the cluster matrix."@en ;
+              skos:prefLabel "ASSET pattern"@en .
+
+
+###  http://purl.org/neao/data#ASSETProbabilityMatrix
+:ASSETProbabilityMatrix rdf:type owl:Class ;
+                        rdfs:subClassOf :ASSETAnalysisMatrix ;
+                        neao_base:abbreviation "PMAT"@en ;
+                        rdfs:comment "The probability matrix (PMAT) computed in the ASSET analysis."@en ;
+                        skos:prefLabel "ASSET probability matrix"@en .
+
+
+###  http://purl.org/neao/data#AnalyticSignal
+:AnalyticSignal rdf:type owl:Class ;
+                rdfs:subClassOf :TimeSeries ;
+                rdfs:comment "The analytic signal obtained from a time series using the Hilbert transform."@en ;
+                skos:prefLabel "analytic signal"@en .
+
+
+###  http://purl.org/neao/data#AngularMeanSpikePhases
+:AngularMeanSpikePhases rdf:type owl:Class ;
+                        rdfs:subClassOf neao_base:Data ;
+                        rdfs:comment "The computed angular mean of the spike phases."@en ;
+                        skos:prefLabel "angular mean of spike phases"@en .
+
+
+###  http://purl.org/neao/data#ArtificialData
+:ArtificialData rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty :isArtificial ;
+                                      owl:hasValue "true"^^xsd:boolean
+                                    ] ;
+                rdfs:subClassOf neao_base:Data ;
+                rdfs:comment "Data that is generated programmatically rather than obtained from experimental recordings."@en ;
+                skos:prefLabel "artificial data"@en .
+
+
+###  http://purl.org/neao/data#AutocorrelationFunction
+:AutocorrelationFunction rdf:type owl:Class ;
+                         rdfs:subClassOf :AutocorrelationMeasure ;
+                         owl:disjointWith :SpikeTrainAutocorrelationHistogram ;
+                         neao_base:abbreviation "ACF"@en ;
+                         rdfs:comment "The computed estimator of the autocorrelation function."@en ;
+                         skos:prefLabel "autocorrelation function"@en .
+
+
+###  http://purl.org/neao/data#AutocorrelationMeasure
+:AutocorrelationMeasure rdf:type owl:Class ;
+                        rdfs:subClassOf neao_base:Data ;
+                        rdfs:comment "Data that contains a measure of autocorrelation."@en ;
+                        skos:prefLabel "autocorrelation measure"@en .
+
+
+###  http://purl.org/neao/data#BinnedSpikeTrain
+:BinnedSpikeTrain rdf:type owl:Class ;
+                  rdfs:subClassOf neao_base:Data ;
+                  rdfs:comment "The output of applying binning to the input spike train data."@en ;
+                  skos:prefLabel "binned spike train"@en .
+
+
+###  http://purl.org/neao/data#CV
+:CV rdf:type owl:Class ;
+    rdfs:subClassOf neao_base:Data ;
+    neao_base:abbreviation "CV"@en ;
+    rdfs:comment "The computed coefficient of variation (CV)."@en ;
+    skos:prefLabel "coefficient of variation"@en .
+
+
+###  http://purl.org/neao/data#CV2
+:CV2 rdf:type owl:Class ;
+     rdfs:subClassOf :InterspikeIntervalVariabilityMeasure ;
+     rdfs:comment "The computed CV2 measure."@en ;
+     skos:prefLabel "CV2"@en .
+
+
+###  http://purl.org/neao/data#CVInterspikeIntervals
+:CVInterspikeIntervals rdf:type owl:Class ;
+                       rdfs:subClassOf :InterspikeIntervalVariabilityMeasure ;
+                       neao_base:abbreviation "CV ISIs"@en ;
+                       rdfs:comment "The computed coefficient of variation (CV) of the interspike intervals (ISIs)."@en ;
+                       skos:prefLabel "coefficient of variation of the interspike intervals"@en .
+
+
+###  http://purl.org/neao/data#CanonicalCoherence
+:CanonicalCoherence rdf:type owl:Class ;
+                    rdfs:subClassOf :CoherenceMeasure ;
+                    neao_base:abbreviation "caCOH"@en ;
+                    rdfs:comment "The computed canonical coherence (caCOH)."@en ;
+                    skos:prefLabel "canonical coherence"@en .
+
+
+###  http://purl.org/neao/data#CellAssemblyDetectionPattern
+:CellAssemblyDetectionPattern rdf:type owl:Class ;
+                              rdfs:subClassOf :NeuronalActivityPattern ;
+                              neao_base:abbreviation "CAD pattern"@en ;
+                              rdfs:comment "A neuronal activity pattern obtained by the Cell Assembly Detection (CAD) analysis."@en ;
+                              skos:prefLabel "Cell Assembly Detection pattern"@en .
+
+
+###  http://purl.org/neao/data#ChangePoint
+:ChangePoint rdf:type owl:Class ;
+             rdfs:subClassOf neao_base:Data ;
+             rdfs:comment "A change point identified by the rate change detection multiple filter test."@en ;
+             skos:prefLabel "change point"@en .
+
+
+###  http://purl.org/neao/data#Coherence
+:Coherence rdf:type owl:Class ;
+           rdfs:subClassOf :CoherenceMeasure ;
+           rdfs:comment "The computed magnitude squared coherence. This is the typical output of a computation estimating coherence, and it is frequently referred as just coherence."@en ;
+           skos:altLabel "magnitude squared coherence"@en ;
+           skos:prefLabel "coherence"@en .
+
+
+###  http://purl.org/neao/data#CoherenceMeasure
+:CoherenceMeasure rdf:type owl:Class ;
+                  rdfs:subClassOf neao_base:Data ;
+                  rdfs:comment "Data that contains a measure of coherence."@en ;
+                  skos:prefLabel "coherence measure"@en .
+
+
+###  http://purl.org/neao/data#Coherency
+:Coherency rdf:type owl:Class ;
+           rdfs:subClassOf :CoherencyMeasure ;
+           rdfs:comment "The computed coherency."@en ;
+           skos:altLabel "complex coherency"@en ;
+           skos:prefLabel "coherency"@en .
+
+
+###  http://purl.org/neao/data#CoherencyMeasure
+:CoherencyMeasure rdf:type owl:Class ;
+                  rdfs:subClassOf neao_base:Data ;
+                  rdfs:comment "Data that contains a measure of coherency."@en ;
+                  skos:prefLabel "coherency measure"@en .
+
+
+###  http://purl.org/neao/data#ComplexityDistribution
+:ComplexityDistribution rdf:type owl:Class ;
+                        rdfs:subClassOf :SpikeTrainSynchronyMeasure ;
+                        rdfs:comment "The computed complexity distribution across the spike trains."@en ;
+                        skos:prefLabel "complexity distribution"@en .
+
+
+###  http://purl.org/neao/data#ConditionalGrangerCausality
+:ConditionalGrangerCausality rdf:type owl:Class ;
+                             rdfs:subClassOf :GrangerCausalityMeasure ;
+                             rdfs:comment "The computed conditional Granger causality."@en ;
+                             skos:prefLabel "conditional Granger causality"@en .
+
+
+###  http://purl.org/neao/data#ConfidenceInterval
+:ConfidenceInterval rdf:type owl:Class ;
+                    rdfs:subClassOf :ConfidenceIntervalMeasure ;
+                    neao_base:abbreviation "CI"@en ;
+                    rdfs:comment "The computed confidence interval (CI), with the lower and upper limits."@en ;
+                    skos:prefLabel "confidence interval"@en .
+
+
+###  http://purl.org/neao/data#ConfidenceIntervalLowerLimit
+:ConfidenceIntervalLowerLimit rdf:type owl:Class ;
+                              rdfs:subClassOf :ConfidenceIntervalMeasure ;
+                              rdfs:comment "The lower limit value of the computed confidence interval."@en ;
+                              skos:prefLabel "lower limit of confidence interval"@en .
+
+
+###  http://purl.org/neao/data#ConfidenceIntervalMeasure
+:ConfidenceIntervalMeasure rdf:type owl:Class ;
+                           rdfs:subClassOf neao_base:Data ;
+                           rdfs:comment "Data that contains the description of a confidence interval (CI)."@en ;
+                           skos:altLabel "CI measure"@en ;
+                           skos:prefLabel "confidence interval measure"@en .
+
+
+###  http://purl.org/neao/data#ConfidenceIntervalUpperLimit
+:ConfidenceIntervalUpperLimit rdf:type owl:Class ;
+                              rdfs:subClassOf :ConfidenceIntervalMeasure ;
+                              rdfs:comment "The upper limit value of the computed confidence interval."@en ;
+                              skos:prefLabel "upper limit of confidence interval"@en .
+
+
+###  http://purl.org/neao/data#CorrectedImaginaryPhaseLockingValue
+:CorrectedImaginaryPhaseLockingValue rdf:type owl:Class ;
+                                     rdfs:subClassOf :PhaseLockingValueMeasure ;
+                                     neao_base:abbreviation "ciPLV"@en ;
+                                     rdfs:comment "The computed corrected imaginary phase locking value (ciPLV)."@en ;
+                                     skos:prefLabel "corrected imaginary phase locking value"@en .
+
+
+###  http://purl.org/neao/data#CorrelationMeasure
+:CorrelationMeasure rdf:type owl:Class ;
+                    rdfs:subClassOf neao_base:Data ;
+                    rdfs:comment "Data that contains a measure of correlation."@en ;
+                    skos:prefLabel "correlation measure"@en .
+
+
+###  http://purl.org/neao/data#Covariance
+:Covariance rdf:type owl:Class ;
+            rdfs:subClassOf :CovarianceMeasure ;
+            rdfs:comment "The computed covariance values between the inputs."@en ;
+            skos:prefLabel "covariance"@en .
+
+
+###  http://purl.org/neao/data#CovarianceMeasure
+:CovarianceMeasure rdf:type owl:Class ;
+                   rdfs:subClassOf neao_base:Data ;
+                   rdfs:comment "Data that contains a measure of covariance."@en ;
+                   skos:prefLabel "covariance measure"@en .
+
+
+###  http://purl.org/neao/data#CrossCorrelationFunction
+:CrossCorrelationFunction rdf:type owl:Class ;
+                          rdfs:subClassOf :CrossCorrelationMeasure ;
+                          neao_base:abbreviation "CCF"@en ;
+                          rdfs:comment "The computed estimator of the cross-correlation function."@en ;
+                          skos:prefLabel "cross-correlation function"@en .
+
+
+###  http://purl.org/neao/data#CrossCorrelationMeasure
+:CrossCorrelationMeasure rdf:type owl:Class ;
+                         rdfs:subClassOf neao_base:Data ;
+                         rdfs:comment "Data that contains a measure of cross-correlation."@en ;
+                         skos:prefLabel "cross-correlation measure"@en .
+
+
+###  http://purl.org/neao/data#CrossPowerSpectralDensity
+:CrossPowerSpectralDensity rdf:type owl:Class ;
+                           rdfs:subClassOf :SpectralDensity ;
+                           neao_base:abbreviation "CPSD"@en ;
+                           rdfs:comment "The computed cross power spectral density (CPSD)."@en ;
+                           skos:altLabel "cross-spectrum"@en ;
+                           skos:prefLabel "cross power spectral density"@en .
+
+
+###  http://purl.org/neao/data#CrossSpectrogram
+:CrossSpectrogram rdf:type owl:Class ;
+                  rdfs:subClassOf neao_base:Data ;
+                  rdfs:comment "The computed cross-spectrogram."@en ;
+                  skos:prefLabel "cross-spectrogram"@en .
+
+
+###  http://purl.org/neao/data#CubicAnalysisResult
+:CubicAnalysisResult rdf:type owl:Class ;
+                     rdfs:subClassOf :SpikeTrainSynchronyMeasure ;
+                     rdfs:comment "The result of the CuBIC analysis."@en ;
+                     skos:prefLabel "CuBIC analysis result"@en .
+
+
+###  http://purl.org/neao/data#CurrentSourceDensity
+:CurrentSourceDensity rdf:type owl:Class ;
+                      rdfs:subClassOf neao_base:Data ;
+                      neao_base:abbreviation "CSD"@en ;
+                      rdfs:comment "The profile of current densities estimated by a current source density analysis."@en ;
+                      skos:prefLabel "current source density"@en .
+
+
+###  http://purl.org/neao/data#DebiasedSquaredWeightedPhaseLagIndex
+:DebiasedSquaredWeightedPhaseLagIndex rdf:type owl:Class ;
+                                      rdfs:subClassOf :PhaseLagIndexMeasure ;
+                                      neao_base:abbreviation "debiased squared WPLI"@en ;
+                                      rdfs:comment "The computed debiased squared weighted phase lag index (WPLI)."@en ;
+                                      skos:prefLabel "debiased squared weighted phase lag index"@en .
+
+
+###  http://purl.org/neao/data#DimensionalityReductionOutput
+:DimensionalityReductionOutput rdf:type owl:Class ;
+                               rdfs:subClassOf neao_base:Data ;
+                               rdfs:comment "Data that contains an output of applying a dimensionality reduction transformation to the input data."@en ;
+                               skos:prefLabel "dimensionality reduction output"@en .
+
+
+###  http://purl.org/neao/data#DirectedPhaseLagIndex
+:DirectedPhaseLagIndex rdf:type owl:Class ;
+                       rdfs:subClassOf :PhaseLagIndexMeasure ;
+                       neao_base:abbreviation "DPLI"@en ;
+                       rdfs:comment "The computed directed phase lag index (DPLI)."@en ;
+                       skos:prefLabel "directed phase lag index"@en .
+
+
+###  http://purl.org/neao/data#DirectedTransferFunction
+:DirectedTransferFunction rdf:type owl:Class ;
+                          rdfs:subClassOf neao_base:Data ;
+                          neao_base:abbreviation "DTF"@en ;
+                          rdfs:comment "The computed directed transfer function (DTF)."@en ;
+                          skos:prefLabel "directed transfer function"@en .
+
+
+###  http://purl.org/neao/data#DirectionalGrangerCausality
+:DirectionalGrangerCausality rdf:type owl:Class ;
+                             rdfs:subClassOf :GrangerCausalityMeasure ;
+                             rdfs:comment "The computed directional Granger causality from one input to the other."@en ;
+                             skos:prefLabel "directional Granger causality"@en .
+
+
+###  http://purl.org/neao/data#DiscreteFourierTransform
+:DiscreteFourierTransform rdf:type owl:Class ;
+                          rdfs:subClassOf neao_base:Data ;
+                          neao_base:abbreviation "DFT"@en ;
+                          rdfs:comment "The complex sinusoid coefficients obtained by applying the Discrete Fourier Transform (DFT) to the input data (e.g., using the FFT algorithm)."@en ;
+                          skos:prefLabel "discrete Fourier transform"@en .
+
+
+###  http://purl.org/neao/data#DistanceCovarianceDimension
+:DistanceCovarianceDimension rdf:type owl:Class ;
+                             rdfs:subClassOf :DimensionalityReductionOutput ;
+                             rdfs:comment "A dimension identified by applying distance covariance analysis (DCA) to the input data."@en ;
+                             skos:prefLabel "distance covariance dimension"@en .
+
+
+###  http://purl.org/neao/data#Epoch
+:Epoch rdf:type owl:Class ;
+       rdfs:subClassOf neao_base:Data ;
+       rdfs:comment "Data that represents a finite time interval (window). For example, the interval between the start and end of a behavioral trial in the recording session."@en ;
+       skos:prefLabel "epoch"@en .
+
+
+###  http://purl.org/neao/data#Event
+:Event rdf:type owl:Class ;
+       rdfs:subClassOf neao_base:Data ;
+       owl:disjointWith :SpikeTrain ,
+                        :TimeSeries ;
+       rdfs:comment "Data that contains the time(s) when an event of interest occurred (e.g., a certain behavior or stimulus in an experimental trial)."@en ;
+       skos:prefLabel "event"@en .
+
+
+###  http://purl.org/neao/data#EventRelatedPotential
+:EventRelatedPotential rdf:type owl:Class ;
+                       rdfs:subClassOf neao_base:Data ;
+                       neao_base:abbreviation "ERP"@en ;
+                       rdfs:comment "The computed event-related potential (ERP)."@en ;
+                       skos:prefLabel "event-related potential"@en .
+
+
+###  http://purl.org/neao/data#EventTriggeredAverage
+:EventTriggeredAverage rdf:type owl:Class ;
+                       rdfs:subClassOf :TriggeredAverageMeasure ;
+                       rdfs:comment "The computed event-triggered average."@en ;
+                       skos:prefLabel "event-triggered average"@en .
+
+
+###  http://purl.org/neao/data#EvokedPotential
+:EvokedPotential rdf:type owl:Class ;
+                 rdfs:subClassOf :EventRelatedPotential ;
+                 neao_base:abbreviation "EP"@en ;
+                 rdfs:comment "The computed evoked potential (EP)."@en ;
+                 skos:prefLabel "evoked potential"@en .
+
+
+###  http://purl.org/neao/data#FiringRate
+:FiringRate rdf:type owl:Class ;
+            rdfs:subClassOf neao_base:Data ;
+            rdfs:comment "The computed firing rate."@en ;
+            skos:prefLabel "firing rate"@en .
+
+
+###  http://purl.org/neao/data#FisherLinearDiscriminant
+:FisherLinearDiscriminant rdf:type owl:Class ;
+                          rdfs:subClassOf :DimensionalityReductionOutput ;
+                          rdfs:comment "A Fisher linear discriminant obtained by applying linear discrimination analysis (LDA) to the input data."@en ;
+                          skos:prefLabel "Fisher linear discriminant"@en .
+
+
+###  http://purl.org/neao/data#GrangerCausalityMeasure
+:GrangerCausalityMeasure rdf:type owl:Class ;
+                         rdfs:subClassOf neao_base:Data ;
+                         rdfs:comment "Data that contains a measure of Granger causality."@en ;
+                         skos:prefLabel "Granger causality measure"@en .
+
+
+###  http://purl.org/neao/data#GrangerTotalInterdependence
+:GrangerTotalInterdependence rdf:type owl:Class ;
+                             rdfs:subClassOf :GrangerCausalityMeasure ;
+                             rdfs:comment "The computed total interdependence in the Granger causality analysis."@en ;
+                             skos:prefLabel "Granger total interdependence"@en .
+
+
+###  http://purl.org/neao/data#ISIDistance
+:ISIDistance rdf:type owl:Class ;
+             rdfs:subClassOf :SpikeTrainDistance ;
+             rdfs:comment "The computed ISI-distance."@en ;
+             skos:prefLabel "ISI-distance"@en .
+
+
+###  http://purl.org/neao/data#ImaginaryCoherency
+:ImaginaryCoherency rdf:type owl:Class ;
+                    rdfs:subClassOf :CoherencyMeasure ;
+                    rdfs:comment "The computed imaginary part of the coherency."@en ;
+                    skos:prefLabel "imaginary coherency"@en .
+
+
+###  http://purl.org/neao/data#IndependentComponent
+:IndependentComponent rdf:type owl:Class ;
+                      rdfs:subClassOf neao_base:Data ;
+                      rdfs:comment "Data that contains an independent component produced by applying independent component analysis (ICA) to the input data."@en ;
+                      skos:prefLabel "independent component"@en .
+
+
+###  http://purl.org/neao/data#InstantaneousFiringRate
+:InstantaneousFiringRate rdf:type owl:Class ;
+                         rdfs:subClassOf :FiringRate ;
+                         rdfs:comment "The computed instantaneous firing rate."@en ;
+                         skos:prefLabel "instantaneous firing rate"@en .
+
+
+###  http://purl.org/neao/data#InstantaneousGrangerCausality
+:InstantaneousGrangerCausality rdf:type owl:Class ;
+                               rdfs:subClassOf :GrangerCausalityMeasure ;
+                               rdfs:comment "The computed instantaneous Granger causality."@en ;
+                               skos:prefLabel "instantaneous Granger causality"@en .
+
+
+###  http://purl.org/neao/data#InterquartileRange
+:InterquartileRange rdf:type owl:Class ;
+                    rdfs:subClassOf :InterquartileRangeMeasure ;
+                    neao_base:abbreviation "IQR"@en ;
+                    rdfs:comment "The computed interquartile range, with the difference between the 75th and 25th percentile values."@en ;
+                    skos:prefLabel "interquartile range"@en .
+
+
+###  http://purl.org/neao/data#InterquartileRangeLowerLimit
+:InterquartileRangeLowerLimit rdf:type owl:Class ;
+                              rdfs:subClassOf :InterquartileRangeMeasure ;
+                              rdfs:comment "The lower limit of the computed interquartile range, corresponding to the 25th percentile."@en ;
+                              skos:prefLabel "lower limit of interquartile range"@en .
+
+
+###  http://purl.org/neao/data#InterquartileRangeMeasure
+:InterquartileRangeMeasure rdf:type owl:Class ;
+                           rdfs:subClassOf neao_base:Data ;
+                           neao_base:abbreviation "IQR measure"@en ;
+                           rdfs:comment "Data that contains the description of an interquartile range (IQR)."@en ;
+                           skos:prefLabel "interquartile range measure"@en .
+
+
+###  http://purl.org/neao/data#InterquartileRangeUpperLimit
+:InterquartileRangeUpperLimit rdf:type owl:Class ;
+                              rdfs:subClassOf :InterquartileRangeMeasure ;
+                              rdfs:comment "The upper limit of the computed interquartile range, corresponding to the 75th percentile."@en ;
+                              skos:prefLabel "upper limit of interquartile range"@en .
+
+
+###  http://purl.org/neao/data#InterspikeIntervalHistogram
+:InterspikeIntervalHistogram rdf:type owl:Class ;
+                             rdfs:subClassOf neao_base:Data ;
+                             neao_base:abbreviation "ISIH"@en ;
+                             rdfs:comment "The computed interspike interval histogram (ISIH)."@en ;
+                             skos:prefLabel "interspike interval histogram"@en .
+
+
+###  http://purl.org/neao/data#InterspikeIntervalVariabilityMeasure
+:InterspikeIntervalVariabilityMeasure rdf:type owl:Class ;
+                                      rdfs:subClassOf neao_base:Data ;
+                                      rdfs:comment "Data that contains a measure describing the variability of the interspike intervals."@en ;
+                                      skos:prefLabel "interspike interval variability measure"@en .
+
+
+###  http://purl.org/neao/data#InterspikeIntervals
+:InterspikeIntervals rdf:type owl:Class ;
+                     rdfs:subClassOf neao_base:Data ;
+                     neao_base:abbreviation "ISIs"@en ;
+                     rdfs:comment "The computed interspike intervals (ISIs)."@en ;
+                     skos:prefLabel "interspike intervals"@en .
+
+
+###  http://purl.org/neao/data#JointPeristimulusTimeHistogramMatrix
+:JointPeristimulusTimeHistogramMatrix rdf:type owl:Class ;
+                                      rdfs:subClassOf neao_base:Data ;
+                                      neao_base:abbreviation "JPSTH matrix"@en ;
+                                      rdfs:comment "The computed joint peristimulus time histogram (JPSTH) matrix."@en ;
+                                      skos:prefLabel "joint peristimulus time histogram matrix"@en .
+
+
+###  http://purl.org/neao/data#LV
+:LV rdf:type owl:Class ;
+    rdfs:subClassOf :InterspikeIntervalVariabilityMeasure ;
+    rdfs:comment "The computed local variation (LV) measure."@en ;
+    skos:prefLabel "LV"@en .
+
+
+###  http://purl.org/neao/data#LVR
+:LVR rdf:type owl:Class ;
+     rdfs:subClassOf :InterspikeIntervalVariabilityMeasure ;
+     rdfs:comment "The computed revised local variation (LvR) measure."@en ;
+     skos:prefLabel "LvR"@en .
+
+
+###  http://purl.org/neao/data#MagnitudeCoherence
+:MagnitudeCoherence rdf:type owl:Class ;
+                    rdfs:subClassOf :CoherenceMeasure ;
+                    rdfs:comment "The computed magnitude coherence."@en ;
+                    skos:prefLabel "magnitude coherence"@en .
+
+
+###  http://purl.org/neao/data#MaximizedImaginaryCoherency
+:MaximizedImaginaryCoherency rdf:type owl:Class ;
+                             rdfs:subClassOf :CoherencyMeasure ;
+                             neao_base:abbreviation "MIC"@en ;
+                             rdfs:comment "The computed maximized imaginary coherency (MIC)."@en ;
+                             skos:prefLabel "maximized imaginary coherency"@en .
+
+
+###  http://purl.org/neao/data#Mean
+:Mean rdf:type owl:Class ;
+      rdfs:subClassOf neao_base:Data ;
+      rdfs:comment "The computed mean."@en ;
+      skos:prefLabel "mean"@en .
+
+
+###  http://purl.org/neao/data#MeanFiringRate
+:MeanFiringRate rdf:type owl:Class ;
+                rdfs:subClassOf :FiringRate ;
+                neao_base:abbreviation "MFR"@en ;
+                rdfs:comment "The computed mean firing rate."@en ;
+                skos:prefLabel "mean firing rate"@en .
+
+
+###  http://purl.org/neao/data#MeanPhaseVector
+:MeanPhaseVector rdf:type owl:Class ;
+                 rdfs:subClassOf :MeanPhaseVectorMeasure ;
+                 rdfs:comment "The computed mean phase vector (i.e., the angle and length)."@en ;
+                 skos:prefLabel "mean phase vector"@en .
+
+
+###  http://purl.org/neao/data#MeanPhaseVectorAngle
+:MeanPhaseVectorAngle rdf:type owl:Class ;
+                      rdfs:subClassOf :MeanPhaseVectorMeasure ;
+                      rdfs:comment "The angle of the computed mean phase vector."@en ;
+                      skos:prefLabel "mean phase vector angle"@en .
+
+
+###  http://purl.org/neao/data#MeanPhaseVectorLength
+:MeanPhaseVectorLength rdf:type owl:Class ;
+                       rdfs:subClassOf :MeanPhaseVectorMeasure ;
+                       rdfs:comment "The length of the computed mean phase vector."@en ;
+                       skos:prefLabel "mean phase vector length"@en .
+
+
+###  http://purl.org/neao/data#MeanPhaseVectorMeasure
+:MeanPhaseVectorMeasure rdf:type owl:Class ;
+                        rdfs:subClassOf neao_base:Data ;
+                        rdfs:comment "Data that contains the description or elements of the mean phase vector."@en ;
+                        skos:prefLabel "mean phase vector measure"@en .
+
+
+###  http://purl.org/neao/data#MeanVectorLength
+:MeanVectorLength rdf:type owl:Class ;
+                  rdfs:subClassOf :PhaseAmplitudeCouplingMeasure ;
+                  owl:disjointWith :ModulationIndex ;
+                  neao_base:abbreviation "MVL"@en ;
+                  rdfs:comment "The computed mean vector length (MVL)."@en ;
+                  skos:prefLabel "mean vector length"@en .
+
+
+###  http://purl.org/neao/data#Median
+:Median rdf:type owl:Class ;
+        rdfs:subClassOf neao_base:Data ;
+        rdfs:comment "The computed median."@en ;
+        skos:prefLabel "median"@en .
+
+
+###  http://purl.org/neao/data#ModulationIndex
+:ModulationIndex rdf:type owl:Class ;
+                 rdfs:subClassOf :PhaseAmplitudeCouplingMeasure ;
+                 neao_base:abbreviation "MI"@en ;
+                 rdfs:comment "The computed modulation index (MI)."@en ;
+                 skos:prefLabel "modulation index"@en .
+
+
+###  http://purl.org/neao/data#MorletWavelet
+:MorletWavelet rdf:type owl:Class ;
+               rdfs:subClassOf neao_base:Data ;
+               rdfs:comment "Data that contains the generated Morlet wavelet values for a sequence of time points."@en ;
+               skos:prefLabel "Morlet wavelet"@en .
+
+
+###  http://purl.org/neao/data#MultivariateInteractionMeasure
+:MultivariateInteractionMeasure rdf:type owl:Class ;
+                                rdfs:subClassOf neao_base:Data ;
+                                neao_base:abbreviation "MIM"@en ;
+                                rdfs:comment "The computed multivariate interaction measure (MIM)."@en ;
+                                skos:prefLabel "multivariate interaction measure"@en .
+
+
+###  http://purl.org/neao/data#MutualInformation
+:MutualInformation rdf:type owl:Class ;
+                   rdfs:subClassOf neao_base:Data ;
+                   neao_base:abbreviation "MI"@en ;
+                   rdfs:comment "The computed mutual information (MI)."@en ;
+                   skos:prefLabel "mutual information"@en .
+
+
+###  http://purl.org/neao/data#NeuralTrajectory
+:NeuralTrajectory rdf:type owl:Class ;
+                  rdfs:subClassOf :TimeSeries ;
+                  rdfs:comment "A neural trajectory obtained by applying Gaussian process factor analysis (GPFA) to the input data containing multitrial spiking activity of a neuronal population."@en ;
+                  skos:prefLabel "neural trajectory"@en .
+
+
+###  http://purl.org/neao/data#NeuronalActivityPattern
+:NeuronalActivityPattern rdf:type owl:Class ;
+                         rdfs:subClassOf neao_base:Data ;
+                         rdfs:comment "Data that contains the description of a neuronal activity pattern, which is obtained from a neuronal activity pattern detection analysis."@en ;
+                         skos:altLabel "cell assembly"@en ,
+                                       "neuronal assembly"@en ;
+                         skos:prefLabel "neuronal activity pattern"@en .
+
+
+###  http://purl.org/neao/data#NeuronalPopulationVector
+:NeuronalPopulationVector rdf:type owl:Class ;
+                          rdfs:subClassOf neao_base:Data ;
+                          rdfs:comment "The computed neuronal population vector."@en ;
+                          skos:altLabel "population vector"@en ;
+                          skos:prefLabel "neuronal population vector"@en .
+
+
+###  http://purl.org/neao/data#NoiseCorrelations
+:NoiseCorrelations rdf:type owl:Class ;
+                   rdfs:subClassOf :SpikeTrainCorrelationMeasure ;
+                   neao_base:abbreviation "NC"@en ;
+                   rdfs:comment "The computed noise correlations (NC)."@en ;
+                   skos:prefLabel "noise correlations"@en .
+
+
+###  http://purl.org/neao/data#NoiseCovariance
+:NoiseCovariance rdf:type owl:Class ;
+                 rdfs:subClassOf :CovarianceMeasure ;
+                 rdfs:comment "The computed noise covariance."@en ;
+                 skos:prefLabel "noise covariance"@en .
+
+
+###  http://purl.org/neao/data#OrthogonalizedPowerEnvelopeCorrelation
+:OrthogonalizedPowerEnvelopeCorrelation rdf:type owl:Class ;
+                                        rdfs:subClassOf :CorrelationMeasure ;
+                                        rdfs:comment "The computed orthogonalized power envelope correlation."@en ;
+                                        skos:prefLabel "orthogonalized power envelope correlation"@en .
+
+
+###  http://purl.org/neao/data#PairwisePhaseConsistency
+:PairwisePhaseConsistency rdf:type owl:Class ;
+                          rdfs:subClassOf neao_base:Data ;
+                          neao_base:abbreviation "PPC"@en ;
+                          rdfs:comment "The computed pairwise phase consistency (PPC) measure."@en ;
+                          skos:prefLabel "pairwise phase consistency"@en .
+
+
+###  http://purl.org/neao/data#PartialCoherence
+:PartialCoherence rdf:type owl:Class ;
+                  rdfs:subClassOf :CoherenceMeasure ;
+                  rdfs:comment "The computed partial coherence."@en ;
+                  skos:prefLabel "partial coherence"@en .
+
+
+###  http://purl.org/neao/data#PartialDirectedCoherence
+:PartialDirectedCoherence rdf:type owl:Class ;
+                          rdfs:subClassOf neao_base:Data ;
+                          neao_base:abbreviation "PDC"@en ;
+                          rdfs:comment "The computed partial directed coherence (PDC)."@en ;
+                          skos:prefLabel "partial directed coherence"@en .
+
+
+###  http://purl.org/neao/data#PeristimulusCoincidenceHistogram
+:PeristimulusCoincidenceHistogram rdf:type owl:Class ;
+                                  rdfs:subClassOf neao_base:Data ;
+                                  rdfs:comment "The computed peristimulus coincidence histogram."@en ;
+                                  skos:prefLabel "peristimulus coincidence histogram"@en .
+
+
+###  http://purl.org/neao/data#PeristimulusTimeHistogram
+:PeristimulusTimeHistogram rdf:type owl:Class ;
+                           rdfs:subClassOf :TimeHistogram ;
+                           neao_base:abbreviation "PSTH"@en ;
+                           rdfs:comment "The computed peristimulus time histogram (PSTH). The stimulus or event of interest can occur at any time point within the interval analyzed. However, if the histogram represents the neuronal activity after the stimulus presentation or event occurrence, this can be referred as post-stimulus time histogram. Conversely, if the histogram shows the activity of the neuron before the stimulus presentation or event, this can be referred as prestimulus time histogram. Finally, if the histogram considers a behavioral event (or an event that is not an externally presented stimulus), the histogram can be referred to as perievent time histogram (PETH)."@en ;
+                           skos:altLabel "perievent time histogram"@en ,
+                                         "post-stimulus time histogram"@en ,
+                                         "prestimulus time histogram"@en ;
+                           skos:prefLabel "peristimulus time histogram"@en .
+
+
+###  http://purl.org/neao/data#PhaseAmplitudeCouplingMeasure
+:PhaseAmplitudeCouplingMeasure rdf:type owl:Class ;
+                               rdfs:subClassOf neao_base:Data ;
+                               neao_base:abbreviation "PAC measure"@en ;
+                               rdfs:comment "Data that contains a measure of phase-amplitude coupling (PAC)."@en ;
+                               skos:prefLabel "phase amplitude coupling measure"@en .
+
+
+###  http://purl.org/neao/data#PhaseAngles
+:PhaseAngles rdf:type owl:Class ;
+             rdfs:subClassOf neao_base:Data ;
+             rdfs:comment "A measure of phase defining the angle on the unit circle that corresponds to the current position within the waveform's cycle. The range of angles in a full cycle is from 0 to 2*pi radians or 0 to 360 degrees."@en ;
+             skos:prefLabel "phase angles"@en .
+
+
+###  http://purl.org/neao/data#PhaseLagIndex
+:PhaseLagIndex rdf:type owl:Class ;
+               rdfs:subClassOf :PhaseLagIndexMeasure ;
+               neao_base:abbreviation "PLI"@en ;
+               rdfs:comment "The computed phase lag index (PLI)."@en ;
+               skos:prefLabel "phase lag index"@en .
+
+
+###  http://purl.org/neao/data#PhaseLagIndexMeasure
+:PhaseLagIndexMeasure rdf:type owl:Class ;
+                      rdfs:subClassOf neao_base:Data ;
+                      neao_base:abbreviation "PLI measure"@en ;
+                      rdfs:comment "Data that contains a measure computed by a phase-lag index analysis."@en ;
+                      skos:prefLabel "phase lag index measure"@en .
+
+
+###  http://purl.org/neao/data#PhaseLockingValue
+:PhaseLockingValue rdf:type owl:Class ;
+                   rdfs:subClassOf :PhaseLockingValueMeasure ;
+                   neao_base:abbreviation "PLV"@en ;
+                   rdfs:comment "The computed phase locking value (PLV)."@en ;
+                   skos:prefLabel "phase locking value"@en .
+
+
+###  http://purl.org/neao/data#PhaseLockingValueMeasure
+:PhaseLockingValueMeasure rdf:type owl:Class ;
+                          rdfs:subClassOf neao_base:Data ;
+                          neao_base:abbreviation "PLV measure"@en ;
+                          rdfs:comment "Data that contains a phase locking value (PLV) measure."@en ;
+                          skos:prefLabel "phase locking value measure"@en .
+
+
+###  http://purl.org/neao/data#PhaseSlopeIndex
+:PhaseSlopeIndex rdf:type owl:Class ;
+                 rdfs:subClassOf neao_base:Data ;
+                 neao_base:abbreviation "PSI"@en ;
+                 rdfs:comment "The computed phase slope index (PSI)."@en ;
+                 skos:prefLabel "phase slope index"@en .
+
+
+###  http://purl.org/neao/data#Plot
+:Plot rdf:type owl:Class ;
+      rdfs:subClassOf neao_base:Data ;
+      rdfs:comment "A graphical representation of data values. It is used to visually communicate quantitative information, providing intuitive insights that can complement numerical analysis. It is often produced by later steps in the analysis after the computation of measures, to provide the visual representation of the results."@en ;
+      skos:prefLabel "plot"@en .
+
+
+###  http://purl.org/neao/data#PopulationHistogram
+:PopulationHistogram rdf:type owl:Class ;
+                     rdfs:subClassOf :TimeHistogram ;
+                     rdfs:comment "The computed population histogram."@en ;
+                     skos:prefLabel "population histogram"@en .
+
+
+###  http://purl.org/neao/data#PowerSpectralDensity
+:PowerSpectralDensity rdf:type owl:Class ;
+                      rdfs:subClassOf :SpectralDensity ;
+                      neao_base:abbreviation "PSD"@en ;
+                      rdfs:comment "The computed power spectral density (PSD)."@en ;
+                      skos:altLabel "spectrum"@en ;
+                      skos:prefLabel "power spectral density"@en .
+
+
+###  http://purl.org/neao/data#PrincipalComponent
+:PrincipalComponent rdf:type owl:Class ;
+                    rdfs:subClassOf :DimensionalityReductionOutput ;
+                    rdfs:comment "A principal component obtained by applying principal component analysis (PCA) to the input data."@en ;
+                    skos:prefLabel "principal component"@en .
+
+
+###  http://purl.org/neao/data#RectifiedAreaUnderCurve
+:RectifiedAreaUnderCurve rdf:type owl:Class ;
+                         rdfs:subClassOf neao_base:Data ;
+                         neao_base:abbreviation "RAUC"@en ;
+                         rdfs:comment "The computed rectified area under the curve (RAUC)."@en ;
+                         skos:prefLabel "rectified area under the curve"@en .
+
+
+###  http://purl.org/neao/data#RegularizedCovariance
+:RegularizedCovariance rdf:type owl:Class ;
+                       rdfs:subClassOf :Covariance ;
+                       rdfs:comment "The covariance values computed with regularization techniques for numerical stability."@en ;
+                       skos:prefLabel "regularized covariance"@en .
+
+
+###  http://purl.org/neao/data#SPADEPattern
+:SPADEPattern rdf:type owl:Class ;
+              rdfs:subClassOf :NeuronalActivityPattern ;
+              rdfs:comment "A neuronal activity pattern obtained by the Spatio-temporal PAttern Detection and Evaluation (SPADE) analysis."@en ;
+              skos:prefLabel "SPADE pattern"@en .
+
+
+###  http://purl.org/neao/data#SPIKEDistance
+:SPIKEDistance rdf:type owl:Class ;
+               rdfs:subClassOf :SpikeTrainDistance ;
+               rdfs:comment "The computed SPIKE distance."@en ;
+               skos:prefLabel "SPIKE distance"@en .
+
+
+###  http://purl.org/neao/data#SPIKESynchronization
+:SPIKESynchronization rdf:type owl:Class ;
+                      rdfs:subClassOf :SpikeTrainDistance ;
+                      rdfs:comment "The computed SPIKE synchronization distance."@en ;
+                      skos:prefLabel "SPIKE synchronization"@en .
+
+
+###  http://purl.org/neao/data#ShortTimeFourierTransform
+:ShortTimeFourierTransform rdf:type owl:Class ;
+                           rdfs:subClassOf neao_base:Data ;
+                           neao_base:abbreviation "STFT"@en ;
+                           rdfs:comment "The complex sinusoid coefficients obtained by applying the short-time Fourier transform (STFT) to the input data."@en ;
+                           skos:prefLabel "short-time Fourier transform"@en .
+
+
+###  http://purl.org/neao/data#SpectralDensity
+:SpectralDensity rdf:type owl:Class ;
+                 rdfs:subClassOf neao_base:Data ;
+                 rdfs:comment "Data that contains the density of a measure of the input(s) over the frequency spectrum."@en ;
+                 skos:prefLabel "spectral density"@en .
+
+
+###  http://purl.org/neao/data#Spectrogram
+:Spectrogram rdf:type owl:Class ;
+             rdfs:subClassOf neao_base:Data ;
+             rdfs:comment "The computed spectrogram."@en ;
+             skos:prefLabel "spectrogram"@en .
+
+
+###  http://purl.org/neao/data#SpikeContrast
+:SpikeContrast rdf:type owl:Class ;
+               rdfs:subClassOf :SpikeTrainSynchronyMeasure ;
+               rdfs:comment "The computed Spike-contrast."@en ;
+               skos:prefLabel "Spike-contrast"@en .
+
+
+###  http://purl.org/neao/data#SpikeFieldCoherence
+:SpikeFieldCoherence rdf:type owl:Class ;
+                     rdfs:subClassOf neao_base:Data ;
+                     neao_base:abbreviation "SFC"@en ;
+                     rdfs:comment "The computed spike-field coherence (SFC)."@en ;
+                     skos:prefLabel "spike-field coherence"@en .
+
+
+###  http://purl.org/neao/data#SpikeTimeTilingCoefficient
+:SpikeTimeTilingCoefficient rdf:type owl:Class ;
+                            rdfs:subClassOf :SpikeTrainCorrelationMeasure ;
+                            neao_base:abbreviation "STTC"@en ;
+                            rdfs:comment "The computed spike time tiling coefficient (STTC)."@en ;
+                            skos:prefLabel "spike time tiling coefficient"@en .
+
+
+###  http://purl.org/neao/data#SpikeTrain
+:SpikeTrain rdf:type owl:Class ;
+            rdfs:subClassOf neao_base:Data ;
+            owl:disjointWith :TimeSeries ;
+            rdfs:comment "Data that contains the sequence of time points when an action potential (spike) occurs. A spike train can be obtained by electrophysiological recordings from the neural tissue (i.e., the data contains the times when spikes occur naturally in response to various stimuli or during spontaneous activity) or artificially-generated using specific statistical procedures or simulations of neuronal activity."@en ;
+            skos:prefLabel "spike train"@en .
+
+
+###  http://purl.org/neao/data#SpikeTrainAutocorrelationHistogram
+:SpikeTrainAutocorrelationHistogram rdf:type owl:Class ;
+                                    rdfs:subClassOf :AutocorrelationMeasure ;
+                                    rdfs:comment "The computed spike train autocorrelation histogram."@en ;
+                                    skos:prefLabel "spike train autocorrelation histogram"@en .
+
+
+###  http://purl.org/neao/data#SpikeTrainAutocorrelationTimeScale
+:SpikeTrainAutocorrelationTimeScale rdf:type owl:Class ;
+                                    rdfs:subClassOf neao_base:Data ;
+                                    rdfs:comment "The computed spike train autocorrelation time scale."@en ;
+                                    skos:prefLabel "spike train autocorrelation time scale"@en .
+
+
+###  http://purl.org/neao/data#SpikeTrainCorrelationMeasure
+:SpikeTrainCorrelationMeasure rdf:type owl:Class ;
+                              rdfs:subClassOf :CorrelationMeasure ;
+                              rdfs:comment "Data that contains a measure estimating the correlation between spike trains."@en ;
+                              skos:prefLabel "correlation measure"@en .
+
+
+###  http://purl.org/neao/data#SpikeTrainCrossCorrelationHistogram
+:SpikeTrainCrossCorrelationHistogram rdf:type owl:Class ;
+                                     rdfs:subClassOf :CrossCorrelationMeasure ;
+                                     neao_base:abbreviation "CCH"@en ;
+                                     rdfs:comment "The computed spike train cross-correlation histogram."@en ;
+                                     skos:altLabel "correlogram"@en ,
+                                                   "cross-correlogram"@en ;
+                                     skos:prefLabel "spike train cross-correlation histogram"@en .
+
+
+###  http://purl.org/neao/data#SpikeTrainDistance
+:SpikeTrainDistance rdf:type owl:Class ;
+                    rdfs:subClassOf neao_base:Data ;
+                    rdfs:comment "Data that contains a spike train distance measure."@en ;
+                    skos:prefLabel "spike train distance"@en .
+
+
+###  http://purl.org/neao/data#SpikeTrainFanoFactor
+:SpikeTrainFanoFactor rdf:type owl:Class ;
+                      rdfs:subClassOf neao_base:Data ;
+                      neao_base:abbreviation "FF"@en ;
+                      rdfs:comment "The computed Fano factor (FF) for a set of input spike trains."@en ;
+                      skos:prefLabel "spike train Fano factor"@en .
+
+
+###  http://purl.org/neao/data#SpikeTrainPearsonCorrelationCoefficient
+:SpikeTrainPearsonCorrelationCoefficient rdf:type owl:Class ;
+                                         rdfs:subClassOf :SpikeTrainCorrelationMeasure ;
+                                         rdfs:comment "The computed Pearson correlation coefficient between two spike trains."@en ;
+                                         skos:prefLabel "spike train Pearson correlation coefficient"@en .
+
+
+###  http://purl.org/neao/data#SpikeTrainSurrogate
+:SpikeTrainSurrogate rdf:type owl:Class ;
+                     rdfs:subClassOf neao_base:Data ;
+                     rdfs:comment "Data that contains a spike train surrogate. It is generated from spike train inputs using distinct methods to alter the original spike times."@en ;
+                     skos:prefLabel "spike train surrogate"@en .
+
+
+###  http://purl.org/neao/data#SpikeTrainSynchronyMeasure
+:SpikeTrainSynchronyMeasure rdf:type owl:Class ;
+                            rdfs:subClassOf neao_base:Data ;
+                            rdfs:comment "Data that contains a measure describing synchronization in two or more spike trains containing the activity of different neurons."@en ;
+                            skos:prefLabel "spike train synchrony measure"@en .
+
+
+###  http://purl.org/neao/data#SpikeTrainTimeHistogram
+:SpikeTrainTimeHistogram rdf:type owl:Class ;
+                         rdfs:subClassOf :TimeHistogram ;
+                         rdfs:comment "The computed spike train time histogram."@en ;
+                         skos:prefLabel "spike train time histogram"@en .
+
+
+###  http://purl.org/neao/data#SpikeTriggeredAverage
+:SpikeTriggeredAverage rdf:type owl:Class ;
+                       rdfs:subClassOf :TriggeredAverageMeasure ;
+                       neao_base:abbreviation "STA"@en ;
+                       rdfs:comment "The computed spike-triggered average (STA)."@en ;
+                       skos:prefLabel "spike-triggered average"@en .
+
+
+###  http://purl.org/neao/data#SpikeTriggeredLFPAverage
+:SpikeTriggeredLFPAverage rdf:type owl:Class ;
+                          rdfs:subClassOf :SpikeTriggeredAverage ;
+                          rdfs:comment "The computed spike-triggered average of the local field potential (LFP) signal."@en ;
+                          skos:prefLabel "spike-triggered local field potential average"@en .
+
+
+###  http://purl.org/neao/data#SpikeTriggeredPhase
+:SpikeTriggeredPhase rdf:type owl:Class ;
+                     rdfs:subClassOf neao_base:Data ;
+                     rdfs:comment "The computed spike-triggered phase angles."@en ;
+                     skos:prefLabel "spike-triggered phase"@en .
+
+
+###  http://purl.org/neao/data#SpikeWaveform
+:SpikeWaveform rdf:type owl:Class ;
+               rdfs:subClassOf neao_base:Data ;
+               rdfs:comment "Data that contains the characteristic voltage change over time observed in the electrical recording of a neuron's action potential (spike). This waveform represents the rapid depolarization and repolarization of the neuron's membrane potential during the action potential. The data is acquired in a finite number of samples that correspond to a time window around the spike time (i.e., with periods before and after the action potential onset)."@en ;
+               skos:prefLabel "spike waveform"@en .
+
+
+###  http://purl.org/neao/data#SpikeWaveformAverage
+:SpikeWaveformAverage rdf:type owl:Class ;
+                      rdfs:subClassOf :SpikeWavevormStatistic ;
+                      rdfs:comment "The computed average across the spike waveforms."@en ;
+                      skos:prefLabel "spike waveform average"@en .
+
+
+###  http://purl.org/neao/data#SpikeWaveformSNR
+:SpikeWaveformSNR rdf:type owl:Class ;
+                  rdfs:subClassOf :SpikeWavevormStatistic ;
+                  neao_base:abbreviation "spike waveform SNR"@en ;
+                  rdfs:comment "The computed signal-to-noise ratio of the spike waveforms."@en ;
+                  skos:prefLabel "spike waveform signal-to-noise ratio"@en .
+
+
+###  http://purl.org/neao/data#SpikeWaveformVariance
+:SpikeWaveformVariance rdf:type owl:Class ;
+                       rdfs:subClassOf :SpikeWavevormStatistic ;
+                       rdfs:comment "The computed variance across the spike waveforms."@en ;
+                       skos:prefLabel "spike waveform variance"@en .
+
+
+###  http://purl.org/neao/data#SpikeWaveformWidth
+:SpikeWaveformWidth rdf:type owl:Class ;
+                    rdfs:subClassOf :SpikeWavevormStatistic ;
+                    rdfs:comment "The computed spike waveform width."@en ;
+                    skos:prefLabel "spike waveform width"@en .
+
+
+###  http://purl.org/neao/data#SpikeWavevormStatistic
+:SpikeWavevormStatistic rdf:type owl:Class ;
+                        rdfs:subClassOf neao_base:Data ;
+                        rdfs:comment "Data that contains measures used to describe specific characteristics or make inferences from spike waveforms."@en ;
+                        skos:prefLabel "spike waveform statistic"@en .
+
+
+###  http://purl.org/neao/data#StandardDeviation
+:StandardDeviation rdf:type owl:Class ;
+                   rdfs:subClassOf neao_base:Data ;
+                   neao_base:abbreviation "SD"@en ;
+                   rdfs:comment "The computed standard deviation (SD)."@en ;
+                   skos:prefLabel "standard deviation"@en .
+
+
+###  http://purl.org/neao/data#StandardErrorMean
+:StandardErrorMean rdf:type owl:Class ;
+                   rdfs:subClassOf neao_base:Data ;
+                   neao_base:abbreviation "SEM"@en ;
+                   rdfs:comment "The computed standard error of the mean (SEM)."@en ;
+                   skos:prefLabel "standard error of the mean"@en .
+
+
+###  http://purl.org/neao/data#StockwellTransform
+:StockwellTransform rdf:type owl:Class ;
+                    rdfs:subClassOf neao_base:Data ;
+                    rdfs:comment "The result of computing the Stockwell transform (S transform)."@en ;
+                    skos:altLabel "S transform"@en ;
+                    skos:prefLabel "Stockwell transform"@en .
+
+
+###  http://purl.org/neao/data#TensorComponent
+:TensorComponent rdf:type owl:Class ;
+                 rdfs:subClassOf :DimensionalityReductionOutput ;
+                 rdfs:comment "A tensor component obtained by applying tensor component analysis (TCA) to the input data."@en ;
+                 skos:prefLabel "tensor component"@en .
+
+
+###  http://purl.org/neao/data#TimeHistogram
+:TimeHistogram rdf:type owl:Class ;
+               rdfs:subClassOf neao_base:Data ;
+               rdfs:comment "Data that contains a time histogram, i.e., a histogram that shows the distribution of a measure across specified time intervals (bins)."@en ;
+               skos:prefLabel "time histogram"@en .
+
+
+###  http://purl.org/neao/data#TimeSeries
+:TimeSeries rdf:type owl:Class ;
+            rdfs:subClassOf neao_base:Data ;
+            rdfs:comment "Data that contains values of a specific quantity (e.g., voltage) acquired as a series of successive samples over time. Typically, there is a fixed interval between the samples (sampling period), with each sample representing a distinct time point in the series."@en ;
+            skos:prefLabel "time series"@en .
+
+
+###  http://purl.org/neao/data#TransferEntropy
+:TransferEntropy rdf:type owl:Class ;
+                 rdfs:subClassOf neao_base:Data ;
+                 neao_base:abbreviation "TE"@en ;
+                 rdfs:comment "The computed transfer entropy (TE)."@en ;
+                 skos:prefLabel "transfer entropy"@en .
+
+
+###  http://purl.org/neao/data#TriggeredAverageMeasure
+:TriggeredAverageMeasure rdf:type owl:Class ;
+                         rdfs:subClassOf neao_base:Data ;
+                         rdfs:comment "Data that contains the output of a triggered average analysis."@en ;
+                         skos:prefLabel "triggered average measure"@en .
+
+
+###  http://purl.org/neao/data#TuningCurve
+:TuningCurve rdf:type owl:Class ;
+             rdfs:subClassOf neao_base:Data ;
+             rdfs:comment "The computed tuning curve."@en ;
+             skos:prefLabel "tuning curve"@en .
+
+
+###  http://purl.org/neao/data#UnbiasedSquaredPhaseLagIndex
+:UnbiasedSquaredPhaseLagIndex rdf:type owl:Class ;
+                              rdfs:subClassOf :PhaseLagIndexMeasure ;
+                              neao_base:abbreviation "unbiased squared PLI"@en ;
+                              rdfs:comment "The computed unbiased squared phase lag index (PLI)."@en ;
+                              skos:prefLabel "unbiased squared phase lag index"@en .
+
+
+###  http://purl.org/neao/data#UnitaryEventPattern
+:UnitaryEventPattern rdf:type owl:Class ;
+                     rdfs:subClassOf :NeuronalActivityPattern ;
+                     neao_base:abbreviation "UE pattern"@en ;
+                     rdfs:comment "A neuronal activity pattern obtained by the Unitary Event (UE) analysis."@en ;
+                     skos:prefLabel "Unitary Event pattern"@en .
+
+
+###  http://purl.org/neao/data#VanRossumDistance
+:VanRossumDistance rdf:type owl:Class ;
+                   rdfs:subClassOf :SpikeTrainDistance ;
+                   owl:disjointWith :VictorPurpuraDistance ;
+                   rdfs:comment "The computed van Rossum distance."@en ;
+                   skos:prefLabel "van Rossum distance"@en .
+
+
+###  http://purl.org/neao/data#Variance
+:Variance rdf:type owl:Class ;
+          rdfs:subClassOf neao_base:Data ;
+          rdfs:comment "The computed variance."@en ;
+          skos:prefLabel "variance"@en .
+
+
+###  http://purl.org/neao/data#VictorPurpuraDistance
+:VictorPurpuraDistance rdf:type owl:Class ;
+                       rdfs:subClassOf :SpikeTrainDistance ;
+                       rdfs:comment "The computed Victor-Purpura distance."@en ;
+                       skos:prefLabel "Victor-Purpura distance"@en .
+
+
+###  http://purl.org/neao/data#WaveletTransform
+:WaveletTransform rdf:type owl:Class ;
+                  rdfs:subClassOf neao_base:Data ;
+                  rdfs:comment "Data that contains the result of a wavelet transform analysis, i.e., decomposing a time series using a mother wavelet function."@en ;
+                  skos:altLabel "scaleogram"@en ;
+                  skos:prefLabel "wavelet transform"@en .
+
+
+###  http://purl.org/neao/data#WeightedPhaseLagIndex
+:WeightedPhaseLagIndex rdf:type owl:Class ;
+                       rdfs:subClassOf :PhaseLagIndexMeasure ;
+                       neao_base:abbreviation "WPLI"@en ;
+                       rdfs:comment "The computed weighted phase lag index (WPLI)."@en ;
+                       skos:prefLabel "weighted phase lag index"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ASSETClusterMatrix
+                :ASSETIntersectionMatrix
+                :ASSETJointProbabilityMatrix
+                :ASSETMaskMatrix
+                :ASSETProbabilityMatrix
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :CanonicalCoherence
+                :Coherency
+                :ImaginaryCoherency
+                :MaximizedImaginaryCoherency
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :DebiasedSquaredWeightedPhaseLagIndex
+                :DirectedPhaseLagIndex
+                :PhaseLagIndex
+                :UnbiasedSquaredPhaseLagIndex
+                :WeightedPhaseLagIndex
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :MeanPhaseVector
+                :MeanPhaseVectorAngle
+                :MeanPhaseVectorLength
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

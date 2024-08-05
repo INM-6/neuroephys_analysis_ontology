@@ -1,0 +1,102 @@
+@prefix : <http://purl.org/neao/tests#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix neao_base: <http://purl.org/neao/base#> .
+@prefix neao_data: <http://purl.org/neao/data#> .
+@prefix neao_steps: <http://purl.org/neao/steps#> .
+@base <http://purl.org/neao/tests#> .
+
+<http://purl.org/neao/tests#> rdf:type owl:Ontology ;
+                               owl:imports neao_base: ,
+                                           neao_data: ,
+                                           neao_steps: ;
+                               <http://ainf.aau.at/ontodebug#testCase> [ <http://ainf.aau.at/ontodebug#axiom> "ASSETAnalysis SubClassOf CompoundAnalysis"^^xsd:string ;
+                                                                         <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean
+                                                                       ] ,
+                                                                       [ <http://ainf.aau.at/ontodebug#axiom> "ComputePairwiseGrangerCausality SubClassOf FunctionalConnectivityAnalysis"^^xsd:string ;
+                                                                         <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean
+                                                                       ] ,
+                                                                       [ <http://ainf.aau.at/ontodebug#axiom> "SPADEAnalysis SubClassOf CompoundAnalysis"^^xsd:string ;
+                                                                         <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean
+                                                                       ] ,
+                                                                       [ <http://ainf.aau.at/ontodebug#axiom> "ComputeInterspikeIntervals SubClassOf FunctionalConnectivityAnalysis"^^xsd:string ;
+                                                                         <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean
+                                                                       ] ;
+                               dcterms:creator "Cristiano Köhler (ORCID: 0000-0003-0503-5264)" ,
+                                               "Michael Denker (ORCID: 0000-0003-1255-7300)" ;
+                               dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+                               rdfs:comment "Test suite to check the inferences of NEAO. This module should not be used in any annotations."@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://ainf.aau.at/ontodebug#axiom
+<http://ainf.aau.at/ontodebug#axiom> rdf:type owl:AnnotationProperty ;
+                                     rdfs:subPropertyOf <http://ainf.aau.at/ontodebug#testCase> .
+
+
+###  http://ainf.aau.at/ontodebug#testCase
+<http://ainf.aau.at/ontodebug#testCase> rdf:type owl:AnnotationProperty .
+
+
+###  http://ainf.aau.at/ontodebug#type
+<http://ainf.aau.at/ontodebug#type> rdf:type owl:AnnotationProperty ;
+                                    rdfs:subPropertyOf <http://ainf.aau.at/ontodebug#testCase> .
+
+
+[ <http://ainf.aau.at/ontodebug#axiom> "ASSETAnalysis SubClassOf CompoundAnalysis"^^xsd:string ;
+  <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean
+] .
+
+[ <http://ainf.aau.at/ontodebug#axiom> "ComputePairwiseGrangerCausality SubClassOf FunctionalConnectivityAnalysis"^^xsd:string ;
+   <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean
+ ] .
+
+[ <http://ainf.aau.at/ontodebug#axiom> "SPADEAnalysis SubClassOf CompoundAnalysis"^^xsd:string ;
+   <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean
+ ] .
+
+[ <http://ainf.aau.at/ontodebug#axiom> "ComputePairwiseGrangerCausality SubClassOf FunctionalConnectivityAnalysis"^^xsd:string ;
+   <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean
+ ] .
+
+[ <http://ainf.aau.at/ontodebug#axiom> "ASSETAnalysis SubClassOf CompoundAnalysis"^^xsd:string ;
+   <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean
+ ] .
+
+[ <http://ainf.aau.at/ontodebug#axiom> "ComputeInterspikeIntervals SubClassOf FunctionalConnectivityAnalysis"^^xsd:string ;
+   <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean
+ ] .
+
+[ <http://ainf.aau.at/ontodebug#axiom> "SPADEAnalysis SubClassOf CompoundAnalysis"^^xsd:string ;
+   <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean
+ ] .
+
+[ <http://ainf.aau.at/ontodebug#axiom> "ComputePairwiseGrangerCausality SubClassOf FunctionalConnectivityAnalysis"^^xsd:string ;
+   <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean
+ ] .
+
+[ <http://ainf.aau.at/ontodebug#axiom> "ComputeInterspikeIntervals SubClassOf FunctionalConnectivityAnalysis"^^xsd:string ;
+   <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean
+ ] .
+
+[ <http://ainf.aau.at/ontodebug#axiom> "ComputeInterspikeIntervals SubClassOf FunctionalConnectivityAnalysis"^^xsd:string ;
+   <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean
+ ] .
+
+[ <http://ainf.aau.at/ontodebug#axiom> "ComputePairwiseGrangerCausality SubClassOf FunctionalConnectivityAnalysis"^^xsd:string ;
+   <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean
+ ] .
+
+[ <http://ainf.aau.at/ontodebug#axiom> "ComputeInterspikeIntervals SubClassOf FunctionalConnectivityAnalysis"^^xsd:string ;
+   <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean
+ ] .
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

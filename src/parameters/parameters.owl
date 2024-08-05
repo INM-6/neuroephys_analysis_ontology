@@ -23,7 +23,7 @@
 
 For example, in a low-pass filtering step in the analysis, where a raw wideband signal is transformed to isolate the frequency components smaller than a cutoff frequency, the time series with the raw signal is the data input, and the low-pass frequency cutoff frequency value is a parameter.
 
-The classes in this module are subclasses of the AnalysisParameter base class."""@en ;
+The classes in this module are subclasses of the AnalysisParameter base class and are associated with the analysis steps (defined in the steps module) through the usesParameter object property."""@en ;
                                     rdfs:label "Neuroelectrophysiology Analysis Ontology - Analysis Parameters"@en ;
                                     owl:versionInfo "0.1.0" .
 
@@ -91,8 +91,13 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 ###  http://purl.org/neao/parameters#ASSETMaskMatrixSignificanceThresholds
 :ASSETMaskMatrixSignificanceThresholds rdf:type owl:Class ;
                                        rdfs:subClassOf :ASSETAnalysisParameter ;
-                                       rdfs:comment "Real value (range 0-1) used as a threshold to determine if the entries in the probability matrix and joint probability matrices are significant. The parameter value can be a single real value, which is used for both matrices, or a tuple of two real values, each used for either the probability or joint probability matrix. Entry signficance is defined as a probability value greater than the threshold value(s) specified by the parameter. Significant entries in both probability and joint probability matrices are defined as 1 in the mask matrix."@en ;
+                                       rdfs:comment "Real values (range 0-1) used as thresholds to determine if the entries in the probability matrix and joint probability matrices are significant. Entry signficance is defined as a probability value greater than the threshold values specified by the parameter. Significant entries in both probability and joint probability matrices are defined as 1 in the mask matrix."@en ;
                                        skos:prefLabel "significance thresholds in ASSET mask matrix"@en .
+
+
+###  http://purl.org/neao/parameters#BartlettSmoothingKernel
+:BartlettSmoothingKernel rdf:type owl:Class ;
+                         rdfs:subClassOf :SmoothingKernel .
 
 
 ###  http://purl.org/neao/parameters#BinSize
@@ -202,11 +207,21 @@ neao_base:AnalysisParameter rdf:type owl:Class .
                      skos:prefLabel "frequency resolution"@en .
 
 
+###  http://purl.org/neao/parameters#HammingSmoothingKernel
+:HammingSmoothingKernel rdf:type owl:Class ;
+                        rdfs:subClassOf :SmoothingKernel .
+
+
 ###  http://purl.org/neao/parameters#HammingWindowFunction
 :HammingWindowFunction rdf:type owl:Class ;
                        rdfs:subClassOf :WindowFunction ;
                        rdfs:comment "A window function that corresponds to a raised cosine (i.e., a single period of a cosine function \"raised\") but with positive endpoints. Therefore, the function does not eliminate the discontinuities in the signal. It has better cancellation of the nearest side lobe, and a poorer cancellation of the others, with a wide main lobe. It is named after Richard Wesley Hamming."@en ;
                        skos:prefLabel "Hamming window function"@en .
+
+
+###  http://purl.org/neao/parameters#HannSmoothingKernel
+:HannSmoothingKernel rdf:type owl:Class ;
+                     rdfs:subClassOf :SmoothingKernel .
 
 
 ###  http://purl.org/neao/parameters#HannWindowFunction
