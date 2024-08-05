@@ -61,7 +61,7 @@ dcterms:license rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/neao/base#hasBibliographicReference
 :hasBibliographicReference rdf:type owl:AnnotationProperty ;
-                           rdfs:comment "Defines the bibliographic reference associated with the entity. The bibliobraphic reference should contain the details represented by the entity (e.g., method description, software publication)."@en ;
+                           rdfs:comment "Defines the bibliographic reference associated with the entity. The bibliographic reference should contain the details represented by the entity (e.g., method description, software publication)."@en ;
                            skos:prefLabel "has bibliographic reference"@en ;
                            rdfs:range biro:BibliographicReference .
 
@@ -154,7 +154,7 @@ skos:prefLabel rdf:type owl:AnnotationProperty .
 :nameInDefinition rdf:type owl:DatatypeProperty ;
                   rdfs:domain :Function ;
                   rdfs:range xsd:string ;
-                  rdfs:comment "Specifies the name of the funcion as it is defined in the code that implemented it. For example, for Python functions, this is what is specified in the 'def' statement (i.e., def function_name(arg), the value of this property is function_name)."@en ;
+                  rdfs:comment "Specifies the name of the function as it is defined in the code that implemented it. For example, for Python functions, this is what is specified in the 'def' statement (i.e., def function_name(arg), the value of this property is function_name)."@en ;
                   skos:prefLabel "name in definition"@en .
 
 
@@ -220,7 +220,7 @@ skos:prefLabel rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/neao/base#ElectrophysiologySignalSource
 :ElectrophysiologySignalSource rdf:type owl:Class ;
-                               rdfs:comment """Defines the source of the recorded electrophysiology signal. This is a general concept, that can be expanded to incorporate the anatomica/tissue description from where the signal was recorded, as well as the recording technique.
+                               rdfs:comment """Defines the source of the recorded electrophysiology signal. This is a general concept, that can be expanded to incorporate the anatomical/tissue description from where the signal was recorded, as well as the recording technique.
 
 For example, voltage potentials can be acquired from extracellular electrodes situtated on the scalp (electroencephalogram), directly on the cortical surface (electrocorticogram) or implanted deep into a specific brain region (multielectrode array)."""@en ;
                                skos:prefLabel "electrophysiology signal source"@en .

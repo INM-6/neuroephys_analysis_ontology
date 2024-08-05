@@ -187,7 +187,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 
 ###  http://purl.org/neao/steps#AnalysisPurpose
 :AnalysisPurpose rdf:type owl:Class ;
-                 rdfs:comment "Analyis purpose refers to the specific objective or goal that an analysis is intended to achieve. It outlines what the analysis step aims to discover, understand, or demonstrate. This class is intended for grouping steps that perform analyses with similar goals/outputs but with distinct methodological or algorithmic approaches. It is used as a normalization class via the hasPurpose object property."@en ;
+                 rdfs:comment "Analysis purpose refers to the specific objective or goal that an analysis is intended to achieve. It outlines what the analysis step aims to discover, understand, or demonstrate. This class is intended for grouping steps that perform analyses with similar goals/outputs but with distinct methodological or algorithmic approaches. It is used as a normalization class via the hasPurpose object property."@en ;
                  skos:prefLabel "analysis purpose"@en .
 
 
@@ -347,7 +347,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 ###  http://purl.org/neao/steps#ApplyInterpolation
 :ApplyInterpolation rdf:type owl:Class ;
                     rdfs:subClassOf :DataTransformation ;
-                    rdfs:comment "A data transformation that estimates new (intermediate) values between the known values in the input data. This can be accomplished using sevaral methods, such as linear interpolation (i.e., estimating the values along a straight line connecting adjacent points), polynomial interpolation (i.e., using polynomials to estimate the values between points), or spline Interpolation (i.e., using piecewise polynomials that pass through the known data points and provide a smooth curve)."@en ;
+                    rdfs:comment "A data transformation that estimates new (intermediate) values between the known values in the input data. This can be accomplished using several methods, such as linear interpolation (i.e., estimating the values along a straight line connecting adjacent points), polynomial interpolation (i.e., using polynomials to estimate the values between points), or spline Interpolation (i.e., using piecewise polynomials that pass through the known data points and provide a smooth curve)."@en ;
                     skos:prefLabel "apply interpolation"@en .
 
 
@@ -495,7 +495,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 ###  http://purl.org/neao/steps#ApplySpikeTrainBinning
 :ApplySpikeTrainBinning rdf:type owl:Class ;
                         rdfs:subClassOf :DataTransformation ;
-                        rdfs:comment "A data transformation that performs a binning operation on the input spike train data. The transformation discretizes the duration of the input spike train(s) into smaller time intervals (bins), and obtains the number of spikes occurring into each bin (binned spike train). Additionally, the occurence of spikes into each bin can be converted into a binary form (i.e., bins with or without spikes). This is known as clipping. The width of the bin interval is specified by a parameter (bin size)."@en ;
+                        rdfs:comment "A data transformation that performs a binning operation on the input spike train data. The transformation discretizes the duration of the input spike train(s) into smaller time intervals (bins), and obtains the number of spikes occurring into each bin (binned spike train). Additionally, the occurrence of spikes into each bin can be converted into a binary form (i.e., bins with or without spikes). This is known as clipping. The width of the bin interval is specified by a parameter (bin size)."@en ;
                         skos:prefLabel "apply spike train binning"@en .
 
 
@@ -690,7 +690,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 :ComputeASSETMaskMatrix rdf:type owl:Class ;
                         rdfs:subClassOf :ASSETAnalysisSubstep ;
                         neao_base:hasBibliographicReference neao_bib:Torre2016_e1004939 ;
-                        rdfs:comment "ASSET analysis substep that computes the mask matrix (MMAT). The parameters are the threshold values that are used to determine if the entries in the probability matrix (PMAT) and joint probability matrix (JMAT) are significant. Entry signficance in either matrix is defined as a probability value greater than the provided threshold value. Significant entries in both probability and joint probability matrices are defined as 1 in the mask matrix."@en ;
+                        rdfs:comment "ASSET analysis substep that computes the mask matrix (MMAT). The parameters are the threshold values that are used to determine if the entries in the probability matrix (PMAT) and joint probability matrix (JMAT) are significant. Entry significance in either matrix is defined as a probability value greater than the provided threshold value. Significant entries in both probability and joint probability matrices are defined as 1 in the mask matrix."@en ;
                         skos:prefLabel "compute ASSET mask matrix"@en .
 
 
@@ -770,7 +770,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 ###  http://purl.org/neao/steps#ComputeCoherence
 :ComputeCoherence rdf:type owl:Class ;
                   rdfs:subClassOf :CoherenceAnalysis ;
-                  rdfs:comment "A coherence analysis that computes the coherence value between two inputs. It is obtained from the magnitude of the complex-valued cross power spectral density obtained for the two inputs normalized by their power spectral density (i.e., auto spectral density). Several frequency decomposition approches can be used to obtain the cross and auto power spectral densities from the inputs. The computation can return the magnitude coherence (i.e., by taking the absolute value of the cross power spectral density and normalizing by the square root of the product of the two auto spectral densities) or the magnitude squared coherence (i.e., by computing the squared magnitude of the cross power spectral density and normalizing by the product of the two auto spectral densities)."@en ;
+                  rdfs:comment "A coherence analysis that computes the coherence value between two inputs. It is obtained from the magnitude of the complex-valued cross power spectral density obtained for the two inputs normalized by their power spectral density (i.e., auto spectral density). Several frequency decomposition approaches can be used to obtain the cross and auto power spectral densities from the inputs. The computation can return the magnitude coherence (i.e., by taking the absolute value of the cross power spectral density and normalizing by the square root of the product of the two auto spectral densities) or the magnitude squared coherence (i.e., by computing the squared magnitude of the cross power spectral density and normalizing by the product of the two auto spectral densities)."@en ;
                   skos:prefLabel "compute coherence"@en .
 
 
@@ -825,15 +825,15 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 ###  http://purl.org/neao/steps#ComputeConfidenceIntervalBootstrap
 :ComputeConfidenceIntervalBootstrap rdf:type owl:Class ;
                                     rdfs:subClassOf :ConfidenceIntervalResamplingAnalysis ;
-                                    rdfs:comment "A confidence interval resampling analysis that computes the confidence interval using bootstraping techniques to create many simulated samples (bootstrap samples). It involves repeatedly sampling, with replacement, from the input (observed) data. The total number of bootstrap samples is defined as a parameter. Bootstrapping makes minimal assumptions about the underlying distribution of the data, making it especially useful for small samples or when the data do not meet the assumptions of traditional parametric (non-resampling) methods."@en ;
+                                    rdfs:comment "A confidence interval resampling analysis that computes the confidence interval using bootstrapping techniques to create many simulated samples (bootstrap samples). It involves repeatedly sampling, with replacement, from the input (observed) data. The total number of bootstrap samples is defined as a parameter. Bootstrapping makes minimal assumptions about the underlying distribution of the data, making it especially useful for small samples or when the data do not meet the assumptions of traditional parametric (non-resampling) methods."@en ;
                                     skos:prefLabel "compute confidence interval (bootstrap resampling)"@en .
 
 
-###  http://purl.org/neao/steps#ComputeConfidenceIntervalJacknife
-:ComputeConfidenceIntervalJacknife rdf:type owl:Class ;
-                                   rdfs:subClassOf :ConfidenceIntervalResamplingAnalysis ;
-                                   rdfs:comment "A confidence interval resampling analysis that computes the confidence interval using jacknife techniques. It involves systematically leaving out one observation at a time from the input (sample) set and calculating the statistic of interest on each of these \"leave-one-out\" samples. The confidence interval is computed based on statistics obtained from those jacknife samples. Jacknife is useful for small samples or when the data do not meet the assumptions of traditional parametric (non-resampling) methods."@en ;
-                                   skos:prefLabel "compute confidence interval (jacknife resampling)"@en .
+###  http://purl.org/neao/steps#ComputeConfidenceIntervalJackknife
+:ComputeConfidenceIntervalJackknife rdf:type owl:Class ;
+                                    rdfs:subClassOf :ConfidenceIntervalResamplingAnalysis ;
+                                    rdfs:comment "A confidence interval resampling analysis that computes the confidence interval using jackknife techniques. It involves systematically leaving out one observation at a time from the input (sample) set and calculating the statistic of interest on each of these \"leave-one-out\" samples. The confidence interval is computed based on statistics obtained from those jackknife samples. Jackknife is useful for small samples or when the data do not meet the assumptions of traditional parametric (non-resampling) methods."@en ;
+                                    skos:prefLabel "compute confidence interval (jackknife resampling)"@en .
 
 
 ###  http://purl.org/neao/steps#ComputeConfidenceIntervalNonResampling
@@ -912,7 +912,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 :ComputeCrossPowerSpectralDensityPeriodogram rdf:type owl:Class ;
                                              rdfs:subClassOf :CrossPowerSpectralDensityAnalysis ;
                                              neao_base:abbreviation "compute CPSD (periodogram method)"@en ;
-                                             rdfs:comment "A cross power spectral density (CPSD) analysis that uses the periodogram method. For the computation, the discrete Fourier transform of each input is obtained and their cross-power spectrum is obtained. A window function can be applied to the inputs before the Fourier transform, to reduce spectral leakage. The final CPSD is obtained by normalizing the cross-power spectrum to the unit frequency using the equivalent noise bandwith (a factor that depends on the coefficients of the window function and the sampling rate). If no window function is used or a window that does not attenuate the signal is used (e.g., Boxcar or rectangular window) the equivalent noise bandwith is equal to the frequency resolution."@en ;
+                                             rdfs:comment "A cross power spectral density (CPSD) analysis that uses the periodogram method. For the computation, the discrete Fourier transform of each input is obtained and their cross-power spectrum is obtained. A window function can be applied to the inputs before the Fourier transform, to reduce spectral leakage. The final CPSD is obtained by normalizing the cross-power spectrum to the unit frequency using the equivalent noise bandwidth (a factor that depends on the coefficients of the window function and the sampling rate). If no window function is used or a window that does not attenuate the signal is used (e.g., Boxcar or rectangular window) the equivalent noise bandwidth is equal to the frequency resolution."@en ;
                                              skos:altLabel "compute cross-periodogram"@en ;
                                              skos:prefLabel "compute cross power spectral density (periodogram method)"@en .
 
@@ -1113,7 +1113,7 @@ Three options for CSD estimation using the iCSD exist. The CSD is assumed to hav
 :ComputeInterspikeIntervalHistogram rdf:type owl:Class ;
                                     rdfs:subClassOf :InterspikeIntervalAnalysis ;
                                     neao_base:abbreviation "compute ISIH"@en ;
-                                    rdfs:comment "An interspike interval analysis that computes the histogram of interspike intervals. For the computaton, a time interval with fixed duration starting from zero is discretized into smaller intervals (bins). The count of input interspike intervals whose values fall into each bin is obtained. Therefore, the output contains a representation of the distribution of the interspike intervals in the input."@en ;
+                                    rdfs:comment "An interspike interval analysis that computes the histogram of interspike intervals. For the computation, a time interval with fixed duration starting from zero is discretized into smaller intervals (bins). The count of input interspike intervals whose values fall into each bin is obtained. Therefore, the output contains a representation of the distribution of the interspike intervals in the input."@en ;
                                     skos:prefLabel "compute interspike interval histogram"@en .
 
 
@@ -1243,7 +1243,7 @@ The computation can produce three outputs:
 :ComputeMorletWaveletTransformTallonBaudry rdf:type owl:Class ;
                                            rdfs:subClassOf :ComputeMorletWaveletTransform ;
                                            neao_base:hasBibliographicReference neao_bib:TallonBaudry1997_722 ;
-                                           rdfs:comment "A wavelet transform analysis using the Morlet wavelet based on the methods described in Tallon-Baudry et al. (1997). The ratio of the central frequency to the spectral bandwith is 7, with central frequencies ranging from 20 to 100 Hz in 1 Hz steps. This resulted in varying time/frequency resolution across the spectrum: time resolution increases with frequency, while frequency resolution decreases."@en ;
+                                           rdfs:comment "A wavelet transform analysis using the Morlet wavelet based on the methods described in Tallon-Baudry et al. (1997). The ratio of the central frequency to the spectral bandwidth is 7, with central frequencies ranging from 20 to 100 Hz in 1 Hz steps. This resulted in varying time/frequency resolution across the spectrum: time resolution increases with frequency, while frequency resolution decreases."@en ;
                                            skos:prefLabel "compute Morlet wavelet transform (Tallon-Baudry method)"@en .
 
 
@@ -1269,7 +1269,7 @@ The computation can produce three outputs:
 :ComputeNeuronalPopulationVector rdf:type owl:Class ;
                                  rdfs:subClassOf neao_base:AnalysisStep ;
                                  neao_base:hasBibliographicReference neao_bib:Georgopoulos1983_327 ;
-                                 rdfs:comment "An analysis step that computes the neuronal population vector, used to describe the collective activity of a group of neurons. The neuronal population vector is obtained taking as inputs the multiple responses of a neuronal population in the context of distinct values of a behavioral measure (e.g., tuning curves showing the response of each individual neuron to different arm movement directions in the 2-D space). The analysis step obtains a weighted vectorial sum of the neural activites, which will result in an estimate of the behavioral measure considering the collective activity of the population (e.g., the movement direction given the neuronal activity)."@en ;
+                                 rdfs:comment "An analysis step that computes the neuronal population vector, used to describe the collective activity of a group of neurons. The neuronal population vector is obtained taking as inputs the multiple responses of a neuronal population in the context of distinct values of a behavioral measure (e.g., tuning curves showing the response of each individual neuron to different arm movement directions in the 2-D space). The analysis step obtains a weighted vectorial sum of the neural activities, which will result in an estimate of the behavioral measure considering the collective activity of the population (e.g., the movement direction given the neuronal activity)."@en ;
                                  skos:altLabel "compute population vector"@en ;
                                  skos:prefLabel "compute neuronal population vector"@en .
 
@@ -1286,7 +1286,7 @@ The computation can produce three outputs:
 ###  http://purl.org/neao/steps#ComputeNoiseCovariance
 :ComputeNoiseCovariance rdf:type owl:Class ;
                         rdfs:subClassOf :CovarianceAnalysis ;
-                        rdfs:comment "A covariance analysis that computes the noise covariance, i.e., how much two noise signals vary together. The noise data inputs can be non-subject recordings (e.g., recordings from the empty experimental room) or are obtained from periods without stimulation or meaningful experimental manipulations (e.g., pre-stimulus intervals). These reflect random variations or disturbances that are not part of the actual signal or data of interest."@en ;
+                        rdfs:comment "A covariance analysis that computes the noise covariance, i.e., how much two noise signals vary together. The noise data inputs can be non-subject recordings (e.g., recordings from the empty experimental room) or are obtained from periods without stimulation or meaningful experimental manipulations (e.g., prestimulus intervals). These reflect random variations or disturbances that are not part of the actual signal or data of interest."@en ;
                         skos:prefLabel "compute noise covariance"@en .
 
 
@@ -1302,7 +1302,7 @@ The computation can produce three outputs:
 :ComputeOptimalKernelBandwidth rdf:type owl:Class ;
                                rdfs:subClassOf neao_base:AnalysisStep ;
                                neao_base:hasBibliographicReference neao_bib:Shimazaki2010_171 ;
-                               rdfs:comment "An analysis step that computes the optimal fixed bandwith (width) for a Gaussian kernel used for the estimation of the firing rate using kernel density estimation. The analysis step uses the input spike train for which the firing rate will be computed, and follows the implementation by Shimazaki & Shinomoto (2010)."@en ;
+                               rdfs:comment "An analysis step that computes the optimal fixed bandwidth (width) for a Gaussian kernel used for the estimation of the firing rate using kernel density estimation. The analysis step uses the input spike train for which the firing rate will be computed, and follows the implementation by Shimazaki & Shinomoto (2010)."@en ;
                                skos:prefLabel "compute optimal kernel bandwidth"@en .
 
 
@@ -1436,7 +1436,7 @@ The computation can produce three outputs:
 :ComputePowerSpectralDensityPeriodogram rdf:type owl:Class ;
                                         rdfs:subClassOf :PowerSpectralDensityAnalysis ;
                                         neao_base:abbreviation "compute PSD (periodogram method)"@en ;
-                                        rdfs:comment "A power spectral density (PSD) analysis that uses the periodogram method. For the computation, the discrete Fourier transform is applied to the full length of the input, and the power spectrum is obtained. To reduce spectral leakage, a window function can be applied to the input before the computation of the Fourier transform (this is referred as the modified periodogram). The power spectrum is then normalized to the unit frequency, using the equivalent noise bandwith (a factor that depends on the coefficients of the window function and the sampling rate). If no window function is used or a window that does not attenuate the signal is used (e.g., Boxcar or rectangular window) the equivalent noise bandwith is equal to the frequency resolution. The PSD using the periodogram is computationally simple to obtain."@en ;
+                                        rdfs:comment "A power spectral density (PSD) analysis that uses the periodogram method. For the computation, the discrete Fourier transform is applied to the full length of the input, and the power spectrum is obtained. To reduce spectral leakage, a window function can be applied to the input before the computation of the Fourier transform (this is referred as the modified periodogram). The power spectrum is then normalized to the unit frequency, using the equivalent noise bandwidth (a factor that depends on the coefficients of the window function and the sampling rate). If no window function is used or a window that does not attenuate the signal is used (e.g., Boxcar or rectangular window) the equivalent noise bandwidth is equal to the frequency resolution. The PSD using the periodogram is computationally simple to obtain."@en ;
                                         skos:altLabel "compute FFT power spectral density"@en ,
                                                       "compute periodogram"@en ;
                                         skos:prefLabel "compute power spectral density (periodogram method)"@en .
@@ -1658,7 +1658,7 @@ The computation can produce three outputs:
 ###  http://purl.org/neao/steps#ComputeSpikeWaveformAverage
 :ComputeSpikeWaveformAverage rdf:type owl:Class ;
                              rdfs:subClassOf :SpikeWaveformAnalysis ;
-                             rdfs:comment "A spike waverform analysis that computes the average across two or more spike waveform inputs. For the computation, the mean value across all inputs is obtained for each time point in the spike waveform. This is frequently used to reduce noise across multiple spike waveform samples of a single neuron."@en ;
+                             rdfs:comment "A spike waveform analysis that computes the average across two or more spike waveform inputs. For the computation, the mean value across all inputs is obtained for each time point in the spike waveform. This is frequently used to reduce noise across multiple spike waveform samples of a single neuron."@en ;
                              skos:prefLabel "compute spike waveform average"@en .
 
 
@@ -1667,21 +1667,21 @@ The computation can produce three outputs:
                          rdfs:subClassOf :SpikeWaveformAnalysis ;
                          neao_base:abbreviation "compute spike waveform SNR"@en ;
                          neao_base:hasBibliographicReference neao_bib:Hatsopoulos2007_5105 ;
-                         rdfs:comment "A spike waverform analysis that computes the signal-to-noise ratio (SNR) for a set of input spike waveforms according to Hatsopoulos (2007). The SNR is defined as the difference in mean peak-to-trough voltage divided by twice the mean standard deviation (SD).The mean SD is obtained by averaging the SDs computed for each time point in the spike waveform."@en ;
+                         rdfs:comment "A spike waveform analysis that computes the signal-to-noise ratio (SNR) for a set of input spike waveforms according to Hatsopoulos (2007). The SNR is defined as the difference in mean peak-to-trough voltage divided by twice the mean standard deviation (SD).The mean SD is obtained by averaging the SDs computed for each time point in the spike waveform."@en ;
                          skos:prefLabel "compute spike waveform signal-to-noise ratio"@en .
 
 
 ###  http://purl.org/neao/steps#ComputeSpikeWaveformVariance
 :ComputeSpikeWaveformVariance rdf:type owl:Class ;
                               rdfs:subClassOf :SpikeWaveformAnalysis ;
-                              rdfs:comment "A spike waverform analysis that computes the variance across two or more spike waveform inputs. For the computation, the value of the variance across all inputs is obtained for each time point in the spike waveform."@en ;
+                              rdfs:comment "A spike waveform analysis that computes the variance across two or more spike waveform inputs. For the computation, the value of the variance across all inputs is obtained for each time point in the spike waveform."@en ;
                               skos:prefLabel "compute spike waveform variance"@en .
 
 
 ###  http://purl.org/neao/steps#ComputeSpikeWaveformWidth
 :ComputeSpikeWaveformWidth rdf:type owl:Class ;
                            rdfs:subClassOf :SpikeWaveformAnalysis ;
-                           rdfs:comment "A spike waverform analysis that computes the width of a spike waveform input. The computation takes two time points of interest (e.g, the times of the peak and the trough), and the width is the difference with respect to the time points (e.g., number of time points in between or time interval)."@en ;
+                           rdfs:comment "A spike waveform analysis that computes the width of a spike waveform input. The computation takes two time points of interest (e.g, the times of the peak and the trough), and the width is the difference with respect to the time points (e.g., number of time points in between or time interval)."@en ;
                            skos:prefLabel "compute spike waveform width"@en .
 
 
@@ -1809,7 +1809,7 @@ The computation can produce three outputs:
 ###  http://purl.org/neao/steps#ConfidenceIntervalStatisticalAnalysis
 :ConfidenceIntervalStatisticalAnalysis rdf:type owl:Class ;
                                        rdfs:subClassOf :StatisticalAnalysis ;
-                                       rdfs:comment "A statistical analysis that computes a confidence interval (CI). The CI is a measure providing a range of values of a parameter, derived from the input (sample) data, that is likely to contain the true value of the parameter in the population with a specified level of confidence. The level of confidence is specifed as a parameter to the method. For example, a 95% confidence interval means that if the same population is sampled multiple times, approximately 95% of the intervals calculated from those samples will contain the true population parameter. Confidence intervals are used to estimate parameters such as the mean and are essential for making inferences about the population based on sample data. The output contains the upper and lower limits of the CI."@en ;
+                                       rdfs:comment "A statistical analysis that computes a confidence interval (CI). The CI is a measure providing a range of values of a parameter, derived from the input (sample) data, that is likely to contain the true value of the parameter in the population with a specified level of confidence. The level of confidence is specified as a parameter to the method. For example, a 95% confidence interval means that if the same population is sampled multiple times, approximately 95% of the intervals calculated from those samples will contain the true population parameter. Confidence intervals are used to estimate parameters such as the mean and are essential for making inferences about the population based on sample data. The output contains the upper and lower limits of the CI."@en ;
                                        skos:prefLabel "confidence interval statistical analysis"@en .
 
 
@@ -2001,8 +2001,8 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 1. Compute the intersection matrix (IMAT) from a set of input spike trains, using a specified bin size to discretize the data.
 2. Obtain the probability matrix (PMAT).
 3. Obtain the joint probability matrix (JMAT).
-4. Extract significant entries in both PMAT and JMAT using specified thresholds, obtaining the mask matix (MMAT).
-5. Obtain the cluster matrix (CMAT) by using DBSCAN to cluster the significant entries in the MMAT to find the each diagonal structure. Parameters for DBSCAN control the clustering result. A modified distance metric is used.
+4. Extract significant entries in both PMAT and JMAT using specified thresholds, obtaining the mask matrix (MMAT).
+5. Obtain the cluster matrix (CMAT) by using DBSCAN to cluster the significant entries in the MMAT to find each diagonal structure. Parameters for DBSCAN control the clustering result. A modified distance metric is used.
 6. From the identified clusters (each a single diagonal structure in the IMAT), obtain the neuronal composition and the order of activation, producing the final neuronal activity patterns as output."""@en ;
                       skos:prefLabel "execute ASSET analysis"@en .
 
@@ -2012,7 +2012,7 @@ The ASSET analysis provides a robust statistical test to automatically identify 
                                       rdfs:subClassOf :NeuronalActivityPatternDetectionAnalysis ;
                                       neao_base:abbreviation "execute CAD analysis"@en ;
                                       neao_base:hasBibliographicReference neao_bib:Russo2017_e19428 ;
-                                      rdfs:comment "A neuronal activity pattern detection analysis that uses the Cell Assembly Detection (CAD) method as defined in Russo & Durstewitz (2017). CAD allows detecting spatio-temporal spike patterns at different time scales, levels of precision, and with arbitrary internal organization. The analysis identifies patterns with different delays between the spikes (within a window determining the minimum and maximum lags), and is performed in two steps using an agglomerative clustering algorithm. First, significant pairwise correlations are identified, which is followed by the clustering procedure that progressively finds interactions of higher order. At each agglomeration step, the method can filter out patterns involving the same neurons, keeping the most significant pattern (significance pruning). In an additional pruning step, assemblies part of a larger assembly can also be eliminated (controled by the subgroup pruning parameter). The algorithm stops when the detected assemblies reach their maximum size (determined by a parameter). The statistical test assumes independence under non-stationarity and Poisson distribution of the input spike trains."@en ;
+                                      rdfs:comment "A neuronal activity pattern detection analysis that uses the Cell Assembly Detection (CAD) method as defined in Russo & Durstewitz (2017). CAD allows detecting spatio-temporal spike patterns at different time scales, levels of precision, and with arbitrary internal organization. The analysis identifies patterns with different delays between the spikes (within a window determining the minimum and maximum lags), and is performed in two steps using an agglomerative clustering algorithm. First, significant pairwise correlations are identified, which is followed by the clustering procedure that progressively finds interactions of higher order. At each agglomeration step, the method can filter out patterns involving the same neurons, keeping the most significant pattern (significance pruning). In an additional pruning step, assemblies part of a larger assembly can also be eliminated (controlled by the subgroup pruning parameter). The algorithm stops when the detected assemblies reach their maximum size (determined by a parameter). The statistical test assumes independence under non-stationarity and Poisson distribution of the input spike trains."@en ;
                                       skos:prefLabel "execute Cell Assembly Detection analysis"@en .
 
 
@@ -2032,7 +2032,7 @@ The ASSET analysis provides a robust statistical test to automatically identify 
                                                                            neao_bib:Gruen2002_43 ,
                                                                            neao_bib:Gruen2002_81 ,
                                                                            neao_bib:Gruen2003_335 ;
-                                       rdfs:comment "A unitary event (UE) analysis that uses the analytical approach to determine the significance of the empirical coincidences in binned spike train data, as defined in Grün et al. (1999, 2002a, 2002b, and 2003). The analytical method tests if the number of empirical coincidences is consistent with the coincidence distribution resulting from independent processes. This distribution can be expressed analytically asssuming that the input spike trains follow Poisson statistics. The UEs can be determined trial by trial, where the analytical expectancy is computed for each trial and then summed over all trials, or by averaging over all trials (according to Grün, 2003)."@en ;
+                                       rdfs:comment "A unitary event (UE) analysis that uses the analytical approach to determine the significance of the empirical coincidences in binned spike train data, as defined in Grün et al. (1999, 2002a, 2002b, and 2003). The analytical method tests if the number of empirical coincidences is consistent with the coincidence distribution resulting from independent processes. This distribution can be expressed analytically assuming that the input spike trains follow Poisson statistics. The UEs can be determined trial by trial, where the analytical expectancy is computed for each trial and then summed over all trials, or by averaging over all trials (according to Grün, 2003)."@en ;
                                        skos:prefLabel "execute Unitary Event analysis (analytical method)"@en .
 
 
@@ -2129,7 +2129,7 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 :GenerateCompoundPoissonProcess rdf:type owl:Class ;
                                 rdfs:subClassOf :CorrelatedSpikeTimesGeneration ;
                                 dcterms:bibliographicCitation neao_bib:Staude2010_327 ;
-                                rdfs:comment "A correlated spike times generation that produces spike trains using a compound Poisson process (CPP) according to Staude et al. (2010). The CPP is a model for parallel and correlated processes with Poisson spiking statistics at pre-defined firing rates."@en ;
+                                rdfs:comment "A correlated spike times generation that produces spike trains using a compound Poisson process (CPP) according to Staude et al. (2010). The CPP is a model for parallel and correlated processes with Poisson spiking statistics at predefined firing rates."@en ;
                                 skos:altLabel "generate CPP"@en ;
                                 skos:prefLabel "generate compound Poisson process"@en .
 
@@ -2156,7 +2156,7 @@ The ASSET analysis provides a robust statistical test to automatically identify 
                                     rdfs:subClassOf :SpikeTrainSurrogateGeneration ;
                                     neao_base:abbreviation "generate JISI-D surrogate"@en ;
                                     neao_base:hasBibliographicReference neao_bib:Louis2010_127 ;
-                                    rdfs:comment "A spike train surrogate generation step where spikes from adjacent interspike intervals (ISIs) are dithered according to the joint-ISI (JISI)probability distribution. The distribution is obtained from the input spike train by computing the JISI histogram (i.e., a two-dimensional histogram that shows the frequency of ISIs with a given duration that are immediately followed by intervals with another duration). Due to non-stationarities in the input spike train and/or its limited duration, it is difficult to accurately estimate the underlying JISI probability distribution. Therefore, a 2D-Gaussian smoothing is applied to the JISI histogram (with a variance determined by parameter). Dithering a spike according to this (smoothed) two-dimensional histogram involves moving the spike along the anti-diagonal of the JISI distribution. The dithering time is defined by a parameter."@en ;
+                                    rdfs:comment "A spike train surrogate generation step where spikes from adjacent interspike intervals (ISIs) are dithered according to the joint-ISI (JISI) probability distribution. The distribution is obtained from the input spike train by computing the JISI histogram (i.e., a two-dimensional histogram that shows the frequency of ISIs with a given duration that are immediately followed by intervals with another duration). Due to non-stationarities in the input spike train and/or its limited duration, it is difficult to accurately estimate the underlying JISI probability distribution. Therefore, a 2D-Gaussian smoothing is applied to the JISI histogram (with a variance determined by parameter). Dithering a spike according to this (smoothed) two-dimensional histogram involves moving the spike along the anti-diagonal of the JISI distribution. The dithering time is defined by a parameter."@en ;
                                     skos:prefLabel "generate joint interspike interval dithering surrogate"@en .
 
 
@@ -2338,7 +2338,7 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 ###  http://purl.org/neao/steps#KernelSmoothing
 :KernelSmoothing rdf:type owl:Class ;
                  rdfs:subClassOf :DataSmoothing ;
-                 rdfs:comment "A data smoothing that performs a convolution of the input data with a kernel function. This computes a weighted average of the data around the kernel. Several kernel types can be used for the smoothing (e.g., Gaussian, exponential) and the kernel shape is controled by a width parameter."@en ;
+                 rdfs:comment "A data smoothing that performs a convolution of the input data with a kernel function. This computes a weighted average of the data around the kernel. Several kernel types can be used for the smoothing (e.g., Gaussian, exponential) and the kernel shape is controlled by a width parameter."@en ;
                  skos:prefLabel "kernel smoothing"@en .
 
 
@@ -2423,7 +2423,7 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 ###  http://purl.org/neao/steps#NeuronalFiringRegularityPurpose
 :NeuronalFiringRegularityPurpose rdf:type owl:Class ;
                                  rdfs:subClassOf :AnalysisPurpose ;
-                                 rdfs:comment "The analyis purpose of assessing the regularity in neuronal firing."@en ;
+                                 rdfs:comment "The analysis purpose of assessing the regularity in neuronal firing."@en ;
                                  skos:prefLabel "neuronal firing regularity purpose"@en .
 
 
@@ -2456,7 +2456,7 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 :PeristimulusTimeHistogramAnalysis rdf:type owl:Class ;
                                    rdfs:subClassOf :SpikeTrainTimeHistogramAnalysis ;
                                    neao_base:abbreviation "PSTH analysis"@en ;
-                                   rdfs:comment "A spike train time histogram analysis that computes the peristimulus time histogram (PSTH). PSTH is the time histogram of two or more spike trains containing repeated recordings of a single neuron around the time when an event of interest occurred. The event of interest can occur at any time point during the duration of the source spike trains. The distribution of the histogram corresponds to the distribution of the activity of the neuron with respect to the event accross the repeated recordings. The event of interest can be an externally presented stimulus or a spontaneously behavioral event. If the histogram represents the neuronal activity after the stimulus presentation or event occurrence, this can be referred as post-stimulus time histogram. Conversely, if the histogram shows the activity of the neuron before the stimulus presentation or event, this can be referred as prestimulus time histogram. Finally, if the histogram considers a behavioral event (or an event that is not an externally presented stimulus), the histogram can be referred to as perievent time histogram (PETH)."@en ;
+                                   rdfs:comment "A spike train time histogram analysis that computes the peristimulus time histogram (PSTH). PSTH is the time histogram of two or more spike trains containing repeated recordings of a single neuron around the time when an event of interest occurred. The event of interest can occur at any time point during the duration of the source spike trains. The distribution of the histogram corresponds to the distribution of the activity of the neuron with respect to the event across the repeated recordings. The event of interest can be an externally presented stimulus or a spontaneous behavioral event. If the histogram represents the neuronal activity after the stimulus presentation or event occurrence, this can be referred as post-stimulus time histogram. Conversely, if the histogram shows the activity of the neuron before the stimulus presentation or event, this can be referred as prestimulus time histogram. Finally, if the histogram considers a behavioral event (or an event that is not an externally presented stimulus), the histogram can be referred to as perievent time histogram (PETH)."@en ;
                                    skos:prefLabel "peristimulus time histogram analysis"@en .
 
 
@@ -2531,9 +2531,9 @@ The SPADE method consists of three substeps:
 
 1. Detect all putative patterns in the input data using the frequent item set mining (FIM) algorithm. This step requires the discretization of the input spike train data (binning). The bin size determines the temporal resolution of the analysis.
 
-2. The detected FIM patterns are evaluated for statistical significance, considering the null hypothesis of independence of the spike trains given the modulations by the firing rate. This substep is called Pattern Spectrum Filtering (PSF). For the testing, the patterns are pooled based on their signature: size and occurrence count (non-3d-SPADE) or size, occurence count and pattern duration (3d-SPADE). The pattern spectrum collects the counts of patterns from each signature. The statistical test is done by a Monte Carlo approach, using spike train surrogates generated from the original data. The final output of this substep is the p-value spectrum, which has the same dimensions as the pattern spectrum. The p-value is computed as the ratio of surrogates containing patterns with that signature to the total number of realizations.
+2. The detected FIM patterns are evaluated for statistical significance, considering the null hypothesis of independence of the spike trains given the modulations by the firing rate. This substep is called Pattern Spectrum Filtering (PSF). For the testing, the patterns are pooled based on their signature: size and occurrence count (non-3d-SPADE) or size, occurrence count and pattern duration (3d-SPADE). The pattern spectrum collects the counts of patterns from each signature. The statistical test is done by a Monte Carlo approach, using spike train surrogates generated from the original data. The final output of this substep is the p-value spectrum, which has the same dimensions as the pattern spectrum. The p-value is computed as the ratio of surrogates containing patterns with that signature to the total number of realizations.
 
-3. Conditional test on the signficant patterns to remove patterns arising from the overlap of true pattern spikes and chance spikes (pattern set reduction; PSR)."""@en ;
+3. Conditional test on the significant patterns to remove patterns arising from the overlap of true pattern spikes and chance spikes (pattern set reduction; PSR)."""@en ;
                skos:prefLabel "SPADE analysis"@en .
 
 
@@ -2766,7 +2766,7 @@ The histogram can show one of three different measures:
 ###  http://purl.org/neao/steps#TriggeredAverageAnalysis
 :TriggeredAverageAnalysis rdf:type owl:Class ;
                           rdfs:subClassOf neao_base:AnalysisStep ;
-                          rdfs:comment "An analysis step where a signal is averaged to obtain a value around a point in time representing an event of interest (i.e., a trigger). For each trigger time, a finite duration window of the input time series is selected around the trigger time. An average for each time point is then obtaind across all windows."@en ;
+                          rdfs:comment "An analysis step where a signal is averaged to obtain a value around a point in time representing an event of interest (i.e., a trigger). For each trigger time, a finite duration window of the input time series is selected around the trigger time. An average for each time point is then obtained across all windows."@en ;
                           skos:prefLabel "triggered average analysis"@en .
 
 
