@@ -276,6 +276,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 ###  http://purl.org/neao/steps#ApplyDownsampling
 :ApplyDownsampling rdf:type owl:Class ;
                    rdfs:subClassOf :Resampling ;
+                   owl:disjointWith :ApplyUpsampling ;
                    rdfs:comment "A resampling that reduces the number of samples in the input data (i.e., reduces the sampling frequency). This is often accomplished after applying an anti-aliasing filter (i.e., to remove frequencies above half the value of the new sampling frequency)."@en ;
                    skos:altLabel "apply decimation"@en ,
                                  "apply downscaling"@en ;
@@ -404,7 +405,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
                                                     rdfs:subClassOf :DimensionalityReduction ,
                                                                     [ rdf:type owl:Restriction ;
                                                                       owl:onProperty :hasPurpose ;
-                                                                      owl:someValuesFrom :LatentDynamicsPurpose
+                                                                      owl:hasValue :LatentDynamicsPurpose
                                                                     ] ;
                                                     neao_base:abbreviation "apply GPFA"@en ;
                                                     neao_base:hasBibliographicReference neao_bib:Yu2009_614 ;
@@ -608,7 +609,11 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 
 ###  http://purl.org/neao/steps#AutocorrelationAnalysis
 :AutocorrelationAnalysis rdf:type owl:Class ;
-                         rdfs:subClassOf neao_base:AnalysisStep ;
+                         rdfs:subClassOf neao_base:AnalysisStep ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :isTimeDomain ;
+                                           owl:hasValue "true"^^xsd:boolean
+                                         ] ;
                          rdfs:comment "An analysis step used to compute a measure of autocorrelation, i.e., the correlation of the input with displaced (lagged or advanced) versions of itself. The computation produces the autocorrelation value for every lag considered."@en ;
                          skos:prefLabel "autocorrelation analysis"@en .
 
@@ -637,8 +642,24 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 :CoherenceAnalysis rdf:type owl:Class ;
                    rdfs:subClassOf :SpectralAnalysis ,
                                    [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasPurpose ;
+                                     owl:hasValue :FunctionalConnectivityPurpose
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isBivariate ;
+                                     owl:hasValue "true"^^xsd:boolean
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
                                      owl:onProperty :isDirected ;
                                      owl:hasValue "false"^^xsd:boolean
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isFrequencyDomain ;
+                                     owl:hasValue "true"^^xsd:boolean
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isModelBased ;
+                                     owl:hasValue "true"^^xsd:boolean
                                    ] ;
                    rdfs:comment "A spectral analysis that computes a measure of coherence between two or more inputs. Coherence is a real measure that describes the linear association of the distinct inputs (e.g., two time series) in different frequency bands. It corresponds to the absolute value of the coherency."@en ;
                    skos:prefLabel "coherence analysis"@en .
@@ -646,7 +667,27 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 
 ###  http://purl.org/neao/steps#CoherencyAnalysis
 :CoherencyAnalysis rdf:type owl:Class ;
-                   rdfs:subClassOf :SpectralAnalysis ;
+                   rdfs:subClassOf :SpectralAnalysis ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasPurpose ;
+                                     owl:hasValue :FunctionalConnectivityPurpose
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isBivariate ;
+                                     owl:hasValue "true"^^xsd:boolean
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isDirected ;
+                                     owl:hasValue "false"^^xsd:boolean
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isFrequencyDomain ;
+                                     owl:hasValue "true"^^xsd:boolean
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isModelBased ;
+                                     owl:hasValue "true"^^xsd:boolean
+                                   ] ;
                    rdfs:comment "A spectral analysis that computes a measure of coherency between two inputs. Coherency is a complex-valued measure that describes the linear association of the distinct inputs (e.g., two time series) in different frequency bands."@en ;
                    skos:prefLabel "coherency analysis"@en .
 
@@ -697,6 +738,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 ###  http://purl.org/neao/steps#ComputeASSETProbabilityMatrixAnalytical
 :ComputeASSETProbabilityMatrixAnalytical rdf:type owl:Class ;
                                          rdfs:subClassOf :ASSETAnalysisProbabilityMatrixSubstep ;
+                                         owl:disjointWith :ComputeASSETProbabilityMatrixMonteCarlo ;
                                          neao_base:hasBibliographicReference neao_bib:Torre2016_e1004939 ;
                                          rdfs:comment "ASSET analysis probability matrix substep that computes the probability matrix (PMAT) using the assumption that the input spike trains are independent and Poisson. The computation can take as input the firing rate profiles of the spike trains used for the intersection matrix (IMAT), or those will be automatically computed using convolution with a boxcar kernel of specified width. The probability distribution of the value in the intersection matrix (IMAT) is approximated by a Poisson distribution computed using LeCam's approximation. The output is a matrix with the cumulative probabilities representing the probability of having each overlap in the IMAT strictly lower than the observed overlap, under the null hypothesis of independence of the input spike trains."@en ;
                                          skos:prefLabel "compute ASSET probability matrix (analytical method)"@en .
@@ -720,7 +762,11 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 
 ###  http://purl.org/neao/steps#ComputeAngularMeanSpikePhases
 :ComputeAngularMeanSpikePhases rdf:type owl:Class ;
-                               rdfs:subClassOf :PhaseAnalysis ;
+                               rdfs:subClassOf :PhaseAnalysis ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasPurpose ;
+                                                 owl:hasValue :SpikeFieldCouplingPurpose
+                                               ] ;
                                neao_base:hasBibliographicReference neao_bib:Vinck2012_53 ;
                                rdfs:comment "A phase analysis that computes the angle obtained from averaging the phases of an input signal at the time points where spikes occurred. For the computation, the phases are represented as vectors in the unit circle, the mean phase vector is computed, and the angle is extracted."@en ;
                                skos:prefLabel "compute angular mean of spike phases"@en .
@@ -825,6 +871,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 ###  http://purl.org/neao/steps#ComputeConfidenceIntervalBootstrap
 :ComputeConfidenceIntervalBootstrap rdf:type owl:Class ;
                                     rdfs:subClassOf :ConfidenceIntervalResamplingAnalysis ;
+                                    owl:disjointWith :ComputeConfidenceIntervalJackknife ;
                                     rdfs:comment "A confidence interval resampling analysis that computes the confidence interval using bootstrapping techniques to create many simulated samples (bootstrap samples). It involves repeatedly sampling, with replacement, from the input (observed) data. The total number of bootstrap samples is defined as a parameter. Bootstrapping makes minimal assumptions about the underlying distribution of the data, making it especially useful for small samples or when the data do not meet the assumptions of traditional parametric (non-resampling) methods."@en ;
                                     skos:prefLabel "compute confidence interval (bootstrap resampling)"@en .
 
@@ -839,6 +886,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 ###  http://purl.org/neao/steps#ComputeConfidenceIntervalNonResampling
 :ComputeConfidenceIntervalNonResampling rdf:type owl:Class ;
                                         rdfs:subClassOf :ConfidenceIntervalStatisticalAnalysis ;
+                                        owl:disjointWith :ConfidenceIntervalResamplingAnalysis ;
                                         rdfs:comment "A confidence interval statistical analysis that computes the confidence interval assuming a statistical distribution of the input data, and uses measures of central tendency and dispersion obtained from the data points in the input(s) (e.g., mean and standard error of the mean when assuming a normal distribution). The computation relies on theoretical distributions and established statistical formulas."@en ;
                                         skos:prefLabel "compute confidence interval (non-resampling)"@en .
 
@@ -846,6 +894,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 ###  http://purl.org/neao/steps#ComputeContinuousWaveletTransform
 :ComputeContinuousWaveletTransform rdf:type owl:Class ;
                                    rdfs:subClassOf :WaveletTransformAnalysis ;
+                                   owl:disjointWith :ComputeMorletWaveletTransform ;
                                    neao_base:abbreviation "compute CWT"@en ;
                                    rdfs:comment "A wavelet transform analysis that convolves the input time series with scaled and translated versions of the mother wavelet. The scale parameter can be non-dyadic (i.e., can take values that are not powers of 2). The mother wavelet used is passed as a parameter, and several types can be used (e.g., Morlet, Mexican hat, Hermitian, Meyer, Poisson). The continuous wavelet transform (CWT) is ideal for analyzing non-stationary signals, with transient behavior, rapidly changing frequencies or slowly varying changes. It is comparable to the short-time Fourier transform (STFT)."@en ;
                                    skos:prefLabel "compute continuous wavelet transform"@en .
@@ -862,7 +911,19 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 
 ###  http://purl.org/neao/steps#ComputeCovariance
 :ComputeCovariance rdf:type owl:Class ;
-                   rdfs:subClassOf :CovarianceAnalysis ;
+                   rdfs:subClassOf :CovarianceAnalysis ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isBivariate ;
+                                     owl:hasValue "true"^^xsd:boolean
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isDirected ;
+                                     owl:hasValue "false"^^xsd:boolean
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isTimeDomain ;
+                                     owl:hasValue "true"^^xsd:boolean
+                                   ] ;
                    rdfs:comment "A covariance analysis that computes the values of covariance in pairwise input data."@en ;
                    skos:prefLabel "compute covariance"@en .
 
@@ -878,6 +939,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 ###  http://purl.org/neao/steps#ComputeCrossCorrelationFunctionBiased
 :ComputeCrossCorrelationFunctionBiased rdf:type owl:Class ;
                                        rdfs:subClassOf :ComputeCrossCorrelationFunction ;
+                                       owl:disjointWith :ComputeCrossCorrelationFunctionUnbiased ;
                                        neao_base:abbreviation "compute CCF (biased)"@en ;
                                        rdfs:comment "An analysis step that computes the biased estimator for the cross-correlation function. The biased estimator produces cross-correlation values that deviate from the true cross-correlation."@en ;
                                        skos:prefLabel "compute cross-correlation function (biased)"@en .
@@ -937,7 +999,6 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 ###  http://purl.org/neao/steps#ComputeCubicAnalysis
 :ComputeCubicAnalysis rdf:type owl:Class ;
                       rdfs:subClassOf :SpikeTrainSynchronyAnalysis ;
-                      owl:disjointWith :ComputeSpikeContrast ;
                       neao_base:hasBibliographicReference neao_bib:Staude2010_327 ;
                       rdfs:comment "A spike train synchrony analysis that uses the Cumulant Based Inference of higher-order Correlation (CuBIC) test described in Staude et al. (2010). CuBIC is a statistical method to detect higher order correlations in parallel spike trains from a neuronal population (i.e., correlations among three or more neurons). It is based on the analysis of the cumulants of the population spike count. The test takes a population histogram as input data (i.e., a spike train time histogram computed across spike trains with the activity of distinct neurons). A null hypothesis that the third cumulant of the data is less than or equal to the maximized third cumulant for a correlation order is iteratively tested (with increasing orders of correlation). The output is the minimum correlation order necessary to explain the value of the third cumulant calculated from the population spike count, together with the p-values of the hypothesis tests performed."@en ;
                       skos:prefLabel "compute CuBIC analysis"@en .
@@ -980,7 +1041,11 @@ Three options for CSD estimation using the iCSD exist. The CSD is assumed to hav
 
 ###  http://purl.org/neao/steps#ComputeDebiasedSquaredWeightedPhaseLagIndex
 :ComputeDebiasedSquaredWeightedPhaseLagIndex rdf:type owl:Class ;
-                                             rdfs:subClassOf :PhaseLagIndexAnalysis ;
+                                             rdfs:subClassOf :PhaseLagIndexAnalysis ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :isDirected ;
+                                                               owl:hasValue "false"^^xsd:boolean
+                                                             ] ;
                                              neao_base:abbreviation "compute debiased squared WPLI"@en ;
                                              neao_base:hasBibliographicReference neao_bib:Vinck2011_1548 ;
                                              rdfs:comment "A phase lag index (PLI) analysis that computes the debiased squared weighted PLI (WPLI) following Vinck et al. (2011). The direct PLI estimator is positively biased, especially when the sample sizes (i.e., number of trials) are small. The debiased squared WPLI is computed by computing the imaginary components of the cross spectral densities, computing the average imaginary component of the cross spectral densities, and normalizing by the computed average over the magnitudes of the imaginary component of the cross spectral densities."@en ;
@@ -989,7 +1054,11 @@ Three options for CSD estimation using the iCSD exist. The CSD is assumed to hav
 
 ###  http://purl.org/neao/steps#ComputeDirectedPhaseLagIndex
 :ComputeDirectedPhaseLagIndex rdf:type owl:Class ;
-                              rdfs:subClassOf :PhaseLagIndexAnalysis ;
+                              rdfs:subClassOf :PhaseLagIndexAnalysis ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :isDirected ;
+                                                owl:hasValue "true"^^xsd:boolean
+                                              ] ;
                               neao_base:abbreviation "compute DPLI"@en ;
                               neao_base:hasBibliographicReference neao_bib:Stam2012_1415 ;
                               rdfs:comment "A phase lag index (PLI) analysis that computes the directed PLI (DPLI) according to Stam & van Straaten (2012). The DPLI uses the Heaviside step function on the imaginary part of the cross power spectral density, and provides the ability to discriminate whether the first time series is leading or lagging the second. The DPLI ranges between 0 and 1. A DPLI value of 0.5 means that the first time series leads and lags the second time series equally often. A DPLI value greater than 0.5 means that the first time series leads the second more often than it lags. A value of 1 means that the first time series always leads. On the contrary, a DPLI value smaller than 0.5 means that the first time series lags the second more often than it leads. A DPLI value of zero means that the first time series always lags. The PLI can be computed from the DPLI."@en ;
@@ -998,7 +1067,19 @@ Three options for CSD estimation using the iCSD exist. The CSD is assumed to hav
 
 ###  http://purl.org/neao/steps#ComputeDirectedTransferFunction
 :ComputeDirectedTransferFunction rdf:type owl:Class ;
-                                 rdfs:subClassOf :FunctionalConnectivityAnalysis ;
+                                 rdfs:subClassOf :FunctionalConnectivityAnalysis ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :isDirected ;
+                                                   owl:hasValue "true"^^xsd:boolean
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :isFrequencyDomain ;
+                                                   owl:hasValue "true"^^xsd:boolean
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :isMultivariate ;
+                                                   owl:hasValue "true"^^xsd:boolean
+                                                 ] ;
                                  neao_base:abbreviation "compute DTF"@en ;
                                  neao_base:hasBibliographicReference neao_bib:Kaminski1991_203 ;
                                  rdfs:comment "A functional connectivity analysis that computes the directed transfer function (DTF) according to Kaminski & Blinowska (1991). DTF can estimate the direction and frequency content of the brain activity flow. The DTF measure is obtained from the spectral transfer matrix computed from multivariate time series input data. For the DTF computation, the spectral transfer matrix is obtained from a multivariate autoregressive model. The DTF estimate is obtained by using a normalization factor computed by the sum along the rows of the spectral transfer matrix. The DTF can have values in the range from 0 to 1."@en ;
@@ -1022,7 +1103,12 @@ Three options for CSD estimation using the iCSD exist. The CSD is assumed to hav
 
 ###  http://purl.org/neao/steps#ComputeFrequencyDomainConditionalGrangerCausality
 :ComputeFrequencyDomainConditionalGrangerCausality rdf:type owl:Class ;
-                                                   rdfs:subClassOf :ConditionalGrangerCausalityAnalysis ;
+                                                   rdfs:subClassOf :ConditionalGrangerCausalityAnalysis ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :isFrequencyDomain ;
+                                                                     owl:hasValue "true"^^xsd:boolean
+                                                                   ] ;
+                                                   owl:disjointWith :ComputeTimeDomainConditionalGrangerCausality ;
                                                    neao_base:hasBibliographicReference neao_bib:Dhamala2008_354 ,
                                                                                        neao_bib:Ding2006_0608035 ;
                                                    rdfs:comment "A conditional Granger causality (GC) analysis that computes the GC measures in the frequency domain."@en ;
@@ -1127,7 +1213,23 @@ Three options for CSD estimation using the iCSD exist. The CSD is assumed to hav
 
 ###  http://purl.org/neao/steps#ComputeJointPeristimulusTimeHistogram
 :ComputeJointPeristimulusTimeHistogram rdf:type owl:Class ;
-                                       rdfs:subClassOf :SpikeTrainSynchronyAnalysis ;
+                                       rdfs:subClassOf :SpikeTrainSynchronyAnalysis ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasPurpose ;
+                                                         owl:hasValue :FunctionalConnectivityPurpose
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :isBivariate ;
+                                                         owl:hasValue "true"^^xsd:boolean
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :isDirected ;
+                                                         owl:hasValue "false"^^xsd:boolean
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :isTimeDomain ;
+                                                         owl:hasValue "true"^^xsd:boolean
+                                                       ] ;
                                        neao_base:abbreviation "compute JPSTH"@en ;
                                        neao_base:hasBibliographicReference neao_bib:Aertsen1987_1 ,
                                                                            neao_bib:Brown2004_456 ;
@@ -1193,6 +1295,7 @@ The computation can produce three outputs:
 ###  http://purl.org/neao/steps#ComputeMeanVectorLengthCanolty
 :ComputeMeanVectorLengthCanolty rdf:type owl:Class ;
                                 rdfs:subClassOf :MeanVectorLengthAnalysis ;
+                                owl:disjointWith :ComputeMeanVectorLengthOzkurt ;
                                 neao_base:abbreviation "compute MVL (Canolty method)"@en ;
                                 neao_base:hasBibliographicReference neao_bib:Canolty2006_1626 ;
                                 rdfs:comment "A mean vector length (MVL) analysis that computes the mean vector length as described in Canolty et al. (2006). For the computation, phase is extracted from the low-frequency analytic signal, and amplitude is extracted from the high-frequency analytic signal. The phase angle and magnitude is used to define a complex-valued time series, and each complex value is a vector in the polar plane. Averaging all vectors yields a mean vector whose length indicates the coupling strength and whose direction indicates the phase where amplitude is strongest. Without coupling, the vectors cancel out, resulting in a short mean vector without meaningful phase direction. If phase-amplitude coupling exists, the magnitude of a subset of vectors is especially high at a specific phase or narrow phase range."@en ;
@@ -1234,6 +1337,7 @@ The computation can produce three outputs:
 ###  http://purl.org/neao/steps#ComputeMorletWaveletTransformLeVanQuyen
 :ComputeMorletWaveletTransformLeVanQuyen rdf:type owl:Class ;
                                          rdfs:subClassOf :ComputeMorletWaveletTransform ;
+                                         owl:disjointWith :ComputeMorletWaveletTransformTallonBaudry ;
                                          neao_base:hasBibliographicReference neao_bib:LeVanQuyen2001_83 ;
                                          rdfs:comment "A wavelet transform analysis using the Morlet wavelet where the parametrization of the mother wavelet is done according to Le Van Quyen et al. (2001). The size of the mother wavelet is determined in number of cycles to control the frequency and temporal resolutions (approximate number of oscillation cycles within a wavelet)."@en ;
                                          skos:prefLabel "compute Morlet wavelet transform (Le Van Quyen method)"@en .
@@ -1258,7 +1362,23 @@ The computation can produce three outputs:
 
 ###  http://purl.org/neao/steps#ComputeMutualInformation
 :ComputeMutualInformation rdf:type owl:Class ;
-                          rdfs:subClassOf :FunctionalConnectivityAnalysis ;
+                          rdfs:subClassOf :FunctionalConnectivityAnalysis ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :isBivariate ;
+                                            owl:hasValue "true"^^xsd:boolean
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :isDirected ;
+                                            owl:hasValue "false"^^xsd:boolean
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :isModelBased ;
+                                            owl:hasValue "false"^^xsd:boolean
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :isTimeDomain ;
+                                            owl:hasValue "true"^^xsd:boolean
+                                          ] ;
                           neao_base:abbreviation "compute MI"@en ;
                           neao_base:hasBibliographicReference neao_bib:Cover2012 ;
                           rdfs:comment "A functional connectivity analysis that computes a mutual information (MI) measure. MI is based on Shannon information theory, and quantifies the amount of information from one input that is obtained from another input. Therefore, it can be used to determine how the neuronal activity provides information about a variable (e.g., behavioral stimulus) or how the information flows between different brain regions or neurons. The MI is measured in bits."@en ;
@@ -1285,7 +1405,19 @@ The computation can produce three outputs:
 
 ###  http://purl.org/neao/steps#ComputeNoiseCovariance
 :ComputeNoiseCovariance rdf:type owl:Class ;
-                        rdfs:subClassOf :CovarianceAnalysis ;
+                        rdfs:subClassOf :CovarianceAnalysis ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isBivariate ;
+                                          owl:hasValue "true"^^xsd:boolean
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isDirected ;
+                                          owl:hasValue "false"^^xsd:boolean
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isTimeDomain ;
+                                          owl:hasValue "true"^^xsd:boolean
+                                        ] ;
                         rdfs:comment "A covariance analysis that computes the noise covariance, i.e., how much two noise signals vary together. The noise data inputs can be non-subject recordings (e.g., recordings from the empty experimental room) or are obtained from periods without stimulation or meaningful experimental manipulations (e.g., prestimulus intervals). These reflect random variations or disturbances that are not part of the actual signal or data of interest."@en ;
                         skos:prefLabel "compute noise covariance"@en .
 
@@ -1316,7 +1448,35 @@ The computation can produce three outputs:
 
 ###  http://purl.org/neao/steps#ComputePairwisePhaseConsistency
 :ComputePairwisePhaseConsistency rdf:type owl:Class ;
-                                 rdfs:subClassOf :PhaseAnalysis ;
+                                 rdfs:subClassOf :PhaseAnalysis ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasPurpose ;
+                                                   owl:hasValue :FieldFieldCouplingPurpose
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasPurpose ;
+                                                   owl:hasValue :FunctionalConnectivityPurpose
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasPurpose ;
+                                                   owl:hasValue :SpikeFieldCouplingPurpose
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :isBivariate ;
+                                                   owl:hasValue "true"^^xsd:boolean
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :isDirected ;
+                                                   owl:hasValue "true"^^xsd:boolean
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :isFrequencyDomain ;
+                                                   owl:hasValue "true"^^xsd:boolean
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :isModelBased ;
+                                                   owl:hasValue "true"^^xsd:boolean
+                                                 ] ;
                                  neao_base:abbreviation "compute PPC"@en ;
                                  neao_base:hasBibliographicReference neao_bib:Vinck2010_112 ;
                                  rdfs:comment "A phase analysis that computes the pairwise phase consistency (PPC) measure according to Vinck et al. (2010). The PPC quantifies the distribution of phase differences across the inputs, but is less biased by the number of observations in comparison to the phase locking value (PLV). For the computation, the phase difference (angular distance) is obtained for all pairs of observations in the input (that can be represented as vectors in the unit circle, where the angle is the relative phase). The cosine of the angular distance (an estimate of the dot product of the vectors corresponding to each element in a pair) is computed for every pair, and the PPC estimate is obtained from the average of all pairwise dot products. With phase synchronization, the distribution of the pairwise dot products is centered around an average value, while without synchronization it will be distributed across the unit circle. The PPC provides an unbiased estimate of the squared PLV."@en ;
@@ -1333,7 +1493,23 @@ The computation can produce three outputs:
 
 ###  http://purl.org/neao/steps#ComputePartialDirectedCoherence
 :ComputePartialDirectedCoherence rdf:type owl:Class ;
-                                 rdfs:subClassOf :SpectralAnalysis ;
+                                 rdfs:subClassOf :SpectralAnalysis ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasPurpose ;
+                                                   owl:hasValue :FunctionalConnectivityPurpose
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :isDirected ;
+                                                   owl:hasValue "true"^^xsd:boolean
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :isFrequencyDomain ;
+                                                   owl:hasValue "true"^^xsd:boolean
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :isMultivariate ;
+                                                   owl:hasValue "true"^^xsd:boolean
+                                                 ] ;
                                  neao_base:abbreviation "compute PDC"@en ;
                                  neao_base:hasBibliographicReference neao_bib:Baccala2001_463 ;
                                  rdfs:comment "A coherence analysis that computes the partial directed coherence (PDC) according to Baccalá & Sameshima (2001). The PDC describes the relationships between multivariate time series inputs (direction of information flow). To compute the PDC, the multivariate partial coherences obtained from multivariate autoregressive models are decomposed. The PDC reflects a frequency-domain representation of the concept associated with Granger causality."@en ;
@@ -1382,7 +1558,11 @@ The computation can produce three outputs:
 
 ###  http://purl.org/neao/steps#ComputePhaseLagIndex
 :ComputePhaseLagIndex rdf:type owl:Class ;
-                      rdfs:subClassOf :PhaseLagIndexAnalysis ;
+                      rdfs:subClassOf :PhaseLagIndexAnalysis ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :isDirected ;
+                                        owl:hasValue "false"^^xsd:boolean
+                                      ] ;
                       neao_base:abbreviation "compute PLI"@en ;
                       neao_base:hasBibliographicReference neao_bib:Stam2007_1178 ;
                       rdfs:comment "A phase lag index (PLI) analysis that computes the PLI following Stam et al. (2007). The input data contains multiple repetitions of a pair of signals (e.g., time series with recordings from a pair of electrodes across multiple trials). For each repetition, the sign of the phase differences between the two time series is obtained from the imaginary part of the cross power spectral density (CPSD). The PLI value is the absolute value of the average of the signs of all repetitions. The PLI ranges between 0 and 1. A PLI of zero means that the first time series leads the second equally often (i.e., indicates either no coupling or coupling with a phase difference centered around 0 mod π, which could be from common sources such as volume conduction). A value greater than zero means an imbalance in the likelihood of the first time series to be either leading or lagging the second time series. A PLI of 1 indicates perfect phase locking, and that the first time series only leads or only lags (at a value of phase differences different from 0 mod π)."@en ;
@@ -1400,7 +1580,27 @@ The computation can produce three outputs:
 
 ###  http://purl.org/neao/steps#ComputePhaseSlopeIndex
 :ComputePhaseSlopeIndex rdf:type owl:Class ;
-                        rdfs:subClassOf :FunctionalConnectivityAnalysis ;
+                        rdfs:subClassOf :PhaseAnalysis ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasPurpose ;
+                                          owl:hasValue :FunctionalConnectivityPurpose
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isBivariate ;
+                                          owl:hasValue "true"^^xsd:boolean
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isDirected ;
+                                          owl:hasValue "true"^^xsd:boolean
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isFrequencyDomain ;
+                                          owl:hasValue "true"^^xsd:boolean
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isModelBased ;
+                                          owl:hasValue "true"^^xsd:boolean
+                                        ] ;
                         neao_base:abbreviation "compute PSI"@en ;
                         neao_base:hasBibliographicReference neao_bib:Nolte2008_234101 ;
                         rdfs:comment "A functional connectivity analysis that computes the phase slope index (PSI) according to Nolte et al. (2008). The PSI is based on the slope of the phase of the cross-spectral density between two time series inputs, considering how the phase difference between two signals changes as you move from one frequency bin to the next. It is computed from the complex-valued coherency using a bandwidth specified as parameter. For the computation, the change in phase difference between neighboring frequency bins is obtained (considering the specified bandwidth) and weighted. The PSI value deviates from zero when the phase difference changes consistently across frequencies and there is substantial coherence. The sign of the PSI indicates the temporal order of the two signals (i.e., which signal is leading the other one)."@en ;
@@ -1410,6 +1610,7 @@ The computation can produce three outputs:
 ###  http://purl.org/neao/steps#ComputePopulationHistogram
 :ComputePopulationHistogram rdf:type owl:Class ;
                             rdfs:subClassOf :SpikeTrainTimeHistogramAnalysis ;
+                            owl:disjointWith :PeristimulusTimeHistogramAnalysis ;
                             rdfs:comment "A spike train time histogram analysis that computes a histogram across two or more spike trains that contain the activity of different neurons (i.e., a  neuronal population), recorded at fully-overlapping time intervals. The activity in each histogram bin reflects the combined activity of the population at that time, and the distribution of the histogram corresponds to the population activity over time."@en ;
                             skos:prefLabel "compute population histogram"@en .
 
@@ -1579,7 +1780,11 @@ The computation can produce three outputs:
 
 ###  http://purl.org/neao/steps#ComputeSpikeTrainCrossCorrelationHistogram
 :ComputeSpikeTrainCrossCorrelationHistogram rdf:type owl:Class ;
-                                            rdfs:subClassOf :CrossCorrelationAnalysis ;
+                                            rdfs:subClassOf :CrossCorrelationAnalysis ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasPurpose ;
+                                                              owl:hasValue :SpikeSpikeCouplingPurpose
+                                                            ] ;
                                             neao_base:abbreviation "compute CCH"@en ;
                                             rdfs:comment "A cross-correlation analysis that computes the cross-correlation histogram (CCH) for a pair of input spike trains. The CCH shows how often spikes in the reference spike train occur before or after spikes in the reference spike train, at distinct lag intervals. For the computation, the spike trains are aligned in time. The histogram is obtained by sliding a time window that is discretized into smaller time intervals (bins) centered on a spike of the first (reference) input spike train (corresponding to the lag zero). The spike count of the second (target) spike train input is then obtained in each bin. Therefore, this binning process measures the number of spikes in the target spike train occurring at various time lags relative to the spikes in the reference spike train. The histogram window is slidden over each spike in the reference spike train, and the spike count in each bin is accumulated to produce the CCH output. The width of the bin interval is controlled by a parameter."@en ;
                                             skos:altLabel "compute correlogram"@en ,
@@ -1603,7 +1808,7 @@ The computation can produce three outputs:
                              rdfs:subClassOf :NeuronalFiringRegularityAnalysis ,
                                              [ rdf:type owl:Restriction ;
                                                owl:onProperty :hasPurpose ;
-                                               owl:someValuesFrom :NeuronalFiringRegularityPurpose
+                                               owl:hasValue :NeuronalFiringRegularityPurpose
                                              ] ;
                              neao_base:hasBibliographicReference neao_bib:Nawrot2008_374 ;
                              rdfs:comment "An analysis step that computes the Fano factor (FF) for a set of input spike trains. For each input spike train, the spike count is obtained. The Fano factor is defined as the ratio of the variance of the spike count to the mean spike count, across all spike trains. The Fano factor is usually computed for spike trains representing the activity of the same neuron over different trials. The value is interpreted as the higher the Fano factor value, the larger the cross-trial non-stationarity. For a stationary Poisson process, the Fano factor has value equal to 1."@en ;
@@ -1622,7 +1827,7 @@ The computation can produce three outputs:
                                 rdfs:subClassOf :SpikeTrainTimeHistogramAnalysis ,
                                                 [ rdf:type owl:Restriction ;
                                                   owl:onProperty :hasPurpose ;
-                                                  owl:someValuesFrom :InstantaneousFiringRatePurpose
+                                                  owl:hasValue :InstantaneousFiringRatePurpose
                                                 ] ;
                                 rdfs:comment "An analysis step that computes the time histogram of a spike train. If the spike count in a bin is divided by the duration of the bin, this can be used to estimate the instantaneous firing rate at the bin interval."@en ;
                                 skos:prefLabel "compute spike train time histogram"@en .
@@ -1641,7 +1846,7 @@ The computation can produce three outputs:
                                  rdfs:subClassOf :ComputeSpikeTriggeredAverage ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :hasPurpose ;
-                                                   owl:someValuesFrom :SpikeFieldCouplingPurpose
+                                                   owl:hasValue :SpikeFieldCouplingPurpose
                                                  ] ;
                                  neao_base:abbreviation "compute STA"@en ;
                                  rdfs:comment "A triggered average analysis that uses spike times as triggers to average the local field potential (LFP) signal. The LFP is the low-frequency component of the potential recorded within a specific region of the brain using extracellular electrodes. The output of the method will provide an estimation of the average LFP voltage around each spike, i.e., the spike-triggered average of the LFP signal."@en ;
@@ -1712,8 +1917,11 @@ The computation can produce three outputs:
 
 ###  http://purl.org/neao/steps#ComputeTimeDomainConditionalGrangerCausality
 :ComputeTimeDomainConditionalGrangerCausality rdf:type owl:Class ;
-                                              rdfs:subClassOf :ConditionalGrangerCausalityAnalysis ;
-                                              owl:disjointWith :ComputeTimeDomainPairwiseGrangerCausality ;
+                                              rdfs:subClassOf :ConditionalGrangerCausalityAnalysis ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :isTimeDomain ;
+                                                                owl:hasValue "true"^^xsd:boolean
+                                                              ] ;
                                               neao_base:hasBibliographicReference neao_bib:Ding2006_0608035 ;
                                               rdfs:comment "A conditional Granger causality (GC) analysis that computes the GC measures in the time domain."@en ;
                                               skos:prefLabel "compute time domain conditional Granger causality"@en .
@@ -1721,7 +1929,12 @@ The computation can produce three outputs:
 
 ###  http://purl.org/neao/steps#ComputeTimeDomainPairwiseGrangerCausality
 :ComputeTimeDomainPairwiseGrangerCausality rdf:type owl:Class ;
-                                           rdfs:subClassOf :PairwiseGrangerCausalityAnalysis ;
+                                           rdfs:subClassOf :PairwiseGrangerCausalityAnalysis ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :isTimeDomain ;
+                                                             owl:hasValue "true"^^xsd:boolean
+                                                           ] ;
+                                           owl:disjointWith :FrequencyDomainPairwiseGrangerCausalityAnalysis ;
                                            neao_base:hasBibliographicReference neao_bib:Ding2006_0608035 ;
                                            rdfs:comment "A pairwise Granger causality (GC) analysis that computes measures of GC between two inputs in the time domain. The computation involves fitting two separate autoregressive (AR) models to the input data and comparing their fit to determine if one time series can predict the other. The quality of the fit is assessed by the variance of the residuals, with GC defined as the natural logarithm of the ratio of the residual variances from the two AR models. The first AR model is univariate, predicting the future values of one time series (e.g., the first) only from its past values. The second AR model is bivariate, predicting the future values of the first time series from its past values as well as the past values of the second time series. If the bivariate model reduces the variance of the residuals (ratio greater than 1), the GC value will be positive, indicating that the second time series Granger causes the first (directional GC estimate from the second to the first). The same method is used to predict the second time series from the first, yielding the directional GC estimate from the first to the second time series. The order of the AR model is defined as parameter, and optimal values can be estimated using optimization techniques."@en ;
                                            skos:prefLabel "compute time domain pairwise Granger causality"@en .
@@ -1729,7 +1942,11 @@ The computation can produce three outputs:
 
 ###  http://purl.org/neao/steps#ComputeTransferEntropy
 :ComputeTransferEntropy rdf:type owl:Class ;
-                        rdfs:subClassOf :FunctionalConnectivityAnalysis ;
+                        rdfs:subClassOf :FunctionalConnectivityAnalysis ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isModelBased ;
+                                          owl:hasValue "false"^^xsd:boolean
+                                        ] ;
                         neao_base:abbreviation "compute TE"@en ;
                         neao_base:hasBibliographicReference neao_bib:Schreiber2000_461 ;
                         rdfs:comment "A functional connectivity analysis that computes a measure of transfer entropy (TE) between two input time series. TE measures the directional transfer of information between the time series. It extends Granger causality, and is able to detect non-linear forms of interaction."@en ;
@@ -1745,7 +1962,11 @@ The computation can produce three outputs:
 
 ###  http://purl.org/neao/steps#ComputeUnbiasedSquaredPhaseLagIndex
 :ComputeUnbiasedSquaredPhaseLagIndex rdf:type owl:Class ;
-                                     rdfs:subClassOf :PhaseLagIndexAnalysis ;
+                                     rdfs:subClassOf :PhaseLagIndexAnalysis ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :isDirected ;
+                                                       owl:hasValue "false"^^xsd:boolean
+                                                     ] ;
                                      neao_base:abbreviation "compute unbiased squared PLI"@en ;
                                      neao_base:hasBibliographicReference neao_bib:Vinck2011_1548 ;
                                      rdfs:comment "A phase lag index (PLI) analysis that computes an unbiased estimate for the squared PLI following Vinck et al. (2011). The direct PLI estimator is positively biased, especially when the sample sizes (i.e., number of trials) are small. The unbiased squared PLI is computed by averaging all pairwise products of the signs computed across the repetitions. Pairs with identical observations are excluded. The unbiased squared PLI is less affected by small-sample size biases."@en ;
@@ -1777,7 +1998,11 @@ The computation can produce three outputs:
 
 ###  http://purl.org/neao/steps#ComputeWeightedPhaseLagIndex
 :ComputeWeightedPhaseLagIndex rdf:type owl:Class ;
-                              rdfs:subClassOf :PhaseLagIndexAnalysis ;
+                              rdfs:subClassOf :PhaseLagIndexAnalysis ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :isDirected ;
+                                                owl:hasValue "false"^^xsd:boolean
+                                              ] ;
                               neao_base:abbreviation "compute WPLI"@en ;
                               neao_base:hasBibliographicReference neao_bib:Vinck2011_1548 ;
                               rdfs:comment "A phase lag index (PLI) analysis that computes the weighted PLI (WPLI) following Vinck et al. (2011). The original PLI (Stam, 2007) is discontinuous, and small perturbations can turn phase lags into leads (and vice versa). Therefore, this hinders its capacity to detect changes in phase synchronization of small magnitude. The WPLI extends the PLI to weight the contributions of the phase leads and lags by the magnitude of the imaginary component of the cross spectral density. Therefore, these increases the power to detect changes in phase synchronization. The WPLI ranges between 0 and 1. A WPLI of zero means that there is no imbalance in the first time series leading or lagging the second (i.e., the total weight of all leading relationships is equal to the total weight of lagging relationships). A value greater than zero means an imbalance in the likelihood of leading or lagging. A WPLI of 1 indicates perfect phase locking, and that the first time series only leads or only lags."@en ;
@@ -1794,7 +2019,12 @@ The computation can produce three outputs:
 
 ###  http://purl.org/neao/steps#ConditionalGrangerCausalityAnalysis
 :ConditionalGrangerCausalityAnalysis rdf:type owl:Class ;
-                                     rdfs:subClassOf :GrangerCausalityAnalysis ;
+                                     rdfs:subClassOf :GrangerCausalityAnalysis ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :isMultivariate ;
+                                                       owl:hasValue "true"^^xsd:boolean
+                                                     ] ;
+                                     owl:disjointWith :PairwiseGrangerCausalityAnalysis ;
                                      rdfs:comment "A Granger causality (GC) analysis that computes a measure of conditional GC between the inputs. The conditional GC is the causality between two inputs (e.g., two time series) while controlling for the influence of an additional input (e.g., a third time series). This allows a more complete understanding of the causal relationships in multivariate time series data."@en ;
                                      skos:prefLabel "conditional Granger causality analysis"@en .
 
@@ -1825,22 +2055,31 @@ The computation can produce three outputs:
 :CorrelationAnalysis rdf:type owl:Class ;
                      owl:equivalentClass [ rdf:type owl:Restriction ;
                                            owl:onProperty :hasPurpose ;
-                                           owl:someValuesFrom :CorrelationPurpose
+                                           owl:hasValue :CorrelationPurpose
                                          ] ;
                      rdfs:subClassOf neao_base:AnalysisStep ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty :hasPurpose ;
-                                       owl:someValuesFrom :FunctionalConnectivityPurpose
+                                       owl:hasValue :FunctionalConnectivityPurpose
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :isBivariate ;
+                                       owl:hasValue "true"^^xsd:boolean
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :isDirected ;
+                                       owl:hasValue "false"^^xsd:boolean
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :isModelBased ;
+                                       owl:hasValue "true"^^xsd:boolean
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :isTimeDomain ;
+                                       owl:hasValue "true"^^xsd:boolean
                                      ] ;
                      rdfs:comment "An analysis step that computes a measure of correlation between two inputs. Correlation is a measure that quantifies the strength to which two variables change together. It is a scaled version of the covariance, and the values are restricted to the -1 to +1 interval. Between time series, it is computed in the time domain."@en ;
                      skos:prefLabel "correlation analysis"@en .
-
-
-###  http://purl.org/neao/steps#CorrelationPurpose
-:CorrelationPurpose rdf:type owl:Class ;
-                    rdfs:subClassOf :AnalysisPurpose ;
-                    rdfs:comment "The analysis purpose of computing a correlation measure"@en ;
-                    skos:prefLabel "correlation purpose"@en .
 
 
 ###  http://purl.org/neao/steps#CovarianceAnalysis
@@ -1854,11 +2093,19 @@ The computation can produce three outputs:
 :CrossCorrelationAnalysis rdf:type owl:Class ;
                           rdfs:subClassOf neao_base:AnalysisStep ,
                                           [ rdf:type owl:Restriction ;
+                                            owl:onProperty :hasPurpose ;
+                                            owl:hasValue :FunctionalConnectivityPurpose
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
                                             owl:onProperty :isBivariate ;
                                             owl:hasValue "true"^^xsd:boolean
                                           ] ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty :isDirected ;
+                                            owl:hasValue "true"^^xsd:boolean
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :isModelBased ;
                                             owl:hasValue "true"^^xsd:boolean
                                           ] ,
                                           [ rdf:type owl:Restriction ;
@@ -1906,13 +2153,6 @@ The computation can produce three outputs:
                rdfs:subClassOf :DataTransformation ;
                rdfs:comment "A data transformation that uses statistical techniques to remove noise and fluctuations from the input data to reveal underlying trends and patterns."@en ;
                skos:prefLabel "data smoothing"@en .
-
-
-###  http://purl.org/neao/steps#DataSmoothingPurpose
-:DataSmoothingPurpose rdf:type owl:Class ;
-                      rdfs:subClassOf :AnalysisPurpose ;
-                      rdfs:comment "The analysis purpose of smoothing the data."@en ;
-                      skos:prefLabel "data smoothing purpose"@en .
 
 
 ###  http://purl.org/neao/steps#DataTransformation
@@ -1966,21 +2206,15 @@ The computation can produce three outputs:
 :DistanceAnalysis rdf:type owl:Class ;
                   owl:equivalentClass [ rdf:type owl:Restriction ;
                                         owl:onProperty :hasPurpose ;
-                                        owl:someValuesFrom :DistancePurpose
+                                        owl:hasValue :DistancePurpose
                                       ] ;
                   rdfs:subClassOf neao_base:AnalysisStep .
-
-
-###  http://purl.org/neao/steps#DistancePurpose
-:DistancePurpose rdf:type owl:Class ;
-                 rdfs:subClassOf :AnalysisPurpose ;
-                 rdfs:comment "The analysis purpose of computing a distance metric."@en ;
-                 skos:prefLabel "distance purpose"@en .
 
 
 ###  http://purl.org/neao/steps#Execute3dSPADEAnalysis
 :Execute3dSPADEAnalysis rdf:type owl:Class ;
                         rdfs:subClassOf :SPADEAnalysis ;
+                        owl:disjointWith :ExecuteNon3dSPADEAnalysis ;
                         neao_base:hasBibliographicReference neao_bib:Stella2019_104022 ;
                         rdfs:comment "A SPADE analysis that uses the 3d-SPADE implementation as defined in Stella et al. (2019). The 3d-SPADE analysis considers spatio-temporal patterns (i.e., not restricted to synchronous patterns), and the pattern signature used for statistical testing considers the size, number of occurrences and duration of a pattern."@en ;
                         skos:prefLabel "execute 3d-SPADE analysis"@en .
@@ -1992,6 +2226,10 @@ The computation can produce three outputs:
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty neao_base:hasSubstep ;
                                         owl:someValuesFrom :ASSETAnalysisSubstep
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :isDirected ;
+                                        owl:hasValue "false"^^xsd:boolean
                                       ] ;
                       neao_base:hasBibliographicReference neao_bib:Torre2016_e1004939 ;
                       rdfs:comment """A neuronal activity pattern detection analysis that uses the Analysis of Sequences of Synchronous EvenTs (ASSET) method defined in Torre et al. (2016). ASSET is an automatized test to identify the sequential activations of groups of neurons that repeat in time. The identification of the repeated sequences is possible by computing the intersection matrix. The input spike data is discretized into smaller intervals (bins), and the overlap of neuronal activity at each bin pair is obtained as a matrix. When a sequence of activations exists and repeats in time, a characteristic diagonal structure appears in the matrix.
@@ -2009,7 +2247,11 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 
 ###  http://purl.org/neao/steps#ExecuteCellAssemblyDetectionAnalysis
 :ExecuteCellAssemblyDetectionAnalysis rdf:type owl:Class ;
-                                      rdfs:subClassOf :NeuronalActivityPatternDetectionAnalysis ;
+                                      rdfs:subClassOf :NeuronalActivityPatternDetectionAnalysis ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :isDirected ;
+                                                        owl:hasValue "false"^^xsd:boolean
+                                                      ] ;
                                       neao_base:abbreviation "execute CAD analysis"@en ;
                                       neao_base:hasBibliographicReference neao_bib:Russo2017_e19428 ;
                                       rdfs:comment "A neuronal activity pattern detection analysis that uses the Cell Assembly Detection (CAD) method as defined in Russo & Durstewitz (2017). CAD allows detecting spatio-temporal spike patterns at different time scales, levels of precision, and with arbitrary internal organization. The analysis identifies patterns with different delays between the spikes (within a window determining the minimum and maximum lags), and is performed in two steps using an agglomerative clustering algorithm. First, significant pairwise correlations are identified, which is followed by the clustering procedure that progressively finds interactions of higher order. At each agglomeration step, the method can filter out patterns involving the same neurons, keeping the most significant pattern (significance pruning). In an additional pruning step, assemblies part of a larger assembly can also be eliminated (controlled by the subgroup pruning parameter). The algorithm stops when the detected assemblies reach their maximum size (determined by a parameter). The statistical test assumes independence under non-stationarity and Poisson distribution of the input spike trains."@en ;
@@ -2027,6 +2269,7 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 ###  http://purl.org/neao/steps#ExecuteUnitaryEventAnalysisAnalytical
 :ExecuteUnitaryEventAnalysisAnalytical rdf:type owl:Class ;
                                        rdfs:subClassOf :UnitaryEventAnalysis ;
+                                       owl:disjointWith :ExecuteUnitaryEventAnalysisMonteCarlo ;
                                        neao_base:abbreviation "execute UE analysis (analytical method)"@en ;
                                        neao_base:hasBibliographicReference neao_bib:Gruen1999_67 ,
                                                                            neao_bib:Gruen2002_43 ,
@@ -2049,19 +2292,12 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 :FieldFieldCouplingAnalysis rdf:type owl:Class ;
                             owl:equivalentClass [ rdf:type owl:Restriction ;
                                                   owl:onProperty :hasPurpose ;
-                                                  owl:someValuesFrom :FieldFieldCouplingPurpose
+                                                  owl:hasValue :FieldFieldCouplingPurpose
                                                 ] ;
                             rdfs:subClassOf neao_base:AnalysisStep ;
-                            owl:disjointWith :SpikeFieldCouplingAnalysis ;
+                            owl:disjointWith :SpikeSpikeCouplingAnalysis ;
                             rdfs:comment "An analysis step that computes interactions between the neural activity represented by distinct local field potential (LFP) signals (e.g., LFP obtained from different electrodes, or distinct LFP frequency bands)."@en ;
                             skos:prefLabel "field-field coupling analysis"@en .
-
-
-###  http://purl.org/neao/steps#FieldFieldCouplingPurpose
-:FieldFieldCouplingPurpose rdf:type owl:Class ;
-                           rdfs:subClassOf :AnalysisPurpose ;
-                           rdfs:comment "The analysis purpose of assessing the interactions between inputs with local field potential data."@en ;
-                           skos:prefLabel "field-field coupling purpose"@en .
 
 
 ###  http://purl.org/neao/steps#FiniteImpulseResponseFiltering
@@ -2093,7 +2329,11 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 
 ###  http://purl.org/neao/steps#FrequencyDomainPairwiseGrangerCausalityAnalysis
 :FrequencyDomainPairwiseGrangerCausalityAnalysis rdf:type owl:Class ;
-                                                 rdfs:subClassOf :PairwiseGrangerCausalityAnalysis ;
+                                                 rdfs:subClassOf :PairwiseGrangerCausalityAnalysis ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :isFrequencyDomain ;
+                                                                   owl:hasValue "true"^^xsd:boolean
+                                                                 ] ;
                                                  neao_base:hasBibliographicReference neao_bib:Geweke1982_304 ;
                                                  rdfs:comment "A pairwise Granger causality (GC) analysis that computes measures of GC between two inputs in the frequency domain. This is an extension of the GC concept in the time domain, and the measures of GC are obtained for the different frequency components of the inputs, according to Geweke (1982). The computation of the frequency-domain GC measures is based on two elements: the noise covariance matrix and the spectral transfer matrix. These can be estimated either with parametric or non-parametric methods. For the parametric estimation, an autoregressive model is fit and the Fourier transform of the autoregressive coefficients is used to obtain the spectral transfer matrix. For the non-parametric estimation, the cross-spectral density (CSD) matrix is obtained (using methods for CSD estimation such as multitapering or wavelet), and the CSD matrix is factorized to obtain the noise covariance and spectral transfer matrices."@en ;
                                                  skos:prefLabel "frequency domain pairwise granger causality analysis"@en .
@@ -2110,7 +2350,7 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 :FunctionalConnectivityAnalysis rdf:type owl:Class ;
                                 owl:equivalentClass [ rdf:type owl:Restriction ;
                                                       owl:onProperty :hasPurpose ;
-                                                      owl:someValuesFrom :FunctionalConnectivityPurpose
+                                                      owl:hasValue :FunctionalConnectivityPurpose
                                                     ] ;
                                 rdfs:subClassOf neao_base:AnalysisStep ;
                                 neao_base:abbreviation "FCA"@en ;
@@ -2118,16 +2358,10 @@ The ASSET analysis provides a robust statistical test to automatically identify 
                                 skos:prefLabel "functional connectivity analysis"@en .
 
 
-###  http://purl.org/neao/steps#FunctionalConnectivityPurpose
-:FunctionalConnectivityPurpose rdf:type owl:Class ;
-                               rdfs:subClassOf :AnalysisPurpose ;
-                               rdfs:comment "The analysis purpose of estimating functional connectivity."@en ;
-                               skos:prefLabel "functional connectivity purpose"@en .
-
-
 ###  http://purl.org/neao/steps#GenerateCompoundPoissonProcess
 :GenerateCompoundPoissonProcess rdf:type owl:Class ;
                                 rdfs:subClassOf :CorrelatedSpikeTimesGeneration ;
+                                owl:disjointWith :GenerateSingleInteractionProcess ;
                                 dcterms:bibliographicCitation neao_bib:Staude2010_327 ;
                                 rdfs:comment "A correlated spike times generation that produces spike trains using a compound Poisson process (CPP) according to Staude et al. (2010). The CPP is a model for parallel and correlated processes with Poisson spiking statistics at predefined firing rates."@en ;
                                 skos:altLabel "generate CPP"@en ;
@@ -2284,6 +2518,10 @@ The ASSET analysis provides a robust statistical test to automatically identify 
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty :isDirected ;
                                             owl:hasValue "true"^^xsd:boolean
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :isModelBased ;
+                                            owl:hasValue "true"^^xsd:boolean
                                           ] ;
                           neao_base:abbreviation "GC analysis"@en ;
                           rdfs:comment "A functional connectivity analysis that computes measures of Granger causality (GC). GC is a statistical concept where the future values of a time series are predicted based on its past values and the past values of other time series. GC quantifies bi-directional interactions between the inputs, determining the directional influence from one input to another. For example, with two inputs, GC measures how much the first input influences the second and vice versa (directional GC measure). This provides estimates of the directed connectivity between the inputs. It is also possible to compute associated measures, such as the instantaneous GC (a measure of interdependence between the inputs not accounted by their bi-directional interactions, such as shared neural input) and the total interdependence (the sum of all directional and instantaneous interactions between the inputs). The analysis can be performed in the time or frequency domains, and can take two (bivariate) or more inputs (multivariate)."@en ;
@@ -2302,18 +2540,11 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 :InstantaneousFiringRateAnalysis rdf:type owl:Class ;
                                  owl:equivalentClass [ rdf:type owl:Restriction ;
                                                        owl:onProperty :hasPurpose ;
-                                                       owl:someValuesFrom :InstantaneousFiringRatePurpose
+                                                       owl:hasValue :InstantaneousFiringRatePurpose
                                                      ] ;
                                  rdfs:subClassOf :FiringRateAnalysis ;
                                  rdfs:comment "A firing rate analysis that computes the instantaneous firing rate, which is the estimate of the firing rate at a specific point in time. The instantaneous firing rate value can be obtained by several methods."@en ;
                                  skos:prefLabel "instantaneous firing rate analysis"@en .
-
-
-###  http://purl.org/neao/steps#InstantaneousFiringRatePurpose
-:InstantaneousFiringRatePurpose rdf:type owl:Class ;
-                                rdfs:subClassOf :AnalysisPurpose ;
-                                rdfs:comment "The analysis purpose of estimating the instantaneous firing rate."@en ;
-                                skos:prefLabel "instantaneous firing rate purpose"@en .
 
 
 ###  http://purl.org/neao/steps#InterspikeIntervalAnalysis
@@ -2329,7 +2560,7 @@ The ASSET analysis provides a robust statistical test to automatically identify 
                                        rdfs:subClassOf :InterspikeIntervalAnalysis ,
                                                        [ rdf:type owl:Restriction ;
                                                          owl:onProperty :hasPurpose ;
-                                                         owl:someValuesFrom :NeuronalFiringRegularityPurpose
+                                                         owl:hasValue :NeuronalFiringRegularityPurpose
                                                        ] ;
                                        rdfs:comment "An interspike interval analysis that computes a measure describing the variability of the interspike intervals. The measure can assess how regular a neuron is firing."@en ;
                                        skos:prefLabel "interspike interval variability analysis"@en .
@@ -2346,18 +2577,11 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 :LatentDynamicsAnalysis rdf:type owl:Class ;
                         owl:equivalentClass [ rdf:type owl:Restriction ;
                                               owl:onProperty :hasPurpose ;
-                                              owl:someValuesFrom :LatentDynamicsPurpose
+                                              owl:hasValue :LatentDynamicsPurpose
                                             ] ;
                         rdfs:subClassOf neao_base:AnalysisStep ;
                         rdfs:comment "An analysis step that aims to identify underlying patterns and structures within time series or sequential data that are not directly observable. It involves modeling hidden (latent) variables that influence the observed data and their evolution over time. The analysis captures temporal dependencies and dynamics within the data, providing insights into the processes that generate the observed sequences."@en ;
                         skos:prefLabel "latent dynamics analysis"@en .
-
-
-###  http://purl.org/neao/steps#LatentDynamicsPurpose
-:LatentDynamicsPurpose rdf:type owl:Class ;
-                       rdfs:subClassOf :AnalysisPurpose ;
-                       rdfs:comment "The analysis purpose of estimating latent dynamics."@en ;
-                       skos:prefLabel "latent dynamics purpose"@en .
 
 
 ###  http://purl.org/neao/steps#LineNoiseRemoval
@@ -2378,6 +2602,10 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 
 ###  http://purl.org/neao/steps#ModelBasedAnalysis
 :ModelBasedAnalysis rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isModelBased ;
+                                          owl:hasValue "true"^^xsd:boolean
+                                        ] ;
                     rdfs:subClassOf neao_base:AnalysisStep ;
                     rdfs:comment "An analysis step that depends on assumptions on the interactions between the inputs to perform the computations. For example, the Granger causality analysis assumes linear relationships between the input signals."@en ;
                     skos:prefLabel "model-based analysis"@en .
@@ -2385,6 +2613,10 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 
 ###  http://purl.org/neao/steps#ModelFreeAnalysis
 :ModelFreeAnalysis rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty :isModelBased ;
+                                         owl:hasValue "false"^^xsd:boolean
+                                       ] ;
                    rdfs:subClassOf neao_base:AnalysisStep ;
                    rdfs:comment "An analysis step that does not depend on assumptions on the interactions between the inputs to perform the computations. For example, it can consider probability distributions obtained from the input data."@en ;
                    skos:prefLabel "model-free analysis"@en .
@@ -2403,7 +2635,11 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 
 ###  http://purl.org/neao/steps#NeuronalActivityPatternDetectionAnalysis
 :NeuronalActivityPatternDetectionAnalysis rdf:type owl:Class ;
-                                          rdfs:subClassOf neao_base:AnalysisStep ;
+                                          rdfs:subClassOf neao_base:AnalysisStep ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :isTimeDomain ;
+                                                            owl:hasValue "true"^^xsd:boolean
+                                                          ] ;
                                           rdfs:comment "An analysis step that aims to identify a neuronal activity pattern, i.e., spikes of a group of neurons that occur in a specific spatio-temporal configuration."@en ;
                                           skos:prefLabel "neuronal activity pattern detection analysis"@en .
 
@@ -2412,26 +2648,12 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 :NeuronalFiringRegularityAnalysis rdf:type owl:Class ;
                                   owl:equivalentClass [ rdf:type owl:Restriction ;
                                                         owl:onProperty :hasPurpose ;
-                                                        owl:someValuesFrom :NeuronalFiringRegularityPurpose
+                                                        owl:hasValue :NeuronalFiringRegularityPurpose
                                                       ] ;
                                   rdfs:subClassOf neao_base:AnalysisStep ;
                                   rdfs:comment "An analysis step that computes measures to assess the regularity in the firing of a neuron. Neuronal firing regularity refers to the consistency or variability in the timing of action potentials (spikes) generated by a neuron."@en ;
                                   skos:altLabel "spike time variability analysis"@en ;
                                   skos:prefLabel "neuronal firing regularity analysis"@en .
-
-
-###  http://purl.org/neao/steps#NeuronalFiringRegularityPurpose
-:NeuronalFiringRegularityPurpose rdf:type owl:Class ;
-                                 rdfs:subClassOf :AnalysisPurpose ;
-                                 rdfs:comment "The analysis purpose of assessing the regularity in neuronal firing."@en ;
-                                 skos:prefLabel "neuronal firing regularity purpose"@en .
-
-
-###  http://purl.org/neao/steps#NeuronalSynchronizationPurpose
-:NeuronalSynchronizationPurpose rdf:type owl:Class ;
-                                rdfs:subClassOf :AnalysisPurpose ;
-                                rdfs:comment "The analysis purpose of assessing neuronal synchronization."@en ;
-                                skos:prefLabel "neural synchronization purpose"@en .
 
 
 ###  http://purl.org/neao/steps#NonDirectedAnalysis
@@ -2447,7 +2669,11 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 
 ###  http://purl.org/neao/steps#PairwiseGrangerCausalityAnalysis
 :PairwiseGrangerCausalityAnalysis rdf:type owl:Class ;
-                                  rdfs:subClassOf :GrangerCausalityAnalysis ;
+                                  rdfs:subClassOf :GrangerCausalityAnalysis ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :isBivariate ;
+                                                    owl:hasValue "true"^^xsd:boolean
+                                                  ] ;
                                   rdfs:comment "A Granger causality (GC) analysis that computes a measure of GC between two inputs."@en ;
                                   skos:prefLabel "pairwise Granger causality analysis"@en .
 
@@ -2462,7 +2688,27 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 
 ###  http://purl.org/neao/steps#PhaseAmplitudeCouplingAnalysis
 :PhaseAmplitudeCouplingAnalysis rdf:type owl:Class ;
-                                rdfs:subClassOf :PhaseAnalysis ;
+                                rdfs:subClassOf :PhaseAnalysis ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :hasPurpose ;
+                                                  owl:hasValue :FieldFieldCouplingPurpose
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :hasPurpose ;
+                                                  owl:hasValue :FunctionalConnectivityPurpose
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :isBivariate ;
+                                                  owl:hasValue "true"^^xsd:boolean
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :isDirected ;
+                                                  owl:hasValue "false"^^xsd:boolean
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :isFrequencyDomain ;
+                                                  owl:hasValue "true"^^xsd:boolean
+                                                ] ;
                                 neao_base:abbreviation "PAC analysis"@en ;
                                 rdfs:comment "A phase analysis that computes measures describing how the phase of a low-frequency oscillation modulates the amplitude of a high-frequency oscillation. Phase-amplitude coupling (PAC) can be used to investigate interactions between different frequency bands in the neural activity."@en ;
                                 skos:prefLabel "phase-amplitude coupling analysis"@en .
@@ -2477,7 +2723,19 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 
 ###  http://purl.org/neao/steps#PhaseLagIndexAnalysis
 :PhaseLagIndexAnalysis rdf:type owl:Class ;
-                       rdfs:subClassOf :PhaseAnalysis ;
+                       rdfs:subClassOf :PhaseAnalysis ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasPurpose ;
+                                         owl:hasValue :FunctionalConnectivityPurpose
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :isBivariate ;
+                                         owl:hasValue "true"^^xsd:boolean
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :isFrequencyDomain ;
+                                         owl:hasValue "true"^^xsd:boolean
+                                       ] ;
                        neao_base:abbreviation "PLI analysis"@en ;
                        rdfs:comment "A phase analysis that computes the phase lag index (PLI). The PLI measures the asymmetry of the distribution of the phase differences between two input time series, i.e., if there is an imbalance in the likelihood of the first time series leading or lagging the second time series. It is designed to be invariant to common sources, such as volume conduction and/or active reference electrodes."@en ;
                        skos:prefLabel "phase lag index analysis"@en .
@@ -2485,7 +2743,27 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 
 ###  http://purl.org/neao/steps#PhaseLockingValueAnalysis
 :PhaseLockingValueAnalysis rdf:type owl:Class ;
-                           rdfs:subClassOf :PhaseAnalysis ;
+                           rdfs:subClassOf :PhaseAnalysis ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasPurpose ;
+                                             owl:hasValue :FunctionalConnectivityPurpose
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :isBivariate ;
+                                             owl:hasValue "true"^^xsd:boolean
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :isDirected ;
+                                             owl:hasValue "false"^^xsd:boolean
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :isFrequencyDomain ;
+                                             owl:hasValue "true"^^xsd:boolean
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :isModelBased ;
+                                             owl:hasValue "true"^^xsd:boolean
+                                           ] ;
                            neao_base:abbreviation "PLV analysis"@en ;
                            rdfs:comment "A phase analysis that computes the phase locking value (PLV). The PLV quantifies the consistency of the phase difference between two input time series across time (e.g., multiple experimental trials)."@en ;
                            skos:prefLabel "phase locking value analysis"@en .
@@ -2524,7 +2802,11 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 
 ###  http://purl.org/neao/steps#SPADEAnalysis
 :SPADEAnalysis rdf:type owl:Class ;
-               rdfs:subClassOf :NeuronalActivityPatternDetectionAnalysis ;
+               rdfs:subClassOf :NeuronalActivityPatternDetectionAnalysis ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :isDirected ;
+                                 owl:hasValue "false"^^xsd:boolean
+                               ] ;
                rdfs:comment """A neuronal activity pattern detection analysis that uses the Spatio-temporal PAttern Detection and Evaluation (SPADE) method. The SPADE analysis takes a set of parallel spike trains as input, and returns significant spatio-temporal neuronal activity (spike) patterns. 
 
 The SPADE method consists of three substeps:
@@ -2563,7 +2845,23 @@ The SPADE method consists of three substeps:
                              rdfs:subClassOf neao_base:AnalysisStep ,
                                              [ rdf:type owl:Restriction ;
                                                owl:onProperty :hasPurpose ;
-                                               owl:someValuesFrom :SpikeFieldCouplingPurpose
+                                               owl:hasValue :FunctionalConnectivityPurpose
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasPurpose ;
+                                               owl:hasValue :SpikeFieldCouplingPurpose
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :isBivariate ;
+                                               owl:hasValue "true"^^xsd:boolean
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :isDirected ;
+                                               owl:hasValue "false"^^xsd:boolean
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :isFrequencyDomain ;
+                                               owl:hasValue "true"^^xsd:boolean
                                              ] ;
                              neao_base:abbreviation "SFC analysis"@en ;
                              rdfs:comment "An analysis step that computes the spike-field coherence (SFC), which is the coherence computed between an input spike train and an input time series with the local field potential (LFP). Coherence is a measure of the association between the two inputs in the frequency domain. SFC can be used to quantify the relationship between the spiking activity of neurons and the oscillatory activity in the LFP. It represents the similarity of dynamics between the spike train and the voltage fluctuations produced by the neural activity in the local environment where the spiking activity was recorded."@en ;
@@ -2574,7 +2872,7 @@ The SPADE method consists of three substeps:
 :SpikeFieldCouplingAnalysis rdf:type owl:Class ;
                             owl:equivalentClass [ rdf:type owl:Restriction ;
                                                   owl:onProperty :hasPurpose ;
-                                                  owl:someValuesFrom :SpikeFieldCouplingPurpose
+                                                  owl:hasValue :SpikeFieldCouplingPurpose
                                                 ] ;
                             rdfs:subClassOf neao_base:AnalysisStep ;
                             owl:disjointWith :SpikeSpikeCouplingAnalysis ;
@@ -2582,30 +2880,15 @@ The SPADE method consists of three substeps:
                             skos:prefLabel "spike-field coupling analysis"@en .
 
 
-###  http://purl.org/neao/steps#SpikeFieldCouplingPurpose
-:SpikeFieldCouplingPurpose rdf:type owl:Class ;
-                           rdfs:subClassOf :AnalysisPurpose ;
-                           rdfs:comment "The analysis purpose of assessing interactions between spiking activity and the local field potential."@en ;
-                           skos:altLabel "spike-LFP coupling purpose"@en ;
-                           skos:prefLabel "spike-field coupling purpose"@en .
-
-
 ###  http://purl.org/neao/steps#SpikeSpikeCouplingAnalysis
 :SpikeSpikeCouplingAnalysis rdf:type owl:Class ;
                             owl:equivalentClass [ rdf:type owl:Restriction ;
                                                   owl:onProperty :hasPurpose ;
-                                                  owl:someValuesFrom :SpikeSpikeCouplingPurpose
+                                                  owl:hasValue :SpikeSpikeCouplingPurpose
                                                 ] ;
                             rdfs:subClassOf neao_base:AnalysisStep ;
                             rdfs:comment "An analysis step that computes interactions between the spiking activity of one or more neurons."@en ;
                             skos:prefLabel "spike-spike coupling analysis"@en .
-
-
-###  http://purl.org/neao/steps#SpikeSpikeCouplingPurpose
-:SpikeSpikeCouplingPurpose rdf:type owl:Class ;
-                           rdfs:subClassOf :AnalysisPurpose ;
-                           rdfs:comment "The analysis purpose of assessing interactions between the spiking activity of neurons."@en ;
-                           skos:prefLabel "spike-spike coupling purpose"@en .
 
 
 ###  http://purl.org/neao/steps#SpikeTrainCorrelationAnalysis
@@ -2613,7 +2896,7 @@ The SPADE method consists of three substeps:
                                rdfs:subClassOf neao_base:AnalysisStep ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty :hasPurpose ;
-                                                 owl:someValuesFrom :CorrelationPurpose
+                                                 owl:hasValue :CorrelationPurpose
                                                ] ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty :isBivariate ;
@@ -2722,7 +3005,7 @@ The histogram can show one of three different measures:
                                               rdfs:subClassOf :SpikeTrainDissimilarityAnalysis ,
                                                               [ rdf:type owl:Restriction ;
                                                                 owl:onProperty :hasPurpose ;
-                                                                owl:someValuesFrom :DistancePurpose
+                                                                owl:hasValue :DistancePurpose
                                                               ] ,
                                                               [ rdf:type owl:Restriction ;
                                                                 owl:onProperty :isBivariate ;
@@ -2745,7 +3028,7 @@ The histogram can show one of three different measures:
                                                 rdfs:subClassOf :SpikeTrainDissimilarityAnalysis ,
                                                                 [ rdf:type owl:Restriction ;
                                                                   owl:onProperty :hasPurpose ;
-                                                                  owl:someValuesFrom :DistancePurpose
+                                                                  owl:hasValue :DistancePurpose
                                                                 ] ,
                                                                 [ rdf:type owl:Restriction ;
                                                                   owl:onProperty :isBivariate ;
@@ -2772,7 +3055,11 @@ The histogram can show one of three different measures:
 
 ###  http://purl.org/neao/steps#UnitaryEventAnalysis
 :UnitaryEventAnalysis rdf:type owl:Class ;
-                      rdfs:subClassOf :NeuronalActivityPatternDetectionAnalysis ;
+                      rdfs:subClassOf :NeuronalActivityPatternDetectionAnalysis ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :isDirected ;
+                                        owl:hasValue "false"^^xsd:boolean
+                                      ] ;
                       neao_base:abbreviation "UE analysis"@en ;
                       neao_base:hasBibliographicReference neao_bib:Riehle1997_1950 ;
                       rdfs:comment "A neuronal activity pattern detection analysis that uses the Unitary Event (UE) method. UE is a statistical technique focused on identifying synchronous activity among neurons, known as unitary events (UEs), which occur more frequently than an expectation based solely on firing rates. The input can contain spike trains from one or more neurons and one or more trials. For the computation, the input spike train data is discretized into small time intervals (bins), and coincidences across the different spike trains are computed. The significance of the number of observed (empirical) coincidences is determined by comparing to an expected number given the firing rates of the neurons. To account for possible non-stationarities in the firing rates, the method uses a sliding temporal window over the data, whose width is specified as parameter. Therefore, a measure of significant spike synchrony (joint surprise) is obtained for each window. The statistical evaluation can be done using either analytical methods or Monte-Carlo testing with surrogate spike data. The output presents the significant coincidences (UE patterns) and the participant neurons."@en ;
@@ -2788,6 +3075,88 @@ The histogram can show one of three different measures:
 
 
 #################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.org/neao/steps#CorrelationPurpose
+:CorrelationPurpose rdf:type owl:NamedIndividual ,
+                             :AnalysisPurpose ;
+                    rdfs:comment "The analysis purpose of computing a correlation measure."@en ;
+                    skos:prefLabel "correlation purpose"@en .
+
+
+###  http://purl.org/neao/steps#DataSmoothingPurpose
+:DataSmoothingPurpose rdf:type owl:NamedIndividual ,
+                               :AnalysisPurpose ;
+                      rdfs:comment "The analysis purpose of smoothing the data."@en ;
+                      skos:prefLabel "data smoothing purpose"@en .
+
+
+###  http://purl.org/neao/steps#DistancePurpose
+:DistancePurpose rdf:type owl:NamedIndividual ,
+                          :AnalysisPurpose ;
+                 rdfs:comment "The analysis purpose of computing a distance metric."@en ;
+                 skos:prefLabel "distance purpose"@en .
+
+
+###  http://purl.org/neao/steps#FieldFieldCouplingPurpose
+:FieldFieldCouplingPurpose rdf:type owl:NamedIndividual ,
+                                    :AnalysisPurpose ;
+                           rdfs:comment "The analysis purpose of assessing the interactions between inputs with local field potential data."@en ;
+                           skos:prefLabel "field-field coupling purpose"@en .
+
+
+###  http://purl.org/neao/steps#FunctionalConnectivityPurpose
+:FunctionalConnectivityPurpose rdf:type owl:NamedIndividual ,
+                                        :AnalysisPurpose ;
+                               rdfs:comment "The analysis purpose of estimating functional connectivity."@en ;
+                               skos:prefLabel "functional connectivity purpose"@en .
+
+
+###  http://purl.org/neao/steps#InstantaneousFiringRatePurpose
+:InstantaneousFiringRatePurpose rdf:type owl:NamedIndividual ,
+                                         :AnalysisPurpose ;
+                                rdfs:comment "The analysis purpose of estimating the instantaneous firing rate."@en ;
+                                skos:prefLabel "instantaneous firing rate purpose"@en .
+
+
+###  http://purl.org/neao/steps#LatentDynamicsPurpose
+:LatentDynamicsPurpose rdf:type owl:NamedIndividual ,
+                                :AnalysisPurpose ;
+                       rdfs:comment "The analysis purpose of estimating latent dynamics."@en ;
+                       skos:prefLabel "latent dynamics purpose"@en .
+
+
+###  http://purl.org/neao/steps#NeuronalFiringRegularityPurpose
+:NeuronalFiringRegularityPurpose rdf:type owl:NamedIndividual ,
+                                          :AnalysisPurpose ;
+                                 rdfs:comment "The analysis purpose of assessing the regularity in neuronal firing."@en ;
+                                 skos:prefLabel "neuronal firing regularity purpose"@en .
+
+
+###  http://purl.org/neao/steps#NeuronalSynchronizationPurpose
+:NeuronalSynchronizationPurpose rdf:type owl:NamedIndividual ,
+                                         :AnalysisPurpose ;
+                                rdfs:comment "The analysis purpose of assessing neuronal synchronization."@en ;
+                                skos:prefLabel "neural synchronization purpose"@en .
+
+
+###  http://purl.org/neao/steps#SpikeFieldCouplingPurpose
+:SpikeFieldCouplingPurpose rdf:type owl:NamedIndividual ,
+                                    :AnalysisPurpose ;
+                           rdfs:comment "The analysis purpose of assessing interactions between spiking activity and the local field potential."@en ;
+                           skos:altLabel "spike-LFP coupling purpose"@en ;
+                           skos:prefLabel "spike-field coupling purpose"@en .
+
+
+###  http://purl.org/neao/steps#SpikeSpikeCouplingPurpose
+:SpikeSpikeCouplingPurpose rdf:type owl:NamedIndividual ,
+                                    :AnalysisPurpose ;
+                           rdfs:comment "The analysis purpose of assessing interactions between the spiking activity of neurons."@en ;
+                           skos:prefLabel "spike-spike coupling purpose"@en .
+
+
+#################################################################
 #    Annotations
 #################################################################
 
@@ -2799,36 +3168,44 @@ The histogram can show one of three different measures:
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :ApplyDFTNoiseRemoval
-                :ApplySpectrumInterpolationNoiseRemoval
-                :ApplyThomsonRegressionNoiseRemoval
+  owl:members ( :ApplyCanonicalPolyadicTensorDecomposition
+                :ApplyCoupledCanonicalPolyadicTensorDecomposition
+                :ApplyNonNegativeTensorComponentAnalysis
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :ApplyIndependentComponentAnalysis
-                :ApplyNeuralTrajectoryGaussianProcessFactorAnalysis
+  owl:members ( :ApplyDemixedPrincipalComponentAnalysis
+                :ApplyProbabilisticPrincipalComponentAnalysis
                 :ApplyStandardPrincipalComponentAnalysis
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :ComputeASSETClusterMatrix
-                :ComputeASSETIntersectionMatrix
-                :ComputeASSETJointProbabilityMatrix
-                :ComputeASSETMaskMatrix
-                :ComputeASSETProbabilityMatrixAnalytical
-                :ComputeASSETSequenceSynchronousEventsExtraction
+  owl:members ( :ComputeCoherenceCarter
+                :ComputeCoherenceMultitaper
+                :ComputeCoherenceRosenberg
+                :ComputeCoherenceWelch
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :ComputeCV2
-                :ComputeLV
-                :ComputeLVR
+  owl:members ( :ComputeCrossPowerSpectralDensityMorletWavelet
+                :ComputeCrossPowerSpectralDensityMultitaper
+                :ComputeCrossPowerSpectralDensityPeriodogram
+                :ComputeCrossPowerSpectralDensityWelch
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ComputeCrossSpectrogramShortTimeFourierTransform
+                :ComputeSpectrogramMorletWavelet
+                :ComputeSpectrogramMultitaper
+                :ComputeSpectrogramShortTimeFourierTransform
               )
 ] .
 
@@ -2851,26 +3228,57 @@ The histogram can show one of three different measures:
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :ComputePhaseLockingValue
-                :ComputeSpikeTriggeredPhase
-                :ComputeWeightedPhaseLagIndex
+  owl:members ( :ComputeInstantaneousFiringRateInterspikeInterval
+                :ComputeInstantaneousFiringRateKernelDensityEstimation
+                :ComputeInstantaneousFiringRateLocalRegression
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :ComputeSpectrogramMorletWavelet
-                :ComputeSpectrogramMultitaper
-                :ComputeSpectrogramShortTimeFourierTransform
+  owl:members ( :ComputePeristimulusTimeHistogramAdaptiveKernelSmoothing
+                :ComputePeristimulusTimeHistogramFixedKernelSmoothing
+                :ComputePeristimulusTimeHistogramOptimalBinSize
+                :ComputePeristimulusTimeHistogramUserSelectedBinSize
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :GenerateCompoundPoissonProcess
-                :GenerateNonStationaryGammaProcess
+  owl:members ( :ComputePowerSpectralDensityBartlett
+                :ComputePowerSpectralDensityMultitaper
+                :ComputePowerSpectralDensityPeriodogram
+                :ComputePowerSpectralDensityWelch
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ComputeSpikeFieldCoherenceFries
+                :ComputeSpikeFieldCoherenceMultitaper
+                :ComputeSpikeFieldCoherenceWelch
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :GenerateISIDitheringSurrogate
+                :GenerateISIShufflingSurrogate
+                :GenerateJointISIDitheringSurrogate
+                :GenerateSpikeTimeRandomizationSurrogate
+                :GenerateSpikeTrainDitheringSurrogate
+                :GenerateTrialShiftingSurrogate
+                :GenerateTrialShufflingSurrogate
+                :GenerateUniformSpikeDitheringSurrogate
+                :GenerateUniformSpikeDitheringSurrogateWithDeadTime
+                :GenerateWindowShufflingSurrogate
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :GenerateNonStationaryGammaProcess
                 :GenerateNonStationaryPoissonProcess
-                :GenerateSingleInteractionProcess
                 :GenerateStationaryGammaProcess
                 :GenerateStationaryInverseGaussianProcess
                 :GenerateStationaryLogNormalProcess
