@@ -76,6 +76,12 @@ skos:altLabel rdf:type owl:AnnotationProperty .
              skos:prefLabel "is detrended"@en .
 
 
+###  http://purl.org/neao/data#isDimensionalityReduction
+:isDimensionalityReduction rdf:type owl:DatatypeProperty ;
+                           rdfs:comment "Defines if the data is a result of a dimensionality reduction transformation (true)."@en ;
+                           skos:prefLabel "is dimensionality reduction"@en .
+
+
 ###  http://purl.org/neao/data#isDownsampled
 :isDownsampled rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf :isResampled ;
@@ -230,7 +236,6 @@ neao_base:Data rdf:type owl:Class .
 ###  http://purl.org/neao/data#AutocorrelationFunction
 :AutocorrelationFunction rdf:type owl:Class ;
                          rdfs:subClassOf :AutocorrelationMeasure ;
-                         owl:disjointWith :SpikeTrainAutocorrelationHistogram ;
                          neao_base:abbreviation "ACF"@en ;
                          rdfs:comment "The computed estimator of the autocorrelation function."@en ;
                          skos:prefLabel "autocorrelation function"@en .
@@ -455,6 +460,10 @@ neao_base:Data rdf:type owl:Class .
 
 ###  http://purl.org/neao/data#DimensionalityReductionOutput
 :DimensionalityReductionOutput rdf:type owl:Class ;
+                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :isDimensionalityReduction ;
+                                                     owl:hasValue "true"^^xsd:boolean
+                                                   ] ;
                                rdfs:subClassOf neao_base:Data ;
                                rdfs:comment "Data that contains an output of applying a dimensionality reduction transformation to the input data."@en ;
                                skos:prefLabel "dimensionality reduction output"@en .
@@ -509,6 +518,7 @@ neao_base:Data rdf:type owl:Class .
 :Event rdf:type owl:Class ;
        rdfs:subClassOf neao_base:Data ;
        owl:disjointWith :SpikeTrain ,
+                        :SpikeTrainSurrogate ,
                         :TimeSeries ;
        rdfs:comment "Data that contains the time(s) when an event of interest occurred (e.g., a certain behavior or stimulus in an experimental trial)."@en ;
        skos:prefLabel "event"@en .
@@ -736,7 +746,6 @@ neao_base:Data rdf:type owl:Class .
 ###  http://purl.org/neao/data#MeanVectorLength
 :MeanVectorLength rdf:type owl:Class ;
                   rdfs:subClassOf :PhaseAmplitudeCouplingMeasure ;
-                  owl:disjointWith :ModulationIndex ;
                   neao_base:abbreviation "MVL"@en ;
                   rdfs:comment "The computed mean vector length (MVL)."@en ;
                   skos:prefLabel "mean vector length"@en .
@@ -782,7 +791,11 @@ neao_base:Data rdf:type owl:Class .
 
 ###  http://purl.org/neao/data#NeuralTrajectory
 :NeuralTrajectory rdf:type owl:Class ;
-                  rdfs:subClassOf :TimeSeries ;
+                  rdfs:subClassOf :TimeSeries ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :isDimensionalityReduction ;
+                                    owl:hasValue "true"^^xsd:boolean
+                                  ] ;
                   rdfs:comment "A neural trajectory obtained by applying Gaussian process factor analysis (GPFA) to the input data containing multitrial spiking activity of a neuronal population."@en ;
                   skos:prefLabel "neural trajectory"@en .
 
@@ -1036,7 +1049,8 @@ neao_base:Data rdf:type owl:Class .
 ###  http://purl.org/neao/data#SpikeTrain
 :SpikeTrain rdf:type owl:Class ;
             rdfs:subClassOf neao_base:Data ;
-            owl:disjointWith :TimeSeries ;
+            owl:disjointWith :SpikeTrainSurrogate ,
+                             :TimeSeries ;
             rdfs:comment "Data that contains the sequence of time points when an action potential (spike) occurs. A spike train can be obtained by electrophysiological recordings from the neural tissue (i.e., the data contains the times when spikes occur naturally in response to various stimuli or during spontaneous activity) or artificially-generated using specific statistical procedures or simulations of neuronal activity."@en ;
             skos:prefLabel "spike train"@en .
 
@@ -1097,6 +1111,7 @@ neao_base:Data rdf:type owl:Class .
 ###  http://purl.org/neao/data#SpikeTrainSurrogate
 :SpikeTrainSurrogate rdf:type owl:Class ;
                      rdfs:subClassOf neao_base:Data ;
+                     owl:disjointWith :TimeSeries ;
                      rdfs:comment "Data that contains a spike train surrogate. It is generated from spike train inputs using distinct methods to alter the original spike times."@en ;
                      skos:prefLabel "spike train surrogate"@en .
 
@@ -1266,7 +1281,6 @@ neao_base:Data rdf:type owl:Class .
 ###  http://purl.org/neao/data#VanRossumDistance
 :VanRossumDistance rdf:type owl:Class ;
                    rdfs:subClassOf :SpikeTrainDistance ;
-                   owl:disjointWith :VictorPurpuraDistance ;
                    rdfs:comment "The computed van Rossum distance."@en ;
                    skos:prefLabel "van Rossum distance"@en .
 
@@ -1306,30 +1320,19 @@ neao_base:Data rdf:type owl:Class .
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :ASSETClusterMatrix
-                :ASSETIntersectionMatrix
-                :ASSETJointProbabilityMatrix
-                :ASSETMaskMatrix
-                :ASSETProbabilityMatrix
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :CanonicalCoherence
-                :Coherency
-                :ImaginaryCoherency
-                :MaximizedImaginaryCoherency
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
   owl:members ( :DebiasedSquaredWeightedPhaseLagIndex
                 :DirectedPhaseLagIndex
                 :PhaseLagIndex
                 :UnbiasedSquaredPhaseLagIndex
                 :WeightedPhaseLagIndex
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :InterquartileRange
+                :InterquartileRangeLowerLimit
+                :InterquartileRangeUpperLimit
               )
 ] .
 

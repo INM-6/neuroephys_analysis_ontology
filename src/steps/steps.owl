@@ -1440,7 +1440,7 @@ The computation can produce three outputs:
 
 ###  http://purl.org/neao/steps#ComputeOrthogonalizedPowerEnvelopeCorrelation
 :ComputeOrthogonalizedPowerEnvelopeCorrelation rdf:type owl:Class ;
-                                               rdfs:subClassOf :FunctionalConnectivityAnalysis ;
+                                               rdfs:subClassOf :CorrelationAnalysis ;
                                                neao_base:hasBibliographicReference neao_bib:Hipp2012_884 ;
                                                rdfs:comment "A functional connectivity analysis that computes the orthogonalized power envelope correlation, according to Hipp et al. (2012). This method relies on correlations between the instantaneous amplitudes of cross-region input signals (power envelopes). The instantaneous amplitudes of the two input time series are orthogonalized aiming to remove spurious correlations of signal power (e.g., due to limited spatial resolution of electrophysiological measures)."@en ;
                                                skos:prefLabel "compute orthogonalized power envelope correlation"@en .
