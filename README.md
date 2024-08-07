@@ -28,7 +28,7 @@ The ontology source code (OWL serialized as Turtle) is organized into subfolders
 - `parameters`: module to extend the **AnalysisParameter** base class, in order to define the specific parameters and their semantic groupings.
 - `bibliography`: module that defines individuals with the bibliographic references used to annotate **AnalysisStep** classes.
 
-Each folder contains the `.owl` file with the source, and a XML catalog file that is used to perform local imports correctly when loading into Protégé.
+Each folder contains the `.owl` file with the source, and a XML catalog file that is used to perform local imports correctly when loading into Protégé. A top-level OWL file `neao.owl` is contained in `\src` and imports all the submodules to produce the final NEAO OWL source. This file should be edited only for the NEAO ontology metadata.
 
 ### Documentation
 
@@ -40,11 +40,13 @@ The documentation source is found in the `/doc` folder:
   
   `apt install xml-twig-tools`
   
+  Also, as part of the documentation and release process, the code from all modules is merged into a single OWL source using [ROBOT](https://robot.obolibrary.org/). ROBOT must be installed and accessible in the shell, i.e., by runing the `robot` command ('Getting Started' instructions [here]([https://robot.obolibrary.org/](https://robot.obolibrary.org/))). The recommended path for the JAR file and shell script is `/usr/local/bin` (but you can also add the folder with ROBOT files to the `PATH`).
+  
   The complete build is done by running the `build_doc.sh` bash script. The version must be passed as a script argument:
   
   `./build_doc.sh x.x.x`
   
-  If the JAR is stored in a path other than `~/opt/widoco/widoco.jar` , it must be passed as a second argument:
+  If the WIDOCO JAR is stored in a path other than `~/opt/widoco/widoco.jar` , it must be passed as a second argument:
   
   `./build_doc.sh x.x.x local/path/to/widoco.jar`
 
