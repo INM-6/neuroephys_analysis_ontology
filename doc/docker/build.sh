@@ -19,5 +19,6 @@ cp -r $LATEST_VERSION ./doc
 docker build --no-cache -t neao_doc .
 
 # Prune old images
+docker container prune -f
 docker image prune -f
 
