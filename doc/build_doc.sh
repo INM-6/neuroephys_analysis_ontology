@@ -140,6 +140,8 @@ robot merge --input $SRC_FOLDER/neao.owl --output $NEAO_MERGED_SRC
 # Main page
 log_message "Building main documentation page"
 java -jar $WIDOCO_JAR -ontFile $NEAO_MERGED_SRC -outFolder $DOC_FOLDER -uniteSections -rewriteAll -confFile $DOC_SRC_FOLDER/config.properties
+mv $DOC_FOLDER/doc/* $DOC_FOLDER   # Docs are actually put into a subfolder
+rmdir $DOC_FOLDER/doc
 clean_section "$DOC_FOLDER" "abstract"
 clean_section "$DOC_FOLDER" "namespacedeclarations"
 clean_section "$DOC_FOLDER" "overview"
@@ -206,7 +208,8 @@ cp -r $DOC_SRC_FOLDER/images $DOC_FOLDER/images
 
 
 # Cleanup
-log_message "Removing temporary files"
+log_message "Removing temporary and readme files"
 rm -rf ./tmp*
+find $DOC_FOLDER -name 'readme.md' -delete
 
 log_message "Documentation for $CURRENT_RELEASE built!"
