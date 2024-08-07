@@ -51,6 +51,7 @@ skos:altLabel rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/neao/data#isArtificial
 :isArtificial rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
               rdfs:domain neao_base:Data ;
               rdfs:range xsd:boolean ;
               rdfs:comment "Defines if the data is artificially-generated (true) or obtained from experimental recordings (false)."@en ;
@@ -60,12 +61,15 @@ skos:altLabel rdf:type owl:AnnotationProperty .
 ###  http://purl.org/neao/data#isAveraged
 :isAveraged rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain neao_base:Data ;
+            rdfs:range xsd:boolean ;
             rdfs:comment "Defines if the data is the result of an aggregation to obtain an average estimate from other data (true)."@en ;
             skos:prefLabel "is averaged"@en .
 
 
 ###  http://purl.org/neao/data#isDetrended
 :isDetrended rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
              rdfs:domain neao_base:Data ;
              rdfs:range xsd:boolean ;
              rdfs:comment "Defines if a detrending transformation was applied to the data (true)."@en ;
@@ -74,6 +78,9 @@ skos:altLabel rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/neao/data#isDimensionalityReduction
 :isDimensionalityReduction rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf owl:topDataProperty ;
+                           rdfs:domain neao_base:Data ;
+                           rdfs:range xsd:boolean ;
                            rdfs:comment "Defines if the data is a result of a dimensionality reduction transformation (true)."@en ;
                            skos:prefLabel "is dimensionality reduction"@en .
 
@@ -81,12 +88,15 @@ skos:altLabel rdf:type owl:AnnotationProperty .
 ###  http://purl.org/neao/data#isDownsampled
 :isDownsampled rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf :isResampled ;
+               rdfs:domain neao_base:Data ;
+               rdfs:range xsd:boolean ;
                rdfs:comment "Defines if a downsampling transformation was applied to the data (true)."@en ;
                skos:prefLabel "is downsampled"@en .
 
 
 ###  http://purl.org/neao/data#isFiltered
 :isFiltered rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
             rdfs:domain neao_base:Data ;
             rdfs:range xsd:boolean ;
             rdfs:comment "Defines if a digital filter was applied to the data (true)."@en ;
@@ -96,6 +106,8 @@ skos:altLabel rdf:type owl:AnnotationProperty .
 ###  http://purl.org/neao/data#isInterpolated
 :isInterpolated rdf:type owl:DatatypeProperty ;
                 rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain neao_base:Data ;
+                rdfs:range xsd:boolean ;
                 rdfs:comment "Defines if a interpolation data transformation was applied to the data (true)."@en ;
                 skos:prefLabel "is interpolated"@en .
 
@@ -103,6 +115,7 @@ skos:altLabel rdf:type owl:AnnotationProperty .
 ###  http://purl.org/neao/data#isNormalized
 :isNormalized rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain neao_base:Data ;
               rdfs:range xsd:boolean ;
               rdfs:comment "Defines if a data normalization transformation was applied to the data (true)."@en ;
               skos:prefLabel "is normalized"@en .
@@ -110,18 +123,25 @@ skos:altLabel rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/neao/data#isRectified
 :isRectified rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain neao_base:Data ;
+             rdfs:range xsd:boolean ;
              rdfs:comment "Defines if a rectification transformation was applied to the data (true)."@en ;
              skos:prefLabel "is rectified"@en .
 
 
 ###  http://purl.org/neao/data#isRereferenced
 :isRereferenced rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain neao_base:Data ;
+                rdfs:range xsd:boolean ;
                 rdfs:comment "Defines if a transformation to change the reference in the recorded data was applied (true)."@en ;
                 skos:prefLabel "is rereferenced"@en .
 
 
 ###  http://purl.org/neao/data#isResampled
 :isResampled rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
              rdfs:domain neao_base:Data ;
              rdfs:range xsd:boolean ;
              rdfs:comment "Defines if a resampling transformation was applied to the data (true)."@en ;
@@ -131,6 +151,8 @@ skos:altLabel rdf:type owl:AnnotationProperty .
 ###  http://purl.org/neao/data#isSmoothed
 :isSmoothed rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain neao_base:Data ;
+            rdfs:range xsd:boolean ;
             rdfs:comment "Defines if a data smoothing transformation was applied to the data (true)."@en ;
             skos:prefLabel "is smoothed"@en .
 
@@ -138,6 +160,8 @@ skos:altLabel rdf:type owl:AnnotationProperty .
 ###  http://purl.org/neao/data#isUpsampled
 :isUpsampled rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf :isResampled ;
+             rdfs:domain neao_base:Data ;
+             rdfs:range xsd:boolean ;
              rdfs:comment "Defines if an upsampling transformation was applied to the data (true)."@en ;
              skos:prefLabel "is upsampled"@en .
 

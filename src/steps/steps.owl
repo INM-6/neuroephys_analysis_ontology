@@ -79,6 +79,9 @@ neao_base:hasOutput rdf:type owl:ObjectProperty .
 
 ###  http://purl.org/neao/steps#isBivariate
 :isBivariate rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain neao_base:AnalysisStep ;
+             rdfs:range xsd:boolean ;
              rdfs:comment "Defines if the analysis step uses two data inputs (true)."@en ;
              skos:prefLabel "is bivariate"@en .
 
@@ -103,6 +106,9 @@ neao_base:hasOutput rdf:type owl:ObjectProperty .
 
 ###  http://purl.org/neao/steps#isModelBased
 :isModelBased rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain neao_base:AnalysisStep ;
+              rdfs:range xsd:boolean ;
               rdfs:comment "Defines if the step performs a model-based (true) or model-free analysis (false)."@en ;
               skos:prefLabel "is model-based"@en .
 
