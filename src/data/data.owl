@@ -41,10 +41,6 @@ neao_base:abbreviation rdf:type owl:AnnotationProperty .
 neao_base:hasBibliographicReference rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.org/neao/data#review
-:review rdf:type owl:AnnotationProperty .
-
-
 ###  http://www.w3.org/2004/02/skos/core#altLabel
 skos:altLabel rdf:type owl:AnnotationProperty .
 
