@@ -131,7 +131,7 @@ rm -f $NEAO_MERGED_SRC
 
 # Build merged source with ROBOT
 log_message "Generating merged OWL source"
-robot --input $SRC_FOLDER/neao.owl --output $NEAO_MERGED_SRC
+robot merge --input $SRC_FOLDER/neao.owl --output $NEAO_MERGED_SRC
 
 # Run WIDOCO to build the documentation
 # A WIDOCO run is done for each module
