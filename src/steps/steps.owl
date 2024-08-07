@@ -73,6 +73,10 @@ neao_base:hasOutput rdf:type owl:ObjectProperty .
             skos:prefLabel "has purpose"@en .
 
 
+###  http://purl.org/spar/biro/references
+<http://purl.org/spar/biro/references> rdfs:domain <http://purl.org/spar/biro/BibliographicReference> .
+
+
 #################################################################
 #    Data properties
 #################################################################
