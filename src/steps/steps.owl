@@ -13,7 +13,7 @@
 @base <http://purl.org/neao/steps#> .
 
 <http://purl.org/neao/steps#> rdf:type owl:Ontology ;
-                               owl:versionIRI <http://purl.org/neao/steps/0.1.0> ;
+                               owl:versionIRI <http://purl.org/neao/0.1.0/steps#> ;
                                owl:imports neao_base: ,
                                            neao_bib: ,
                                            neao_data: ;
