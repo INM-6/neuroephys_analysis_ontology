@@ -2637,6 +2637,10 @@ The ASSET analysis provides a robust statistical test to automatically identify 
 :NeuronalActivityPatternDetectionAnalysis rdf:type owl:Class ;
                                           rdfs:subClassOf neao_base:AnalysisStep ,
                                                           [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :isMultivariate ;
+                                                            owl:hasValue "true"^^xsd:boolean
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
                                                             owl:onProperty :isTimeDomain ;
                                                             owl:hasValue "true"^^xsd:boolean
                                                           ] ;
