@@ -62,11 +62,25 @@ rename_files () {
 	mv $BASE_FOLDER/ontology.jsonld $BASE_FOLDER/$2.jsonld
 }
 
+remove_files () {
+	BASE_FOLDER=$1
+	rm $BASE_FOLDER/$2.ttl
+	rm $BASE_FOLDER/$2.nt
+	rm $BASE_FOLDER/$2.xml
+	rm $BASE_FOLDER/$2.jsonld
+}
 	
 # This script requires xml_grep
 if ! command -v xml_grep &> /dev/null
 then
 	printf "\nxml_grep is needed. Please install it using your package manager (e.g., 'apt install xml-twig-tools').\n\n"
+	exit
+fi
+
+# This script requires ROBOT
+if ! command -v robot &> /dev/null
+then
+	printf "\nROBOT is needed. Please install it from 'https://robot.obolibrary.org'.\n\n"
 	exit
 fi
 
@@ -112,13 +126,20 @@ log_message "Cleaning any previous build in '$DOC_FOLDER'"
 rm -rf $DOC_FOLDER
 mkdir -p $DOC_FOLDER
 
+NEAO_MERGED_SRC=$SRC_FOLDER/neao_merge.owl
+rm -f $NEAO_MERGED_SRC
+
+# Build merged source with ROBOT
+log_message "Generating merged OWL source"
+robot --input $SRC_FOLDER/neao.owl --output $NEAO_MERGED_SRC
+
 # Run WIDOCO to build the documentation
 # A WIDOCO run is done for each module
 # The HTML output can be post-processed to tweak the visualization
 
 # Main page
 log_message "Building main documentation page"
-java -jar $WIDOCO_JAR -ontFile $SRC_FOLDER/neao.owl -outFolder $DOC_FOLDER -uniteSections -rewriteAll -confFile $DOC_SRC_FOLDER/config.properties
+java -jar $WIDOCO_JAR -ontFile $NEAO_MERGED_SRC -outFolder $DOC_FOLDER -uniteSections -rewriteAll -confFile $DOC_SRC_FOLDER/config.properties
 clean_section "$DOC_FOLDER" "abstract"
 clean_section "$DOC_FOLDER" "namespacedeclarations"
 clean_section "$DOC_FOLDER" "overview"
@@ -130,48 +151,53 @@ rename_files "$DOC_FOLDER" "neao"
 
 # Base module
 log_message "Building base module documentation"
-java -jar $WIDOCO_JAR -ontFile $SRC_FOLDER/base/base.owl -outFolder $DOC_FOLDER/base -webVowl -uniteSections -rewriteAll -includeAnnotationProperties -confFile $DOC_SRC_FOLDER/base/config-base.properties
+java -jar $WIDOCO_JAR -ontFile $SRC_FOLDER/base/base.owl -outFolder $DOC_FOLDER/base -webVowl -uniteSections -rewriteAll -includeAnnotationProperties -doNotDisplaySerializations -confFile $DOC_SRC_FOLDER/base/config-base.properties
 clean_section "$DOC_FOLDER/base" "abstract"
 clean_section "$DOC_FOLDER/base" "references"
 clean_annotation_properties "$DOC_FOLDER/base"
 insert_html "$DOC_FOLDER/base" "$DOC_SRC_FOLDER/base"
 rename_files "$DOC_FOLDER/base" "base" 
+remove_files "$DOC_FOLDER/base" "base" 
 
 
 # Steps module
 log_message "Building steps module documentation"
-java -jar $WIDOCO_JAR -ontFile $SRC_FOLDER/steps/steps.owl -outFolder $DOC_FOLDER/steps -webVowl -uniteSections -rewriteAll -ignoreIndividuals -confFile $DOC_SRC_FOLDER/steps/config-steps.properties
+java -jar $WIDOCO_JAR -ontFile $SRC_FOLDER/steps/steps.owl -outFolder $DOC_FOLDER/steps -webVowl -uniteSections -rewriteAll -ignoreIndividuals -doNotDisplaySerializations -confFile $DOC_SRC_FOLDER/steps/config-steps.properties
 clean_section "$DOC_FOLDER/steps" "abstract"
 clean_section "$DOC_FOLDER/steps" "references"
 insert_html "$DOC_FOLDER/steps" "$DOC_SRC_FOLDER/steps"
 rename_files "$DOC_FOLDER/steps" "steps" 
+remove_files "$DOC_FOLDER/steps" "steps" 
 
 
 # Data module
 log_message "Building data module documentation"
-java -jar $WIDOCO_JAR -ontFile $SRC_FOLDER/data/data.owl -outFolder $DOC_FOLDER/data -webVowl -uniteSections -rewriteAll -ignoreIndividuals -confFile $DOC_SRC_FOLDER/data/config-data.properties
+java -jar $WIDOCO_JAR -ontFile $SRC_FOLDER/data/data.owl -outFolder $DOC_FOLDER/data -webVowl -uniteSections -rewriteAll -ignoreIndividuals -doNotDisplaySerializations -confFile $DOC_SRC_FOLDER/data/config-data.properties
 clean_section "$DOC_FOLDER/data" "abstract"
 clean_section "$DOC_FOLDER/data" "references"
 insert_html "$DOC_FOLDER/data" "$DOC_SRC_FOLDER/data"
 rename_files "$DOC_FOLDER/data" "data" 
+remove_files "$DOC_FOLDER/data" "data" 
 
 
 # Parameters module
 log_message "Building parameters module documentation"
-java -jar $WIDOCO_JAR -ontFile $SRC_FOLDER/parameters/parameters.owl -outFolder $DOC_FOLDER/parameters -webVowl -uniteSections -ignoreIndividuals -rewriteAll -confFile $DOC_SRC_FOLDER/parameters/config-parameters.properties
+java -jar $WIDOCO_JAR -ontFile $SRC_FOLDER/parameters/parameters.owl -outFolder $DOC_FOLDER/parameters -webVowl -uniteSections -ignoreIndividuals -rewriteAll -doNotDisplaySerializations -confFile $DOC_SRC_FOLDER/parameters/config-parameters.properties
 clean_section "$DOC_FOLDER/parameters" "abstract"
 clean_section "$DOC_FOLDER/parameters" "references"
 insert_html "$DOC_FOLDER/parameters" "$DOC_SRC_FOLDER/parameters"
 rename_files "$DOC_FOLDER/parameters" "parameters" 
+remove_files "$DOC_FOLDER/parameters" "parameters" 
 
 
 # Bibliography module
 log_message "Building bibliography module documentation"
-java -jar $WIDOCO_JAR -ontFile $SRC_FOLDER/bibliography/bibliography.owl -outFolder $DOC_FOLDER/bibliography -uniteSections -rewriteAll -confFile $DOC_SRC_FOLDER/bibliography/config-bibliography.properties
+java -jar $WIDOCO_JAR -ontFile $SRC_FOLDER/bibliography/bibliography.owl -outFolder $DOC_FOLDER/bibliography -uniteSections -rewriteAll -doNotDisplaySerializations -confFile $DOC_SRC_FOLDER/bibliography/config-bibliography.properties
 clean_section "$DOC_FOLDER/bibliography" "abstract"
 clean_section "$DOC_FOLDER/bibliography" "references"
 insert_html "$DOC_FOLDER/bibliography" "$DOC_SRC_FOLDER/bibliography"
-rename_files "$DOC_FOLDER/bibliography" "bibliography" 
+rename_files "$DOC_FOLDER/bibliography" "bibliography"
+remove_files "$DOC_FOLDER/bibliography" "bibliography" 
 
 
 # Copy images
