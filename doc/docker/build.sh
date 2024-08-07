@@ -15,10 +15,12 @@ LATEST_VERSION=$(ls -ad $RELEASE_PATH | tail -n 1)
 rm -rf ./doc
 cp -r $LATEST_VERSION ./doc
 
+# Remove any running container
+docker stop $(docker ps -q --filter "name=neao_doc") >/dev/null 2>&1
+docker container rm $(docker ps -a -q --filter "name=neao_doc") >/dev/null 2>&1
+
 # Build docker image with Apache and documentation
 docker build --no-cache -t neao_doc .
 
 # Prune old images
-docker container prune -f
 docker image prune -f
-
