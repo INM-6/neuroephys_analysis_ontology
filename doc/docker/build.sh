@@ -18,3 +18,6 @@ cp -r $LATEST_VERSION ./doc
 # Build docker image with Apache and documentation
 docker build --no-cache -t neao_doc .
 
+# Prune old images
+docker image prune -f
+
