@@ -1,0 +1,2613 @@
+<html><head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+ <link href="resources/primer.css" media="screen" rel="stylesheet" />    <link href="resources/rec.css" media="screen" rel="stylesheet" />    <link href="resources/extra.css" media="screen" rel="stylesheet" />    <link href="resources/owl.css" media="screen" rel="stylesheet" />    <title>Neuroelectrophysiology Analysis Ontology - Bibliographic References</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{&amp;quot;@context&amp;quot;:&amp;quot;https://schema.org&amp;quot;,&amp;quot;@type&amp;quot;:&amp;quot;TechArticle&amp;quot;,&amp;quot;url&amp;quot;:&amp;quot;http://purl.org/neao/bibliography#&amp;quot;,&amp;quot;image&amp;quot;:&amp;quot;http://vowl.visualdataweb.org/webvowl/#iri=http://purl.org/neao/bibliography#&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;Neuroelectrophysiology Analysis Ontology - Bibliographic References&amp;quot;, &amp;quot;headline&amp;quot;:&amp;quot;Document describing the ontology http://purl.org/neao/bibliography#&amp;quot;, &amp;quot;dateReleased&amp;quot;:&amp;quot;2024-XX-XX&amp;quot;, &amp;quot;version&amp;quot;:&amp;quot;0.1.0&amp;quot;, &amp;quot;license&amp;quot;:&amp;quot;https://creativecommons.org/licenses/by/4.0/&amp;quot;, &amp;quot;author&amp;quot;:[{&amp;quot;@type&amp;quot;:&amp;quot;Person&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;Cristiano Köhler&amp;quot;,&amp;quot;url&amp;quot;:&amp;quot;http://orcid.org/0000-0003-0503-5264&amp;quot;},{&amp;quot;@type&amp;quot;:&amp;quot;Person&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;Michael Denker&amp;quot;,&amp;quot;url&amp;quot;:&amp;quot;http://orcid.org/0000-0003-1255-7300&amp;quot;}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(&amp;quot;.markdown&amp;quot;).each(function(el){jQuery(this).after(marked(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $(&amp;apos;html, body&amp;apos;).animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t=&amp;apos;&amp;lt;h2&amp;gt;Table of contents&amp;lt;/h2&amp;gt;&amp;lt;ul&amp;gt;&amp;apos;;i = 1;j=0;
+	  jQuery(&amp;quot;.list&amp;quot;).each(function(){
+		if(jQuery(this).is(&amp;apos;h2&amp;apos;)){
+			if(j&amp;gt;0){
+				t+=&amp;apos;&amp;lt;/ul&amp;gt;&amp;apos;;
+				j=0;
+			}
+			t+= &amp;apos;&amp;lt;li&amp;gt;&amp;apos;+i+&amp;apos;. &amp;lt;a href=#&amp;apos;+ jQuery(this).attr(&amp;apos;id&amp;apos;)+&amp;apos;&amp;gt;&amp;apos;+ jQuery(this).ignore(&amp;quot;span&amp;quot;).text()+&amp;apos;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;apos;;
+			i++;
+		}
+		if(jQuery(this).is(&amp;apos;h3&amp;apos;)){
+			if(j==0){
+				t+=&amp;apos;&amp;lt;ul&amp;gt;&amp;apos;;
+			}
+			j++;
+			t+= &amp;apos;&amp;lt;li&amp;gt;&amp;apos;+(i-1)+&amp;apos;.&amp;apos;+j+&amp;apos;. &amp;apos;+&amp;apos;&amp;lt;a href=#&amp;apos;+ jQuery(this).attr(&amp;apos;id&amp;apos;)+&amp;apos;&amp;gt;&amp;apos;+ jQuery(this).ignore(&amp;quot;span&amp;quot;).text()+&amp;apos;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;apos;;
+		}
+	  });
+	  t+=&amp;apos;&amp;lt;/ul&amp;gt;&amp;apos;;
+	  $(&amp;quot;#toc&amp;quot;).html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||&amp;quot;&amp;gt;*&amp;quot;).remove().end();
+ }; 
+   </script> 
+  </head><body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>Neuroelectrophysiology Analysis Ontology - Bibliographic References</h1>
+<h2>Release: 2024-XX-XX</h2>
+
+
+<dl>
+<dt>This version:</dt>
+<dd><a href="http://purl.org/neao/0.1.0/bibliography#">http://purl.org/neao/0.1.0/bibliography#</a></dd>
+<dt>Latest version:</dt>
+<dd><a href="http://purl.org/neao/bibliography#">http://purl.org/neao/bibliography#</a></dd>
+<dt>Revision:</dt>
+<dd>0.1.0</dd>
+<dt>Issued on:</dt>
+<dd>2024-XX-XX</dd>
+<dt>Authors:</dt>
+<dd><a href="http://orcid.org/0000-0003-0503-5264">Cristiano Köhler</a>, <a href="https://ror.org/02nv7yv05">Forschungszentrum Jülich</a></dd><dd><a href="http://orcid.org/0000-0003-1255-7300">Michael Denker</a>, <a href="https://ror.org/02nv7yv05">Forschungszentrum Jülich</a></dd>
+
+<dt>License:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="https://creativecommons.org/licenses/by/4.0/" src="https://img.shields.io/badge/License-CC_BY%204.0%20International-blue.svg" /></a>
+</dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --></dl>
+
+<a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr />
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 class="list" id="intro">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown"><p>This module contains all individuals representing bibliographic references used throughout the Neuroelectrophysiology Analysis Ontology (NEAO).</p></span>
+<div id="namespacedeclarations">
+<h3 class="list" id="ns">Namespace declarations</h3>
+<div align="center" id="ns">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>biro</b></td><td>&lt;http://purl.org/spar/biro/&gt;</td></tr>
+<tr><td><b>book</b></td><td>&lt;https://isbndb.com/book/9789971502553#&gt;</td></tr>
+<tr><td><b>dcterms</b></td><td>&lt;http://purl.org/dc/terms/&gt;</td></tr>
+<tr><td><b>doi</b></td><td>&lt;https://doi.org/&gt;</td></tr>
+<tr><td><b>doi1</b></td><td>&lt;https://doi.org/10.1016/&gt;</td></tr>
+<tr><td><b>doi10</b></td><td>&lt;https://doi.org/10.1146/&gt;</td></tr>
+<tr><td><b>doi11</b></td><td>&lt;https://doi.org/10.1126/&gt;</td></tr>
+<tr><td><b>doi12</b></td><td>&lt;https://doi.org/10.1073/&gt;</td></tr>
+<tr><td><b>doi13</b></td><td>&lt;https://doi.org/10.3389/&gt;</td></tr>
+<tr><td><b>doi14</b></td><td>&lt;https://doi.org/10.1523/&gt;</td></tr>
+<tr><td><b>doi15</b></td><td>&lt;https://doi.org/10.1007/978-1-4419-5675-0&gt;</td></tr>
+<tr><td><b>doi16</b></td><td>&lt;https://doi.org/10.1214/14-&gt;</td></tr>
+<tr><td><b>doi17</b></td><td>&lt;https://doi.org/10.1162/&gt;</td></tr>
+<tr><td><b>doi18</b></td><td>&lt;https://doi.org/10.7554/&gt;</td></tr>
+<tr><td><b>doi19</b></td><td>&lt;https://doi.org/10.1007/978-3-642-68915-4&gt;</td></tr>
+<tr><td><b>doi2</b></td><td>&lt;https://doi.org/10.1016/0165-1684(91)90079-&gt;</td></tr>
+<tr><td><b>doi20</b></td><td>&lt;https://doi.org/10.1098/&gt;</td></tr>
+<tr><td><b>doi21</b></td><td>&lt;https://doi.org/10.1088/1741-2552/&gt;</td></tr>
+<tr><td><b>doi22</b></td><td>&lt;https://doi.org/10.1002/&gt;</td></tr>
+<tr><td><b>doi3</b></td><td>&lt;https://doi.org/10.1007/&gt;</td></tr>
+<tr><td><b>doi4</b></td><td>&lt;https://doi.org/10.1007/978-3-540-88853-6&gt;</td></tr>
+<tr><td><b>doi5</b></td><td>&lt;https://doi.org/10.1109/&gt;</td></tr>
+<tr><td><b>doi6</b></td><td>&lt;https://doi.org/10.1038/&gt;</td></tr>
+<tr><td><b>doi7</b></td><td>&lt;https://doi.org/10.1371/&gt;</td></tr>
+<tr><td><b>doi8</b></td><td>&lt;https://doi.org/10.1103/&gt;</td></tr>
+<tr><td><b>doi9</b></td><td>&lt;https://doi.org/10.1152/&gt;</td></tr>
+<tr><td><b>neao_bib</b></td><td>&lt;http://purl.org/neao/bibliography#&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos/core#&gt;</td></tr>
+<tr><td><b>v54</b></td><td>&lt;https://proceedings.mlr.press/v54/&gt;</td></tr>
+<tr><td><b>vann</b></td><td>&lt;http://purl.org/vocab/vann/&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 class="list" id="overv">NEAO Bibliography: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Named Individuals</h4><ul class="hlist" xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <li>
+      <a href="#Aertsen1987_1" title="http://purl.org/neao/bibliography#Aertsen1987_1">Aertsen et al. (1987)</a>
+   </li>
+   <li>
+      <a href="#Baccala2001_463" title="http://purl.org/neao/bibliography#Baccala2001_463">Baccalá &amp; Sameshima (2001)</a>
+   </li>
+   <li>
+      <a href="#Bartlett1950_1" title="http://purl.org/neao/bibliography#Bartlett1950_1">Bartlett (1950)</a>
+   </li>
+   <li>
+      <a href="#Bokil2010_146" title="http://purl.org/neao/bibliography#Bokil2010_146">Bokil et al. (2010)</a>
+   </li>
+   <li>
+      <a href="#Brovelli2004_9849" title="http://purl.org/neao/bibliography#Brovelli2004_9849">Brovelli et al. (2004)</a>
+   </li>
+   <li>
+      <a href="#Brown2004_456" title="http://purl.org/neao/bibliography#Brown2004_456">Brown et al. (2004)</a>
+   </li>
+   <li>
+      <a href="#Bruna2018_056011" title="http://purl.org/neao/bibliography#Bruna2018_056011">Bruña &amp; Maestú (2018)</a>
+   </li>
+   <li>
+      <a href="#Canolty2006_1626" title="http://purl.org/neao/bibliography#Canolty2006_1626">Canolty et al. (2006)</a>
+   </li>
+   <li>
+      <a href="#Carter1987_236" title="http://purl.org/neao/bibliography#Carter1987_236">Carter (1987)</a>
+   </li>
+   <li>
+      <a href="#Ciba2018_136" title="http://purl.org/neao/bibliography#Ciba2018_136">Ciba et al. (2018)</a>
+   </li>
+   <li>
+      <a href="#Cohen2011_811" title="http://purl.org/neao/bibliography#Cohen2011_811">Cohen &amp; Kohn (2011)</a>
+   </li>
+   <li>
+      <a href="#Cover2012" title="http://purl.org/neao/bibliography#Cover2012">Cover &amp; Thomas (2012)</a>
+   </li>
+   <li>
+      <a href="#Cowley2017_242" title="http://purl.org/neao/bibliography#Cowley2017_242">Cowley et al. (2017)</a>
+   </li>
+   <li>
+      <a href="#Cutts2014_14288" title="http://purl.org/neao/bibliography#Cutts2014_14288">Cutts &amp; Eglen (2014)</a>
+   </li>
+   <li>
+      <a href="#Deger2012_443" title="http://purl.org/neao/bibliography#Deger2012_443">Deger et al. (2012)</a>
+   </li>
+   <li>
+      <a href="#Dhamala2008_354" title="http://purl.org/neao/bibliography#Dhamala2008_354">Dhamala et al. (2008)</a>
+   </li>
+   <li>
+      <a href="#Ding2006_0608035" title="http://purl.org/neao/bibliography#Ding2006_0608035">Ding et al. (2006)</a>
+   </li>
+   <li>
+      <a href="#Eggermont2010_77" title="http://purl.org/neao/bibliography#Eggermont2010_77">Eggermont (2010)</a>
+   </li>
+   <li>
+      <a href="#Ewald2012_476" title="http://purl.org/neao/bibliography#Ewald2012_476">Ewald et al. (2012)</a>
+   </li>
+   <li>
+      <a href="#Farge1992_395" title="http://purl.org/neao/bibliography#Farge1992_395">Farge (1992)</a>
+   </li>
+   <li>
+      <a href="#Freeman1975_369" title="http://purl.org/neao/bibliography#Freeman1975_369">Freeman &amp; Nicholson (1975)</a>
+   </li>
+   <li>
+      <a href="#Fries2001_1560" title="http://purl.org/neao/bibliography#Fries2001_1560">Fries et al. (2001)</a>
+   </li>
+   <li>
+      <a href="#Georgopoulos1983_327" title="http://purl.org/neao/bibliography#Georgopoulos1983_327">Georgopoulos et al. (1983)</a>
+   </li>
+   <li>
+      <a href="#Geweke1982_304" title="http://purl.org/neao/bibliography#Geweke1982_304">Geweke (1982)</a>
+   </li>
+   <li>
+      <a href="#Gruen2009_1126" title="http://purl.org/neao/bibliography#Gruen2009_1126">Grün (2009)</a>
+   </li>
+   <li>
+      <a href="#Gruen1999_67" title="http://purl.org/neao/bibliography#Gruen1999_67">Grün et al. (1999)</a>
+   </li>
+   <li>
+      <a href="#Gruen2002_43" title="http://purl.org/neao/bibliography#Gruen2002_43">Grün et al. (2002a)</a>
+   </li>
+   <li>
+      <a href="#Gruen2002_81" title="http://purl.org/neao/bibliography#Gruen2002_81">Grün et al. (2002b)</a>
+   </li>
+   <li>
+      <a href="#Gruen2003_335" title="http://purl.org/neao/bibliography#Gruen2003_335">Grün et al. (2003)</a>
+   </li>
+   <li>
+      <a href="#Gruen2007_96" title="http://purl.org/neao/bibliography#Gruen2007_96">Grün et al. (2007)</a>
+   </li>
+   <li>
+      <a href="#Hafner2008_215" title="http://purl.org/neao/bibliography#Hafner2008_215">Hafner &amp; Herwartz (2008)</a>
+   </li>
+   <li>
+      <a href="#Hipp2012_884" title="http://purl.org/neao/bibliography#Hipp2012_884">Hipp et al. (2012)</a>
+   </li>
+   <li>
+      <a href="#Jutten1991_1" title="http://purl.org/neao/bibliography#Jutten1991_1">Jutten &amp; Herault (1991)</a>
+   </li>
+   <li>
+      <a href="#Kaminski1991_203" title="http://purl.org/neao/bibliography#Kaminski1991_203">Kaminski &amp; Blinowska (1991)</a>
+   </li>
+   <li>
+      <a href="#Kobak2016_e10989" title="http://purl.org/neao/bibliography#Kobak2016_e10989">Kobak et al. (2016)</a>
+   </li>
+   <li>
+      <a href="#Kreuz2007_151" title="http://purl.org/neao/bibliography#Kreuz2007_151">Kreuz et al. (2007)</a>
+   </li>
+   <li>
+      <a href="#Kreuz2012_1457" title="http://purl.org/neao/bibliography#Kreuz2012_1457">Kreuz et al. (2012)</a>
+   </li>
+   <li>
+      <a href="#Kreuz2015_3432" title="http://purl.org/neao/bibliography#Kreuz2015_3432">Kreuz et al. (2015)</a>
+   </li>
+   <li>
+      <a href="#Kuhn2003_67" title="http://purl.org/neao/bibliography#Kuhn2003_67">Kuhn et al. (2003)</a>
+   </li>
+   <li>
+      <a href="#Lachaux1999_194" title="http://purl.org/neao/bibliography#Lachaux1999_194">Lachaux et al. (1999)</a>
+   </li>
+   <li>
+      <a href="#LeVanQuyen2001_83" title="http://purl.org/neao/bibliography#LeVanQuyen2001_83">Le Van Quyen et al. (2001)</a>
+   </li>
+   <li>
+      <a href="#Loader2006" title="http://purl.org/neao/bibliography#Loader2006">Loader (2006)</a>
+   </li>
+   <li>
+      <a href="#Louis2010_127" title="http://purl.org/neao/bibliography#Louis2010_127">Louis et al. (2010a)</a>
+   </li>
+   <li>
+      <a href="#Louis2010_359" title="http://purl.org/neao/bibliography#Louis2010_359">Louis et al. (2010b)</a>
+   </li>
+   <li>
+      <a href="#Messer2014_2027" title="http://purl.org/neao/bibliography#Messer2014_2027">Messer et al. (2014)</a>
+   </li>
+   <li>
+      <a href="#Mewett2004_524" title="http://purl.org/neao/bibliography#Mewett2004_524">Mewett et al. (2004)</a>
+   </li>
+   <li>
+      <a href="#Nawrot2008_374" title="http://purl.org/neao/bibliography#Nawrot2008_374">Nawrot et al. (2008)</a>
+   </li>
+   <li>
+      <a href="#Nolte2004_2292" title="http://purl.org/neao/bibliography#Nolte2004_2292">Nolte et al. (2004)</a>
+   </li>
+   <li>
+      <a href="#Nolte2008_234101" title="http://purl.org/neao/bibliography#Nolte2008_234101">Nolte et al. (2008)</a>
+   </li>
+   <li>
+      <a href="#Pettersen2006_116" title="http://purl.org/neao/bibliography#Pettersen2006_116">Pettersen et al. (2006)</a>
+   </li>
+   <li>
+      <a href="#Potworowski2012_541" title="http://purl.org/neao/bibliography#Potworowski2012_541">Potworowski et al. (2012)</a>
+   </li>
+   <li>
+      <a href="#Quaglio2017_41" title="http://purl.org/neao/bibliography#Quaglio2017_41">Quaglio et al. (2017)</a>
+   </li>
+   <li>
+      <a href="#Riehle1997_1950" title="http://purl.org/neao/bibliography#Riehle1997_1950">Riehle et al. (1997)</a>
+   </li>
+   <li>
+      <a href="#Rosenberg1989_1" title="http://purl.org/neao/bibliography#Rosenberg1989_1">Rosenberg et al. (1989)</a>
+   </li>
+   <li>
+      <a href="#Rosenberg1998_57" title="http://purl.org/neao/bibliography#Rosenberg1998_57">Rosenberg et al. (1998)</a>
+   </li>
+   <li>
+      <a href="#Russo2017_e19428" title="http://purl.org/neao/bibliography#Russo2017_e19428">Russo &amp; Durstewitz (2017)</a>
+   </li>
+   <li>
+      <a href="#Schreiber2000_461" title="http://purl.org/neao/bibliography#Schreiber2000_461">Schreiber (2000)</a>
+   </li>
+   <li>
+      <a href="#Scott1979_605" title="http://purl.org/neao/bibliography#Scott1979_605">Scott (1979)</a>
+   </li>
+   <li>
+      <a href="#Shimazaki2010_171" title="http://purl.org/neao/bibliography#Shimazaki2010_171">Shimazaki &amp; Shinomoto (2010)</a>
+   </li>
+   <li>
+      <a href="#Shinomoto2003_2823" title="http://purl.org/neao/bibliography#Shinomoto2003_2823">Shinomoto et al. (2003)</a>
+   </li>
+   <li>
+      <a href="#Shinomoto2009_e1000433" title="http://purl.org/neao/bibliography#Shinomoto2009_e1000433">Shinomoto et al. (2009)</a>
+   </li>
+   <li>
+      <a href="#Stam2012_1415" title="http://purl.org/neao/bibliography#Stam2012_1415">Stam &amp; van Straaten (2012)</a>
+   </li>
+   <li>
+      <a href="#Stam2007_1178" title="http://purl.org/neao/bibliography#Stam2007_1178">Stam et al. (2007)</a>
+   </li>
+   <li>
+      <a href="#Staude2010_327" title="http://purl.org/neao/bibliography#Staude2010_327">Staude et al. (2010)</a>
+   </li>
+   <li>
+      <a href="#Stella2019_104022" title="http://purl.org/neao/bibliography#Stella2019_104022">Stella et al. (2019)</a>
+   </li>
+   <li>
+      <a href="#Stella2022_ENEURO" title="http://purl.org/neao/bibliography#Stella2022_ENEURO">Stella et al. (2022)</a>
+   </li>
+   <li>
+      <a href="#Stockwell1996_998" title="http://purl.org/neao/bibliography#Stockwell1996_998">Stockwell et al. (1996)</a>
+   </li>
+   <li>
+      <a href="#Stoica2005" title="http://purl.org/neao/bibliography#Stoica2005">Stoica &amp; Moses (2005)</a>
+   </li>
+   <li>
+      <a href="#Sorensen2013_228" title="http://purl.org/neao/bibliography#Sorensen2013_228">Sørensen &amp; De Lathauwer (2013)</a>
+   </li>
+   <li>
+      <a href="#TallonBaudry1997_722" title="http://purl.org/neao/bibliography#TallonBaudry1997_722">Tallon-Baudry et al. (1997)</a>
+   </li>
+   <li>
+      <a href="#Thomson1982_1055" title="http://purl.org/neao/bibliography#Thomson1982_1055">Thomson (1982)</a>
+   </li>
+   <li>
+      <a href="#Tipping1999_611" title="http://purl.org/neao/bibliography#Tipping1999_611">Tipping &amp; Bishop (1999)</a>
+   </li>
+   <li>
+      <a href="#Torre2016_e1004939" title="http://purl.org/neao/bibliography#Torre2016_e1004939">Torre et al. (2016)</a>
+   </li>
+   <li>
+      <a href="#Tort2010_1195" title="http://purl.org/neao/bibliography#Tort2010_1195">Tort et al. (2010)</a>
+   </li>
+   <li>
+      <a href="#Vaknin1988_131" title="http://purl.org/neao/bibliography#Vaknin1988_131">Vaknin et al. (1988)</a>
+   </li>
+   <li>
+      <a href="#Rossum2001_751" title="http://purl.org/neao/bibliography#Rossum2001_751">van Rossum (2001)</a>
+   </li>
+   <li>
+      <a href="#Victor1996_1310" title="http://purl.org/neao/bibliography#Victor1996_1310">Victor &amp; Purpura (1996)</a>
+   </li>
+   <li>
+      <a href="#Vidaurre2019_116009" title="http://purl.org/neao/bibliography#Vidaurre2019_116009">Vidaurre et al. (2019)</a>
+   </li>
+   <li>
+      <a href="#Vinck2010_112" title="http://purl.org/neao/bibliography#Vinck2010_112">Vinck et al. (2010)</a>
+   </li>
+   <li>
+      <a href="#Vinck2011_1548" title="http://purl.org/neao/bibliography#Vinck2011_1548">Vinck et al. (2011)</a>
+   </li>
+   <li>
+      <a href="#Vinck2012_53" title="http://purl.org/neao/bibliography#Vinck2012_53">Vinck et al. (2012)</a>
+   </li>
+   <li>
+      <a href="#Welch1967_70" title="http://purl.org/neao/bibliography#Welch1967_70">Welch (1967)</a>
+   </li>
+   <li>
+      <a href="#Wen2013_20110610" title="http://purl.org/neao/bibliography#Wen2013_20110610">Wen et al. (2013)</a>
+   </li>
+   <li>
+      <a href="#Wieland2015_040901" title="http://purl.org/neao/bibliography#Wieland2015_040901">Wieland et al. (2015)</a>
+   </li>
+   <li>
+      <a href="#Williams2018_1099" title="http://purl.org/neao/bibliography#Williams2018_1099">Williams et al. (2018)</a>
+   </li>
+   <li>
+      <a href="#Wilson1972_420" title="http://purl.org/neao/bibliography#Wilson1972_420">Wilson (1972)</a>
+   </li>
+   <li>
+      <a href="#Yu2009_614" title="http://purl.org/neao/bibliography#Yu2009_614">Yu et al. (2009)</a>
+   </li>
+   <li>
+      <a href="#Ozkurt2011_438" title="http://purl.org/neao/bibliography#Ozkurt2011_438">Özkurt &amp; Schnitzler (2011)</a>
+   </li>
+   <li>
+      <a href="#Leski2007_207" title="http://purl.org/neao/bibliography#Leski2007_207">Łęski et al. (2007)</a>
+   </li>
+   <li>
+      <a href="#Leski2011_401" title="http://purl.org/neao/bibliography#Leski2011_401">Łęski et al. (2011)</a>
+   </li>
+</ul>
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 class="list" id="desc">NEAO Bibliography: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown"><p>The individuals defined in this module are supposed to be imported by the <a href="../steps/index.html">steps</a> module when inserting bibliographic reference information into the classes.
+
+<p>Each bibliography item is represented as an individual of the <a href="http://purl.org/spar/biro">biro:BibliographicReference</a> class that is related to the analysis steps (defined in the <a href="../steps/index.html">steps</a> module) through the <a href="../base/index.html#hasBibliographicReference">hasBibliographicReference</a> annotation property. Each individual has a <a href="http://purl.org/dc/terms/bibliographicCitation">dcterms:bibliographicCitation</a> property defining a string with the human-readable citation, and also a <a href="http://purl.org/spar/biro">biro:references</a> property pointing to resolvable URIs used to reach the resource.</p></span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 class="list" id="crossreference">Cross-reference for NEAO Bibliography classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by NEAO Bibliography.
+<div id="namedindividuals" xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <h3 class="list" id="namedindividuals">Named Individuals</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#Aertsen1987_1" title="http://purl.org/neao/bibliography#Aertsen1987_1">Aertsen et al. (1987)</a>
+      </li>
+      <li>
+         <a href="#Baccala2001_463" title="http://purl.org/neao/bibliography#Baccala2001_463">Baccalá &amp; Sameshima (2001)</a>
+      </li>
+      <li>
+         <a href="#Bartlett1950_1" title="http://purl.org/neao/bibliography#Bartlett1950_1">Bartlett (1950)</a>
+      </li>
+      <li>
+         <a href="#Bokil2010_146" title="http://purl.org/neao/bibliography#Bokil2010_146">Bokil et al. (2010)</a>
+      </li>
+      <li>
+         <a href="#Brovelli2004_9849" title="http://purl.org/neao/bibliography#Brovelli2004_9849">Brovelli et al. (2004)</a>
+      </li>
+      <li>
+         <a href="#Brown2004_456" title="http://purl.org/neao/bibliography#Brown2004_456">Brown et al. (2004)</a>
+      </li>
+      <li>
+         <a href="#Bruna2018_056011" title="http://purl.org/neao/bibliography#Bruna2018_056011">Bruña &amp; Maestú (2018)</a>
+      </li>
+      <li>
+         <a href="#Canolty2006_1626" title="http://purl.org/neao/bibliography#Canolty2006_1626">Canolty et al. (2006)</a>
+      </li>
+      <li>
+         <a href="#Carter1987_236" title="http://purl.org/neao/bibliography#Carter1987_236">Carter (1987)</a>
+      </li>
+      <li>
+         <a href="#Ciba2018_136" title="http://purl.org/neao/bibliography#Ciba2018_136">Ciba et al. (2018)</a>
+      </li>
+      <li>
+         <a href="#Cohen2011_811" title="http://purl.org/neao/bibliography#Cohen2011_811">Cohen &amp; Kohn (2011)</a>
+      </li>
+      <li>
+         <a href="#Cover2012" title="http://purl.org/neao/bibliography#Cover2012">Cover &amp; Thomas (2012)</a>
+      </li>
+      <li>
+         <a href="#Cowley2017_242" title="http://purl.org/neao/bibliography#Cowley2017_242">Cowley et al. (2017)</a>
+      </li>
+      <li>
+         <a href="#Cutts2014_14288" title="http://purl.org/neao/bibliography#Cutts2014_14288">Cutts &amp; Eglen (2014)</a>
+      </li>
+      <li>
+         <a href="#Deger2012_443" title="http://purl.org/neao/bibliography#Deger2012_443">Deger et al. (2012)</a>
+      </li>
+      <li>
+         <a href="#Dhamala2008_354" title="http://purl.org/neao/bibliography#Dhamala2008_354">Dhamala et al. (2008)</a>
+      </li>
+      <li>
+         <a href="#Ding2006_0608035" title="http://purl.org/neao/bibliography#Ding2006_0608035">Ding et al. (2006)</a>
+      </li>
+      <li>
+         <a href="#Eggermont2010_77" title="http://purl.org/neao/bibliography#Eggermont2010_77">Eggermont (2010)</a>
+      </li>
+      <li>
+         <a href="#Ewald2012_476" title="http://purl.org/neao/bibliography#Ewald2012_476">Ewald et al. (2012)</a>
+      </li>
+      <li>
+         <a href="#Farge1992_395" title="http://purl.org/neao/bibliography#Farge1992_395">Farge (1992)</a>
+      </li>
+      <li>
+         <a href="#Freeman1975_369" title="http://purl.org/neao/bibliography#Freeman1975_369">Freeman &amp; Nicholson (1975)</a>
+      </li>
+      <li>
+         <a href="#Fries2001_1560" title="http://purl.org/neao/bibliography#Fries2001_1560">Fries et al. (2001)</a>
+      </li>
+      <li>
+         <a href="#Georgopoulos1983_327" title="http://purl.org/neao/bibliography#Georgopoulos1983_327">Georgopoulos et al. (1983)</a>
+      </li>
+      <li>
+         <a href="#Geweke1982_304" title="http://purl.org/neao/bibliography#Geweke1982_304">Geweke (1982)</a>
+      </li>
+      <li>
+         <a href="#Gruen2009_1126" title="http://purl.org/neao/bibliography#Gruen2009_1126">Grün (2009)</a>
+      </li>
+      <li>
+         <a href="#Gruen1999_67" title="http://purl.org/neao/bibliography#Gruen1999_67">Grün et al. (1999)</a>
+      </li>
+      <li>
+         <a href="#Gruen2002_43" title="http://purl.org/neao/bibliography#Gruen2002_43">Grün et al. (2002a)</a>
+      </li>
+      <li>
+         <a href="#Gruen2002_81" title="http://purl.org/neao/bibliography#Gruen2002_81">Grün et al. (2002b)</a>
+      </li>
+      <li>
+         <a href="#Gruen2003_335" title="http://purl.org/neao/bibliography#Gruen2003_335">Grün et al. (2003)</a>
+      </li>
+      <li>
+         <a href="#Gruen2007_96" title="http://purl.org/neao/bibliography#Gruen2007_96">Grün et al. (2007)</a>
+      </li>
+      <li>
+         <a href="#Hafner2008_215" title="http://purl.org/neao/bibliography#Hafner2008_215">Hafner &amp; Herwartz (2008)</a>
+      </li>
+      <li>
+         <a href="#Hipp2012_884" title="http://purl.org/neao/bibliography#Hipp2012_884">Hipp et al. (2012)</a>
+      </li>
+      <li>
+         <a href="#Jutten1991_1" title="http://purl.org/neao/bibliography#Jutten1991_1">Jutten &amp; Herault (1991)</a>
+      </li>
+      <li>
+         <a href="#Kaminski1991_203" title="http://purl.org/neao/bibliography#Kaminski1991_203">Kaminski &amp; Blinowska (1991)</a>
+      </li>
+      <li>
+         <a href="#Kobak2016_e10989" title="http://purl.org/neao/bibliography#Kobak2016_e10989">Kobak et al. (2016)</a>
+      </li>
+      <li>
+         <a href="#Kreuz2007_151" title="http://purl.org/neao/bibliography#Kreuz2007_151">Kreuz et al. (2007)</a>
+      </li>
+      <li>
+         <a href="#Kreuz2012_1457" title="http://purl.org/neao/bibliography#Kreuz2012_1457">Kreuz et al. (2012)</a>
+      </li>
+      <li>
+         <a href="#Kreuz2015_3432" title="http://purl.org/neao/bibliography#Kreuz2015_3432">Kreuz et al. (2015)</a>
+      </li>
+      <li>
+         <a href="#Kuhn2003_67" title="http://purl.org/neao/bibliography#Kuhn2003_67">Kuhn et al. (2003)</a>
+      </li>
+      <li>
+         <a href="#Lachaux1999_194" title="http://purl.org/neao/bibliography#Lachaux1999_194">Lachaux et al. (1999)</a>
+      </li>
+      <li>
+         <a href="#LeVanQuyen2001_83" title="http://purl.org/neao/bibliography#LeVanQuyen2001_83">Le Van Quyen et al. (2001)</a>
+      </li>
+      <li>
+         <a href="#Loader2006" title="http://purl.org/neao/bibliography#Loader2006">Loader (2006)</a>
+      </li>
+      <li>
+         <a href="#Louis2010_127" title="http://purl.org/neao/bibliography#Louis2010_127">Louis et al. (2010a)</a>
+      </li>
+      <li>
+         <a href="#Louis2010_359" title="http://purl.org/neao/bibliography#Louis2010_359">Louis et al. (2010b)</a>
+      </li>
+      <li>
+         <a href="#Messer2014_2027" title="http://purl.org/neao/bibliography#Messer2014_2027">Messer et al. (2014)</a>
+      </li>
+      <li>
+         <a href="#Mewett2004_524" title="http://purl.org/neao/bibliography#Mewett2004_524">Mewett et al. (2004)</a>
+      </li>
+      <li>
+         <a href="#Nawrot2008_374" title="http://purl.org/neao/bibliography#Nawrot2008_374">Nawrot et al. (2008)</a>
+      </li>
+      <li>
+         <a href="#Nolte2004_2292" title="http://purl.org/neao/bibliography#Nolte2004_2292">Nolte et al. (2004)</a>
+      </li>
+      <li>
+         <a href="#Nolte2008_234101" title="http://purl.org/neao/bibliography#Nolte2008_234101">Nolte et al. (2008)</a>
+      </li>
+      <li>
+         <a href="#Pettersen2006_116" title="http://purl.org/neao/bibliography#Pettersen2006_116">Pettersen et al. (2006)</a>
+      </li>
+      <li>
+         <a href="#Potworowski2012_541" title="http://purl.org/neao/bibliography#Potworowski2012_541">Potworowski et al. (2012)</a>
+      </li>
+      <li>
+         <a href="#Quaglio2017_41" title="http://purl.org/neao/bibliography#Quaglio2017_41">Quaglio et al. (2017)</a>
+      </li>
+      <li>
+         <a href="#Riehle1997_1950" title="http://purl.org/neao/bibliography#Riehle1997_1950">Riehle et al. (1997)</a>
+      </li>
+      <li>
+         <a href="#Rosenberg1989_1" title="http://purl.org/neao/bibliography#Rosenberg1989_1">Rosenberg et al. (1989)</a>
+      </li>
+      <li>
+         <a href="#Rosenberg1998_57" title="http://purl.org/neao/bibliography#Rosenberg1998_57">Rosenberg et al. (1998)</a>
+      </li>
+      <li>
+         <a href="#Russo2017_e19428" title="http://purl.org/neao/bibliography#Russo2017_e19428">Russo &amp; Durstewitz (2017)</a>
+      </li>
+      <li>
+         <a href="#Schreiber2000_461" title="http://purl.org/neao/bibliography#Schreiber2000_461">Schreiber (2000)</a>
+      </li>
+      <li>
+         <a href="#Scott1979_605" title="http://purl.org/neao/bibliography#Scott1979_605">Scott (1979)</a>
+      </li>
+      <li>
+         <a href="#Shimazaki2010_171" title="http://purl.org/neao/bibliography#Shimazaki2010_171">Shimazaki &amp; Shinomoto (2010)</a>
+      </li>
+      <li>
+         <a href="#Shinomoto2003_2823" title="http://purl.org/neao/bibliography#Shinomoto2003_2823">Shinomoto et al. (2003)</a>
+      </li>
+      <li>
+         <a href="#Shinomoto2009_e1000433" title="http://purl.org/neao/bibliography#Shinomoto2009_e1000433">Shinomoto et al. (2009)</a>
+      </li>
+      <li>
+         <a href="#Stam2012_1415" title="http://purl.org/neao/bibliography#Stam2012_1415">Stam &amp; van Straaten (2012)</a>
+      </li>
+      <li>
+         <a href="#Stam2007_1178" title="http://purl.org/neao/bibliography#Stam2007_1178">Stam et al. (2007)</a>
+      </li>
+      <li>
+         <a href="#Staude2010_327" title="http://purl.org/neao/bibliography#Staude2010_327">Staude et al. (2010)</a>
+      </li>
+      <li>
+         <a href="#Stella2019_104022" title="http://purl.org/neao/bibliography#Stella2019_104022">Stella et al. (2019)</a>
+      </li>
+      <li>
+         <a href="#Stella2022_ENEURO" title="http://purl.org/neao/bibliography#Stella2022_ENEURO">Stella et al. (2022)</a>
+      </li>
+      <li>
+         <a href="#Stockwell1996_998" title="http://purl.org/neao/bibliography#Stockwell1996_998">Stockwell et al. (1996)</a>
+      </li>
+      <li>
+         <a href="#Stoica2005" title="http://purl.org/neao/bibliography#Stoica2005">Stoica &amp; Moses (2005)</a>
+      </li>
+      <li>
+         <a href="#Sorensen2013_228" title="http://purl.org/neao/bibliography#Sorensen2013_228">Sørensen &amp; De Lathauwer (2013)</a>
+      </li>
+      <li>
+         <a href="#TallonBaudry1997_722" title="http://purl.org/neao/bibliography#TallonBaudry1997_722">Tallon-Baudry et al. (1997)</a>
+      </li>
+      <li>
+         <a href="#Thomson1982_1055" title="http://purl.org/neao/bibliography#Thomson1982_1055">Thomson (1982)</a>
+      </li>
+      <li>
+         <a href="#Tipping1999_611" title="http://purl.org/neao/bibliography#Tipping1999_611">Tipping &amp; Bishop (1999)</a>
+      </li>
+      <li>
+         <a href="#Torre2016_e1004939" title="http://purl.org/neao/bibliography#Torre2016_e1004939">Torre et al. (2016)</a>
+      </li>
+      <li>
+         <a href="#Tort2010_1195" title="http://purl.org/neao/bibliography#Tort2010_1195">Tort et al. (2010)</a>
+      </li>
+      <li>
+         <a href="#Vaknin1988_131" title="http://purl.org/neao/bibliography#Vaknin1988_131">Vaknin et al. (1988)</a>
+      </li>
+      <li>
+         <a href="#Rossum2001_751" title="http://purl.org/neao/bibliography#Rossum2001_751">van Rossum (2001)</a>
+      </li>
+      <li>
+         <a href="#Victor1996_1310" title="http://purl.org/neao/bibliography#Victor1996_1310">Victor &amp; Purpura (1996)</a>
+      </li>
+      <li>
+         <a href="#Vidaurre2019_116009" title="http://purl.org/neao/bibliography#Vidaurre2019_116009">Vidaurre et al. (2019)</a>
+      </li>
+      <li>
+         <a href="#Vinck2010_112" title="http://purl.org/neao/bibliography#Vinck2010_112">Vinck et al. (2010)</a>
+      </li>
+      <li>
+         <a href="#Vinck2011_1548" title="http://purl.org/neao/bibliography#Vinck2011_1548">Vinck et al. (2011)</a>
+      </li>
+      <li>
+         <a href="#Vinck2012_53" title="http://purl.org/neao/bibliography#Vinck2012_53">Vinck et al. (2012)</a>
+      </li>
+      <li>
+         <a href="#Welch1967_70" title="http://purl.org/neao/bibliography#Welch1967_70">Welch (1967)</a>
+      </li>
+      <li>
+         <a href="#Wen2013_20110610" title="http://purl.org/neao/bibliography#Wen2013_20110610">Wen et al. (2013)</a>
+      </li>
+      <li>
+         <a href="#Wieland2015_040901" title="http://purl.org/neao/bibliography#Wieland2015_040901">Wieland et al. (2015)</a>
+      </li>
+      <li>
+         <a href="#Williams2018_1099" title="http://purl.org/neao/bibliography#Williams2018_1099">Williams et al. (2018)</a>
+      </li>
+      <li>
+         <a href="#Wilson1972_420" title="http://purl.org/neao/bibliography#Wilson1972_420">Wilson (1972)</a>
+      </li>
+      <li>
+         <a href="#Yu2009_614" title="http://purl.org/neao/bibliography#Yu2009_614">Yu et al. (2009)</a>
+      </li>
+      <li>
+         <a href="#Ozkurt2011_438" title="http://purl.org/neao/bibliography#Ozkurt2011_438">Özkurt &amp; Schnitzler (2011)</a>
+      </li>
+      <li>
+         <a href="#Leski2007_207" title="http://purl.org/neao/bibliography#Leski2007_207">Łęski et al. (2007)</a>
+      </li>
+      <li>
+         <a href="#Leski2011_401" title="http://purl.org/neao/bibliography#Leski2011_401">Łęski et al. (2011)</a>
+      </li>
+   </ul>
+   <div class="entity" id="Aertsen1987_1">
+      <h3>Aertsen et al. (1987)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Aertsen1987_1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://isbndb.com/book/9789971502553#Aertsen_1" target="_blank" title="https://isbndb.com/book/9789971502553#Aertsen_1">aertsen 1</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Baccala2001_463">
+      <h3>Baccalá &amp; Sameshima (2001)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Baccala2001_463</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/PL00007990" target="_blank" title="https://doi.org/10.1007/PL00007990">p l00007990</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Bartlett1950_1">
+      <h3>Bartlett (1950)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Bartlett1950_1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1093/biomet/37.1-2.1" target="_blank" title="https://doi.org/10.1093/biomet/37.1-2.1">37.1 2.1</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Bokil2010_146">
+      <h3>Bokil et al. (2010)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Bokil2010_146</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.jneumeth.2010.06.020" target="_blank" title="https://doi.org/10.1016/j.jneumeth.2010.06.020">j.jneumeth.2010.06.020</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Brovelli2004_9849">
+      <h3>Brovelli et al. (2004)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Brovelli2004_9849</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1073/pnas.0308538101" target="_blank" title="https://doi.org/10.1073/pnas.0308538101">pnas.0308538101</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Brown2004_456">
+      <h3>Brown et al. (2004)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Brown2004_456</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1038/nn1228" target="_blank" title="https://doi.org/10.1038/nn1228">nn1228</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Bruna2018_056011">
+      <h3>Bruña &amp; Maestú (2018)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Bruna2018_056011</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1088/1741-2552/aacfe4" target="_blank" title="https://doi.org/10.1088/1741-2552/aacfe4">aacfe4</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Canolty2006_1626">
+      <h3>Canolty et al. (2006)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Canolty2006_1626</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1126/science.1128115" target="_blank" title="https://doi.org/10.1126/science.1128115">science.1128115</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Carter1987_236">
+      <h3>Carter (1987)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Carter1987_236</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1109/PROC.1987.13723" target="_blank" title="https://doi.org/10.1109/PROC.1987.13723">p r o c.1987.13723</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Ciba2018_136">
+      <h3>Ciba et al. (2018)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Ciba2018_136</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.jneumeth.2017.09.008" target="_blank" title="https://doi.org/10.1016/j.jneumeth.2017.09.008">j.jneumeth.2017.09.008</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Cohen2011_811">
+      <h3>Cohen &amp; Kohn (2011)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Cohen2011_811</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1038/nn.2842" target="_blank" title="https://doi.org/10.1038/nn.2842">nn.2842</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Cover2012">
+      <h3>Cover &amp; Thomas (2012)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Cover2012</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://isbndb.com/book/9781118585771" target="_blank" title="https://isbndb.com/book/9781118585771">9781118585771</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Cowley2017_242">
+      <h3>Cowley et al. (2017)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Cowley2017_242</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://proceedings.mlr.press/v54/cowley17a.html" target="_blank" title="https://proceedings.mlr.press/v54/cowley17a.html">cowley17a.html</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Cutts2014_14288">
+      <h3>Cutts &amp; Eglen (2014)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Cutts2014_14288</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1523/JNEUROSCI.2767-14.2014" target="_blank" title="https://doi.org/10.1523/JNEUROSCI.2767-14.2014">j n e u r o s c i.2767 14.2014</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Deger2012_443">
+      <h3>Deger et al. (2012)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Deger2012_443</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/s10827-011-0362-8" target="_blank" title="https://doi.org/10.1007/s10827-011-0362-8">s10827 011 0362 8</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Dhamala2008_354">
+      <h3>Dhamala et al. (2008)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Dhamala2008_354</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.neuroimage.2008.02.020" target="_blank" title="https://doi.org/10.1016/j.neuroimage.2008.02.020">j.neuroimage.2008.02.020</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Ding2006_0608035">
+      <h3>Ding et al. (2006)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Ding2006_0608035</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.48550/arXiv.q-bio/0608035" target="_blank" title="https://doi.org/10.48550/arXiv.q-bio/0608035">0608035</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Eggermont2010_77">
+      <h3>Eggermont (2010)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Eggermont2010_77</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/978-1-4419-5675-0_5" target="_blank" title="https://doi.org/10.1007/978-1-4419-5675-0_5">978 1 4419 5675 0 5</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Ewald2012_476">
+      <h3>Ewald et al. (2012)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Ewald2012_476</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.neuroimage.2011.11.084" target="_blank" title="https://doi.org/10.1016/j.neuroimage.2011.11.084">j.neuroimage.2011.11.084</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Farge1992_395">
+      <h3>Farge (1992)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Farge1992_395</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1146/annurev.fl.24.010192.002143" target="_blank" title="https://doi.org/10.1146/annurev.fl.24.010192.002143">annurev.fl.24.010192.002143</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Freeman1975_369">
+      <h3>Freeman &amp; Nicholson (1975)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Freeman1975_369</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1152/jn.1975.38.2.369" target="_blank" title="https://doi.org/10.1152/jn.1975.38.2.369">jn.1975.38.2.369</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Fries2001_1560">
+      <h3>Fries et al. (2001)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Fries2001_1560</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1126/science.1055465" target="_blank" title="https://doi.org/10.1126/science.1055465">science.1055465</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Georgopoulos1983_327">
+      <h3>Georgopoulos et al. (1983)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Georgopoulos1983_327</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/978-3-642-68915-4_34" target="_blank" title="https://doi.org/10.1007/978-3-642-68915-4_34">978 3 642 68915 4 34</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Geweke1982_304">
+      <h3>Geweke (1982)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Geweke1982_304</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1080/01621459.1982.10477803" target="_blank" title="https://doi.org/10.1080/01621459.1982.10477803">01621459.1982.10477803</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Gruen2009_1126">
+      <h3>Grün (2009)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Gruen2009_1126</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1152/jn.00093.2008" target="_blank" title="https://doi.org/10.1152/jn.00093.2008">jn.00093.2008</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Gruen1999_67">
+      <h3>Grün et al. (1999)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Gruen1999_67</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/S0165-0270(99)00126-0" target="_blank" title="https://doi.org/10.1016/S0165-0270(99)00126-0">s0165 0270(99)00126 0</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Gruen2002_43">
+      <h3>Grün et al. (2002a)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Gruen2002_43</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1162/089976602753284455" target="_blank" title="https://doi.org/10.1162/089976602753284455">089976602753284455</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Gruen2002_81">
+      <h3>Grün et al. (2002b)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Gruen2002_81</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1162/089976602753284464" target="_blank" title="https://doi.org/10.1162/089976602753284464">089976602753284464</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Gruen2003_335">
+      <h3>Grün et al. (2003)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Gruen2003_335</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/s00422-002-0386-2" target="_blank" title="https://doi.org/10.1007/s00422-002-0386-2">s00422 002 0386 2</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Gruen2007_96">
+      <h3>Grün et al. (2007)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Gruen2007_96</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/978-3-540-88853-6_8" target="_blank" title="https://doi.org/10.1007/978-3-540-88853-6_8">978 3 540 88853 6 8</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Hafner2008_215">
+      <h3>Hafner &amp; Herwartz (2008)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Hafner2008_215</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.2307/27715168" target="_blank" title="https://doi.org/10.2307/27715168">27715168</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Hipp2012_884">
+      <h3>Hipp et al. (2012)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Hipp2012_884</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1038/nn.3101" target="_blank" title="https://doi.org/10.1038/nn.3101">nn.3101</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Jutten1991_1">
+      <h3>Jutten &amp; Herault (1991)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Jutten1991_1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/0165-1684(91)90079-X" target="_blank" title="https://doi.org/10.1016/0165-1684(91)90079-X">0165 1684(91)90079 x</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Kaminski1991_203">
+      <h3>Kaminski &amp; Blinowska (1991)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Kaminski1991_203</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/BF00198091" target="_blank" title="https://doi.org/10.1007/BF00198091">b f00198091</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Kobak2016_e10989">
+      <h3>Kobak et al. (2016)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Kobak2016_e10989</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.7554/eLife.10989" target="_blank" title="https://doi.org/10.7554/eLife.10989">e life.10989</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Kreuz2007_151">
+      <h3>Kreuz et al. (2007)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Kreuz2007_151</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.jneumeth.2007.05.031" target="_blank" title="https://doi.org/10.1016/j.jneumeth.2007.05.031">j.jneumeth.2007.05.031</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Kreuz2012_1457">
+      <h3>Kreuz et al. (2012)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Kreuz2012_1457</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1152/jn.00873.2012" target="_blank" title="https://doi.org/10.1152/jn.00873.2012">jn.00873.2012</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Kreuz2015_3432">
+      <h3>Kreuz et al. (2015)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Kreuz2015_3432</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1152/jn.00848.2014" target="_blank" title="https://doi.org/10.1152/jn.00848.2014">jn.00848.2014</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Kuhn2003_67">
+      <h3>Kuhn et al. (2003)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Kuhn2003_67</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1162/089976603321043702" target="_blank" title="https://doi.org/10.1162/089976603321043702">089976603321043702</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Lachaux1999_194">
+      <h3>Lachaux et al. (1999)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Lachaux1999_194</p>
+      <div class="comment">
+         <span class="markdown">https://doi.org/10.1002/(sici)1097-0193(1999)8:4&lt;194::aid-hbm4&gt;3.0.co;2-c</span>
+      </div>
+      <dl>
+         <dt>editorial note</dt>
+         <dd>DOI URL is not compatible. Added as rdfs:comment instead of biro:references.</dd>
+      </dl>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="LeVanQuyen2001_83">
+      <h3>Le Van Quyen et al. (2001)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#LeVanQuyen2001_83</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/S0165-0270(01)00372-7" target="_blank" title="https://doi.org/10.1016/S0165-0270(01)00372-7">s0165 0270(01)00372 7</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Loader2006">
+      <h3>Loader (2006)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Loader2006</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/b98858" target="_blank" title="https://doi.org/10.1007/b98858">b98858</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Louis2010_127">
+      <h3>Louis et al. (2010a)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Louis2010_127</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.3389/fncom.2010.00127" target="_blank" title="https://doi.org/10.3389/fncom.2010.00127">fncom.2010.00127</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Louis2010_359">
+      <h3>Louis et al. (2010b)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Louis2010_359</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/978-1-4419-5675-0_17" target="_blank" title="https://doi.org/10.1007/978-1-4419-5675-0_17">978 1 4419 5675 0 17</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Messer2014_2027">
+      <h3>Messer et al. (2014)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Messer2014_2027</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1214/14-AOAS782" target="_blank" title="https://doi.org/10.1214/14-AOAS782">14 a o a s782</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Mewett2004_524">
+      <h3>Mewett et al. (2004)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Mewett2004_524</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/BF02350994" target="_blank" title="https://doi.org/10.1007/BF02350994">b f02350994</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Nawrot2008_374">
+      <h3>Nawrot et al. (2008)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Nawrot2008_374</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.jneumeth.2007.10.013" target="_blank" title="https://doi.org/10.1016/j.jneumeth.2007.10.013">j.jneumeth.2007.10.013</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Nolte2004_2292">
+      <h3>Nolte et al. (2004)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Nolte2004_2292</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.clinph.2004.04.029" target="_blank" title="https://doi.org/10.1016/j.clinph.2004.04.029">j.clinph.2004.04.029</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Nolte2008_234101">
+      <h3>Nolte et al. (2008)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Nolte2008_234101</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1103/PhysRevLett.100.234101" target="_blank" title="https://doi.org/10.1103/PhysRevLett.100.234101">phys rev lett.100.234101</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Pettersen2006_116">
+      <h3>Pettersen et al. (2006)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Pettersen2006_116</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.jneumeth.2005.12.005" target="_blank" title="https://doi.org/10.1016/j.jneumeth.2005.12.005">j.jneumeth.2005.12.005</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Potworowski2012_541">
+      <h3>Potworowski et al. (2012)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Potworowski2012_541</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1162/NECO_a_00236" target="_blank" title="https://doi.org/10.1162/NECO_a_00236">n e c o a 00236</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Quaglio2017_41">
+      <h3>Quaglio et al. (2017)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Quaglio2017_41</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.3389/fncom.2017.00041" target="_blank" title="https://doi.org/10.3389/fncom.2017.00041">fncom.2017.00041</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Riehle1997_1950">
+      <h3>Riehle et al. (1997)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Riehle1997_1950</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1126/science.278.5345.1950" target="_blank" title="https://doi.org/10.1126/science.278.5345.1950">science.278.5345.1950</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Rosenberg1989_1">
+      <h3>Rosenberg et al. (1989)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Rosenberg1989_1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/0079-6107(89)90004-7" target="_blank" title="https://doi.org/10.1016/0079-6107(89)90004-7">0079 6107(89)90004 7</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Rosenberg1998_57">
+      <h3>Rosenberg et al. (1998)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Rosenberg1998_57</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/S0165-0270(98)00061-2" target="_blank" title="https://doi.org/10.1016/S0165-0270(98)00061-2">s0165 0270(98)00061 2</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Russo2017_e19428">
+      <h3>Russo &amp; Durstewitz (2017)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Russo2017_e19428</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.7554/eLife.19428" target="_blank" title="https://doi.org/10.7554/eLife.19428">e life.19428</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Schreiber2000_461">
+      <h3>Schreiber (2000)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Schreiber2000_461</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1103/PhysRevLett.85.461" target="_blank" title="https://doi.org/10.1103/PhysRevLett.85.461">phys rev lett.85.461</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Scott1979_605">
+      <h3>Scott (1979)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Scott1979_605</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1093/biomet/66.3.605" target="_blank" title="https://doi.org/10.1093/biomet/66.3.605">66.3.605</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Shimazaki2010_171">
+      <h3>Shimazaki &amp; Shinomoto (2010)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Shimazaki2010_171</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/s10827-009-0180-4" target="_blank" title="https://doi.org/10.1007/s10827-009-0180-4">s10827 009 0180 4</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Shinomoto2003_2823">
+      <h3>Shinomoto et al. (2003)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Shinomoto2003_2823</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1162/089976603322518759" target="_blank" title="https://doi.org/10.1162/089976603322518759">089976603322518759</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Shinomoto2009_e1000433">
+      <h3>Shinomoto et al. (2009)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Shinomoto2009_e1000433</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1371/journal.pcbi.1000433" target="_blank" title="https://doi.org/10.1371/journal.pcbi.1000433">journal.pcbi.1000433</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Stam2012_1415">
+      <h3>Stam &amp; van Straaten (2012)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Stam2012_1415</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.neuroimage.2012.05.050" target="_blank" title="https://doi.org/10.1016/j.neuroimage.2012.05.050">j.neuroimage.2012.05.050</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Stam2007_1178">
+      <h3>Stam et al. (2007)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Stam2007_1178</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1002/hbm.20346" target="_blank" title="https://doi.org/10.1002/hbm.20346">hbm.20346</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Staude2010_327">
+      <h3>Staude et al. (2010)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Staude2010_327</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/s10827-009-0195-x" target="_blank" title="https://doi.org/10.1007/s10827-009-0195-x">s10827 009 0195 x</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Stella2019_104022">
+      <h3>Stella et al. (2019)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Stella2019_104022</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.biosystems.2019.104022" target="_blank" title="https://doi.org/10.1016/j.biosystems.2019.104022">j.biosystems.2019.104022</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Stella2022_ENEURO">
+      <h3>Stella et al. (2022)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Stella2022_ENEURO</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1523/ENEURO.0505-21.2022" target="_blank" title="https://doi.org/10.1523/ENEURO.0505-21.2022">e n e u r o.0505 21.2022</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Stockwell1996_998">
+      <h3>Stockwell et al. (1996)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Stockwell1996_998</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1109/78.492555" target="_blank" title="https://doi.org/10.1109/78.492555">78.492555</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Stoica2005">
+      <h3>Stoica &amp; Moses (2005)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Stoica2005</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://isbndb.com/book/9780131139565" target="_blank" title="https://isbndb.com/book/9780131139565">9780131139565</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Sorensen2013_228">
+      <h3>Sørensen &amp; De Lathauwer (2013)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Sorensen2013_228</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1109/CAMSAP.2013.6714049" target="_blank" title="https://doi.org/10.1109/CAMSAP.2013.6714049">c a m s a p.2013.6714049</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="TallonBaudry1997_722">
+      <h3>Tallon-Baudry et al. (1997)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#TallonBaudry1997_722</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1523/JNEUROSCI.17-02-00722.1997" target="_blank" title="https://doi.org/10.1523/JNEUROSCI.17-02-00722.1997">j n e u r o s c i.17 02 00722.1997</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Thomson1982_1055">
+      <h3>Thomson (1982)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Thomson1982_1055</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1109/PROC.1982.12433" target="_blank" title="https://doi.org/10.1109/PROC.1982.12433">p r o c.1982.12433</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Tipping1999_611">
+      <h3>Tipping &amp; Bishop (1999)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Tipping1999_611</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1111/1467-9868.00196" target="_blank" title="https://doi.org/10.1111/1467-9868.00196">1467 9868.00196</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Torre2016_e1004939">
+      <h3>Torre et al. (2016)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Torre2016_e1004939</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1371/journal.pcbi.1004939" target="_blank" title="https://doi.org/10.1371/journal.pcbi.1004939">journal.pcbi.1004939</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Tort2010_1195">
+      <h3>Tort et al. (2010)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Tort2010_1195</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1152/jn.00106.2010" target="_blank" title="https://doi.org/10.1152/jn.00106.2010">jn.00106.2010</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Vaknin1988_131">
+      <h3>Vaknin et al. (1988)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Vaknin1988_131</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/0165-0270(88)90056-8" target="_blank" title="https://doi.org/10.1016/0165-0270(88)90056-8">0165 0270(88)90056 8</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Rossum2001_751">
+      <h3>van Rossum (2001)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Rossum2001_751</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1162/089976601300014321" target="_blank" title="https://doi.org/10.1162/089976601300014321">089976601300014321</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Victor1996_1310">
+      <h3>Victor &amp; Purpura (1996)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Victor1996_1310</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1152/jn.1996.76.2.1310" target="_blank" title="https://doi.org/10.1152/jn.1996.76.2.1310">jn.1996.76.2.1310</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Vidaurre2019_116009">
+      <h3>Vidaurre et al. (2019)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Vidaurre2019_116009</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.neuroimage.2019.116009" target="_blank" title="https://doi.org/10.1016/j.neuroimage.2019.116009">j.neuroimage.2019.116009</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Vinck2010_112">
+      <h3>Vinck et al. (2010)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Vinck2010_112</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.neuroimage.2010.01.073" target="_blank" title="https://doi.org/10.1016/j.neuroimage.2010.01.073">j.neuroimage.2010.01.073</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Vinck2011_1548">
+      <h3>Vinck et al. (2011)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Vinck2011_1548</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.neuroimage.2011.01.055" target="_blank" title="https://doi.org/10.1016/j.neuroimage.2011.01.055">j.neuroimage.2011.01.055</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Vinck2012_53">
+      <h3>Vinck et al. (2012)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Vinck2012_53</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/s10827-011-0374-4" target="_blank" title="https://doi.org/10.1007/s10827-011-0374-4">s10827 011 0374 4</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Welch1967_70">
+      <h3>Welch (1967)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Welch1967_70</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1109/TAU.1967.1161901" target="_blank" title="https://doi.org/10.1109/TAU.1967.1161901">t a u.1967.1161901</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Wen2013_20110610">
+      <h3>Wen et al. (2013)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Wen2013_20110610</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1098/rsta.2011.0610" target="_blank" title="https://doi.org/10.1098/rsta.2011.0610">rsta.2011.0610</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Wieland2015_040901">
+      <h3>Wieland et al. (2015)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Wieland2015_040901</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1103/PhysRevE.92.040901" target="_blank" title="https://doi.org/10.1103/PhysRevE.92.040901">phys rev e.92.040901</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Williams2018_1099">
+      <h3>Williams et al. (2018)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Williams2018_1099</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.neuron.2018.05.015" target="_blank" title="https://doi.org/10.1016/j.neuron.2018.05.015">j.neuron.2018.05.015</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Wilson1972_420">
+      <h3>Wilson (1972)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Wilson1972_420</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1137/0123044" target="_blank" title="https://doi.org/10.1137/0123044">0123044</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Yu2009_614">
+      <h3>Yu et al. (2009)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Yu2009_614</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1152/jn.90941.2008" target="_blank" title="https://doi.org/10.1152/jn.90941.2008">jn.90941.2008</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Ozkurt2011_438">
+      <h3>Özkurt &amp; Schnitzler (2011)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Ozkurt2011_438</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1016/j.jneumeth.2011.08.014" target="_blank" title="https://doi.org/10.1016/j.jneumeth.2011.08.014">j.jneumeth.2011.08.014</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Leski2007_207">
+      <h3>Łęski et al. (2007)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Leski2007_207</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/s12021-007-9000-z" target="_blank" title="https://doi.org/10.1007/s12021-007-9000-z">s12021 007 9000 z</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Leski2011_401">
+      <h3>Łęski et al. (2011)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/bibliography#Leski2011_401</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://purl.org/spar/biro/references" target="_blank" title="http://purl.org/spar/biro/references">references</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="https://doi.org/10.1007/s12021-011-9111-4" target="_blank" title="https://doi.org/10.1007/s12021-011-9111-4">s12021 011 9111 4</a>
+         </dd>
+      </dl>
+   </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div class="entity">
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  
+<div id="acknowledgments">
+<h2 class="list" id="ack">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown"><p>This work was performed as part of the <a href="https://hds-lee.de">Helmholtz School for Data Science in Life, Earth and Energy (HDS-LEE)</a> and received funding from the Helmholtz Association of German Research Centres. This project has received funding from the European Union’s Horizon 2020 Framework Programme for Research and Innovation under Specific Grant Agreement No. 945539 (Human Brain Project SGA3), the European Union’s Horizon Europe Programme under the Specific Grant Agreement No. 101147319 (<a href="https://ebrains.eu">EBRAINS</a> 2.0 Project), the Ministry of Culture and Science of the State of North Rhine-Westphalia, Germany (NRW-network "<a href="https://ibehave.nrw">iBehave</a>", grant number: NW21-049), and the Joint Lab "Supercomputing and Modeling for the Human Brain."</p>
+
+<p>The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p></span>
+</div>
+
+
+</div>
+</body>
+
+ 
+
+
+</html>
+
