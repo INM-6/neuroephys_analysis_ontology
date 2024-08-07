@@ -69,7 +69,7 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 ###  http://purl.org/neao/parameters#ASSETClusteringDistanceStretchFactor
 :ASSETClusteringDistanceStretchFactor rdf:type owl:Class ;
                                       rdfs:subClassOf :ASSETAnalysisParameter ;
-                                      rdfs:comment "When computing the elliptical distance measure used by the DBSCAN algorithm to cluster the mask matrix entries to find the diagonal structures, the parameter value is used to stretch angular coefficients deviating from 45 degrees. This reflects into the shape of the neighborhood around a point in the DBSCAN procedure. A large stretch factor will produce neighborhoods that are narrower and closer to a line in the 45 degree direction. Smaller stretch factors will produce neighborhoods that are more elliptical, with the major axis in the 45 degree direction, and the minor axis in the 135 degree direction. Therefore, the smaller strecth factor increases the minor axis of this ellipsis. Together with the DBSCAN neighborhood radius parameter, this should be used to tweak the neighborhood ellipsis such that it is contained in the rectangular kernel used to filter the probability matrix entries when computing the joint probability matrix."@en ;
+                                      rdfs:comment "When computing the elliptical distance measure used by the DBSCAN algorithm to cluster the mask matrix entries to find the diagonal structures, the parameter value is used to stretch angular coefficients deviating from 45 degrees. This reflects into the shape of the neighborhood around a point in the DBSCAN procedure. A large stretch factor will produce neighborhoods that are narrower and closer to a line in the 45 degree direction. Smaller stretch factors will produce neighborhoods that are more elliptical, with the major axis in the 45 degree direction, and the minor axis in the 135 degree direction. Therefore, the smaller stretch factor increases the minor axis of this ellipsis. Together with the DBSCAN neighborhood radius parameter, this should be used to tweak the neighborhood ellipsis such that it is contained in the rectangular kernel used to filter the probability matrix entries when computing the joint probability matrix."@en ;
                                       skos:prefLabel "distance stretch factor in ASSET clustering"@en .
 
 
@@ -91,7 +91,7 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 ###  http://purl.org/neao/parameters#ASSETMaskMatrixSignificanceThresholds
 :ASSETMaskMatrixSignificanceThresholds rdf:type owl:Class ;
                                        rdfs:subClassOf :ASSETAnalysisParameter ;
-                                       rdfs:comment "Real values (range 0-1) used as thresholds to determine if the entries in the probability matrix and joint probability matrices are significant. Entry signficance is defined as a probability value greater than the threshold values specified by the parameter. Significant entries in both probability and joint probability matrices are defined as 1 in the mask matrix."@en ;
+                                       rdfs:comment "Real values (range 0-1) used as thresholds to determine if the entries in the probability matrix and joint probability matrices are significant. Entry significance is defined as a probability value greater than the threshold values specified by the parameter. Significant entries in both probability and joint probability matrices are defined as 1 in the mask matrix."@en ;
                                        skos:prefLabel "significance thresholds in ASSET mask matrix"@en .
 
 
@@ -111,7 +111,7 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 ###  http://purl.org/neao/parameters#BlackmanWindowFunction
 :BlackmanWindowFunction rdf:type owl:Class ;
                         rdfs:subClassOf :WindowFunction ;
-                        rdfs:comment "Window function that uses the first three terms of a summation of cosines, minimizing spectral leakage. It was proposed by Ralph Beebe Blackman. The coefficients are an approximation of the ones used in the exact Blackman window function. Threfore, this window does not remove the third and fourth side lobes but produces smoother edges."@en ;
+                        rdfs:comment "Window function that uses the first three terms of a summation of cosines, minimizing spectral leakage. It was proposed by Ralph Beebe Blackman. The coefficients are an approximation of the ones used in the exact Blackman window function. Therefore, this window does not remove the third and fourth side lobes but produces smoother edges."@en ;
                         skos:prefLabel "Blackman window function"@en .
 
 
@@ -227,7 +227,7 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 ###  http://purl.org/neao/parameters#HannWindowFunction
 :HannWindowFunction rdf:type owl:Class ;
                     rdfs:subClassOf :WindowFunction ;
-                    rdfs:comment "A window function that corresponds to a raised cosine (i.e., a single period of a cosine function \"raised\" such that the negative throughs are zero). Therefore, the function reaches zero smoothly at the boundaries and eliminates all discontinuities in the signal. It has a wide main lobe and low side lobes. It is named after Julius von Hann."@en ,
+                    rdfs:comment "A window function that corresponds to a raised cosine (i.e., a single period of a cosine function \"raised\" such that the negative troughs are zero). Therefore, the function reaches zero smoothly at the boundaries and eliminates all discontinuities in the signal. It has a wide main lobe and low side lobes. It is named after Julius von Hann."@en ,
                                  "raised-cosine window function"@en ,
                                  "von Hann window function"@en ;
                     skos:altLabel "hanning window function"@en ;
@@ -321,7 +321,7 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 
 Window functions are used to select and modify a finite segment of a signal. This is useful for applying the fast Fourier transform (FFT) to a finite set of data where the length is not an integer number of periods of the signal. In this situation, there will be discontinuities at the boundaries of the signal, and the data in the frequency domain produced by the FFT will have frequency components not present in the original signal (spectral leakage). The window function can be used to reduce this discontinuities and mitigate spectral leakage when performing spectral analysis.
 
-Several types of window function exist. They will vary in shape in the time domain and will have distinct frequency charateristics in the frequency domain, with a main lobe and several side lobes. The main lobe is centered at each frequency component in the time domain, and the side lobes approach zero. These characteristics can be used to control the effect of spectral leakage when performing the analysis."""@en ;
+Several types of window function exist. They will vary in shape in the time domain and will have distinct frequency characteristics in the frequency domain, with a main lobe and several side lobes. The main lobe is centered at each frequency component in the time domain, and the side lobes approach zero. These characteristics can be used to control the effect of spectral leakage when performing the analysis."""@en ;
                 skos:altLabel "apodization function"@en ,
                               "tapering function"@en ;
                 skos:prefLabel "window function"@en .
