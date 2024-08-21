@@ -20,21 +20,21 @@ For requests or additions to NEAO, please first open an issue in the [issue trac
 
 NEAO was developed using [Protégé 5.5](https://protege.stanford.edu/software.php).
 
-The ontology source code (OWL serialized as Turtle) is organized into subfolders inside the `/src` folder:
+The ontology source code (OWL serialized as Turtle) is organized into subfolders inside the `\src` folder:
 
 - `base`: the top-level classes of the NEAO model that are imported by other modules. It defines the three main classes, the software implementation description, and all the related properties.
-- `steps`: module to extend the **AnalysisStep** base class, in order to define the specific analysis steps and their semantic groupings.
-- `data`: module to extend the **Data** base class, in order to define the specific data entities and their semantic groupings.
-- `parameters`: module to extend the **AnalysisParameter** base class, in order to define the specific parameters and their semantic groupings.
+- `steps`: module to extend the **AnalysisStep** base class in order to define the specific analysis steps and their semantic groupings.
+- `data`: module to extend the **Data** base class in order to define the specific data entities and their semantic groupings.
+- `parameters`: module to extend the **AnalysisParameter** base class in order to define the specific parameters and their semantic groupings.
 - `bibliography`: module that defines individuals with the bibliographic references used to annotate **AnalysisStep** classes.
 
-Each folder contains the `.owl` file with the source, and a XML catalog file that is used to perform local imports correctly when loading into Protégé. A top-level OWL file `neao.owl` is contained in `\src` and imports all the submodules to produce the final NEAO OWL source. This file should be edited only for the NEAO ontology metadata.
+Each folder contains the OWL file with the source, and an XML catalog file that is used to perform local imports correctly when loading into Protégé. A top-level OWL file `neao.owl` is contained in `\src` and imports all the submodules to produce the final NEAO OWL source. This file should be edited only for the NEAO ontology metadata.
 
 ### Documentation
 
 The documentation source is found in the `/doc` folder:
 
-- The HTML pages are built using [WIDOCO](https://github.com/dgarijo/Widoco). NEAO is based on the JAR release, that must be downloaded to the local system ([available here](https://github.com/dgarijo/WIDOCO/releases/latest)). The recommended path is `~/opt/widoco/widoco.jar`. 
+- The HTML pages are built using [WIDOCO](https://github.com/dgarijo/Widoco). NEAO is based on the JAR release that must be downloaded to the local system ([available here](https://github.com/dgarijo/WIDOCO/releases/latest)). The recommended path is `~/opt/widoco/widoco.jar`. 
   
   For the documentation build, `xml_grep` from [xmltwig](https://github.com/mirod/xmltwig/tree/master) is needed to post-process the generated files. In Ubuntu or other Linux distributions, it can be installed using a package manager:
   
