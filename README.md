@@ -36,7 +36,7 @@ The documentation source is found in the `/doc` folder:
 
 - The HTML pages are built using [WIDOCO](https://github.com/dgarijo/Widoco). NEAO is based on the JAR release that must be downloaded to the local system ([available here](https://github.com/dgarijo/WIDOCO/releases/latest)). The recommended path is `~/opt/widoco/widoco.jar`. 
   
-  For the documentation build, `xml_grep` from [xmltwig](https://github.com/mirod/xmltwig/tree/master) is needed to post-process the generated files. In Ubuntu or other Linux distributions, it can be installed using a package manager:
+  For the documentation build, `xml_grep` from [xmltwig](https://github.com/mirod/xmltwig/tree/master) is needed to post-process the generated files. In Ubuntu or other Debian based Linux distributions, it can be installed using a package manager:
   
   `apt install xml-twig-tools`
   
