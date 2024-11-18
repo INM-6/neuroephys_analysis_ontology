@@ -874,7 +874,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 :ComputeComplexityDistribution rdf:type owl:Class ;
                                rdfs:subClassOf :SpikeTrainSynchronyAnalysis ;
                                neao_base:hasBibliographicReference neao_bib:Gruen2007_96 ;
-                               rdfs:comment "A spike train synchrony analysis that computes the complexity distribution across a set of input spike trains containing the activity of different neurons. In a neuronal population, the complexity represents the total number of neurons that were spiking within a discrete time interval. For the computation, the binarized population histogram (i.e., a spike time histogram computed across spike trains from different neurons, where each bin will have the count of spike trains that had at least one spike within the bin interval) is obtained using a bin size specified as a parameter. The value at each bin is the complexity. The complexity distribution is obtained by finding the frequency of each complexity value (complexity histogram) and corresponding probability density function (PDF). The complexity PDF describes the likelihood of different complexity values occurring within the neuronal population."@en ;
+                               rdfs:comment "A spike train synchrony analysis that computes the complexity distribution across a set of input spike trains that typically contain the activity of different neurons. In a neuronal population, the complexity represents the total number of neurons that were spiking within a discrete time interval. For the computation, the binarized population histogram (i.e., a spike time histogram computed across spike trains, where each bin will have the count of spike trains that had at least one spike within the bin interval) is obtained using a bin size specified as a parameter. The value at each bin is the complexity. The complexity distribution is obtained by finding the frequency of each complexity value (complexity histogram) and corresponding probability density function (PDF). The complexity PDF describes the likelihood of different complexity values occurring within the neuronal population."@en ;
                                skos:prefLabel "compute complexity distribution"@en .
 
 
@@ -1873,7 +1873,7 @@ The computation can produce three outputs:
 ###  http://purl.org/neao/steps#ComputeSpikeWaveformAverage
 :ComputeSpikeWaveformAverage rdf:type owl:Class ;
                              rdfs:subClassOf :SpikeWaveformAnalysis ;
-                             rdfs:comment "A spike waveform analysis that computes the average across two or more spike waveform inputs. For the computation, the mean value across all inputs is obtained for each time point in the spike waveform. This is frequently used to reduce noise across multiple spike waveform samples of a single neuron."@en ;
+                             rdfs:comment "A spike waveform analysis that computes the average across two or more spike waveform inputs. For the computation, the mean value across all inputs is obtained for each time point in the sampled spike waveform. This is frequently used to reduce noise across multiple spike waveform samples of a single neuron."@en ;
                              skos:prefLabel "compute spike waveform average"@en .
 
 
@@ -2956,7 +2956,7 @@ The SPADE method consists of three substeps:
 ###  http://purl.org/neao/steps#SpikeTrainSynchronyAnalysis
 :SpikeTrainSynchronyAnalysis rdf:type owl:Class ;
                              rdfs:subClassOf neao_base:AnalysisStep ;
-                             rdfs:comment "An analysis step to assess synchronization in two or more spike train inputs that contain the activity of different neurons. Spike train synchronization refers to the temporal coordination of action potentials (spikes) between neurons, and describes how their spikes tend to occur at the same time."@en ;
+                             rdfs:comment "An analysis step to assess synchronization in two or more spike train inputs that typically represent the activity of different neurons. Spike train synchronization refers to the temporal coordination of action potentials (spikes) between neurons, and describes the degree to which their spikes tend to occur at the same time."@en ;
                              skos:prefLabel "spike train synchrony analysis"@en .
 
 
@@ -2976,7 +2976,7 @@ The histogram can show one of three different measures:
 ###  http://purl.org/neao/steps#SpikeWaveformAnalysis
 :SpikeWaveformAnalysis rdf:type owl:Class ;
                        rdfs:subClassOf neao_base:AnalysisStep ;
-                       rdfs:comment "An analysis step that is used to compute measures to describe or make inferences from spike waveform inputs. A spike waveform refers to the shape of an electrical signal produced by a neuron when it fires an action potential."@en ;
+                       rdfs:comment "An analysis step that is used to compute measures to describe or make inferences from spike waveform input data. A spike waveform refers to the shape of an electrical signal produced by a neuron when it fires an action potential."@en ;
                        skos:prefLabel "spike waveform analysis"@en .
 
 
@@ -3301,4 +3301,4 @@ The histogram can show one of three different measures:
 ] .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
