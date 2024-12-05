@@ -66,4 +66,4 @@ This work was performed as part of the [Helmholtz School for Data Science in Lif
 
 ## License
 
-CC BY 4.0
+CC BY 4.0 (see [LICENSE.txt](LICENSE.txt))
