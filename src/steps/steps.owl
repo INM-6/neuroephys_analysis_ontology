@@ -858,7 +858,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 :ComputeCoherenceWelch rdf:type owl:Class ;
                        rdfs:subClassOf :ComputeCoherence ;
                        neao_base:hasBibliographicReference neao_bib:Welch1967_70 ;
-                       rdfs:comment "A coherence analysis where the coherence value between the two inputs is obtained from cross and auto power spectral densities obtained using the method from Welch (1967). For the computation, the inputs are divided into multiple overlapping segments, and the overall cross and power spectral densities for computing the coherence are obtained from averaging the single-segment estimates."@en ;
+                       rdfs:comment "A coherence analysis where the coherence value between the two inputs is obtained from cross and auto power spectral densities obtained using the method described by Welch (1967). For the computation, the inputs are divided into multiple overlapping segments, and the overall cross and power spectral densities for computing the coherence are obtained from averaging the single-segment estimates."@en ;
                        skos:prefLabel "compute coherence (Welch method)"@en .
 
 
@@ -874,7 +874,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 :ComputeComplexityDistribution rdf:type owl:Class ;
                                rdfs:subClassOf :SpikeTrainSynchronyAnalysis ;
                                neao_base:hasBibliographicReference neao_bib:Gruen2007_96 ;
-                               rdfs:comment "A spike train synchrony analysis that computes the complexity distribution across a set of input spike trains containing the activity of different neurons. In a neuronal population, the complexity represents the total number of neurons that were spiking within a discrete time interval. For the computation, the binarized population histogram (i.e., a spike time histogram computed across spike trains from different neurons, where each bin will have the count of spike trains that had at least one spike within the bin interval) is obtained using a bin size specified as a parameter. The value at each bin is the complexity. The complexity distribution is obtained by finding the frequency of each complexity value (complexity histogram) and corresponding probability density function (PDF). The complexity PDF describes the likelihood of different complexity values occurring within the neuronal population."@en ;
+                               rdfs:comment "A spike train synchrony analysis that computes the complexity distribution across a set of input spike trains that typically contain the activity of different neurons. In a neuronal population, the complexity represents the total number of neurons that were spiking within a discrete time interval. For the computation, the binarized population histogram (i.e., a spike time histogram computed across spike trains, where each bin will have the count of spike trains that had at least one spike within the bin interval) is obtained using a bin size specified as a parameter. The value at each bin is the complexity. The complexity distribution is obtained by finding the frequency of each complexity value (complexity histogram) and corresponding probability density function (PDF). The complexity PDF describes the likelihood of different complexity values occurring within the neuronal population."@en ;
                                skos:prefLabel "compute complexity distribution"@en .
 
 
@@ -1010,7 +1010,7 @@ neao_data:SpikeWaveformWidth rdf:type owl:Class .
 :ComputeCubicAnalysis rdf:type owl:Class ;
                       rdfs:subClassOf :SpikeTrainSynchronyAnalysis ;
                       neao_base:hasBibliographicReference neao_bib:Staude2010_327 ;
-                      rdfs:comment "A spike train synchrony analysis that uses the Cumulant Based Inference of higher-order Correlation (CuBIC) test described in Staude et al. (2010). CuBIC is a statistical method to detect higher order correlations in parallel spike trains from a neuronal population (i.e., correlations among three or more neurons). It is based on the analysis of the cumulants of the population spike count. The test takes a population histogram as input data (i.e., a spike train time histogram computed across spike trains with the activity of distinct neurons). A null hypothesis that the third cumulant of the data is less than or equal to the maximized third cumulant for a correlation order is iteratively tested (with increasing orders of correlation). The output is the minimum correlation order necessary to explain the value of the third cumulant calculated from the population spike count, together with the p-values of the hypothesis tests performed."@en ;
+                      rdfs:comment "A spike train synchrony analysis that uses the Cumulant Based Inference of higher-order Correlation (CuBIC) test described in Staude et al. (2010). CuBIC is a statistical method to detect the presence of higher order correlations in parallel spike trains from a neuronal population (i.e., correlations among three or more neurons). It is based on the analysis of the cumulants of the population spike count. The test takes a population histogram as input data (i.e., a spike train time histogram computed across spike trains with the activity of distinct neurons). A null hypothesis that the third cumulant of the data is less than or equal to the maximized third cumulant for a correlation order is iteratively tested (with increasing orders of correlation). The output is the minimum correlation order necessary to explain the value of the third cumulant calculated from the population spike count, together with the p-values of the hypothesis tests performed."@en ;
                       skos:prefLabel "compute CuBIC analysis"@en .
 
 
@@ -1162,7 +1162,7 @@ Three options for CSD estimation using the iCSD exist. The CSD is assumed to hav
 :ComputeISIDistance rdf:type owl:Class ;
                     rdfs:subClassOf :TimeScaleIndependentSpikeTrainDistanceAnalysis ;
                     neao_base:hasBibliographicReference neao_bib:Kreuz2007_151 ;
-                    rdfs:comment "A time-scale independent spike train distance analysis that computes the ISI-distance, described in Kreuz et al. (2007). For the computation, the discrete sequence of spike times is transformed in a continuous temporal profile with one value per sample point. The values at each time point are derived from the interspike intervals. The distance is then obtained as the temporal average of the time profile. ISI-distance is well-designed to describe similarities in the firing rate profile of the input spike trains, but it is not optimal to capture neuronal synchrony."@en ;
+                    rdfs:comment "A time-scale independent spike train distance analysis that computes the ISI-distance, described in Kreuz et al. (2007). For the computation, the discrete sequence of spike times is transformed into a continuous temporal profile with one value per sample point. The values at each time point are derived from the interspike intervals. The distance is then obtained as the temporal average of the time profile. ISI-distance is well-designed to describe similarities in the firing rate profile of the input spike trains, but it is not optimal to capture neuronal synchrony."@en ;
                     skos:prefLabel "compute ISI-distance"@en .
 
 
@@ -1769,7 +1769,7 @@ The computation can produce three outputs:
                                    rdfs:subClassOf :SpikeTrainCorrelationAnalysis ;
                                    neao_base:abbreviation "compute STTC"@en ;
                                    neao_base:hasBibliographicReference neao_bib:Cutts2014_14288 ;
-                                   rdfs:comment "A spike train correlation analysis that computes the spike time tiling coefficient (STTC) as described by Cutts & Eglen (2014). The STTC measures the pairwise correlation between two input spike trains, and has advantages over the related correlation index: it is not confounded by the firing rate, it distinguishes lack of correlation from anti-correlation, periods without neural activity don't add to the correlation, and it is sensitive to firing patterns. The computation is based on a synchronicity window parameter, that is used to define short time windows around each spike that are used in the computation (spike time tiling)."@en ;
+                                   rdfs:comment "A spike train correlation analysis that computes the spike time tiling coefficient (STTC) as described by Cutts and Eglen (2014). The STTC measures the pairwise correlation between two input spike trains, and has advantages over the related correlation index: it is not confounded by the firing rate, it distinguishes lack of correlation from anti-correlation, periods without neural activity don't add to the correlation, and it is sensitive to firing patterns. The computation is based on a synchronicity window parameter, that is used to define short time windows around each spike that are used in the computation (spike time tiling)."@en ;
                                    skos:prefLabel "compute spike time tiling coefficient"@en .
 
 
@@ -1828,7 +1828,7 @@ The computation can produce three outputs:
 ###  http://purl.org/neao/steps#ComputeSpikeTrainPearsonCorrelationCoefficient
 :ComputeSpikeTrainPearsonCorrelationCoefficient rdf:type owl:Class ;
                                                 rdfs:subClassOf :SpikeTrainCorrelationAnalysis ;
-                                                rdfs:comment "A spike train correlation analysis that computes the Pearson correlation coefficient between two spike train inputs. The Pearson correlation coefficient is a real value that quantifies the linear relationship between the two spike trains. It has range [-1, 1], where 1 indicates a perfect positive linear relationship, -1 indicates a perfect negative linear relationship, and 0 indicates no linear relationship. For the computation, the input spike trains are discretized into small time intervals (bins), and the spike count is obtained in each bin. The Pearson correlation coefficient is obtained by normalizing the covariance between the binned spike trains: the covariance is divided by the product of the standard deviation of each."@en ;
+                                                rdfs:comment "A spike train correlation analysis that computes the Pearson correlation coefficient between two spike train inputs. The Pearson correlation coefficient is a real value that quantifies the linear relationship between the two spike trains. It has range [-1, 1], where 1 indicates a perfect positive linear relationship, -1 indicates a perfect negative linear relationship, and 0 indicates no linear relationship. For the computation, the input spike trains are discretized into time intervals (bins), and the spike count is obtained in each bin. The Pearson correlation coefficient is obtained by normalizing the covariance between the binned spike trains: the covariance is divided by the product of the standard deviation of each."@en ;
                                                 skos:prefLabel "compute spike train Pearson correlation coefficient"@en .
 
 
@@ -1873,7 +1873,7 @@ The computation can produce three outputs:
 ###  http://purl.org/neao/steps#ComputeSpikeWaveformAverage
 :ComputeSpikeWaveformAverage rdf:type owl:Class ;
                              rdfs:subClassOf :SpikeWaveformAnalysis ;
-                             rdfs:comment "A spike waveform analysis that computes the average across two or more spike waveform inputs. For the computation, the mean value across all inputs is obtained for each time point in the spike waveform. This is frequently used to reduce noise across multiple spike waveform samples of a single neuron."@en ;
+                             rdfs:comment "A spike waveform analysis that computes the average across two or more spike waveform inputs. For the computation, the mean value across all inputs is obtained for each time point in the sampled spike waveform. This is frequently used to reduce noise across multiple spike waveform samples of a single neuron."@en ;
                              skos:prefLabel "compute spike waveform average"@en .
 
 
@@ -2208,7 +2208,7 @@ The computation can produce three outputs:
 ###  http://purl.org/neao/steps#DispersionStatisticalAnalysis
 :DispersionStatisticalAnalysis rdf:type owl:Class ;
                                rdfs:subClassOf :StatisticalAnalysis ;
-                               rdfs:comment "A statistical analysis that computes a measure that represents the variability in the input data. It provides insight into how much the data points differ from the central tendency."@en ;
+                               rdfs:comment "A statistical analysis that computes a measure that represents the variability in the input data. It indicated the degree to which the data points differ from the central tendency."@en ;
                                skos:prefLabel "dispersion statistical analysis"@en .
 
 
@@ -2956,7 +2956,7 @@ The SPADE method consists of three substeps:
 ###  http://purl.org/neao/steps#SpikeTrainSynchronyAnalysis
 :SpikeTrainSynchronyAnalysis rdf:type owl:Class ;
                              rdfs:subClassOf neao_base:AnalysisStep ;
-                             rdfs:comment "An analysis step to assess synchronization in two or more spike train inputs that contain the activity of different neurons. Spike train synchronization refers to the temporal coordination of action potentials (spikes) between neurons, and describes how their spikes tend to occur at the same time."@en ;
+                             rdfs:comment "An analysis step to assess synchronization in two or more spike train inputs that typically represent the activity of different neurons. Spike train synchronization refers to the temporal coordination of action potentials (spikes) between neurons, and describes the degree to which their spikes tend to occur at the same time."@en ;
                              skos:prefLabel "spike train synchrony analysis"@en .
 
 
@@ -2976,14 +2976,14 @@ The histogram can show one of three different measures:
 ###  http://purl.org/neao/steps#SpikeWaveformAnalysis
 :SpikeWaveformAnalysis rdf:type owl:Class ;
                        rdfs:subClassOf neao_base:AnalysisStep ;
-                       rdfs:comment "An analysis step that is used to compute measures to describe or make inferences from spike waveform inputs. A spike waveform refers to the shape of an electrical signal produced by a neuron when it fires an action potential."@en ;
+                       rdfs:comment "An analysis step that is used to compute measures to describe or make inferences from spike waveform input data. A spike waveform refers to the shape of an electrical signal produced by a neuron when it fires an action potential."@en ;
                        skos:prefLabel "spike waveform analysis"@en .
 
 
 ###  http://purl.org/neao/steps#StatisticalAnalysis
 :StatisticalAnalysis rdf:type owl:Class ;
                      rdfs:subClassOf neao_base:AnalysisStep ;
-                     rdfs:comment "An analysis step that computes measures to summarize and make inferences about the data input(s). These include measures of central tendency, dispersion and confidence intervals. The analysis steps represented by this class are not considered in specific applications for the analysis of neuroelectrophysiology data (e.g., analyzing interspike interval variability). These classes rather represent analysis steps that are usually used for aggregation of data and description of samples (e.g., compute the mean and standard deviation of the output of trial-by-trial analyses or across subjects). Therefore, they are used for broader, more general purposes."@en ;
+                     rdfs:comment "A generic analysis step that computes measures to summarize and make inferences about the data input. These include measures of central tendency, dispersion and confidence intervals. The subclasses represent analysis steps that are usually used for aggregation of data and description of samples (e.g., compute the mean and standard deviation of the output of trial-by-trial analyses or across subjects). All analysis steps  for specific applications related to the analysis of neuroelectrophysiology data itself (e.g., analyzing interspike interval variability) are covered by separate, independent classes."@en ;
                      skos:prefLabel "statistical analysis"@en .
 
 
@@ -3063,7 +3063,7 @@ The histogram can show one of three different measures:
 ###  http://purl.org/neao/steps#TriggeredAverageAnalysis
 :TriggeredAverageAnalysis rdf:type owl:Class ;
                           rdfs:subClassOf neao_base:AnalysisStep ;
-                          rdfs:comment "An analysis step where a signal is averaged to obtain a value around a point in time representing an event of interest (i.e., a trigger). For each trigger time, a finite duration window of the input time series is selected around the trigger time. An average for each time point is then obtained across all windows."@en ;
+                          rdfs:comment "An analysis step where a signal is averaged to obtain a value around a point in time representing an event of interest (i.e., a trigger). For each event time, a finite duration window of the input time series is selected around the event time. An average for each time point is then obtained across all windows."@en ;
                           skos:prefLabel "triggered average analysis"@en .
 
 
@@ -3301,4 +3301,4 @@ The histogram can show one of three different measures:
 ] .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

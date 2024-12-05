@@ -160,14 +160,14 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 ###  http://purl.org/neao/parameters#DitheringTime
 :DitheringTime rdf:type owl:Class ;
                rdfs:subClassOf neao_base:AnalysisParameter ;
-               rdfs:comment "A time interval used to define a distribution (dithering distribution) used to displace (shift) individual spike times in a spike train."@en ;
+               rdfs:comment "A time interval that defines a dithering distribution used to draw random numbers to displace individual spike times in a spike train."@en ;
                skos:prefLabel "dithering time"@en .
 
 
 ###  http://purl.org/neao/parameters#DownsampleFactor
 :DownsampleFactor rdf:type owl:Class ;
                   rdfs:subClassOf neao_base:AnalysisParameter ;
-                  rdfs:comment "A real value used to divide the sampling rate in a sampled time series."@en ;
+                  rdfs:comment "A real value that indicates the factor by which the sampling period of a sampled time series is reduced in a downsampling operation."@en ;
                   skos:altLabel "decimation factor"@en ;
                   skos:prefLabel "downsample factor"@en .
 
@@ -189,21 +189,21 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 ###  http://purl.org/neao/parameters#FilterOrder
 :FilterOrder rdf:type owl:Class ;
              rdfs:subClassOf neao_base:AnalysisParameter ;
-             rdfs:comment "Integer value specifying the rate at which the filter response in the transition band falls. A higher order means that the filter response decays faster."@en ;
+             rdfs:comment "Integer value specifying the rate at which the filter response in the transition band falls. A higher filter order corresponds to a faster filter response decay."@en ;
              skos:prefLabel "filter order"@en .
 
 
 ###  http://purl.org/neao/parameters#FiringRate
 :FiringRate rdf:type owl:Class ;
             rdfs:subClassOf neao_base:AnalysisParameter ;
-            rdfs:comment "The parameter value determines the number of spikes fired by a neuron per time unit. It is used to control the behavior of steps that require a firing rate to control the output (e.g., a target mean firing rate when generating an artificial spike train)."@en ;
+            rdfs:comment "The parameter value determines the average number of spikes fired by a neuron per time unit. It is used to control the behavior of steps that require a firing rate to control the output (e.g., a target mean firing rate when generating an artificial spike train)."@en ;
             skos:prefLabel "firing rate"@en .
 
 
 ###  http://purl.org/neao/parameters#FrequencyResolution
 :FrequencyResolution rdf:type owl:Class ;
                      rdfs:subClassOf neao_base:AnalysisParameter ;
-                     rdfs:comment "In analyses producing estimates in the frequency domain, the parameter determines the width of the frequency bins in the output  (i.e., the smallest frequency interval in the estimates produced by the method)."@en ;
+                     rdfs:comment "In analyses producing estimates in the frequency domain, the parameter determines the width of the frequency bins in the output, i.e., the resolution of the output on the frequency axis."@en ;
                      skos:prefLabel "frequency resolution"@en .
 
 
@@ -237,7 +237,7 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 ###  http://purl.org/neao/parameters#HighPassFrequencyCutoff
 :HighPassFrequencyCutoff rdf:type owl:Class ;
                          rdfs:subClassOf neao_base:AnalysisParameter ;
-                         rdfs:comment "When applying a filter to a time series/time-varying signal, the frequency components below the parameter value will be attenuated. Usually the parameter value corresponds to the frequency component attenuated by 3 dB in the filter transition band."@en ;
+                         rdfs:comment "When applying a filter to a time series, the frequency components below this parameter value will be attenuated. Usually, the parameter value corresponds to the frequency component attenuated by 3 dB in the filter transition band."@en ;
                          skos:prefLabel "high-pass frequency cutoff"@en .
 
 
@@ -259,14 +259,14 @@ neao_base:AnalysisParameter rdf:type owl:Class .
 ###  http://purl.org/neao/parameters#LowPassFrequencyCutoff
 :LowPassFrequencyCutoff rdf:type owl:Class ;
                         rdfs:subClassOf neao_base:AnalysisParameter ;
-                        rdfs:comment "When applying a filter to a time series/time-varying signal, the frequency components above the parameter value will be attenuated. Usually the parameter value corresponds to the frequency component attenuated by 3 dB in the filter transition band."@en ;
+                        rdfs:comment "When applying a filter to a time series, the frequency components above this parameter value will be attenuated. Usually, the parameter value corresponds to the frequency component attenuated by 3 dB in the filter transition band."@en ;
                         skos:prefLabel "low-pass frequency cutoff"@en .
 
 
 ###  http://purl.org/neao/parameters#NumberFFTSamples
 :NumberFFTSamples rdf:type owl:Class ;
                   rdfs:subClassOf neao_base:AnalysisParameter ;
-                  rdfs:comment "Length (N) used in the fast Fourier transform (FFT). It determines the frequency bin size based on the sampling frequency of the input data."@en ;
+                  rdfs:comment "Length of the time series considered by application of a fast Fourier transform (FFT). The value determines the frequency bin size based on the sampling frequency of the input data, and the length of the vector representing the result of the discrete Fourier transform."@en ;
                   skos:altLabel "FFT points"@en ;
                   skos:prefLabel "number of FFT samples"@en .
 
@@ -330,7 +330,7 @@ Several types of window function exist. They will vary in shape in the time doma
 ###  http://purl.org/neao/parameters#WindowLengthSamples
 :WindowLengthSamples rdf:type owl:Class ;
                      rdfs:subClassOf neao_base:AnalysisParameter ;
-                     rdfs:comment "Integer value that defines the number of samples encompassed by a window in sampled data. This is the window length. The window corresponds to a finite interval in the sampled data (e.g., a time interval in sampled time series data)."@en ;
+                     rdfs:comment "Integer value that defines the number of samples encompassed by a window in sampled data, i.e., the window length. The window corresponds to a finite interval in the sampled data (e.g., a time interval in sampled time series data)."@en ;
                      skos:prefLabel "window length in samples"@en .
 
 
@@ -429,4 +429,4 @@ Several types of window function exist. They will vary in shape in the time doma
 ] .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

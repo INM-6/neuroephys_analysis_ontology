@@ -202,25 +202,25 @@ skos:prefLabel rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/neao/base#AnalysisStep
 :AnalysisStep rdf:type owl:Class ;
-              rdfs:comment "A process that generates new data entities or performs specific operations (clean, select, transform, or inspect/visualize) using existing data entities. Ultimately, the goal is to obtain useful information from the data. An analysis step can take zero or more data inputs and can generate one or more data outputs. The behavior of the operation can be controlled by zero or more parameters. A complete analysis will be composed by one or more analysis steps."@en ;
+              rdfs:comment "A process that generates new data entities or performs specific operations (clean, select, transform, or inspect/visualize) using existing data entities. Ultimately, the goal is to obtain useful information from the data. An analysis step can take zero or more data inputs and can generate one or more data outputs. The behavior of the operation can optionally be controlled by one or more parameters. A complete analysis is composed by one or more analysis steps."@en ;
               skos:prefLabel "analysis step"@en .
 
 
 ###  http://purl.org/neao/base#Data
 :Data rdf:type owl:Class ;
-      rdfs:comment "An entity that contains relevant information during the analysis. It can be recorded from a biological entity or generated/transformed by analysis step processes."@en ;
+      rdfs:comment "An entity that represents a piece of data, i.e., relevant information, during the analysis. It can be recorded from a biological entity or from a simulation yielding comparable data, or it can be generated/transformed by other analysis step processes."@en ;
       skos:prefLabel "data"@en .
 
 
 ###  http://purl.org/neao/base#DataRepresentation
 :DataRepresentation rdf:type owl:Class ;
-                    rdfs:comment "Defines the structure to represent the data."@en ;
+                    rdfs:comment "Defines the formal structure to represent a piece of data."@en ;
                     skos:prefLabel "data representation"@en .
 
 
 ###  http://purl.org/neao/base#ElectrophysiologySignalSource
 :ElectrophysiologySignalSource rdf:type owl:Class ;
-                               rdfs:comment """Defines the source of the recorded electrophysiology signal. This is a general concept, that can be expanded to incorporate the anatomical/tissue description from where the signal was recorded, as well as the recording technique.
+                               rdfs:comment """Defines the source of a recorded piece of electrophysiology data, i.e., the recorded signals. This is a general concept, that can be expanded to incorporate the anatomical/tissue description from where the signal was recorded, as well as the recording technique.
 
 For example, voltage potentials can be acquired from extracellular electrodes situtated on the scalp (electroencephalogram), directly on the cortical surface (electrocorticogram) or implanted deep into a specific brain region (multielectrode array)."""@en ;
                                skos:prefLabel "electrophysiology signal source"@en .
