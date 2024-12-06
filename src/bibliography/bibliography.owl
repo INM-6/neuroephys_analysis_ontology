@@ -1,0 +1,1163 @@
+@prefix : <http://purl.org/neao/bibliography#> .
+@prefix doi: <https://doi.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix biro: <http://purl.org/spar/biro/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://purl.org/neao/bibliography#> .
+
+<http://purl.org/neao/bibliography#> rdf:type owl:Ontology ;
+                                      owl:versionIRI <http://purl.org/neao/0.1.0/bibliography#> ;
+                                      dcterms:created "2022-01-19" ;
+                                      dcterms:creator "Cristiano Köhler (ORCID: 0000-0003-0503-5264)" ,
+                                                      "Michael Denker (ORCID: 0000-0003-1255-7300)" ;
+                                      dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+                                      vann:preferredNamespacePrefix "neao_bib" ;
+                                      vann:preferredNamespaceUri "http://purl.org/neao/bibliography#" ;
+                                      rdfs:comment """This module contains all individuals representing bibliographic references used throughout the Neuroelectrophysiology Analysis Ontology.
+
+The individuals defined in this module are supposed to be imported by the steps module when inserting bibliographic reference information into the classes.
+
+Each bibliography item is represented as an individual of the biro:BibliographicReference class that is related to the analysis steps (defined in the steps module) through the hasBibliographicReference annotation property. Each individual has a dcterms:bibliographicCitation property defining a string with the human-readable citation, and also a biro:references property pointing to resolvable URIs used to reach the resource."""@en ;
+                                      rdfs:label "Neuroelectrophysiology Analysis Ontology - Bibliographic References"@en ;
+                                      owl:versionInfo "0.1.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/bibliographicCitation
+dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+dcterms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#editorialNote
+skos:editorialNote rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/spar/biro/references
+biro:references rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/spar/biro/BibliographicReference
+biro:BibliographicReference rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.org/neao/bibliography#Aertsen1987_1
+:Aertsen1987_1 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://isbndb.com/book/9789971502553#Aertsen_1> ;
+               dcterms:bibliographicCitation "A. Aertsen, T. Bonhoeffer, & J. Krüger, \"Coherent activity in neuronal populations: analysis and interpretation,\" in E. R. Caianiello (ed) Physics of Cognitive Processes, pp. 1-34, World Scientific, 1987" ;
+               skos:prefLabel "Aertsen et al. (1987)"@en .
+
+
+###  http://purl.org/neao/bibliography#Baccala2001_463
+:Baccala2001_463 rdf:type owl:NamedIndividual ,
+                          biro:BibliographicReference ;
+                 biro:references <https://doi.org/10.1007/PL00007990> ;
+                 dcterms:bibliographicCitation "L. Baccalá & K. Sameshima, \"Partial directed coherence: a new concept in neural structure determination,\" Biol. Cyb., vol. 84, pp. 463-474, 2001" ;
+                 skos:prefLabel "Baccalá & Sameshima (2001)"@en .
+
+
+###  http://purl.org/neao/bibliography#Bartlett1950_1
+:Bartlett1950_1 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1093/biomet/37.1-2.1> ;
+                dcterms:bibliographicCitation "M.S. Bartlett, \"Periodogram Analysis and Continuous Spectra,\" Biometrika, vol. 37, pp. 1-16, 1950" ;
+                skos:prefLabel "Bartlett (1950)"@en .
+
+
+###  http://purl.org/neao/bibliography#Bokil2010_146
+:Bokil2010_146 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1016/j.jneumeth.2010.06.020> ;
+               dcterms:bibliographicCitation "H. Bokil, P. Andrews, J. Kulkarni, S. Mehta, & P. Mitra, \"Chronux: a platform for analyzing neural signals,\" J. Neurosci. Meth., vol. 192, pp. 146-151, 2010" ;
+               skos:prefLabel "Bokil et al. (2010)"@en .
+
+
+###  http://purl.org/neao/bibliography#Brovelli2004_9849
+:Brovelli2004_9849 rdf:type owl:NamedIndividual ,
+                            biro:BibliographicReference ;
+                   biro:references <https://doi.org/10.1073/pnas.0308538101> ;
+                   dcterms:bibliographicCitation "A. Brovelli, M. Ding, A. Ledberg, Y. Chen, R. Nakamura, & S. Bressler, \"Beta oscillations in a large-scale sensorimotor cortical network: directional influences revealed by granger causality,\" Proc. Natl. Acad. Sci. U.S.A., vol. 101, pp. 9849-9854, 2004" ;
+                   skos:prefLabel "Brovelli et al. (2004)"@en .
+
+
+###  http://purl.org/neao/bibliography#Brown2004_456
+:Brown2004_456 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1038/nn1228> ;
+               dcterms:bibliographicCitation "E. Brown, R. Kass, & P. Mitra, \"Multiple neural spike train data analysis: state-of-the-art and future challenges,\" Nat. Neurosci., vol. 7, pp. 456-461, 2004" ;
+               skos:prefLabel "Brown et al. (2004)"@en .
+
+
+###  http://purl.org/neao/bibliography#Bruna2018_056011
+:Bruna2018_056011 rdf:type owl:NamedIndividual ,
+                           biro:BibliographicReference ;
+                  biro:references <https://doi.org/10.1088/1741-2552/aacfe4> ;
+                  dcterms:bibliographicCitation "E. P. R. Bruña & F. Maestú, \"Phase locking value revisited: teaching new tricks to an old dog,\" J. Neural Eng., vol. 15, no. 5, p. 056011, 2018" ;
+                  skos:prefLabel "Bruña & Maestú (2018)"@en .
+
+
+###  http://purl.org/neao/bibliography#Canolty2006_1626
+:Canolty2006_1626 rdf:type owl:NamedIndividual ,
+                           biro:BibliographicReference ;
+                  biro:references <https://doi.org/10.1126/science.1128115> ;
+                  dcterms:bibliographicCitation "R. Canolty, E. Edwards, S. Dalal, M. Soltani, S. Nagarajan, H. Kirsch, M. Berger, N. Barbaro, & R. Knight, \"High gamma power is phase-locked to theta oscillations in human neocortex,\" Science, vol. 313, pp. 1626-1628, 2006" ;
+                  skos:prefLabel "Canolty et al. (2006)"@en .
+
+
+###  http://purl.org/neao/bibliography#Carter1987_236
+:Carter1987_236 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1109/PROC.1987.13723> ;
+                dcterms:bibliographicCitation "G. Carter, \"Coherence and time delay estimation,\" Proc. IEEE, vol. 75, pp. 236-255, 1987" ;
+                skos:prefLabel "Carter (1987)"@en .
+
+
+###  http://purl.org/neao/bibliography#Ciba2018_136
+:Ciba2018_136 rdf:type owl:NamedIndividual ,
+                       biro:BibliographicReference ;
+              biro:references <https://doi.org/10.1016/j.jneumeth.2017.09.008> ;
+              dcterms:bibliographicCitation "M. Ciba, T. Isomura, Y. Jimbo, A. Bahmer, & C. Thielemann, \"Spike-contrast: A novel time scale independent and multivariate measure of spike train synchrony,\" J. Neurosci. Meth., vol. 293, pp. 136-143, 2018" ;
+              skos:prefLabel "Ciba et al. (2018)"@en .
+
+
+###  http://purl.org/neao/bibliography#Cohen2011_811
+:Cohen2011_811 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1038/nn.2842> ;
+               dcterms:bibliographicCitation "M. Cohen & A. Kohn, \"Measuring and interpreting neuronal correlations,\" Nat. Neurosci., vol. 14, pp. 811-819, 2011" ;
+               skos:prefLabel "Cohen & Kohn (2011)"@en .
+
+
+###  http://purl.org/neao/bibliography#Cover2012
+:Cover2012 rdf:type owl:NamedIndividual ,
+                    biro:BibliographicReference ;
+           biro:references <https://isbndb.com/book/9781118585771> ;
+           dcterms:bibliographicCitation "T. Cover & J. Thomas, \"Elements of Information Theory,\" John Wiley and Sons, 2012" ;
+           skos:prefLabel "Cover & Thomas (2012)"@en .
+
+
+###  http://purl.org/neao/bibliography#Cowley2017_242
+:Cowley2017_242 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://proceedings.mlr.press/v54/cowley17a.html> ;
+                dcterms:bibliographicCitation "B. Cowley, J. Semedo, A. Zandvakili, M. Smith, A. Kohn, & B. Yu, \"Distance Covariance Analysis,\" in A. Singh & J. Zhu (eds) Proceedings of the 20th International Conference on Artificial Intelligence and Statistics, Proceedings of Machine Learning Research, vol. 54, pp. 242-251, 2017" ;
+                skos:prefLabel "Cowley et al. (2017)"@en .
+
+
+###  http://purl.org/neao/bibliography#Cutts2014_14288
+:Cutts2014_14288 rdf:type owl:NamedIndividual ,
+                          biro:BibliographicReference ;
+                 biro:references <https://doi.org/10.1523/JNEUROSCI.2767-14.2014> ;
+                 dcterms:bibliographicCitation "C. S. Cutts & S. J. Eglen, \"Detecting pairwise correlations in spike trains: an objective comparison of methods and application to the study of retinal waves,\" J. Neurosci., vol. 34, no. 43, pp. 14288-14303, 2014" ;
+                 skos:prefLabel "Cutts & Eglen (2014)"@en .
+
+
+###  http://purl.org/neao/bibliography#Deger2012_443
+:Deger2012_443 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1007/s10827-011-0362-8> ;
+               dcterms:bibliographicCitation "M. Deger, M. Helias, C. Boucsein, & S. Rotter, \"Statistical properties of superimposed stationary spike trains,\" J. Comput. Neurosci., vol. 32, no. 3, pp. 443-463, 2012" ;
+               skos:prefLabel "Deger et al. (2012)"@en .
+
+
+###  http://purl.org/neao/bibliography#Ding2006_0608035
+:Ding2006_0608035 rdf:type owl:NamedIndividual ,
+                           biro:BibliographicReference ;
+                  biro:references <https://doi.org/10.48550/arXiv.q-bio/0608035> ;
+                  dcterms:bibliographicCitation "M. Ding, Y. Chen, & S. L. Bressler, \"Granger causality: basic theory and application to neuroscience,\" arXiv, q-bio/0608035, 2006. " ;
+                  skos:prefLabel "Ding et al. (2006)"@en .
+
+
+###  http://purl.org/neao/bibliography#Eggermont2010_77
+:Eggermont2010_77 rdf:type owl:NamedIndividual ,
+                           biro:BibliographicReference ;
+                  biro:references <https://doi.org/10.1007/978-1-4419-5675-0_5> ;
+                  dcterms:bibliographicCitation "J. J. Eggermont, \"Pair-correlation in the time and frequency domain,\" in  S. Grün & S. Rotter (eds) Analysis of Parallel Spike Trains, pp. 77-102, Springer, 2010" ;
+                  skos:prefLabel "Eggermont (2010)"@en .
+
+
+###  http://purl.org/neao/bibliography#Ewald2012_476
+:Ewald2012_476 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1016/j.neuroimage.2011.11.084> ;
+               dcterms:bibliographicCitation "A. Ewald, L. Marzetti, F. Zappasodi, F. C. Meinecke, & G. Nolte, \"Estimating true brain connectivity from EEG/MEG data invariant to linear and static transformations in sensor space,\" NeuroImage, vol. 60, no. 1, pp. 476-488, 2012" ;
+               skos:prefLabel "Ewald et al. (2012)"@en .
+
+
+###  http://purl.org/neao/bibliography#Farge1992_395
+:Farge1992_395 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1146/annurev.fl.24.010192.002143> ;
+               dcterms:bibliographicCitation "M. Farge, \"Wavelet transforms and their applications to turbulence,\" Ann. Rev. Fluid Mech., vol. 24, no. 1, pp. 395-457, 1992" ;
+               skos:prefLabel "Farge (1992)"@en .
+
+
+###  http://purl.org/neao/bibliography#Freeman1975_369
+:Freeman1975_369 rdf:type owl:NamedIndividual ,
+                          biro:BibliographicReference ;
+                 biro:references <https://doi.org/10.1152/jn.1975.38.2.369> ;
+                 dcterms:bibliographicCitation "J. A. Freeman & C. Nicholson, \"Experimental optimization of current source-density technique for anuran cerebellum,\" J. Neurophysiol., vol. 38, no. 2, pp. 369-382, 1975" ;
+                 skos:prefLabel "Freeman & Nicholson (1975)"@en .
+
+
+###  http://purl.org/neao/bibliography#Fries2001_1560
+:Fries2001_1560 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1126/science.1055465> ;
+                dcterms:bibliographicCitation "P. Fries, J. Reynolds, A. Rorie, & R. Desimone, \"Modulation of oscillatory neuronal synchronization by selective visual attention,\" Science, vol. 291, pp. 1560-1563, 2001" ;
+                skos:prefLabel "Fries et al. (2001)"@en .
+
+
+###  http://purl.org/neao/bibliography#Georgopoulos1983_327
+:Georgopoulos1983_327 rdf:type owl:NamedIndividual ,
+                               biro:BibliographicReference ;
+                      biro:references <https://doi.org/10.1007/978-3-642-68915-4_34> ;
+                      dcterms:bibliographicCitation "A. P. Georgopoulos, R. Caminiti, J. F. Kalaska, & J. T. Massey, \"Spatial coding of movement: A hypothesis concerning the coding of movement direction by motor cortical populations,\" Exp. Brain Res., vol. 49, pp. 327-336, 1983" ;
+                      skos:prefLabel "Georgopoulos et al. (1983)"@en .
+
+
+###  http://purl.org/neao/bibliography#Geweke1982_304
+:Geweke1982_304 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1080/01621459.1982.10477803> ;
+                dcterms:bibliographicCitation "J. Geweke, \"Measurement of linear dependence and feedback between multiple time series,\" J. Am. Stat. Assoc., vol. 77, pp. 304-313, 1982" ;
+                skos:prefLabel "Geweke (1982)"@en .
+
+
+###  http://purl.org/neao/bibliography#Gruen1999_67
+:Gruen1999_67 rdf:type owl:NamedIndividual ,
+                       biro:BibliographicReference ;
+              biro:references <https://doi.org/10.1016/S0165-0270(99)00126-0> ;
+              dcterms:bibliographicCitation "S. Grün, M. Diesmann, F. Grammont, A. Riehle, & A. Aertsen, \"Detecting unitary events without discretization of time,\" J. Neurosci. Meth., vol. 94, no. 1, pp. 67-79, 1999" ;
+              skos:prefLabel "Grün et al. (1999)"@en .
+
+
+###  http://purl.org/neao/bibliography#Gruen2002_43
+:Gruen2002_43 rdf:type owl:NamedIndividual ,
+                       biro:BibliographicReference ;
+              biro:references <https://doi.org/10.1162/089976602753284455> ;
+              dcterms:bibliographicCitation "S. Grün, M. Diesmann, & A. Aertsen, \"Unitary events in multiple single-neuron spiking activity: I. detection and significance,\" Neural Comp., vol. 14, no. 1, pp. 43-80, 2002" ;
+              skos:prefLabel "Grün et al. (2002a)"@en .
+
+
+###  http://purl.org/neao/bibliography#Gruen2002_81
+:Gruen2002_81 rdf:type owl:NamedIndividual ,
+                       biro:BibliographicReference ;
+              biro:references <https://doi.org/10.1162/089976602753284464> ;
+              dcterms:bibliographicCitation "S. Grün, M. Diesmann, & A. Aertsen, \"Unitary events in multiple single-neuron spiking activity: II. nonstationary data,\" Neural Comp., vol. 14, no. 1, pp. 81-119, 2002" ;
+              skos:prefLabel "Grün et al. (2002b)"@en .
+
+
+###  http://purl.org/neao/bibliography#Gruen2003_335
+:Gruen2003_335 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1007/s00422-002-0386-2> ;
+               dcterms:bibliographicCitation "S. Grün, A. Riehle, & M. Diesmann, \"Effects across trial non-stationarity on joint-spike events,\" Biol. Cyb., vol. 88, no. 5, pp. 335-51, 2003" ;
+               skos:prefLabel "Grün et al. (2003)"@en .
+
+
+###  http://purl.org/neao/bibliography#Gruen2007_96
+:Gruen2007_96 rdf:type owl:NamedIndividual ,
+                       biro:BibliographicReference ;
+              biro:references <https://doi.org/10.1007/978-3-540-88853-6_8> ;
+              dcterms:bibliographicCitation "S. Grün, M. Abeles, & M. Diesmann, \"Impact of higher-order correlations on coincidence distributions of massively parallel data,\" in M. Marinaro, S. Scarpetta, & Y. Yamaguchi (eds) Dynamic Brain - from Neural Spikes to Behaviors. NN 2007. LNCS, vol. 5286, pp. 96-114, Springer, 2007" ;
+              skos:prefLabel "Grün et al. (2007)"@en .
+
+
+###  http://purl.org/neao/bibliography#Gruen2009_1126
+:Gruen2009_1126 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1152/jn.00093.2008> ;
+                dcterms:bibliographicCitation "S. Grün, \"Data-driven significance estimation of precise spike correlation,\" J. Neurophysiol., no. 101, pp. 1126-1140, 2009" ;
+                skos:prefLabel "Grün (2009)"@en .
+
+
+###  http://purl.org/neao/bibliography#Hafner2008_215
+:Hafner2008_215 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.2307/27715168> ;
+                dcterms:bibliographicCitation "C. Hafner & H. Herwartz, \"Testing for causality in variance using multivariate GARCH models,\" Ann. Econ. Statist., vol. 89, pp. 215-241, 2008" ;
+                skos:prefLabel "Hafner & Herwartz (2008)"@en .
+
+
+###  http://purl.org/neao/bibliography#Hipp2012_884
+:Hipp2012_884 rdf:type owl:NamedIndividual ,
+                       biro:BibliographicReference ;
+              biro:references <https://doi.org/10.1038/nn.3101> ;
+              dcterms:bibliographicCitation "J. F. Hipp, D. J. Hawellek, M. Corbetta, M. Siegel, & A. K. Engel, \"Large-scale cortical correlation structure of spontaneous oscillatory activity,\" Nat. Neurosci., vol. 15, no. 6, pp. 884-890, 2012" ;
+              skos:prefLabel "Hipp et al. (2012)"@en .
+
+
+###  http://purl.org/neao/bibliography#Jutten1991_1
+:Jutten1991_1 rdf:type owl:NamedIndividual ,
+                       biro:BibliographicReference ;
+              biro:references <https://doi.org/10.1016/0165-1684(91)90079-X> ;
+              dcterms:bibliographicCitation "C. Jutten & J. Herault, \"Blind separation of sources, part I: An adaptive algorithm based on neuromimetic architecture,\" Signal Process., vol. 24, no. 1, pp. 1-10, 1991" ;
+              skos:prefLabel "Jutten & Herault (1991)"@en .
+
+
+###  http://purl.org/neao/bibliography#Kaminski1991_203
+:Kaminski1991_203 rdf:type owl:NamedIndividual ,
+                           biro:BibliographicReference ;
+                  biro:references <https://doi.org/10.1007/BF00198091> ;
+                  dcterms:bibliographicCitation "M. Kaminski & K. Blinowska, \"A new method of the description of the information flow in the brain structures,\" Biol. Cyb., vol. 65, pp. 203-210, 1991" ;
+                  skos:prefLabel "Kaminski & Blinowska (1991)"@en .
+
+
+###  http://purl.org/neao/bibliography#Kobak2016_e10989
+:Kobak2016_e10989 rdf:type owl:NamedIndividual ,
+                           biro:BibliographicReference ;
+                  biro:references <https://doi.org/10.7554/eLife.10989> ;
+                  dcterms:bibliographicCitation "D. Kobak, W. Brendel, C. Constantinidis, C. E. Feierstein, A. Kepecs, Z. F. Mainen, X.-L. Qi, R. Romo, N. Uchida, & C. K. Machens, \"Demixed principal component analysis of neural population data,\" Elife, vol. 5, p. e10989, 2016" ;
+                  skos:prefLabel "Kobak et al. (2016)"@en .
+
+
+###  http://purl.org/neao/bibliography#Kreuz2007_151
+:Kreuz2007_151 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1016/j.jneumeth.2007.05.031> ;
+               dcterms:bibliographicCitation "T. Kreuz, J. Haas, A. Morelli, H. Abarbanel, & A. Politi, \"Measuring spike train synchrony,\" J. Neurosci. Meth., vol. 165, pp. 151-161, 2007" ;
+               skos:prefLabel "Kreuz et al. (2007)"@en .
+
+
+###  http://purl.org/neao/bibliography#Kreuz2012_1457
+:Kreuz2012_1457 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1152/jn.00873.2012> ;
+                dcterms:bibliographicCitation "T. Kreuz, D. Chicharro, C. Houghton, R. Andrzejak, & F. Mormann, \"Monitoring spike train synchrony,\" J. Neurophysiol., vol. 109, pp. 1457-1472, 2012" ;
+                skos:prefLabel "Kreuz et al. (2012)"@en .
+
+
+###  http://purl.org/neao/bibliography#Kreuz2015_3432
+:Kreuz2015_3432 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1152/jn.00848.2014> ;
+                dcterms:bibliographicCitation "T. Kreuz, M. Mulansky, & N. Bozanic, \"SPIKY: a graphical user interface for monitoring spike train synchrony,\" J. Neurophysiol., vol. 113, pp. 3432-3445, 2015" ;
+                skos:prefLabel "Kreuz et al. (2015)"@en .
+
+
+###  http://purl.org/neao/bibliography#Kuhn2003_67
+:Kuhn2003_67 rdf:type owl:NamedIndividual ,
+                      biro:BibliographicReference ;
+             biro:references <https://doi.org/10.1162/089976603321043702> ;
+             dcterms:bibliographicCitation "A. Kuhn, A. Aertsen, & S. Rotter, \"Higher-order statistics of input ensembles and the response of simple model neurons,\" Neural comp., vol 15, no. 1, pp. 67-101, 2003" ;
+             skos:prefLabel "Kuhn et al. (2003)"@en .
+
+
+###  http://purl.org/neao/bibliography#Lachaux1999_194
+:Lachaux1999_194 rdf:type owl:NamedIndividual ,
+                          biro:BibliographicReference ;
+                 dcterms:bibliographicCitation "J.-P. Lachaux, E. Rodriguez, J. Martinerie, & F. J. Varela, \"Measuring phase synchrony in brain signals,\" Hum. Brain Mapp., vol. 8, no. 4, pp. 194-208, 1999" ;
+                 rdfs:comment "https://doi.org/10.1002/(sici)1097-0193(1999)8:4<194::aid-hbm4>3.0.co;2-c" ;
+                 skos:editorialNote "DOI URL is not compatible. Added as rdfs:comment instead of biro:references."@en ;
+                 skos:prefLabel "Lachaux et al. (1999)"@en .
+
+
+###  http://purl.org/neao/bibliography#LeVanQuyen2001_83
+:LeVanQuyen2001_83 rdf:type owl:NamedIndividual ,
+                            biro:BibliographicReference ;
+                   biro:references <https://doi.org/10.1016/S0165-0270(01)00372-7> ;
+                   dcterms:bibliographicCitation "M. Le Van Quyen, J. Foucher, J.-P. Lachaux, E. Rodriguez, A. Lutz, J. Martinerie, and F. J. Varela, \"Comparison of Hilbert transform and wavelet methods for the analysis of neuronal synchrony,\" J. Neurosci. Meth., vol. 111, no. 2, pp. 83-98, 2001" ;
+                   skos:prefLabel "Le Van Quyen et al. (2001)"@en .
+
+
+###  http://purl.org/neao/bibliography#Leski2007_207
+:Leski2007_207 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1007/s12021-007-9000-z> ;
+               dcterms:bibliographicCitation "S. Łęski, D. K. Wójcik, J. Tereszczuk, D. A. Świejkowski, E. Kublik, & A. Wróbel, \"Inverse current-source density method in 3D: reconstruction fidelity, boundary effects, and influence of distant sources,\" Neuroinformatics, vol. 5, no. 4, pp. 207-222, 2007" ;
+               skos:prefLabel "Łęski et al. (2007)"@en .
+
+
+###  http://purl.org/neao/bibliography#Leski2011_401
+:Leski2011_401 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1007/s12021-011-9111-4> ;
+               dcterms:bibliographicCitation "S. Łęski, K. H. Pettersen, B. Tunstall, G. T. Einevoll, J. Gigg, & D. K. Wójcik, \"Inverse Current Source Density method in two dimensions: Inferring neural activation from multielectrode recordings,\" Neuroinformatics, vol. 9, no. 4, pp. 401-425, 2011" ;
+               skos:prefLabel "Łęski et al. (2011)"@en .
+
+
+###  http://purl.org/neao/bibliography#Loader2006
+:Loader2006 rdf:type owl:NamedIndividual ,
+                     biro:BibliographicReference ;
+            biro:references <https://doi.org/10.1007/b98858> ;
+            dcterms:bibliographicCitation "C. Loader, \"Local Regression and Likelihood,\" Springer Science and Business Media, 2006" ;
+            skos:prefLabel "Loader (2006)"@en .
+
+
+###  http://purl.org/neao/bibliography#Louis2010_127
+:Louis2010_127 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.3389/fncom.2010.00127> ;
+               dcterms:bibliographicCitation "S. Louis, G. L. Gerstein, S. Grün, & M. Diesmann, \"Surrogate spike train generation through dithering in operational time,\" Front. Comput. Neurosci., vol. 4, p. 127, 2010" ;
+               skos:prefLabel "Louis et al. (2010a)"@en .
+
+
+###  http://purl.org/neao/bibliography#Louis2010_359
+:Louis2010_359 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1007/978-1-4419-5675-0_17> ;
+               dcterms:bibliographicCitation "S. Louis, C. Borgelt, & S. Grün, \"Generation and selection of surrogate methods for correlation analysis,\" in S. Grün & S. Rotter (eds) Analysis of Parallel Spike Trains, vol. 7, pp. 359-382, Springer, 2010" ;
+               skos:prefLabel "Louis et al. (2010b)"@en .
+
+
+###  http://purl.org/neao/bibliography#Messer2014_2027
+:Messer2014_2027 rdf:type owl:NamedIndividual ,
+                          biro:BibliographicReference ;
+                 biro:references <https://doi.org/10.1214/14-AOAS782> ;
+                 dcterms:bibliographicCitation "M. Messer, M. Kirchner, J. Schiemann, J. Roeper, R. Neininger, & G. Schneider, \"A multiple filter test for the detection of rate changes in renewal processes with varying variance,\"  Ann. Appl. Stat., vol. 8, no. 4, pp. 2027-2067, 2014" ;
+                 skos:prefLabel "Messer et al. (2014)"@en .
+
+
+###  http://purl.org/neao/bibliography#Mewett2004_524
+:Mewett2004_524 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1007/BF02350994> ;
+                dcterms:bibliographicCitation "D. Mewett, K. Reynolds, & H. Nazeran, \"Reducing power line interference in digitised electromyogram recordings by spectrum interpolation,\" Med. Biol. Eng. Comput., vol. 42, pp. 524-531, 2004 " ;
+                skos:prefLabel "Mewett et al. (2004)"@en .
+
+
+###  http://purl.org/neao/bibliography#Nawrot2008_374
+:Nawrot2008_374 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1016/j.jneumeth.2007.10.013> ;
+                dcterms:bibliographicCitation "M. P. Nawrot, C. Boucsein, V. R. Molina, A. Riehle, A. Aertsen, & S. Rotter, \"Measurement of variability dynamics in cortical spike trains,\" J. Neurosci. Meth., vol. 169, no. 2, pp. 374-390, 2008" ;
+                skos:prefLabel "Nawrot et al. (2008)"@en .
+
+
+###  http://purl.org/neao/bibliography#Nolte2004_2292
+:Nolte2004_2292 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1016/j.clinph.2004.04.029> ;
+                dcterms:bibliographicCitation "G. Nolte,  O. Bai, L. Wheaton,  Z. Mari, S. Vorbach, & M. Hallett, \"Identifying true brain interaction from EEG data using the imaginary part of coherency,\" Clin. Neurophysiol., vol. 115, pp. 2292-2307, 2004" ;
+                skos:prefLabel "Nolte et al. (2004)"@en .
+
+
+###  http://purl.org/neao/bibliography#Nolte2008_234101
+:Nolte2008_234101 rdf:type owl:NamedIndividual ,
+                           biro:BibliographicReference ;
+                  biro:references <https://doi.org/10.1103/PhysRevLett.100.234101> ;
+                  dcterms:bibliographicCitation "G. Nolte, A. Ziehe, V. V. Nikulin, A. Schlögl, N. Krämer, T. Brismar, & K.-R. Müller, \"Robustly estimating the flow direction of information in complex physical systems,\" Phys. Rev. Lett., vol. 100, p. 234101, 2008" ;
+                  skos:prefLabel "Nolte et al. (2008)"@en .
+
+
+###  http://purl.org/neao/bibliography#Ozkurt2011_438
+:Ozkurt2011_438 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1016/j.jneumeth.2011.08.014> ;
+                dcterms:bibliographicCitation "T. Özkurt & A. Schnitzler, \"A critical note on the definition of phase–amplitude cross-frequency coupling,\" J. Neurosci. Meth., vol. 201, pp. 438-443, 2011" ;
+                skos:prefLabel "Özkurt & Schnitzler (2011)"@en .
+
+
+###  http://purl.org/neao/bibliography#Pettersen2006_116
+:Pettersen2006_116 rdf:type owl:NamedIndividual ,
+                            biro:BibliographicReference ;
+                   biro:references <https://doi.org/10.1016/j.jneumeth.2005.12.005> ;
+                   dcterms:bibliographicCitation "K. H. Pettersen, A. Devor, I. Ulbert, A. M. Dale, & G. T. Einevoll, \"Current-source density estimation based on inversion of electrostatic forward solution: Effects of finite extent of neuronal activity and conductivity discontinuities,\" J. Neurosci. Meth., vol. 154, pp. 116-133, 2006" ;
+                   skos:prefLabel "Pettersen et al. (2006)"@en .
+
+
+###  http://purl.org/neao/bibliography#Potworowski2012_541
+:Potworowski2012_541 rdf:type owl:NamedIndividual ,
+                              biro:BibliographicReference ;
+                     biro:references <https://doi.org/10.1162/NECO_a_00236> ;
+                     dcterms:bibliographicCitation "J. Potworowski, W. Jakuczun, S. Łęski, & D. K. Wójcik, \"Kernel Current Source Density Method,\" Neural Comp., vol. 24, pp. 541-575,  2012" ;
+                     skos:prefLabel "Potworowski et al. (2012)"@en .
+
+
+###  http://purl.org/neao/bibliography#Quaglio2017_41
+:Quaglio2017_41 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.3389/fncom.2017.00041> ;
+                dcterms:bibliographicCitation "P. Quaglio, A. Yegenoglu, E. Torre, D. M. Endres, & S. Grün, \"Detection and Evaluation of Spatio-Temporal Spike Patterns in Massively Parallel Spike Train Data With SPADE,\" Front. Comput. Neurosci., vol. 11, p. 41, 2017" ;
+                skos:prefLabel "Quaglio et al. (2017)"@en .
+
+
+###  http://purl.org/neao/bibliography#Riehle1997_1950
+:Riehle1997_1950 rdf:type owl:NamedIndividual ,
+                          biro:BibliographicReference ;
+                 biro:references <https://doi.org/10.1126/science.278.5345.1950> ;
+                 dcterms:bibliographicCitation "A. Riehle, S. Grün, M. Diesmann, & A. Aertsen, \"Spike synchronization and rate modulation differentially involved in motor cortical function,\" Science, vol. 278, no. 5345, pp. 1950-1953, 1997" ;
+                 skos:prefLabel "Riehle et al. (1997)"@en .
+
+
+###  http://purl.org/neao/bibliography#Rosenberg1989_1
+:Rosenberg1989_1 rdf:type owl:NamedIndividual ,
+                          biro:BibliographicReference ;
+                 biro:references <https://doi.org/10.1016/0079-6107(89)90004-7> ;
+                 dcterms:bibliographicCitation "J. R. Rosenberg, A. M. Amjad, P. Breeze, D. R. Brillinger, & D. M. Halliday, \"The Fourier approach to the identification of functional coupling between neuronal spike trains,\" Prog. Biophys. Mol. Biol., vol. 53, no. 1, pp. 1-31, 1989" ;
+                 skos:prefLabel "Rosenberg et al. (1989)"@en .
+
+
+###  http://purl.org/neao/bibliography#Rosenberg1998_57
+:Rosenberg1998_57 rdf:type owl:NamedIndividual ,
+                           biro:BibliographicReference ;
+                  biro:references <https://doi.org/10.1016/S0165-0270(98)00061-2> ;
+                  dcterms:bibliographicCitation "J. Rosenberg, D. Halliday, P. Breeze, & B. Conway, \"Identification of patterns of neuronal connectivity partial spectra, partial coherence, and neuronal interactions,\" J. Neurosci. Meth., vol. 83, pp. 57-72, 1998" ;
+                  skos:prefLabel "Rosenberg et al. (1998)"@en .
+
+
+###  http://purl.org/neao/bibliography#Rossum2001_751
+:Rossum2001_751 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1162/089976601300014321> ;
+                dcterms:bibliographicCitation "M. C. van Rossum, \"A novel spike distance,\" Neural Comp., vol. 13, no. 4, pp. 751-763, 2001" ;
+                skos:prefLabel "van Rossum (2001)"@en .
+
+
+###  http://purl.org/neao/bibliography#Russo2017_e19428
+:Russo2017_e19428 rdf:type owl:NamedIndividual ,
+                           biro:BibliographicReference ;
+                  biro:references <https://doi.org/10.7554/eLife.19428> ;
+                  dcterms:bibliographicCitation "E. Russo & D. Durstewitz, \"Cell assemblies at multiple time scales with arbitrary lag constellations,\" Elife, vol. 6, p. e19428, 2017" ;
+                  skos:prefLabel "Russo & Durstewitz (2017)"@en .
+
+
+###  http://purl.org/neao/bibliography#Schreiber2000_461
+:Schreiber2000_461 rdf:type owl:NamedIndividual ,
+                            biro:BibliographicReference ;
+                   biro:references <https://doi.org/10.1103/PhysRevLett.85.461> ;
+                   dcterms:bibliographicCitation "T. Schreiber, \"Measuring information transfer,\" Phys. Rev. Lett., vol. 85, pp. 461-464, 2000" ;
+                   skos:prefLabel "Schreiber (2000)"@en .
+
+
+###  http://purl.org/neao/bibliography#Scott1979_605
+:Scott1979_605 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1093/biomet/66.3.605> ;
+               dcterms:bibliographicCitation "D. Scott, \"On optimal and data-based histograms,\" Biometrika, vol. 66, pp. 605-610, 1979" ;
+               skos:prefLabel "Scott (1979)"@en .
+
+
+###  http://purl.org/neao/bibliography#Shimazaki2010_171
+:Shimazaki2010_171 rdf:type owl:NamedIndividual ,
+                            biro:BibliographicReference ;
+                   biro:references <https://doi.org/10.1007/s10827-009-0180-4> ;
+                   dcterms:bibliographicCitation "H. Shimazaki & S. Shinomoto, \"Kernel bandwidth optimization in spike rate estimation,\" J. Comput. Neurosci., vol. 29, no. 1-2, pp. 171-182, 2010" ;
+                   skos:prefLabel "Shimazaki & Shinomoto (2010)"@en .
+
+
+###  http://purl.org/neao/bibliography#Shinomoto2003_2823
+:Shinomoto2003_2823 rdf:type owl:NamedIndividual ,
+                             biro:BibliographicReference ;
+                    biro:references <https://doi.org/10.1162/089976603322518759> ;
+                    dcterms:bibliographicCitation "S. Shinomoto, K. Shima, & J. Tanji, \"Differences in spiking patterns among cortical neurons,\" Neural Comp., vol. 15, no. 12, pp. 2823-2842, 2003" ;
+                    skos:prefLabel "Shinomoto et al. (2003)"@en .
+
+
+###  http://purl.org/neao/bibliography#Shinomoto2009_e1000433
+:Shinomoto2009_e1000433 rdf:type owl:NamedIndividual ,
+                                 biro:BibliographicReference ;
+                        biro:references <https://doi.org/10.1371/journal.pcbi.1000433> ;
+                        dcterms:bibliographicCitation "S. Shinomoto, H. Kim, T. Shimokawa, N. Matsuno, S. Funahashi, K. Shima, I. Fujita, H. Tamura, T. Doi, K. Kawano, N. Inaba, K. Fukushima, S. Kurkin, K. Kurata, M. Taira, K.-I. Tsutsui, H. Komatsu, T. Ogawa, K. Koida, J. Tanji, K. Toyama, \"Relating neuronal firing patterns to functional differentiation of cerebral cortex,\" PLoS Comput. Biol., vol. 5, no. 7, p. e1000433, 2009" ;
+                        skos:prefLabel "Shinomoto et al. (2009)"@en .
+
+
+###  http://purl.org/neao/bibliography#Sorensen2013_228
+:Sorensen2013_228 rdf:type owl:NamedIndividual ,
+                           biro:BibliographicReference ;
+                  biro:references <https://doi.org/10.1109/CAMSAP.2013.6714049> ;
+                  dcterms:bibliographicCitation "M. Sørensen & L. De Lathauwer, \"Coupled tensor decompositions for applications in array signal processing,\" 2013 5th IEEE International Workshop on Computational Advances in Multi-Sensor Adaptive Processing (CAMSAP), pp. 228-231, 2013" ;
+                  skos:prefLabel "Sørensen & De Lathauwer (2013)"@en .
+
+
+###  http://purl.org/neao/bibliography#Stam2007_1178
+:Stam2007_1178 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1002/hbm.20346> ;
+               dcterms:bibliographicCitation "C. J. Stam, G. Nolte, & A. Daffertshofer, \"Phase lag index: assessment of functional connectivity from multi channel EEG and MEG with diminished bias from common sources,\" Hum. Brain Mapp., vol. 28, no. 11, pp. 1178-1193, 2007" ;
+               skos:prefLabel "Stam et al. (2007)"@en .
+
+
+###  http://purl.org/neao/bibliography#Stam2012_1415
+:Stam2012_1415 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1016/j.neuroimage.2012.05.050> ;
+               dcterms:bibliographicCitation "C. J. Stam & E. C. W. van Straaten, \"Go with the flow: use of a directed phase lag index (dpli) to characterize patterns of phase relations in a large-scale model of brain dynamics,\" NeuroImage, vol. 62, no. 3, pp. 1415-1428, 2012" ;
+               skos:prefLabel "Stam & van Straaten (2012)"@en .
+
+
+###  http://purl.org/neao/bibliography#Staude2010_327
+:Staude2010_327 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1007/s10827-009-0195-x> ;
+                dcterms:bibliographicCitation "B. Staude, S. Rotter, & S. Grün, \"CuBIC: cumulant based inference of higher-order correlations in massively parallel spike trains,\" J. Comput. Neurosci., vol. 29, no. 1-2, pp. 327-350, 2010" ;
+                skos:prefLabel "Staude et al. (2010)"@en .
+
+
+###  http://purl.org/neao/bibliography#Stella2019_104022
+:Stella2019_104022 rdf:type owl:NamedIndividual ,
+                            biro:BibliographicReference ;
+                   biro:references <https://doi.org/10.1016/j.biosystems.2019.104022> ;
+                   dcterms:bibliographicCitation "A. Stella, P. Quaglio, E. Torre, & S. Grün, \"3d-SPADE: Significance evaluation of spatio-temporal patterns of various temporal extents,\" Biosystems, vol. 185, p. 104022, 2019" ;
+                   skos:prefLabel "Stella et al. (2019)"@en .
+
+
+###  http://purl.org/neao/bibliography#Stella2022_ENEURO
+:Stella2022_ENEURO rdf:type owl:NamedIndividual ,
+                            biro:BibliographicReference ;
+                   biro:references <https://doi.org/10.1523/ENEURO.0505-21.2022> ;
+                   dcterms:bibliographicCitation "A. Stella, P. Bouss, G. Palm, & S. Grün, \"Comparing Surrogates to Evaluate Precisely Timed Higher-Order Spike Correlations,\" eNeuro, vol. 9, no. 3, p. ENEURO.0505-21.2022, 2022" ;
+                   skos:prefLabel "Stella et al. (2022)"@en .
+
+
+###  http://purl.org/neao/bibliography#Stockwell1996_998
+:Stockwell1996_998 rdf:type owl:NamedIndividual ,
+                            biro:BibliographicReference ;
+                   biro:references <https://doi.org/10.1109/78.492555> ;
+                   dcterms:bibliographicCitation "R. G. Stockwell, L. Mansinha, R. P. Lowe, \"Localization of the complex spectrum: the S transform,\" IEEE Trans. Signal Process., vol. 44, no. 4, pp. 998-1001, 1996" ;
+                   skos:prefLabel "Stockwell et al. (1996)"@en .
+
+
+###  http://purl.org/neao/bibliography#Stoica2005
+:Stoica2005 rdf:type owl:NamedIndividual ,
+                     biro:BibliographicReference ;
+            biro:references <https://isbndb.com/book/9780131139565> ;
+            dcterms:bibliographicCitation "P. Stoica & R. L. Moses, \"Spectral analysis of signals,\" Prentice Hall, 2005" ;
+            skos:prefLabel "Stoica & Moses (2005)"@en .
+
+
+###  http://purl.org/neao/bibliography#TallonBaudry1997_722
+:TallonBaudry1997_722 rdf:type owl:NamedIndividual ,
+                               biro:BibliographicReference ;
+                      biro:references <https://doi.org/10.1523/JNEUROSCI.17-02-00722.1997> ;
+                      dcterms:bibliographicCitation "C. Tallon-Baudry, O. Bertrand, C. Delpuech, & J. Pernier, \"Oscillatory γ-band (30-70 hz) activity induced by a visual search task in humans,\" J. Neurosci., vol. 17, pp. 722-734, 1997" ;
+                      skos:prefLabel "Tallon-Baudry et al. (1997)"@en .
+
+
+###  http://purl.org/neao/bibliography#Thomson1982_1055
+:Thomson1982_1055 rdf:type owl:NamedIndividual ,
+                           biro:BibliographicReference ;
+                  biro:references <https://doi.org/10.1109/PROC.1982.12433> ;
+                  dcterms:bibliographicCitation "D. Thomson, \"Spectrum estimation and harmonic analysis,\" Proc. IEEE, vol. 70, no. 9, pp. 1055-1096, 1982 " ;
+                  skos:prefLabel "Thomson (1982)"@en .
+
+
+###  http://purl.org/neao/bibliography#Tipping1999_611
+:Tipping1999_611 rdf:type owl:NamedIndividual ,
+                          biro:BibliographicReference ;
+                 biro:references <https://doi.org/10.1111/1467-9868.00196> ;
+                 dcterms:bibliographicCitation "M. E. Tipping & C. M. Bishop, \"Probabilistic Principal Component Analysis,\" J. R. Stat. Soc. Ser. B Stat. Method., vol. 61, no. 3, pp. 611-622, 1999" ;
+                 skos:prefLabel "Tipping & Bishop (1999)"@en .
+
+
+###  http://purl.org/neao/bibliography#Torre2016_e1004939
+:Torre2016_e1004939 rdf:type owl:NamedIndividual ,
+                             biro:BibliographicReference ;
+                    biro:references <https://doi.org/10.1371/journal.pcbi.1004939> ;
+                    dcterms:bibliographicCitation "E. Torre, C. Canova, M. Denker, G. Gerstein, M. Helias, & S. Grün, \"ASSET: Analysis of Sequences of Synchronous Events in Massively Parallel Spike Trains,\" PLoS Comput. Biol., vol. 12, no. 7, p. e1004939, 2016" ;
+                    skos:prefLabel "Torre et al. (2016)"@en .
+
+
+###  http://purl.org/neao/bibliography#Tort2010_1195
+:Tort2010_1195 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1152/jn.00106.2010> ;
+               dcterms:bibliographicCitation "A. Tort, R. Komorowski, H. Eichenbaum, & N. Kopell, \"Measuring phase-amplitude coupling between neuronal oscillations of different frequencies,\" J. Neurophysiol., vol. 104, pp. 1195-1210, 2010" ;
+               skos:prefLabel "Tort et al. (2010)"@en .
+
+
+###  http://purl.org/neao/bibliography#Vaknin1988_131
+:Vaknin1988_131 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1016/0165-0270(88)90056-8> ;
+                dcterms:bibliographicCitation "G. Vaknin, P. G. DiScenna, & T. J. Teyler, \"A method for calculating current source density (CSD) analysis without resorting to recording sites outside the sampling volume,\" J. Neurosci. Meth., vol. 24, no. 2, pp. 131-135, 1988" ;
+                skos:prefLabel "Vaknin et al. (1988)"@en .
+
+
+###  http://purl.org/neao/bibliography#Victor1996_1310
+:Victor1996_1310 rdf:type owl:NamedIndividual ,
+                          biro:BibliographicReference ;
+                 biro:references <https://doi.org/10.1152/jn.1996.76.2.1310> ;
+                 dcterms:bibliographicCitation "J. Victor & K. Purpura, \"Nature and precision of temporal coding in visual cortex: a metric-space analysis,\" J. Neurophysiol., vol. 76, pp. 1310-1326, 1996" ;
+                 skos:prefLabel "Victor & Purpura (1996)"@en .
+
+
+###  http://purl.org/neao/bibliography#Vidaurre2019_116009
+:Vidaurre2019_116009 rdf:type owl:NamedIndividual ,
+                              biro:BibliographicReference ;
+                     biro:references <https://doi.org/10.1016/j.neuroimage.2019.116009> ;
+                     dcterms:bibliographicCitation "C. Vidaurre, G. Nolte, I. E. J. de Vries, M. Gómez, T. W. Boonstra, K.-R. Müller, A. Villringer, & V. V. Nikulin, \"Canonical maximization of coherence: a novel tool for investigation of neuronal interactions between two datasets,\" NeuroImage, vol. 201, p. 116009, 2019" ;
+                     skos:prefLabel "Vidaurre et al. (2019)"@en .
+
+
+###  http://purl.org/neao/bibliography#Vinck2010_112
+:Vinck2010_112 rdf:type owl:NamedIndividual ,
+                        biro:BibliographicReference ;
+               biro:references <https://doi.org/10.1016/j.neuroimage.2010.01.073> ;
+               dcterms:bibliographicCitation "M. Vinck, M. van Wingerden, T. Womelsdorf, P. Fries, & C. Pennartz, \"The pairwise phase consistency: a bias-free measure of rhythmic neuronal synchronization,\" NeuroImage, vol. 51, pp. 112-122, 2010" ;
+               skos:prefLabel "Vinck et al. (2010)"@en .
+
+
+###  http://purl.org/neao/bibliography#Vinck2011_1548
+:Vinck2011_1548 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                biro:references <https://doi.org/10.1016/j.neuroimage.2011.01.055> ;
+                dcterms:bibliographicCitation "M. Vinck, R. Oostenveld, M. van Wingerden, F. Battaglia, & C. Pennartz, \"An improved index of phase-synchronization for electrophysiological data in the presence of volume-conduction, noise and sample-size bias,\" NeuroImage, vol. 55, no. 4, pp. 1548-1565, 2011" ;
+                skos:prefLabel "Vinck et al. (2011)"@en .
+
+
+###  http://purl.org/neao/bibliography#Vinck2012_53
+:Vinck2012_53 rdf:type owl:NamedIndividual ,
+                       biro:BibliographicReference ;
+              biro:references <https://doi.org/10.1007/s10827-011-0374-4> ;
+              dcterms:bibliographicCitation "M. Vinck, F. P. Battaglia, T. Womelsdorf, & C. Pennartz, \"Improved measures of phase-coupling between spikes and the Local Field Potential,\" J. Comput. Neurosci., vol. 33, pp. 53-75, 2012" ;
+              skos:prefLabel "Vinck et al. (2012)"@en .
+
+
+###  http://purl.org/neao/bibliography#Welch1967_70
+:Welch1967_70 rdf:type owl:NamedIndividual ,
+                       biro:BibliographicReference ;
+              biro:references <https://doi.org/10.1109/TAU.1967.1161901> ;
+              dcterms:bibliographicCitation "P. Welch, \"The use of the fast Fourier transform for the estimation of power spectra: A method based on time averaging over short, modified periodograms,\" IEEE Trans. Audio Electroacoust., vol. 15, pp. 70-73, 1967" ;
+              skos:prefLabel "Welch (1967)"@en .
+
+
+###  http://purl.org/neao/bibliography#Wen2013_20110610
+:Wen2013_20110610 rdf:type owl:NamedIndividual ,
+                           biro:BibliographicReference ;
+                  biro:references <https://doi.org/10.1098/rsta.2011.0610> ;
+                  dcterms:bibliographicCitation "X. Wen, G. Rangarajan, & M. Ding, \"Multivariate Granger causality: an estimation framework based on factorization of the spectral density matrix,\" Phil. Trans. R. Soc. A, vol. 371, no. 1997, p. 20110610, 2013" ;
+                  skos:prefLabel "Wen et al. (2013)"@en .
+
+
+###  http://purl.org/neao/bibliography#Wieland2015_040901
+:Wieland2015_040901 rdf:type owl:NamedIndividual ,
+                             biro:BibliographicReference ;
+                    biro:references <https://doi.org/10.1103/PhysRevE.92.040901> ;
+                    dcterms:bibliographicCitation "S. Wieland, D. Bernardi, T. Schwalger, & B. Lindner, \"Slow fluctuations in recurrent networks of spiking neurons,\" Phys. Rev. E, vol. 92, no. 4, p. 040901, 2015" ;
+                    skos:prefLabel "Wieland et al. (2015)"@en .
+
+
+###  http://purl.org/neao/bibliography#Williams2018_1099
+:Williams2018_1099 rdf:type owl:NamedIndividual ,
+                            biro:BibliographicReference ;
+                   biro:references <https://doi.org/10.1016/j.neuron.2018.05.015> ;
+                   dcterms:bibliographicCitation "A. H. Williams, T. H. Kim, F. Wang, S. Vyas, S. I. Ryu, K. V. Shenoy, M. Schnitzer, T. G. Kolda, & S. Ganguli, \"Unsupervised Discovery of Demixed, Low-Dimensional Neural Dynamics across Multiple Timescales through Tensor Component Analysis,\" Neuron, vol. 98, no. (6), pp. 1099-1115.e8, 2018" ;
+                   skos:prefLabel "Williams et al. (2018)"@en .
+
+
+###  http://purl.org/neao/bibliography#Yu2009_614
+:Yu2009_614 rdf:type owl:NamedIndividual ,
+                     biro:BibliographicReference ;
+            biro:references <https://doi.org/10.1152/jn.90941.2008> ;
+            dcterms:bibliographicCitation "B. M. Yu, J. P. Cunningham, G. Santhanam, S. Ryu, K. V. Shenoy, & M. Sahani, \"Gaussian-Process Factor Analysis for Low-Dimensional Single-Trial Analysis of Neural Population Activity,\" J. Neurophysiol., vol. 102, no. 1, pp. 614-635, 2009" ;
+            skos:prefLabel "Yu et al. (2009)"@en .
+
+
+###  http://purl.org/neao/bibliography#Dhamala2008_354
+:Dhamala2008_354 rdf:type owl:NamedIndividual ,
+                          biro:BibliographicReference ;
+                 skos:prefLabel "Dhamala et al. (2008)"@en ;
+                 biro:references <https://doi.org/10.1016/j.neuroimage.2008.02.020> ;
+                 dcterms:bibliographicCitation "M. Dhamala, G. Rangarajan, & M. Ding, \"Analyzing information flow in brain networks with nonparametric Granger causality,\" NeuroImage, vol. 41, no. 2, pp. 354-362, 2008" .
+
+
+###  http://purl.org/neao/bibliography#Wilson1972_420
+:Wilson1972_420 rdf:type owl:NamedIndividual ,
+                         biro:BibliographicReference ;
+                skos:prefLabel "Wilson (1972)"@en ;
+                biro:references <https://doi.org/10.1137/0123044> ;
+                dcterms:bibliographicCitation "G. T. Wilson, \"The Factorization of Matricial Spectral Densities,\" SIAM J. Appl. Math., vol. 23, no. 4, pp. 420-426, 1972" .
+
+
+###  https://doi.org/10.1016/j.neuroimage.2008.02.020
+<https://doi.org/10.1016/j.neuroimage.2008.02.020> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1137/0123044
+<https://doi.org/10.1137/0123044> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1002/hbm.20346
+<https://doi.org/10.1002/hbm.20346> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/BF00198091
+<https://doi.org/10.1007/BF00198091> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/BF02350994
+<https://doi.org/10.1007/BF02350994> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/PL00007990
+<https://doi.org/10.1007/PL00007990> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/b98858
+<https://doi.org/10.1007/b98858> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/s00422-002-0386-2
+<https://doi.org/10.1007/s00422-002-0386-2> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/s10827-009-0180-4
+<https://doi.org/10.1007/s10827-009-0180-4> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/s10827-009-0195-x
+<https://doi.org/10.1007/s10827-009-0195-x> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/s10827-011-0362-8
+<https://doi.org/10.1007/s10827-011-0362-8> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/s10827-011-0374-4
+<https://doi.org/10.1007/s10827-011-0374-4> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/s12021-007-9000-z
+<https://doi.org/10.1007/s12021-007-9000-z> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/s12021-011-9111-4
+<https://doi.org/10.1007/s12021-011-9111-4> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/978-1-4419-5675-0_17
+<https://doi.org/10.1007/978-1-4419-5675-0_17> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/978-1-4419-5675-0_5
+<https://doi.org/10.1007/978-1-4419-5675-0_5> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/978-3-540-88853-6_8
+<https://doi.org/10.1007/978-3-540-88853-6_8> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1007/978-3-642-68915-4_34
+<https://doi.org/10.1007/978-3-642-68915-4_34> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/j.biosystems.2019.104022
+<https://doi.org/10.1016/j.biosystems.2019.104022> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/j.clinph.2004.04.029
+<https://doi.org/10.1016/j.clinph.2004.04.029> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/j.jneumeth.2005.12.005
+<https://doi.org/10.1016/j.jneumeth.2005.12.005> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/j.jneumeth.2007.05.031
+<https://doi.org/10.1016/j.jneumeth.2007.05.031> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/j.jneumeth.2007.10.013
+<https://doi.org/10.1016/j.jneumeth.2007.10.013> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/j.jneumeth.2010.06.020
+<https://doi.org/10.1016/j.jneumeth.2010.06.020> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/j.jneumeth.2011.08.014
+<https://doi.org/10.1016/j.jneumeth.2011.08.014> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/j.jneumeth.2017.09.008
+<https://doi.org/10.1016/j.jneumeth.2017.09.008> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/j.neuroimage.2010.01.073
+<https://doi.org/10.1016/j.neuroimage.2010.01.073> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/j.neuroimage.2011.01.055
+<https://doi.org/10.1016/j.neuroimage.2011.01.055> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/j.neuroimage.2011.11.084
+<https://doi.org/10.1016/j.neuroimage.2011.11.084> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/j.neuroimage.2012.05.050
+<https://doi.org/10.1016/j.neuroimage.2012.05.050> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/j.neuroimage.2019.116009
+<https://doi.org/10.1016/j.neuroimage.2019.116009> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/j.neuron.2018.05.015
+<https://doi.org/10.1016/j.neuron.2018.05.015> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/0079-6107(89)90004-7
+<https://doi.org/10.1016/0079-6107(89)90004-7> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/0165-0270(88)90056-8
+<https://doi.org/10.1016/0165-0270(88)90056-8> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/0165-1684(91)90079-X
+<https://doi.org/10.1016/0165-1684(91)90079-X> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/S0165-0270(01)00372-7
+<https://doi.org/10.1016/S0165-0270(01)00372-7> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/S0165-0270(98)00061-2
+<https://doi.org/10.1016/S0165-0270(98)00061-2> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1016/S0165-0270(99)00126-0
+<https://doi.org/10.1016/S0165-0270(99)00126-0> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1038/nn.2842
+<https://doi.org/10.1038/nn.2842> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1038/nn.3101
+<https://doi.org/10.1038/nn.3101> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1038/nn1228
+<https://doi.org/10.1038/nn1228> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1073/pnas.0308538101
+<https://doi.org/10.1073/pnas.0308538101> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1080/01621459.1982.10477803
+<https://doi.org/10.1080/01621459.1982.10477803> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1088/1741-2552/aacfe4
+<https://doi.org/10.1088/1741-2552/aacfe4> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1093/biomet/37.1-2.1
+<https://doi.org/10.1093/biomet/37.1-2.1> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1093/biomet/66.3.605
+<https://doi.org/10.1093/biomet/66.3.605> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1098/rsta.2011.0610
+<https://doi.org/10.1098/rsta.2011.0610> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1103/PhysRevE.92.040901
+<https://doi.org/10.1103/PhysRevE.92.040901> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1103/PhysRevLett.100.234101
+<https://doi.org/10.1103/PhysRevLett.100.234101> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1103/PhysRevLett.85.461
+<https://doi.org/10.1103/PhysRevLett.85.461> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1109/CAMSAP.2013.6714049
+<https://doi.org/10.1109/CAMSAP.2013.6714049> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1109/PROC.1982.12433
+<https://doi.org/10.1109/PROC.1982.12433> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1109/PROC.1987.13723
+<https://doi.org/10.1109/PROC.1987.13723> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1109/TAU.1967.1161901
+<https://doi.org/10.1109/TAU.1967.1161901> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1109/78.492555
+<https://doi.org/10.1109/78.492555> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1111/1467-9868.00196
+<https://doi.org/10.1111/1467-9868.00196> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1126/science.1055465
+<https://doi.org/10.1126/science.1055465> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1126/science.1128115
+<https://doi.org/10.1126/science.1128115> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1126/science.278.5345.1950
+<https://doi.org/10.1126/science.278.5345.1950> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1146/annurev.fl.24.010192.002143
+<https://doi.org/10.1146/annurev.fl.24.010192.002143> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1152/jn.00093.2008
+<https://doi.org/10.1152/jn.00093.2008> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1152/jn.00106.2010
+<https://doi.org/10.1152/jn.00106.2010> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1152/jn.00848.2014
+<https://doi.org/10.1152/jn.00848.2014> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1152/jn.00873.2012
+<https://doi.org/10.1152/jn.00873.2012> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1152/jn.1975.38.2.369
+<https://doi.org/10.1152/jn.1975.38.2.369> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1152/jn.1996.76.2.1310
+<https://doi.org/10.1152/jn.1996.76.2.1310> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1152/jn.90941.2008
+<https://doi.org/10.1152/jn.90941.2008> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1162/NECO_a_00236
+<https://doi.org/10.1162/NECO_a_00236> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1162/089976601300014321
+<https://doi.org/10.1162/089976601300014321> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1162/089976602753284455
+<https://doi.org/10.1162/089976602753284455> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1162/089976602753284464
+<https://doi.org/10.1162/089976602753284464> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1162/089976603321043702
+<https://doi.org/10.1162/089976603321043702> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1162/089976603322518759
+<https://doi.org/10.1162/089976603322518759> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1214/14-AOAS782
+<https://doi.org/10.1214/14-AOAS782> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1371/journal.pcbi.1000433
+<https://doi.org/10.1371/journal.pcbi.1000433> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1371/journal.pcbi.1004939
+<https://doi.org/10.1371/journal.pcbi.1004939> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1523/ENEURO.0505-21.2022
+<https://doi.org/10.1523/ENEURO.0505-21.2022> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1523/JNEUROSCI.17-02-00722.1997
+<https://doi.org/10.1523/JNEUROSCI.17-02-00722.1997> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.1523/JNEUROSCI.2767-14.2014
+<https://doi.org/10.1523/JNEUROSCI.2767-14.2014> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.2307/27715168
+<https://doi.org/10.2307/27715168> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.3389/fncom.2010.00127
+<https://doi.org/10.3389/fncom.2010.00127> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.3389/fncom.2017.00041
+<https://doi.org/10.3389/fncom.2017.00041> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.48550/arXiv.q-bio/0608035
+<https://doi.org/10.48550/arXiv.q-bio/0608035> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.7554/eLife.10989
+<https://doi.org/10.7554/eLife.10989> rdf:type owl:NamedIndividual .
+
+
+###  https://doi.org/10.7554/eLife.19428
+<https://doi.org/10.7554/eLife.19428> rdf:type owl:NamedIndividual .
+
+
+###  https://isbndb.com/book/9780131139565
+<https://isbndb.com/book/9780131139565> rdf:type owl:NamedIndividual .
+
+
+###  https://isbndb.com/book/9781118585771
+<https://isbndb.com/book/9781118585771> rdf:type owl:NamedIndividual .
+
+
+###  https://isbndb.com/book/9789971502553#Aertsen_1
+<https://isbndb.com/book/9789971502553#Aertsen_1> rdf:type owl:NamedIndividual .
+
+
+###  https://proceedings.mlr.press/v54/cowley17a.html
+<https://proceedings.mlr.press/v54/cowley17a.html> rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

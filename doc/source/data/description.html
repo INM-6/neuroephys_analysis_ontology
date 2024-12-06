@@ -1,0 +1,12 @@
+<p>The classes in this module are subclasses of the <a href="../base/index.html#Data">Data</a> base class (defined in the <a href="../base/index.html">base</a> module), and are associated with the distinct steps throughout the analysis (defined in the <a href="../steps/index.html">steps</a> module) by the <a href="../base/index.html#hasInput">hasInput</a> and <a href="../base/index.html#hasOutput">hasOutput</a> object properties.</p>
+
+<p>Additional information on the data entity can be described by using additional classes and properties defined in the <a href="../base/index.html">base</a> module:</p>
+
+<ul>
+<li><p>The electrophysiology recording source associated with the data can be defined with the <a href="../base/index.html#hasSource">hasSource</a> object property that points to individuals of the <a href="../base/index.html#ElectrophysiologySignalSource">ElectrophysiologySignalSource</a> class.</p></li>
+<li><p>In addition, information on the structure of the data (e.g., matrix, array) can be provided with the <a href="../base/index.html#isRepresentedAs">isRepresentedAs</a> object property that points to individuals of the <a href="../base/index.html#DataRepresentation">DataRepresentation</a> class.</p></li>
+</ul>
+
+<p>The objective of NEAO is not to model the sources and formats of the data, but these two classes above can be used as abstractions to align other ontologies that are defined with that purpose.</p>
+
+<p>Finally, several data properties are also defined to provide extended information on the data entity (e.g., <a href="#isNormalized">isNormalized</a> or <a href="#isArtificial">isArtificial</a>). These properties can be used to define additional semantic groupings to make inferences on the data and analysis (e.g., artificial data is defined by the <a href="#ArtificialData">ArtificialData</a> class).</p>

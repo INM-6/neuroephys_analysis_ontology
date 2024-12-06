@@ -1,0 +1,64 @@
+<p>The NEAO design assumes that neuroelectrophysiology data analysis consists of a sequence of small, atomic steps, each performing a specific action to generate, transform, or characterize data.</p>
+
+<p>For example, consider the example below illustrating the sequence of steps to plot the power spectral density (PSD) of a local field potential (LFP) time series recorded by an extracellular electrode implanted in a brain area and saved to a data file.
+
+<p><img src="./images/concept.png" style="display: block; margin-top: 50px; margin-bottom: 50px; margin-right: auto; margin-left: auto; width: 900px; height: auto" /></p>
+
+<p>First, the raw data is loaded from the file into a data structure containing the voltage time series acquired by the recording equipment. The LFP is the low-frequency component of the extracellular signal (e.g., below 250 Hz), so a low-pass filter with a 250 Hz cutoff is applied to obtain the LFP time series. The PSD is then computed from the filtered data, resulting in an array of power density estimates for various frequency values. This power spectrum can be plotted and saved to a file. In this example, each step takes input data, processes it, and produces output data, with parameters (e.g., the low-pass cutoff frequency for filtering) controlling each step.</p>
+
+<p>We propose the NEAO to describe such scenarios: 
+
+<p><img src="./images/NEAO_main.png" style="display: block; margin-top: 50px; margin-bottom: 50px; margin-right: auto; margin-left: auto; width: 700px; height: auto" /></p>
+
+<p>NEAO is organized around the central <strong>AnalysisStep</strong> class to model the atomic steps of the analysis. This class represents any process that generates new data entities (e.g., generating artificial LFP data) or performs specific operations to extract additional information from existing data entities. These operations include data transformations (e.g., filtering the raw signal into the LFP) or computations of new, derived data (e.g., obtaining the PSD from the LFP signal). Thus, each analysis step either acts on existing data entities or produces new data.</p>
+
+<p>Two additional classes complete the core of the ontology model: <strong>Data</strong> and <strong>AnalysisParameter</strong>.</p>
+
+<p>The <strong>Data</strong> class represents any entity containing information used during the analysis and serves as the input and output for analysis steps. It can represent data obtained from biological electrophysiology recordings or data generated or transformed during analysis steps. In the example of computing the PSD from an electrode signal, the raw signal time series, the filtered LFP time series, the resulting PSD estimate array, and the plot are all instances of the <strong>Data</strong> class.</p>
+
+<p>The <strong>AnalysisParameter</strong> class represents information entities that control the behavior of an analysis step. These parameters do not provide data to the step but influence its output. In the example above, the filter step uses a 250 Hz low-frequency cutoff parameter to set the bandwidth of the output signal.
+
+<div id="ambiguities">
+<h3 class="list" id="ambiguities">Solving ambiguities in the description of neuroelectrophysiology data analysis</h3>
+
+<p>To accurately describe neuroelectrophysiology data analysis, two key aspects must be considered:</p>
+<ol>
+	<li><p>Multiple complementary and overlapping analysis methods can be used to understand a feature of brain activity from the recorded data, with each method's strengths and limitations influencing the results. For instance, various algorithms can compute the PSD of recorded signals, each producing similar measures but with different interpretations based on characteristics such as their frequency resolution.</p></li>
+    <li><p>The implementation of a specific analysis method can vary across different software tools, potentially leading to subtle differences in results even when using the same underlying method.</p></li>
+</ol>
+
+<p>Therefore, a clear and unambiguous description of both the methodology and the software implementations is essential for reliable insights into neuroelectrophysiology data analysis. NEAO aims to address the ambiguities that can be present when describing the steps, data, and parameters during the analysis:</p>
+
+<ul>
+<li><p><strong>Naming:</strong> NEAO introduces a controlled vocabulary for naming classes, which is associated with a clear description, to avoid confusion with similar terms. Moreover, each class has a clear label, alternative labels to account for synonyms, and common abbreviations.</p></li>
+<li><p><strong>Code:</strong> NEAO structures details of the code executing an analysis step ensuring precise identification of software tools and their versions.</p></li>
+<li><p><strong>Bibliographic References:</strong> NEAO links analysis steps to specific publications ensuring clear identification of the method’s version and its detailed description.</p></li>
+</ul>
+</div>
+
+<div id="grouping">
+<h3 class="list" id="grouping">Obtaining broader insights on the analyses by semantic groupings</h3>
+<p>The main NEAO classes provide detailed descriptions of <em>specific</em> analysis steps, data, and parameters. One example of a specific step is the computation of a PSD using either the Welch or the multitaper method.</p>
+<p>However, to gain broader insights, general information about the analysis must be available. For instance, instead of querying if an analysis step used a specific method for computing a PSD (such as the Welch or multitaper), one may be interested in identifying if the analysis step is part of a <em>category</em> of methods (that includes any method that computes a PSD).</p>
+<p>NEAO provides classes that introduce those semantic groupings, organizing the information in relevant categories and allowing more generalized insights on the analyses.</p>
+</div>
+
+<div id="modules">
+<h3 class="list" id="modules">NEAO organization</h3>
+<p>The NEAO definitions are divided into submodules, each defining a small ontology associated with a single namespace.</p>
+<p>The core model is defined in a base module, and each of the three main classes (<strong>AnalysisStep</strong>, <strong>Data</strong>, and <strong>AnalysisParameter</strong>) is expanded in additional modules.</p>
+<p>The documentation for each submodule provides extended details on the implementation, and is accessible in the table below:</p>
+<div align="center" id="modulesdescription">
+<table>
+<caption>Individual modules defined in NEAO</caption>
+<tbody>
+<tr><td><b>Root</b></td><td>The overall module, that contains the main metadata and publishing information of NEAO.</td><td>neao</td><td>\\\&lt;http://purl.org/neao/\\\&gt;</td></tr>
+<tr><td><b><a href="./base/index.html">Base</a></b></td><td>The top-level classes of the NEAO model that are imported by other modules. It defines the three main classes, the software implementation description, and all the related properties.</td><td>neao_base</td><td>\\\&lt;http://purl.org/neao/base#\\\&gt;</td></tr>
+<tr><td><b><a href="./steps/index.html">Steps</a></b></td><td>Module to extend the <strong>AnalysisStep</strong> base class, in order to define the specific analysis steps and their semantic groupings.</td><td>neao_steps</td><td>\\\&lt;http://purl.org/neao/steps#\\\&gt;</td></tr>
+<tr><td><b><a href="./data/index.html">Data</a></b></td><td>Module to extend the <strong>Data</strong> base class, in order to define the specific data entities and their semantic groupings.</td><td>neao_data</td><td>\\\&lt;http://purl.org/neao/data#\\\&gt;</td></tr>
+<tr><td><b><a href="./parameters/index.html">Parameters</a></b></td><td>Module to extend the <strong>AnalysisParameter</strong> base class, in order to define the specific parameters and their semantic groupings.</td><td>neao_params</td><td>\\\&lt;http://purl.org/neao/parameters#\\\&gt;</td></tr>
+<tr><td><b><a href="./bibliography/index.html">Bibliography</a></b></td><td>Define individuals with the bibliographic references used to annotate <strong>AnalysisStep</strong> classes.</td><td>neao_bib</td><td>\\\&lt;http://purl.org/neao/bibliography#\\\&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
