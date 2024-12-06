@@ -1,0 +1,962 @@
+<html><head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+ <link href="resources/primer.css" media="screen" rel="stylesheet" />    <link href="resources/rec.css" media="screen" rel="stylesheet" />    <link href="resources/extra.css" media="screen" rel="stylesheet" />    <link href="resources/owl.css" media="screen" rel="stylesheet" />    <title>Neuroelectrophysiology Analysis Ontology - Base classes</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;@context&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;https://schema.org&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;,&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;@type&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;TechArticle&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;,&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;url&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;http://purl.org/neao/base#&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;,&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;image&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;http://vowl.visualdataweb.org/webvowl/#iri=http://purl.org/neao/base#&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;,&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;name&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;Neuroelectrophysiology Analysis Ontology - Base classes&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;headline&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;Document describing the ontology http://purl.org/neao/base#&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;dateReleased&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;2024-12-06&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;version&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;0.1.0&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;license&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;https://creativecommons.org/licenses/by/4.0/&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;author&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:[{&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;@type&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;Person&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;,&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;name&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;Cristiano Köhler&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;,&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;url&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;http://orcid.org/0000-0003-0503-5264&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;},{&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;@type&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;Person&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;,&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;name&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;Michael Denker&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;,&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;url&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;http://orcid.org/0000-0003-1255-7300&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;.markdown&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;).each(function(el){jQuery(this).after(marked(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;html, body&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;).animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t=&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;h2&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;Table of contents&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;/h2&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;ul&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;;i = 1;j=0;
+	  jQuery(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;.list&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;).each(function(){
+		if(jQuery(this).is(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;h2&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;)){
+			if(j&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;0){
+				t+=&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;/ul&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;;
+				j=0;
+			}
+			t+= &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;li&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;+i+&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;. &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;a href=#&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;+ jQuery(this).attr(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;id&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;)+&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;+ jQuery(this).ignore(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;span&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;).text()+&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;/a&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;/li&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;;
+			i++;
+		}
+		if(jQuery(this).is(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;h3&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;)){
+			if(j==0){
+				t+=&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;ul&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;;
+			}
+			j++;
+			t+= &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;li&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;+(i-1)+&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;.&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;+j+&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;. &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;+&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;a href=#&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;+ jQuery(this).attr(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;id&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;)+&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;+ jQuery(this).ignore(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;span&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;).text()+&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;/a&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;/li&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;;
+		}
+	  });
+	  t+=&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;/ul&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;apos;;
+	  $(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;#toc&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;).html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;*&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;).remove().end();
+ }; 
+   </script> 
+  </head><body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>Neuroelectrophysiology Analysis Ontology - Base classes</h1>
+<h2>Release: 2024-12-06</h2>
+
+
+<dl>
+<dt>This version:</dt>
+<dd><a href="http://purl.org/neao/0.1.0/base#">http://purl.org/neao/0.1.0/base#</a></dd>
+<dt>Latest version:</dt>
+<dd><a href="http://purl.org/neao/base#">http://purl.org/neao/base#</a></dd>
+<dt>Revision:</dt>
+<dd>0.1.0</dd>
+<dt>Issued on:</dt>
+<dd>2024-12-06</dd>
+<dt>Authors:</dt>
+<dd><a href="http://orcid.org/0000-0003-0503-5264">Cristiano Köhler</a>, <a href="https://ror.org/02nv7yv05">Forschungszentrum Jülich</a></dd><dd><a href="http://orcid.org/0000-0003-1255-7300">Michael Denker</a>, <a href="https://ror.org/02nv7yv05">Forschungszentrum Jülich</a></dd>
+
+<dt>License:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="https://creativecommons.org/licenses/by/4.0/" src="https://img.shields.io/badge/License-CC_BY%204.0%20International-blue.svg" /></a>
+</dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img alt="Visualize with WebVowl" src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" /></a></dd>
+<!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --></dl>
+
+<a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr />
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 class="list" id="intro">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown"><p>Thist module defines the core classes and properties used in the Neuroelectrophysiology Analysis Ontology (NEAO).</p></span>
+<div id="namespacedeclarations">
+<h3 class="list" id="ns">Namespace declarations</h3>
+<div align="center" id="ns">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>biro</b></td><td>&lt;http://purl.org/spar/biro/&gt;</td></tr>
+<tr><td><b>dcterms</b></td><td>&lt;http://purl.org/dc/terms/&gt;</td></tr>
+<tr><td><b>neao_base</b></td><td>&lt;http://purl.org/neao/base#&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos/core#&gt;</td></tr>
+<tr><td><b>vann</b></td><td>&lt;http://purl.org/vocab/vann/&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 class="list" id="overv">NEAO Base classes: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul class="hlist" xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <li>
+      <a href="#AnalysisStep" title="http://purl.org/neao/base#AnalysisStep">analysis step</a>
+   </li>
+   <li>
+      <a href="#Data" title="http://purl.org/neao/base#Data">data</a>
+   </li>
+   <li>
+      <a href="#DataRepresentation" title="http://purl.org/neao/base#DataRepresentation">data representation</a>
+   </li>
+   <li>
+      <a href="#ElectrophysiologySignalSource" title="http://purl.org/neao/base#ElectrophysiologySignalSource">electrophysiology signal source</a>
+   </li>
+   <li>
+      <a href="#Function" title="http://purl.org/neao/base#Function">function</a>
+   </li>
+   <li>
+      <a href="#AnalysisParameter" title="http://purl.org/neao/base#AnalysisParameter">parameter</a>
+   </li>
+   <li>
+      <a href="#Program" title="http://purl.org/neao/base#Program">program</a>
+   </li>
+   <li>
+      <a href="#SoftwareImplementation" title="http://purl.org/neao/base#SoftwareImplementation">software implementation</a>
+   </li>
+   <li>
+      <a href="#SoftwarePackage" title="http://purl.org/neao/base#SoftwarePackage">software package</a>
+   </li>
+</ul><h4>Object Properties</h4><ul class="hlist" xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <li>
+      <a href="#hasInput" title="http://purl.org/neao/base#hasInput">has input</a>
+   </li>
+   <li>
+      <a href="#hasOutput" title="http://purl.org/neao/base#hasOutput">has output</a>
+   </li>
+   <li>
+      <a href="#hasSource" title="http://purl.org/neao/base#hasSource">has source</a>
+   </li>
+   <li>
+      <a href="#hasSubstep" title="http://purl.org/neao/base#hasSubstep">has substep</a>
+   </li>
+   <li>
+      <a href="#isImplementedIn" title="http://purl.org/neao/base#isImplementedIn">is implemented in</a>
+   </li>
+   <li>
+      <a href="#isImplementedInPackage" title="http://purl.org/neao/base#isImplementedInPackage">is implemented in package</a>
+   </li>
+   <li>
+      <a href="#isRepresentedAs" title="http://purl.org/neao/base#isRepresentedAs">is represented as</a>
+   </li>
+   <li>
+      <a href="#usesParameter" title="http://purl.org/neao/base#usesParameter">uses parameter</a>
+   </li>
+</ul><h4>Data Properties</h4><ul class="hlist" xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <li>
+      <a href="#nameInDefinition" title="http://purl.org/neao/base#nameInDefinition">name in definition</a>
+   </li>
+   <li>
+      <a href="#packageName" title="http://purl.org/neao/base#packageName">package version</a>
+   </li>
+   <li>
+      <a href="#packageVersion" title="http://purl.org/neao/base#packageVersion">package version</a>
+   </li>
+   <li>
+      <a href="#programName" title="http://purl.org/neao/base#programName">program name</a>
+   </li>
+   <li>
+      <a href="#version" title="http://purl.org/neao/base#version">version</a>
+   </li>
+</ul><h4>Annotation Properties</h4><ul class="hlist" xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <li>
+      <a href="#abbreviation" title="http://purl.org/neao/base#abbreviation">abbreviation</a>
+   </li>
+   
+   
+   <li>
+      <a href="#hasBibliographicReference" title="http://purl.org/neao/base#hasBibliographicReference">has bibliographic reference</a>
+   </li>
+   
+   
+   
+   
+</ul><iframe align="center" height="500px" src="webvowl/index.html" width="100%"></iframe> 
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 class="list" id="desc">NEAO Base classes: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown"><p>An overview of the main relationships is depicted in the diagram below:</p>
+
+<p><img src="../images/NEAO.png" style="display: block; margin-top: 50px; margin-bottom: 50px; margin-right: auto; margin-left: auto; width: 800px; height: auto" /></p>
+
+<p>The NEAO ontology model is constructed upon the central <a href="#AnalysisStep">AnalysisStep</a> class, that represents any process that generates new data entities (e.g., generating artificial spike trains) or performs specific operations aimed at extracting additional information during the analysis using existing data entities. For example, a time series with the raw signal recorded from an electrode can be low-pass filtered to extract the local field potential (LFP) component (the step produces transformed data). Additionaly, this new time series with the LFP data can be used in another step to compute the power spectral density (the step produces new, derived data). Therefore, every stage of the analysis generates new data or applies particular operations to data entities.</p>
+
+<p>The inputs and outputs of the analysis steps are represented by the <a href="#Data">Data</a> class. This represents any entity storing information needed throughout the analysis. It might represent the data created or transformed by an analysis step, or it can represent data from an electrophysiological recording obtained from neural tissue (or comparable data generated by a simulation). For example, the raw signal time series saved by the recording apparatus, the filtered LFP time series, and the array holding the power spectral density estimates are instances of the <a href="#Data">Data</a> class.</p>
+
+<p>An information entity that regulates the behavior of the analysis step is a parameter, and is represented by the <a href="#AnalysisParameter">AnalysisParameter</a> class. A parameter does not provide data that is used by the step to produce the output. For example, in a low-pass filtering step in the analysis to produce the LFP, the time series with the raw wideband signal is the data input, and the low-pass frequency cutoff frequency value is a parameter.</p>
+
+<p>The three core classes are related by the object properties <a href="#hasInput">hasInput</a>, <a href="#hasOutput">hasOutput</a>, and <a href="#usesParameter">usesParameter</a>. Furthermore, several annotation properties are used to provide clear and unambiguous descriptions of the entities represented by the classes. These include abbreviations (<a href="#abbreviation">abbreviation</a> property), bibliographic references (<a href="#hasBibliographicReference">hasBibliographicReference</a>), labels (<a href="http://www.w3.org/2004/02/skos/core#prefLabel">skos:prefLabel</a> and <a href="http://www.w3.org/2004/02/skos/core#altLabel">skos:altLabel</a> properties) and the class description (using <a href="https://www.w3.org/TR/rdf-schema/#ch_comment">rdfs:comment</a> property).</p>
+
+<p>For the disambiguation, the <a href="http://www.w3.org/2004/02/skos/core#prefLabel">skos:prefLabel</a> annotation property provides the preferred label to refer to the entity, and the <a href="https://www.w3.org/TR/rdf-schema/#ch_comment">rdfs:comment</a> annotation provides details to understand the entity (e.g., details of the computation, inputs, and outputs involved in an analysis step). Synonyms are provided by the <a href="http://www.w3.org/2004/02/skos/core#altLabel">skos:altLabel</a> property. The NEAO <a href="#abbreviation">abbreviation</a> annotation property provides suggested abbreviations.</p>
+
+<p>The specific analysis method used in a step of the analysis can be implemented by different software codes, such as distinct open-source toolboxes that are available to analyze electrophysiology data. The core NEAO model has two classes describing the software implementation of the analysis step:</p>
+
+<ul>
+	<li><p>The main source of the code used to execute the operations involved in the analysis step is represented by the <a href="#SoftwareImplementation">SoftwareImplementation</a> class. This is the code that take any given data input, transform it, and produce the desired results.</p></li>
+	<li><p>The <a href="#SoftwarePackage">SoftwarePackage</a> class is used to describe collections of software, such as toolboxes with many functionality for neuroelectrophysiology data analysis (i.e., that bundle together different pieces of code).</p></li>
+</ul>
+
+<p>The relationship between <a href="#SoftwareImplementation">SoftwareImplementation</a> and <a href="#SoftwarePackage">SoftwarePackage</a> is established with the property <a href="#isImplementedInPackage">isImplementedInPackage</a>. The relationship between the <a href="#AnalysisStep">AnalysisStep</a> and <a href="#SoftwareImplementation">SoftwareImplementation</a> is defined using the <a href="#isImplementedIn">isImplementedIn</a> property. The details of the individuals of each class are provided by distinct properties. The <a href="#version">version</a> property of <a href="#SoftwareImplementation">SoftwareImplementation</a> is used to define the version of the software. The <a href="#packageName">packageName</a> and <a href="#packageVersion">packageVersion</a> properties of <a href="#SoftwarePackage">SoftwarePackage</a> specify the package name and version, respectively.</p>
+
+<p><a href="#Program">Program</a> and <a href="#Function">Function</a> are two subclasses of <a href="#SoftwareImplementation">SoftwareImplementation</a> that correspond to the two main approaches used to implement the code for an analysis step:</p>
+
+<ul>
+	<li><p>The entity represented by <a href="#Program">Program</a> is an executable that has been compiled or a complete script that the operating system can call to perform the analysis step (for example, an executable that reads a file, computes the power spectral density using the Welch technique, and saves a file containing the power spectral density).</p></li>
+	<li><p>The entity represented by <a href="#Function">Function</a> is a small, reusable code that is used as a building block in larger programs that execute several steps in the analysis.</p></li>
+</ul>
+
+<p>Specific details of these two forms of implementing software are defined using additional properties. The <a href="#nameInDefinition">nameInDefinition</a> property in <a href="#Function">Function</a> specifies the name that is used in the function declaration and in applications that utilize the function code. The <a href="#programName">programName</a> property of <a href="#Program">Program</a> specifies the name of the program as published.</p>
+ </span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 class="list" id="crossreference">Cross-reference for NEAO Base classes classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by NEAO Base classes.
+<div id="classes" xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <h3 class="list" id="classes-headline">Classes</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#AnalysisStep" title="http://purl.org/neao/base#AnalysisStep">analysis step</a>
+      </li>
+      <li>
+         <a href="#Data" title="http://purl.org/neao/base#Data">data</a>
+      </li>
+      <li>
+         <a href="#DataRepresentation" title="http://purl.org/neao/base#DataRepresentation">data representation</a>
+      </li>
+      <li>
+         <a href="#ElectrophysiologySignalSource" title="http://purl.org/neao/base#ElectrophysiologySignalSource">electrophysiology signal source</a>
+      </li>
+      <li>
+         <a href="#Function" title="http://purl.org/neao/base#Function">function</a>
+      </li>
+      <li>
+         <a href="#AnalysisParameter" title="http://purl.org/neao/base#AnalysisParameter">parameter</a>
+      </li>
+      <li>
+         <a href="#Program" title="http://purl.org/neao/base#Program">program</a>
+      </li>
+      <li>
+         <a href="#SoftwareImplementation" title="http://purl.org/neao/base#SoftwareImplementation">software implementation</a>
+      </li>
+      <li>
+         <a href="#SoftwarePackage" title="http://purl.org/neao/base#SoftwarePackage">software package</a>
+      </li>
+   </ul>
+   <div class="entity" id="AnalysisStep">
+      <h3>analysis step<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#AnalysisStep</p>
+      <div class="comment">
+         <span class="markdown">A process that generates new data entities or performs specific operations (clean, select, transform, or inspect/visualize) using existing data entities. Ultimately, the goal is to obtain useful information from the data. An analysis step can take zero or more data inputs and can generate one or more data outputs. The behavior of the operation can optionally be controlled by one or more parameters. A complete analysis is composed by one or more analysis steps.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#hasInput" title="http://purl.org/neao/base#hasInput">has input</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasOutput" title="http://purl.org/neao/base#hasOutput">has output</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasSubstep" title="http://purl.org/neao/base#hasSubstep">has substep</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isImplementedIn" title="http://purl.org/neao/base#isImplementedIn">is implemented in</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#usesParameter" title="http://purl.org/neao/base#usesParameter">uses parameter</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasSubstep" title="http://purl.org/neao/base#hasSubstep">has substep</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AnalysisParameter" title="http://purl.org/neao/base#AnalysisParameter">parameter</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Data" title="http://purl.org/neao/base#Data">data</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Data">
+      <h3>data<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#Data</p>
+      <div class="comment">
+         <span class="markdown">An entity that represents a piece of data, i.e., relevant information, during the analysis. It can be recorded from a biological entity or from a simulation yielding comparable data, or it can be generated/transformed by other analysis step processes.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#hasSource" title="http://purl.org/neao/base#hasSource">has source</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isRepresentedAs" title="http://purl.org/neao/base#isRepresentedAs">is represented as</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasInput" title="http://purl.org/neao/base#hasInput">has input</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasOutput" title="http://purl.org/neao/base#hasOutput">has output</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AnalysisParameter" title="http://purl.org/neao/base#AnalysisParameter">parameter</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AnalysisStep" title="http://purl.org/neao/base#AnalysisStep">analysis step</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="DataRepresentation">
+      <h3>data representation<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#DataRepresentation</p>
+      <div class="comment">
+         <span class="markdown">Defines the formal structure to represent a piece of data.</span>
+      </div>
+      <dl class="description">
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#isRepresentedAs" title="http://purl.org/neao/base#isRepresentedAs">is represented as</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="ElectrophysiologySignalSource">
+      <h3>electrophysiology signal source<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#ElectrophysiologySignalSource</p>
+      <div class="comment">
+         <span class="markdown">Defines the source of a recorded piece of electrophysiology data, i.e., the recorded signals. This is a general concept, that can be expanded to incorporate the anatomical/tissue description from where the signal was recorded, as well as the recording technique.
+
+For example, voltage potentials can be acquired from extracellular electrodes situtated on the scalp (electroencephalogram), directly on the cortical surface (electrocorticogram) or implanted deep into a specific brain region (multielectrode array).</span>
+      </div>
+      <dl class="description">
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasSource" title="http://purl.org/neao/base#hasSource">has source</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Function">
+      <h3>function<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#Function</p>
+      <div class="comment">
+         <span class="markdown">A reusable set of instructions that can be used when writing computer programs. A function performs specific tasks, and can be implemented as part of a single computer program or in a software package (library) so that it can be reused across several programs.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#SoftwareImplementation" title="http://purl.org/neao/base#SoftwareImplementation">software implementation</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#nameInDefinition" title="http://purl.org/neao/base#nameInDefinition">name in definition</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="AnalysisParameter">
+      <h3>parameter<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#AnalysisParameter</p>
+      <div class="comment">
+         <span class="markdown">An information entity that controls the behavior of an analysis step. It does not provide data, but rather changes how the computations operate when transforming or generating new data.</span>
+      </div>
+      <dl class="description">
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#usesParameter" title="http://purl.org/neao/base#usesParameter">uses parameter</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AnalysisStep" title="http://purl.org/neao/base#AnalysisStep">analysis step</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Data" title="http://purl.org/neao/base#Data">data</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Program">
+      <h3>program<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#Program</p>
+      <div class="comment">
+         <span class="markdown">A set of instructions that is executed by a computer. The instructions of the program can be executed by an interpreter or compiled to machine code. The program instructs the computer to perform tasks and it is called by the operating system.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#SoftwareImplementation" title="http://purl.org/neao/base#SoftwareImplementation">software implementation</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#programName" title="http://purl.org/neao/base#programName">program name</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="SoftwareImplementation">
+      <h3>software implementation<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#SoftwareImplementation</p>
+      <div class="comment">
+         <span class="markdown">Describes the details for the execution of the analysis step using a computer. The software contains a sequence or set of instructions that is used by the computer to perform all the computations required to execute the analysis step.</span>
+      </div>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#Function" title="http://purl.org/neao/base#Function">function</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Program" title="http://purl.org/neao/base#Program">program</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#isImplementedInPackage" title="http://purl.org/neao/base#isImplementedInPackage">is implemented in package</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#version" title="http://purl.org/neao/base#version">version</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#isImplementedIn" title="http://purl.org/neao/base#isImplementedIn">is implemented in</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#SoftwarePackage" title="http://purl.org/neao/base#SoftwarePackage">software package</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="SoftwarePackage">
+      <h3>software package<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#SoftwarePackage</p>
+      <div class="comment">
+         <span class="markdown">A collection of one or more programs that can be executed by a computer and/or one or more functions that can be imported and used when writing programs.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#packageName" title="http://purl.org/neao/base#packageName">package version</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#packageVersion" title="http://purl.org/neao/base#packageVersion">package version</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#isImplementedInPackage" title="http://purl.org/neao/base#isImplementedInPackage">is implemented in package</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#SoftwareImplementation" title="http://purl.org/neao/base#SoftwareImplementation">software implementation</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div id="objectproperties" xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <h3 class="list" id="properties">Object Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#hasInput" title="http://purl.org/neao/base#hasInput">has input</a>
+      </li>
+      <li>
+         <a href="#hasOutput" title="http://purl.org/neao/base#hasOutput">has output</a>
+      </li>
+      <li>
+         <a href="#hasSource" title="http://purl.org/neao/base#hasSource">has source</a>
+      </li>
+      <li>
+         <a href="#hasSubstep" title="http://purl.org/neao/base#hasSubstep">has substep</a>
+      </li>
+      <li>
+         <a href="#isImplementedIn" title="http://purl.org/neao/base#isImplementedIn">is implemented in</a>
+      </li>
+      <li>
+         <a href="#isImplementedInPackage" title="http://purl.org/neao/base#isImplementedInPackage">is implemented in package</a>
+      </li>
+      <li>
+         <a href="#isRepresentedAs" title="http://purl.org/neao/base#isRepresentedAs">is represented as</a>
+      </li>
+      <li>
+         <a href="#usesParameter" title="http://purl.org/neao/base#usesParameter">uses parameter</a>
+      </li>
+   </ul>
+   <div class="entity" id="hasInput">
+      <h3>has input<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#hasInput</p>
+      <div class="comment">
+         <span class="markdown">Defines a data entity that is used to provide information for one analysis step. The analysis step will make use of this information and produce zero or more data entities as outputs.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#AnalysisStep" title="http://purl.org/neao/base#AnalysisStep">analysis step</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Data" title="http://purl.org/neao/base#Data">data</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasOutput">
+      <h3>has output<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#hasOutput</p>
+      <div class="comment">
+         <span class="markdown">Defines a data entity that was produced by an analysis step. This can be newly data generated by the analysis step, or derived data, based on one or more data inputs.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#AnalysisStep" title="http://purl.org/neao/base#AnalysisStep">analysis step</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Data" title="http://purl.org/neao/base#Data">data</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasSource">
+      <h3>has source<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#hasSource</p>
+      <div class="comment">
+         <span class="markdown">Defines the electrophysiology signal source associated with the data entity. One example of use is to define if the data holds a signal obtained by extracellular recordings, or a more specific description involving anatomical structures together with the recording technique.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Data" title="http://purl.org/neao/base#Data">data</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#ElectrophysiologySignalSource" title="http://purl.org/neao/base#ElectrophysiologySignalSource">electrophysiology signal source</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasSubstep">
+      <h3>has substep<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#hasSubstep</p>
+      <div class="comment">
+         <span class="markdown">Points to an analysis step that is part of a (larger) compound analysis, represented by the subject with the property.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#AnalysisStep" title="http://purl.org/neao/base#AnalysisStep">analysis step</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#AnalysisStep" title="http://purl.org/neao/base#AnalysisStep">analysis step</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isImplementedIn">
+      <h3>is implemented in<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#isImplementedIn</p>
+      <div class="comment">
+         <span class="markdown">Defines the code source that implemented the analysis step.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#AnalysisStep" title="http://purl.org/neao/base#AnalysisStep">analysis step</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#SoftwareImplementation" title="http://purl.org/neao/base#SoftwareImplementation">software implementation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isImplementedInPackage">
+      <h3>is implemented in package<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#isImplementedInPackage</p>
+      <div class="comment">
+         <span class="markdown">Defines the software package that contains a particular code.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#SoftwareImplementation" title="http://purl.org/neao/base#SoftwareImplementation">software implementation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#SoftwarePackage" title="http://purl.org/neao/base#SoftwarePackage">software package</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isRepresentedAs">
+      <h3>is represented as<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#isRepresentedAs</p>
+      <div class="comment">
+         <span class="markdown">Defines how the data entity is represented to be used by software (e.g., data array, list, file)</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Data" title="http://purl.org/neao/base#Data">data</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DataRepresentation" title="http://purl.org/neao/base#DataRepresentation">data representation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="usesParameter">
+      <h3>uses parameter<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#usesParameter</p>
+      <div class="comment">
+         <span class="markdown">Defines a parameter used by the analysis step.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#AnalysisStep" title="http://purl.org/neao/base#AnalysisStep">analysis step</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#AnalysisParameter" title="http://purl.org/neao/base#AnalysisParameter">parameter</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div id="dataproperties" xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <h3 class="list" id="dataproperties-headline">Data Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#nameInDefinition" title="http://purl.org/neao/base#nameInDefinition">name in definition</a>
+      </li>
+      <li>
+         <a href="#packageName" title="http://purl.org/neao/base#packageName">package version</a>
+      </li>
+      <li>
+         <a href="#packageVersion" title="http://purl.org/neao/base#packageVersion">package version</a>
+      </li>
+      <li>
+         <a href="#programName" title="http://purl.org/neao/base#programName">program name</a>
+      </li>
+      <li>
+         <a href="#version" title="http://purl.org/neao/base#version">version</a>
+      </li>
+   </ul>
+   <div class="entity" id="nameInDefinition">
+      <h3>name in definition<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#nameInDefinition</p>
+      <div class="comment">
+         <span class="markdown">Specifies the name of the function as it is defined in the code that implemented it. For example, for Python functions, this is what is specified in the &apos;def&apos; statement (i.e., def function_name(arg), the value of this property is function_name).</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Function" title="http://purl.org/neao/base#Function">function</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="packageName">
+      <h3>package version<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#packageName</p>
+      <div class="comment">
+         <span class="markdown">Version of the software package.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#SoftwarePackage" title="http://purl.org/neao/base#SoftwarePackage">software package</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="packageVersion">
+      <h3>package version<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#packageVersion</p>
+      <div class="comment">
+         <span class="markdown">Specifies the version of the package, as defined by the string used when it was released.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#SoftwarePackage" title="http://purl.org/neao/base#SoftwarePackage">software package</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="programName">
+      <h3>program name<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#programName</p>
+      <div class="comment">
+         <span class="markdown">Defines the name of the program.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Program" title="http://purl.org/neao/base#Program">program</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="version">
+      <h3>version<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#version</p>
+      <div class="comment">
+         <span class="markdown">Version of the code for a specific program or function. This can be used to define a specific version for the code of a single function or program within a software package.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#SoftwareImplementation" title="http://purl.org/neao/base#SoftwareImplementation">software implementation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div id="annotationproperties" xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <h3 class="list" id="annotationproperties">Annotation Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#abbreviation" title="http://purl.org/neao/base#abbreviation">abbreviation</a>
+      </li>
+      
+      
+      <li>
+         <a href="#hasBibliographicReference" title="http://purl.org/neao/base#hasBibliographicReference">has bibliographic reference</a>
+      </li>
+      
+      
+      
+      
+   </ul>
+   <div class="entity" id="abbreviation">
+      <h3>abbreviation<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#abbreviation</p>
+      <div class="comment">
+         <span class="markdown">A string defining an abbreviation that is frequently used to refer to individuals represented by the class.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   
+   
+   <div class="entity" id="hasBibliographicReference">
+      <h3>has bibliographic reference<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/neao/base#hasBibliographicReference</p>
+      <div class="comment">
+         <span class="markdown">Defines the bibliographic reference associated with the entity. The bibliographic reference should contain the details represented by the entity (e.g., method description, software publication).</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://purl.org/spar/biro/BibliographicReference" target="_blank" title="http://purl.org/spar/biro/BibliographicReference">bibliographic reference</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   
+   
+   
+   
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br />
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br />
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br />
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  
+<div id="acknowledgments">
+<h2 class="list" id="ack">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown"><p>This work was performed as part of the <a href="https://hds-lee.de">Helmholtz School for Data Science in Life, Earth and Energy (HDS-LEE)</a> and received funding from the Helmholtz Association of German Research Centres. This project has received funding from the European Union’s Horizon 2020 Framework Programme for Research and Innovation under Specific Grant Agreement No. 945539 (Human Brain Project SGA3), the European Union’s Horizon Europe Programme under the Specific Grant Agreement No. 101147319 (<a href="https://ebrains.eu">EBRAINS</a> 2.0 Project), the Ministry of Culture and Science of the State of North Rhine-Westphalia, Germany (NRW-network "<a href="https://ibehave.nrw">iBehave</a>", grant number: NW21-049), and the Joint Lab "Supercomputing and Modeling for the Human Brain."</p>
+
+<p>The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p></span>
+</div>
+
+
+</div>
+</body>
+
+ 
+
+
+</html>
+
