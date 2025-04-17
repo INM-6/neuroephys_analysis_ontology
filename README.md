@@ -8,7 +8,7 @@ The published ontology is accessible through the main namespace http://purl.org/
 
 ## Contributing to NEAO
 
-Your favorite analysis method is not included in NEAO? Let us know by opening an [issue here on GitHub](http://purl.org/neao/suggestion). You don't need to worry about technical implementation details when submitting the suggestion. The maintainers will take care of this if the suggestion is accepted.
+Your favorite analysis method is not included in NEAO? Let us know by opening an [issue](http://purl.org/neao/suggestion) here on GitHub. You don't need to worry about technical implementation details when submitting the suggestion. The maintainers will take care of this if the suggestion is accepted.
 
 Do you think a method is misrepresented? Then also let us know by opening an [issue](http://purl.org/neao/improvement).
 
