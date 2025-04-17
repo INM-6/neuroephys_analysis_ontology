@@ -6,7 +6,11 @@ The goal of NEAO is to provide a common framework for annotating neuroelectrophy
 
 The published ontology is accessible through the main namespace http://purl.org/neao. This repository contains the sources and centralizes the development efforts within the community.
 
-For requests or additions to NEAO, please first open an issue in the [issue tracker](https://github.com/INM-6/neuroephys_analysis_ontology/issues).
+## Contributing to NEAO
+
+Your favorite analysis method is not included in NEAO? Let us know by opening an [issue here on GitHub](http://purl.org/neao/suggestion). You don't need to worry about technical implementation details when submitting the suggestion. The maintainers will take care of this if the suggestion is accepted.
+
+Do you think a method is misrepresented? Then also let us know by opening an [issue](http://purl.org/neao/improvement).
 
 ## Table of contents
 
