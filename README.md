@@ -8,9 +8,23 @@ The published ontology is accessible through the main namespace http://purl.org/
 
 ## Contributing to NEAO
 
-Your favorite analysis method is not included in NEAO? Let us know by opening an [issue](http://purl.org/neao/suggestion) here on GitHub. You don't need to worry about technical implementation details when submitting the suggestion. The maintainers will take care of this if the suggestion is accepted.
+### Suggestions for new methods
 
-Do you think a method is misrepresented? Then also let us know by opening an [issue](http://purl.org/neao/improvement).
+Your favorite analysis method is not included in NEAO? Are you a method developer and would like it represented in the ontology? We accept contributions by the community through GitHub. 
+
+To ensure a structured and consistent update process, we follow a curated contribution model. Here's how you can contribute:
+
+1. **Submitting Suggestions**: open an issue with the [specific template to suggest a new method](http://purl.org/neao/suggestion). In the template, you will be requested to provide the method's name, abbreviation, a brief description (including inputs, outputs, algorithm, assumptions, and purpose), relevant bibliographic references, links to existing software implementations, a suggested parent NEAO class, and any additional relevant relationships to existing NEAO classes. 
+
+2. **Review and Discussion**: your submission will be reviewed by NEAO maintainers. We will start a conversation to discuss the suggestion and may request additional information.
+
+3. **Implementation by Maintainers**: if your suggestion is accepted, the NEAO maintainers will implement the relevant classes and properties into the existing OWL code. You don't need to worry about technical implementation details or elaborating specific pull requests for your contribution.
+
+4. **Versioning and Release Cycle**: the additional classes will be part of the next release of NEAO. Each release is identified by a version tag and includes a changelog documenting changes and the [list of acknowledged contributors](AUTHORS.md). The contributors are also included in the [Zenodo](https://doi.org/10.5281/zenodo.14287838) record associated with the release. Therefore, contributors whose suggestions are accepted will be publicly acknowledged.
+
+### Suggestions for improvements
+
+Do you think a method is misrepresented? Then also let us know by opening an issue with the [specific template for suggesting improvements](http://purl.org/neao/improvement).
 
 ## Table of contents
 
