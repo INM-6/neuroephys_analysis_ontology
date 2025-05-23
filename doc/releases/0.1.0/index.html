@@ -161,6 +161,25 @@ $(function(){
 </tbody>
 </table>
 </div>
+</div>
+
+<div id="comparison">
+<h3 class="list" id="modules">Comparison of NEAO to other ontologies</h3>
+<p>Other ontologies provide elements that align to the concepts represented in NEAO. Here we provide a brief comparison.
+<div align="center" id="ontologiescomparison">
+<table>
+<caption>Summary of similarities and differences between NEAO classes and classes provided in other ontologies</caption>
+<thead>
+<tr><td><b>Ontology</b></td><td><b>Class</b></td><td><b>NEAO Class</b></td><td><b>Description</b></td></tr>
+</thead>
+<tbody>
+<tr><td><a href="https://obi-ontology.org">Ontology for Biomedical Investigations (OBI)</a></td><td>data transformation (OBI_0200000)</td><td>AnalysisStep</td><td>The OBI class fits the central concept by the NEAO <b>AnalysisStep</b> class, as a planned process that transforms input data into an output. However, the OBI class is broad in the domain of biomedical sciences. The specific subclasses defined in OBI encompass executing analyses with specific methodologies (e.g., mass spectrometry) or a few processes described in the many subclasses of NEAO <b>AnalysisStep</b> (e.g., <em>normalization data transformation</em>). Therefore, the NEAO <b>AnalysisStep</b> class is specific to processes in neuroelectrophysiology data analysis, and the overlap with the classes in OBI is not full.</td></tr>
+<tr><td></td><td>data item (IAO_0000027)</td><td>Data</td><td>The OBI class (imported from the Information Artifact Ontology - IAO) fits the central concept of the NEAO <b>Data</b> class. The subclass <em>measurement datum</em> represents data obtained from an experimental recording and it has a specific subclass to represent spike trains (<em>spike train datum</em>). Other subclasses represent different dimensions of data or elements that are described by the <b>AnalysisParameter</b> class in NEAO. For example, the subclass <em>data set</em> is an aggregation of other <em>data item</em> elements, a construct inexistent in NEAO. The <em>average data</em> subclass represents a computed average, which is aligned with the NEAO <b>Mean</b> class. Other classes are defined for specific data elements in biomedical sciences. Therefore, there are few overlaps with specific subclasses of <b>Data</b> defined in NEAO, and there is no representation for specific analysis outputs in neuroelectrophysiology. This difficults the description in cases where there is a mapping between specific data and methods, which is modeled in NEAO. For example, the <b>PhaseLockingValue</b> and <b>CorrectedImaginaryPhaseLockingValue</b> classes in NEAO are associated with one of the specific steps to perform the phase locking value analysis, which are defined as subclasses of <b>PhaseLockingValueAnalysis</b> in the taxonomy of NEAO <b>AnalysisStep</b>. This ontological representation is not available in OBI.</td></tr>
+<tr><td><a href="https://edamontology.org">Ontology of bioscientific data analysis and data management (EDAM)</a></td><td>Operation (operation_0004)</td><td>AnalysisStep</td><td>The concept aligns with NEAO, especially with the <em>has input</em> and <em>has output</em> relationships to <em>Data</em> that are semantically similar to the model defined in NEAO. However, the subclass structure of the EDAM <em>Operation</em> class introduces some inconsistensies to the subclass structure of NEAO <b>AnalysisStep</b>. In EDAM, the <em>Data analysis</em> class defines the concept of applying an analytical method to the input, which is the core concept associated with many <b>AnalysisStep</b> subclasses in NEAO. For other transformations, EDAM defines the different branch <em>Calculation</em>, which encompasses operations such as dimensionality reduction and statistical computations. However the EDAM classs <em>Principal component analysis</em> is a subclass of <em>statistical calculation</em> and not <em>dimensionality reduction</em>, which is inconsistent with the classification in NEAO. Therefore, although the full set of <b>AnalysisStep</b> subclasses is expected to overlap with the concept of EDAM <em>Operation</em>, the taxonomy to provide semantic groupings differ between the two ontologies. Finally, there are no specific coverage for methods in neuroelectrophysiology. For example, the <em>Spectral analysis</em> class in EDAM groups methods for computing mass spectrometry spectra, which is unrelated to the scope of NEAO.</td></tr>
+<tr><td></td><td>Data (data_0006)</td><td>Data</td><td>The EDAM class aligns with the concept of NEAO. However, there are no subclasses related to neuroelectrophysiology, and the existing definitions are inconsistent. For example, <em>Spectrum</em> in EDAM refers to a measure from mass spectrometry, and is unrelated to the concept defined by the <b>PowerSpectralDensity</b> class in NEAO.</td></tr>
+</tbody>
+</table>
+</div>
 </div></span></div>
    
 
